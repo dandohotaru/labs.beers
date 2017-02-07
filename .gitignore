@@ -45,7 +45,6 @@ src/**/*.js
 src/**/*.map
 node_modules
 **/dist/*
-**/dist-dev/*
-**/dist-prod/*
+**/dev/*
 
 npm-debug.log*
