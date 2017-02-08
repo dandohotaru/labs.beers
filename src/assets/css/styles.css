@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+.add-button {
+    position:relative;
+    top: -6px;
+}
+
+.result-logo {
+    font-size:42px;
+    padding-top:8px;
+}
+            
+.rating-star {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.help {
+    padding-left:8px;
+}  
