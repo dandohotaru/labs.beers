@@ -1,3 +1,71 @@
-<p>
-  breweries work!
-</p>
+
+<div class="container" *ngFor="let brewery of breweries">
+
+  <!--<div class="header">
+        <h1>{{brewery.name}} 
+          <small ng-show="app.beer.style">{{app.beer.style.name}}</small> 
+          <span ng-show="app.beer.status === 'verified'" class="badge badge-primary">
+            {{app.beer.statusDisplay}}
+          </span>
+        </h1>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well" ng-show="app.beer.description || app.beer.abv || app.beer.available">
+            <p ng-show="app.beer.description">{{app.beer.description}}</p>
+            <p ng-show="app.beer.abv">{{app.beer.abv}}% ABV</p>
+            <p ng-show="app.beer.available"><strong>Available:</strong> {{app.beer.available.name}} - {{app.beer.available.description}}</p>
+          </div>
+        </div>          
+        <div class="col-sm-3 col-sm-offset-1 sidebar">
+          <div ng-show="app.beer.labels">
+            <a href="{{app.beer.labels.large}}" target="_blank" class="thumbnail-responsive">
+              <img ng-src="{{app.beer.labels.medium}}">
+            </a>
+          </div>
+        </div>
+
+      </div>-->
+
+  <div class="row">
+
+
+    <div class="col-sm-12">
+      <h3>
+        <small>({{brewery.established}})</small>
+        <a href={{brewery.website}}>{{brewery.name}}</a>
+      </h3>
+    </div>
+
+    <div class="col-sm-4">
+      <p *ngIf="brewery.images" class="text-center">
+        <img src="{{brewery.images.medium}}" />
+      </p>
+      <p *ngIf="!brewery.images" class="text-center">
+        <img src="../../assets/img/brewery_placeholder.png" />
+      </p>
+    </div>
+
+    <div class="col-sm-8">
+      <p *ngIf="brewery.description">
+        {{brewery.description}}
+      </p>
+      <p *ngIf="!brewery.description">
+        missing
+      </p>
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+</div>

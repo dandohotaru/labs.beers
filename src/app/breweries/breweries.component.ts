@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BreweriesService } from './breweries.service';
+import { Brewery } from './breweries.models';
 
 @Component({
   selector: 'app-breweries',
@@ -8,18 +9,19 @@ import { BreweriesService } from './breweries.service';
 })
 export class BreweriesComponent implements OnInit {
 
-  breweries: any[] = [];
+  breweries: Brewery[];
 
   constructor(private service: BreweriesService) { }
 
   ngOnInit() {
+
     var breweries = this.service.search().subscribe(
-      data => {
-        this.breweries = data;
+      breweries => {
+        this.breweries = breweries.filter(p=>p.established);
       },
       error => {
         console.error(error);
       });
-  }
 
+  }
 }
