@@ -6,8 +6,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build": "ng build",
     "build:dev": "ng build --output-path dev",
-    "build:dist": "ng build --output-path dist --prod"
+    "build:prod": "ng build --output-path prod --prod"
   },
   "private": true,
   "dependencies": {

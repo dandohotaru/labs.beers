@@ -6,7 +6,7 @@
   https://github.com/angular/angular-cli/wiki
 
 * Create module
-  ng generate module [name] --spec false --routing false
+  ng generate module --spec false --routing false [name]
 
 * Create component
-  ng generate component [name] --flat true --spec false
+  ng generate component --flat true --spec false [name] 

@@ -6,6 +6,7 @@ import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { AboutComponent } from './about.component';
 import { HomeComponent } from './home.component';
+import { GlossaryComponent } from './glossary.component';
 
 @NgModule({
   imports: [
@@ -16,13 +17,15 @@ import { HomeComponent } from './home.component';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    GlossaryComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    GlossaryComponent
   ]
 })
 export class LayoutModule { }

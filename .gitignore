@@ -46,5 +46,7 @@ src/**/*.map
 node_modules
 **/dist/*
 **/dev/*
+**/acc/*
+**/prod/*
 
 npm-debug.log*
