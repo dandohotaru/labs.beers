@@ -1,0 +1,16 @@
+.app-hdr {
+    padding:1rem 0rem 0rem;
+}
+
+.app-hdr .brand {
+
+}
+
+.app-hdr h2 {
+    margin:0; padding:0;
+}
+
+.app-hdr .brand i {
+    font-size:24px; 
+    cursor:pointer;
+}
