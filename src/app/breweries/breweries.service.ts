@@ -14,54 +14,16 @@ export class BreweriesService {
     searchUrl: string;
     headers: Headers;
     
-
     constructor(private http: Http) {
-        // v1
-        //this.searchUrl = " http://api.brewerydb.com/v2/search?type=brewery&q=orval rochefort duvel chimay westvleteren achouffe&key=7a194532948c7877bd1815276dd7d070";
-        // this.headers = new Headers();
-        // this.headers.append('Content-Type', 'application/json');
-        // this.headers.append('Access-Control-Allow-Origin', '*');
-
-        // v2
-        // var azureSearchService = {
-        //     url: 'https://ecofic-growler-dev.search.windows.net/indexes',
-        //     apiParam: 'api-version=2015-02-28',
-        //     apiKey: 'FAE8127A3ABAC769A752106C3D3A26DE',
-        //     headers: {
-        //         'api-key': 'FAE8127A3ABAC769A752106C3D3A26DE',
-        //         'Content-Type': 'application/json'
-        //     }
-        // };
-
-        // this.searchUrl = azureSearchService.url + '/breweries/docs/search?' + azureSearchService.apiParam;
-
-        // this.headers = new Headers();
-        // this.headers.append('Content-Type', 'application/json');
-        // this.headers.append('api-key', 'FAE8127A3ABAC769A752106C3D3A26DE');
-
-        // v3
-        
-
     }
 
     public search(): Observable<Brewery[]> {
-
-        // v2
-        // var data = JSON.stringify({
-        //     select: 'id,name,location',
-        //     orderby: 'name'
-        // });
-
-        // var options = new RequestOptions({
-        //     headers: this.headers,
-        // });
-
-        // return this.http
-        //     .post(this.searchUrl, data, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleError);
-
-        // v3
+        // Cors not supported by design by brewerydb, fallback to local files for now 
+        //this.searchUrl = " http://api.brewerydb.com/v2/search?type=brewery&q=orval rochefort duvel chimay westvleteren achouffe&key=7a194532948c7877bd1815276dd7d070";
+        //this.headers = new Headers();
+        //this.headers.append('Content-Type', 'application/json');
+        //this.headers.append('Access-Control-Allow-Origin', '*');
+       
         return this.http.get('../../assets/json/breweries.json')
             .map(this.extractData)
             .catch(this.handleError);
