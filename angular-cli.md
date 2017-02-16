@@ -9,4 +9,4 @@
   ng generate module --spec false --routing false [name]
 
 * Create component
-  ng generate component --flat true --spec false [name] 
+  ng generate component --spec false --flat true [name] 

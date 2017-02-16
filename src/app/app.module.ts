@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +11,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { BreweriesModule } from './breweries/breweries.module';
 import { BeersModule } from './beers/beers.module';
+
+import { ErrorHandler } from './shared/exceptions/error.handler';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { BeersModule } from './beers/beers.module';
     BreweriesModule,
     BeersModule
   ],
-  providers: [],
+  providers: [
+    ErrorHandler
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
