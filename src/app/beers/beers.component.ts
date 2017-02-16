@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BeersService } from './beers.service';
-import { Beer } from './beers.models';
+import { BeersService } from './../shared/services/beers.service';
+import { Beer } from './../shared/services/beers.models';
 
 @Component({
   selector: 'app-beers',

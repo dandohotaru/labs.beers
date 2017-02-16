@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { BreweriesComponent } from './breweries.component';
-import { BreweriesService } from './breweries.service';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import { BreweriesService } from './breweries.service';
     BreweriesComponent
   ],
   providers:[
-    BreweriesService
   ]
 })
 export class BreweriesModule { }

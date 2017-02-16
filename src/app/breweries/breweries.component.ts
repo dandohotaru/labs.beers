@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BreweriesService } from './breweries.service';
-import { Brewery } from './breweries.models';
+import { BreweriesService } from './../shared/services/breweries.service';
+import { Brewery } from './../shared/services/breweries.models';
 
 @Component({
   selector: 'app-breweries',
