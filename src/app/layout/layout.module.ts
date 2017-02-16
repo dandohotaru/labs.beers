@@ -1,6 +1,9 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+
+import { SearchModule } from './../search/search.module';
 
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
@@ -11,7 +14,8 @@ import { GlossaryComponent } from './glossary.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SearchModule
   ],
   declarations: [
     HeaderComponent,

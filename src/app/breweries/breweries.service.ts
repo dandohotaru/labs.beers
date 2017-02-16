@@ -16,14 +16,14 @@ export class BreweriesService {
     headers: Headers;
 
     constructor(private httpHandler: Http, private errorHandler: ErrorHandler) {
-    }
-
-    public search(): Observable<Brewery[]> {
         // Cors not supported by design by brewerydb, fallback to local files for now 
         //this.searchUrl = " http://api.brewerydb.com/v2/search?type=brewery&q=orval rochefort duvel chimay westvleteren achouffe&key=7a194532948c7877bd1815276dd7d070";
         //this.headers = new Headers();
         //this.headers.append('Content-Type', 'application/json');
         //this.headers.append('Access-Control-Allow-Origin', '*');
+    }
+
+    public search(): Observable<Brewery[]> {
 
         return this.httpHandler
             .get('../../assets/json/breweries.json')
