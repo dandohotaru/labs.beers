@@ -9,8 +9,6 @@ export class HomeComponent implements OnInit {
 
   title: string;
 
-  constructor() { }
-
   ngOnInit() {
     this.title = "Home";
   }

@@ -16,6 +16,7 @@ import { BeersModule } from './beers/beers.module';
 import { ErrorHandler } from './shared/exceptions/error.handler';
 import { BeersService } from './shared/services/beers.service';
 import { BreweriesService } from './shared/services/breweries.service';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,11 @@ import { BreweriesService } from './shared/services/breweries.service';
   providers: [
     ErrorHandler,
     BreweriesService,
-    BeersService
+    BeersService,
+    EventAggregator
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

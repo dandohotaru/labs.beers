@@ -1,6 +1,8 @@
+
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './layout/home.component';
+import { LostComponent } from './layout/lost.component';
 import { AboutComponent } from './layout/about.component';
 import { BreweriesComponent } from './breweries/breweries.component';
 import { BeersComponent } from './beers/beers.component';
@@ -12,5 +14,5 @@ export const AppRoutes: Routes = [
     { path: 'glossary', component: GlossaryComponent },
     { path: 'breweries', component: BreweriesComponent },
     { path: 'beers', component: BeersComponent },
-    // { path: '**', component: PageNotFoundComponent }
+    { path: '**', component: LostComponent }
 ];

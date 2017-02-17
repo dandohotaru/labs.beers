@@ -1,21 +1,3 @@
-<!--<form class="form-horizontal" style="display: inline">
-  <div class="form-group">
-    <div class="input-group">
-      <input type="search" class="form-control" id="queryField" placeholder="please enter your query here.">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id="searchIndexButton">Beers</span> 
-                            <span class="caret"></span>
-                        </button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a id="beersSearchIndex" href="#">Beers</a></li>
-          <li><a id="breweriesSearchIndex" href="#">Breweries</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</form>-->
-
 <div class="input-group">
 
   <!-- Types -->
@@ -33,10 +15,13 @@
   <!-- Term -->
   <input #searchBox id="queryField" type="search" class="form-control" 
     placeholder="What in the name of Bachus do you need to know?"
-    (keyup)="search(searchBox.value)">
+    (keyup.enter)="search(searchBox.value)">
 
   <!-- Execute -->
   <div class="input-group-btn">
-    <button id="searchButton" type="button" class="btn btn-primary">Search</button>
+    <button id="searchButton" type="button" class="btn btn-primary" (click)="search(searchBox.value)">
+      <i class="fa fa-search"></i>
+      Search
+    </button>
   </div>
 </div>
