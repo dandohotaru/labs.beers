@@ -15,9 +15,9 @@ export class BreweriesComponent implements OnInit {
 
   ngOnInit() {
 
-    var breweries = this.service.search().subscribe(
+    var breweries = this.service.load().subscribe(
       breweries => {
-        this.breweries = breweries.filter(p=>p.established);
+        this.breweries = breweries.filter(p => p.established);
       },
       error => {
         console.error(error);

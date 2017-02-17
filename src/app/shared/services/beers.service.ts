@@ -18,13 +18,26 @@ export class BeersService {
     constructor(private httpHandler: Http, private errorHandler: ErrorHandler) {
     }
 
-    public search(): Observable<Beer[]> {
+    public load(): Observable<Beer[]> {
 
         return this.httpHandler
             .get('../../assets/json/beers.json')
             .map((response: Response)=>{
                 let body = response.json();
                 return body.data || {};
+            })
+            .catch(this.errorHandler.handle);
+    }
+
+    public search(term: string): Observable<Beer[]> {
+
+        return this.httpHandler
+            .get('../../assets/json/beers.json')
+            .map((response: Response)=>{
+                let body = response.json();
+                var results = body.data as Beer[];
+
+                return results.filter(p => p.name.includes(term));
             })
             .catch(this.errorHandler.handle);
     }

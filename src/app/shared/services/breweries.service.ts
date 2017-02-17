@@ -23,7 +23,7 @@ export class BreweriesService {
         //this.headers.append('Access-Control-Allow-Origin', '*');
     }
 
-    public search(): Observable<Brewery[]> {
+    public load(): Observable<Brewery[]> {
 
         return this.httpHandler
             .get('../../assets/json/breweries.json')

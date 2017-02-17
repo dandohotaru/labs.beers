@@ -15,7 +15,7 @@ export class BeersComponent implements OnInit {
 
   ngOnInit() {
 
-    var beers = this.service.search().subscribe(
+    var beers = this.service.load().subscribe(
       beers => {
         this.beers = beers;
       },
