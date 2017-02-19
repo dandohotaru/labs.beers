@@ -1,18 +1,20 @@
-<div class="container" >
+<div class="container" *ngIf="beers">
 
-  <div class="row" *ngIf="beers">
+  <div class="row">
     Found: {{beers.length}}
   </div>
 
-  <div class="row" *ngFor="let beer of beers">
+  <colcade-grid class="grid">
 
-    <beer-card [beer]="beer"></beer-card>
+    <div colcade-grid-col class="grid-col grid-col--1"></div>
+    <div colcade-grid-col class="grid-col grid-col--2"></div>
+    <div colcade-grid-col class="grid-col grid-col--3"></div>
+    <div colcade-grid-col class="grid-col grid-col--4"></div>
 
+    <div colcade-grid-item class="grid-item" *ngFor="let beer of beers">
+        <beer-card [beer]="beer"></beer-card>
+    </div>
 
-  </div>
+  </colcade-grid>
+
 </div>
-
-
-
-
-

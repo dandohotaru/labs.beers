@@ -1,4 +1,14 @@
-<div class="col-sm-12">
+<div class="col-sm-12" class="box">
+    {{beer.nameDisplay}}
+    <small>ABV: {{beer.abv}}</small>
+    <small>IBU: {{beer.ibu}}</small>
+    <small>Type: {{beer.style.name}}</small> 
+    <small *ngIf="beer.description">
+      {{beer.description}}
+    </small>
+</div>
+
+<!--<div class="col-sm-12">
   <h3>
     <small>ABV: {{beer.abv}}</small>
     <small>IBU: {{beer.ibu}}</small>
@@ -36,7 +46,7 @@
       <div><small>Brewery Url:</small>{{brewery.website}}</div>
     </div>
   </div>
-</div>
+</div>-->
 
 
 <!--

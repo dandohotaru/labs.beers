@@ -15,8 +15,10 @@ import { BeersModule } from './beers/beers.module';
 
 import { ErrorHandler } from './shared/exceptions/error.handler';
 import { BeersService } from './shared/services/beers.service';
-import { BreweriesService } from './shared/services/breweries.service';
 import { EventAggregator } from 'aurelia-event-aggregator';
+
+import { BreweriesService } from './shared/services/breweries.service';
+import { MasonModule } from './shared/components/mason/mason.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
+    MasonModule,
     LayoutModule,
     BreweriesModule,
     BeersModule
