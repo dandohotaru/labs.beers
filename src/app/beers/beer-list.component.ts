@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { BeersService } from './../shared/services/beers.service';
-import { Beer } from './../shared/services/beers.models';
+import { BeerData } from './../shared/services/beers.models';
 
 @Component({
   selector: 'beer-list',
@@ -12,7 +12,7 @@ import { Beer } from './../shared/services/beers.models';
 export class BeerListComponent implements OnInit {
 
   term: string;
-  beers: Beer[];
+  beers: BeerData[];
 
   constructor(
     private router: Router,

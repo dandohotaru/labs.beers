@@ -1,40 +1,62 @@
-    <div class="col-sm-12">
-      <h3>
-        <small>ABV: {{beer.abv}}</small>
-        <small>IBU: {{beer.ibu}}</small>
-        <small>Type: {{beer.style.name}}</small>
-        {{beer.nameDisplay}}
-      </h3>
-    </div>
+<div class="col-sm-12">
+  <h3>
+    <small>ABV: {{beer.abv}}</small>
+    <small>IBU: {{beer.ibu}}</small>
+    <small>Type: {{beer.style.name}}</small> {{beer.nameDisplay}}
+  </h3>
+</div>
 
-    <div class="col-sm-4 col-xs-4">
-      <p *ngIf="beer.labels">
-        <img class="img-responsive center-block" src="{{beer.labels.medium}}" />
-      </p>
-      <p *ngIf="!beer.labels">
-        <img class="img-responsive center-block" src="../../assets/img/place_holder.png" />
-      </p>
-    </div>
+<div class="col-sm-4 col-xs-4">
+  <p *ngIf="beer.labels">
+    <img class="img-responsive center-block" src="{{beer.labels.medium}}" />
+  </p>
+  <p *ngIf="!beer.labels">
+    <img class="img-responsive center-block" src="../../assets/img/place_holder.png" />
+  </p>
+</div>
 
-    <div class="col-sm-8 col-xs-8">
-      <p *ngIf="beer.description">
-        {{beer.description}}
-      </p>
-      <p *ngIf="!beer.description">
-        no description is provided
-      </p>
-      <div>
-        <div><small>Glass:</small> {{beer.glass?.name}}</div>
-        <div><small>Available:</small>{{beer.available?.description}}</div>
-        <div><small>Style Name</small>{{beer.style?.name}}</div>
-        <div><small>Style Short:</small>{{beer.style?.shortName}}</div>
-        <div><small>Style Category:</small>{{beer.style?.category?.name}}</div>
-        <div><small>Style Description:</small><i>{{beer.style?.description}}</i></div>
+<div class="col-sm-8 col-xs-8">
+  <p *ngIf="beer.description">
+    {{beer.description}}
+  </p>
+  <p *ngIf="!beer.description">
+    no description is provided
+  </p>
+  <div>
+    <div><small>Glass:</small> {{beer.glass?.name}}</div>
+    <div><small>Available:</small>{{beer.available?.description}}</div>
+    <div><small>Style Name</small>{{beer.style?.name}}</div>
+    <div><small>Style Short:</small>{{beer.style?.shortName}}</div>
+    <div><small>Style Category:</small>{{beer.style?.category?.name}}</div>
+    <div><small>Style Description:</small><i>{{beer.style?.description}}</i></div>
 
-        <div *ngFor="let brewery of beer.breweries">
-        <div><small>Brewery Established:</small>{{brewery.established}}</div>
-        <div><small>Brewery Name:</small>{{brewery.name}}</div>
-        <div><small>Brewery Url:</small>{{brewery.website}}</div>
-        </div>
-      </div>
+    <div *ngFor="let brewery of beer.breweries">
+      <div><small>Brewery Established:</small>{{brewery.established}}</div>
+      <div><small>Brewery Name:</small>{{brewery.name}}</div>
+      <div><small>Brewery Url:</small>{{brewery.website}}</div>
     </div>
+  </div>
+</div>
+
+
+<!--
+    Name: {{beer.nameDisplay}} |
+    Type: {{beer.style.name}} |
+    ABV: {{beer.abv}} |
+    IBU: {{beer.ibu}} |
+    IBU Min: {{beer.style?.ibuMin}} |
+    IBU Max: {{beer.style?.ibuMax}} |
+    ABV Min: {{beer.style?.abvMin}} |
+    SRM Min: {{beer.style?.srmMin}} |
+    SRM Max: {{beer.style?.srmMax}} |
+    OG Min: {{beer.style?.ogMin}} |
+    FG Min: {{beer.style?.fgMin}} |
+    FG Max: {{beer.style?.fgMax}} |
+    Glass: {{beer.glass?.name}} |
+    Description: {{beer.description}} |
+    Availability: {{beer.available?.description}} |
+    Style Name: {{beer.style?.name}} |
+    Style Short: {{beer.style?.shortName}} |
+    Style Category: {{beer.style?.category?.name}} |
+    Style Description: {{beer.style?.description}}
+-->

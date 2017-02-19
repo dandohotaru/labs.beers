@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BreweriesService } from './../shared/services/breweries.service';
-import { Brewery } from './../shared/services/breweries.models';
+import { BreweryData } from './../shared/services/breweries.models';
 
 @Component({
   selector: 'app-breweries',
@@ -9,7 +9,7 @@ import { Brewery } from './../shared/services/breweries.models';
 })
 export class BreweriesComponent implements OnInit {
 
-  breweries: Brewery[];
+  breweries: BreweryData[];
 
   constructor(private service: BreweriesService) { }
 

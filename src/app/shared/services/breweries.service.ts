@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { ErrorHandler } from './../exceptions/error.handler';
-import { Brewery } from './breweries.models';
+import { BreweryData } from './breweries.models';
 
 @Injectable()
 export class BreweriesService {
@@ -23,7 +23,7 @@ export class BreweriesService {
         //this.headers.append('Access-Control-Allow-Origin', '*');
     }
 
-    public load(): Observable<Brewery[]> {
+    public load(): Observable<BreweryData[]> {
 
         return this.httpHandler
             .get('../../assets/json/breweries.json')

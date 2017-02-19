@@ -12,9 +12,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 import { BreweriesService } from './../shared/services/breweries.service';
-import { Brewery } from './../shared/services/breweries.models';
+import { BreweryData } from './../shared/services/breweries.models';
 import { BeersService } from './../shared/services/beers.service';
-import { Beer } from './../shared/services/beers.models';
+import { BeerData } from './../shared/services/beers.models';
 
 import { TermSearched, BeerSearched, BrewerySearched } from './../shared/events/search.events';
 
@@ -41,12 +41,12 @@ export class SearchComponent implements OnInit {
       .switchMap(term => {
         var temp = term
           ? this.beersService.search(term)
-          : Observable.of<Beer[]>([]);
+          : Observable.of<BeerData[]>([]);
         return temp;
       })
       .catch(error => {
         console.log(error);
-        return Observable.of<Beer[]>([]);
+        return Observable.of<BeerData[]>([]);
       })
       .subscribe(results => {
         console.log(`Found: ${results.length}`);

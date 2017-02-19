@@ -1,12 +1,12 @@
-export interface RootObject {
+export interface BeerRoot {
     currentPage: number;
     numberOfPages: number;
     totalResults: number;
-    data: Beer[];
+    data: BeerData[];
     status: string;
 }
 
-export interface Beer {
+export interface BeerData {
     id: string;
     name: string;
     nameDisplay: string;
@@ -17,52 +17,52 @@ export interface Beer {
     availableId: number;
     styleId: number;
     isOrganic: string;
-    labels: Labels;
+    labels: LabelsData;
     status: string;
     statusDisplay: string;
     createDate: string;
     updateDate: string;
-    glass: Glass;
-    available: Available;
-    style: Style;
-    breweries: Brewery[];
+    glass: GlassData;
+    available: AvailabilityData;
+    style: StyleData;
+    breweries: BreweryData[];
     type: string;
     srmId?: number;
     foodPairings: string;
     servingTemperature: string;
     servingTemperatureDisplay: string;
     originalGravity: string;
-    srm: Srm;
+    srm: SrmData;
 }
 
-export interface Labels {
+export interface LabelsData {
     icon: string;
     medium: string;
     large: string;
 }
 
-export interface Glass {
+export interface GlassData {
     id: number;
     name: string;
     createDate: string;
 }
 
-export interface Available {
+export interface AvailabilityData {
     id: number;
     name: string;
     description: string;
 }
 
-export interface Category {
+export interface CategoryData {
     id: number;
     name: string;
     createDate: string;
 }
 
-export interface Style {
+export interface StyleData {
     id: number;
     categoryId: number;
-    category: Category;
+    category: CategoryData;
     name: string;
     shortName: string;
     description: string;
@@ -79,7 +79,7 @@ export interface Style {
     updateDate: string;
 }
 
-export interface Images {
+export interface ImagesData {
     icon: string;
     medium: string;
     large: string;
@@ -87,7 +87,7 @@ export interface Images {
     squareLarge: string;
 }
 
-export interface Country {
+export interface CountryData {
     isoCode: string;
     name: string;
     displayName: string;
@@ -96,7 +96,7 @@ export interface Country {
     createDate: string;
 }
 
-export interface Location {
+export interface LocationData {
     id: string;
     name: string;
     streetAddress: string;
@@ -119,11 +119,11 @@ export interface Location {
     statusDisplay: string;
     createDate: string;
     updateDate: string;
-    country: Country;
+    country: CountryData;
     hoursOfOperation: string;
 }
 
-export interface Brewery {
+export interface BreweryData {
     id: string;
     name: string;
     nameShortDisplay: string;
@@ -131,22 +131,16 @@ export interface Brewery {
     website: string;
     established: string;
     isOrganic: string;
-    images: Images;
+    images: ImagesData;
     status: string;
     statusDisplay: string;
     createDate: string;
     updateDate: string;
-    locations: Location[];
+    locations: LocationData[];
 }
 
-export interface Srm {
+export interface SrmData {
     id: number;
     name: string;
     hex: string;
 }
-
-
-
-
-
-

@@ -1,13 +1,13 @@
 
-export interface RootObject {
+export interface BreweryRoot {
     currentPage: number;
     numberOfPages: number;
     totalResults: number;
-    data: Brewery[];
+    data: BreweryData[];
     status: string;
 }
 
-export interface Brewery {
+export interface BreweryData {
     id: string;
     name: string;
     nameShortDisplay: string;
@@ -15,7 +15,7 @@ export interface Brewery {
     website: string;
     established: string;
     isOrganic: string;
-    images: Images;
+    images: ImagesData;
     status: string;
     statusDisplay: string;
     createDate: string;
@@ -24,7 +24,7 @@ export interface Brewery {
     mailingListUrl: string;
 }
 
-export interface Images {
+export interface ImagesData {
     icon: string;
     medium: string;
     large: string;

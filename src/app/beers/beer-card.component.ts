@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Input } from '@angular/core';
-import { Beer } from './../shared/services/beers.models';
+import { BeerData } from './../shared/services/beers.models';
 
 @Component({
   selector: 'beer-card',
@@ -11,7 +11,7 @@ import { Beer } from './../shared/services/beers.models';
 export class BeerCardComponent implements OnInit {
 
   @Input()
-  beer: Beer;
+  beer: BeerData;
 
   constructor() { }
 

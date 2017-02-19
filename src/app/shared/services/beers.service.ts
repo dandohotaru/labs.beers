@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { ErrorHandler } from './../exceptions/error.handler';
-import { Beer } from './beers.models';
+import { BeerData } from './beers.models';
 
 @Injectable()
 export class BeersService {
@@ -18,7 +18,7 @@ export class BeersService {
     constructor(private httpHandler: Http, private errorHandler: ErrorHandler) {
     }
 
-    public load(): Observable<Beer[]> {
+    public load(): Observable<BeerData[]> {
 
         return this.httpHandler
             .get('../../assets/json/beers.json')
@@ -29,13 +29,13 @@ export class BeersService {
             .catch(this.errorHandler.handle);
     }
 
-    public search(term: string): Observable<Beer[]> {
+    public search(term: string): Observable<BeerData[]> {
 
         return this.httpHandler
             .get('../../assets/json/beers.json')
             .map((response: Response)=>{
                 let body = response.json();
-                var results = body.data as Beer[];
+                var results = body.data as BeerData[];
 
                 return results.filter(p => p.name.includes(term));
             })
