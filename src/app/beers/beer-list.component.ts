@@ -5,11 +5,11 @@ import { BeersService } from './../shared/services/beers.service';
 import { Beer } from './../shared/services/beers.models';
 
 @Component({
-  selector: 'app-beers',
-  templateUrl: './beers.component.html',
-  styleUrls: ["./beers.component.css"]
+  selector: 'beer-list',
+  templateUrl: './beer-list.component.html',
+  styleUrls: ["./beer-list.component.css"]
 })
-export class BeersComponent implements OnInit {
+export class BeerListComponent implements OnInit {
 
   term: string;
   beers: Beer[];

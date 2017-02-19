@@ -1,33 +1,3 @@
-<div class="container" *ngFor="let beer of beers">
-
-  <div class="row">
-    Found: {{beers.length}}
-  </div>
-
-  <div class="row">
-
-<!--
-    Name: {{beer.nameDisplay}} |
-    Type: {{beer.style.name}} |
-    ABV: {{beer.abv}} |
-    IBU: {{beer.ibu}} |
-    IBU Min: {{beer.style?.ibuMin}} |
-    IBU Max: {{beer.style?.ibuMax}} |
-    ABV Min: {{beer.style?.abvMin}} |
-    SRM Min: {{beer.style?.srmMin}} |
-    SRM Max: {{beer.style?.srmMax}} |
-    OG Min: {{beer.style?.ogMin}} |
-    FG Min: {{beer.style?.fgMin}} |
-    FG Max: {{beer.style?.fgMax}} |
-    Glass: {{beer.glass?.name}} |
-    Description: {{beer.description}} |
-    Availability: {{beer.available?.description}} |
-    Style Name: {{beer.style?.name}} |
-    Style Short: {{beer.style?.shortName}} |
-    Style Category: {{beer.style?.category?.name}} |
-    Style Description: {{beer.style?.description}}
--->
-
     <div class="col-sm-12">
       <h3>
         <small>ABV: {{beer.abv}}</small>
@@ -68,9 +38,3 @@
         </div>
       </div>
     </div>
-
-  </div>
-</div>
-
-
-

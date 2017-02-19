@@ -1,17 +1,21 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BeersComponent } from './beers.component';
+import { BeerListComponent } from './beer-list.component';
+import { BeerCardComponent } from './beer-card.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    BeersComponent
+    BeerListComponent,
+    BeerCardComponent,
   ],
   exports: [
-    BeersComponent
+    BeerListComponent,
+    BeerCardComponent
   ],
   providers:[
   ]
