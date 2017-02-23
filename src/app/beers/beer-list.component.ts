@@ -12,7 +12,7 @@ import { BeerData } from './../shared/services/beers.models';
 export class BeerListComponent implements OnInit {
 
   term: string;
-  beers: BeerData[];
+  beers: BeerData[] = [];
 
   constructor(
     private router: Router,
