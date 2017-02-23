@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MasonModule } from './../shared/components/mason/mason.module';
 
 import { BeerListComponent } from './beer-list.component';
+import { BeerCardsComponent } from './beer-cards.component';
 import { BeerCardComponent } from './beer-card.component';
 
 @NgModule({
@@ -14,11 +15,11 @@ import { BeerCardComponent } from './beer-card.component';
   ],
   declarations: [
     BeerListComponent,
+    BeerCardsComponent,
     BeerCardComponent,
   ],
   exports: [
-    BeerListComponent,
-    BeerCardComponent
+    BeerListComponent
   ],
   providers:[
   ]

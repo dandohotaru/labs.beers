@@ -1,0 +1,12 @@
+  <colcade-grid class="grid">
+
+    <div colcade-grid-col class="grid-col grid-col--1"></div>
+    <div colcade-grid-col class="grid-col grid-col--2"></div>
+    <div colcade-grid-col class="grid-col grid-col--3"></div>
+    <div colcade-grid-col class="grid-col grid-col--4"></div>
+
+    <div colcade-grid-item class="grid-item" *ngFor="let beer of beers">
+        <beer-card [beer]="beer"></beer-card>
+    </div>
+
+  </colcade-grid>
