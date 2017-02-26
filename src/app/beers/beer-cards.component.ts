@@ -47,7 +47,11 @@ export class BeerCardsComponent implements OnChanges, OnInit, AfterViewInit {
         columns: ".grid-col",
         items: ".grid-item",
       };
-      this.colcade = new Colcade(this.mygrid.nativeElement, options);
+
+      //var grid = this.mygrid.nativeElement;
+      var grid = this.element.nativeElement.querySelector('.grid');
+
+      this.colcade = new Colcade(grid, options);
     }
     else {
       this.colcade.reload();

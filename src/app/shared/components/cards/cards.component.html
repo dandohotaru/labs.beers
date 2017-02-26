@@ -1,0 +1,6 @@
+<div *ngFor="let item of items">
+    <template 
+        [ngTemplateOutlet]="template" 
+        [ngOutletContext]="{ item: item }">
+    </template>
+</div>

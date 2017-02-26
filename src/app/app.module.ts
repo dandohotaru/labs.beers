@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +16,6 @@ import { BeersService } from './shared/services/beers.service';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
 import { BreweriesService } from './shared/services/breweries.service';
-import { MasonModule } from './shared/components/mason/mason.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +26,6 @@ import { MasonModule } from './shared/components/mason/mason.module';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
-    MasonModule,
     LayoutModule,
     BreweriesModule,
     BeersModule
