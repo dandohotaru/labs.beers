@@ -16,6 +16,8 @@ export class BeerCardsComponent implements OnChanges, OnInit, AfterViewInit {
   @ViewChild('myGrid')
   mygrid: ElementRef;
 
+  hidden: boolean;
+
   private colcade = null;
 
   constructor(private element: ElementRef) { }
@@ -23,35 +25,33 @@ export class BeerCardsComponent implements OnChanges, OnInit, AfterViewInit {
   ngOnChanges() {
     console.log('ngOnChanges');
 
-    if (this.colcade)
-    {
-      this.colcade.reload();
-      console.log('reload');
-    }
+    this.hidden = true;
+    setTimeout(p => {
+      this.arrange();
+      this.hidden = false;
+    }, 0);
+
   }
 
   ngOnInit() {
     console.log('ngOnInit');
-
-    this.arrange();
   }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit');
-
-    //this.arrange();
   }
 
-  arrange(): void{
-
-    var options = {
-      columns: ".grid-col",
-      items: ".grid-item",
-    };
-
-    //this.colcade = new Colcade(this.mygrid.nativeElement, options);
-    this.colcade = new Colcade(this.element.nativeElement, options);
-
+  arrange(): void {
+    if (!this.colcade) {
+      var options = {
+        columns: ".grid-col",
+        items: ".grid-item",
+      };
+      this.colcade = new Colcade(this.mygrid.nativeElement, options);
+    }
+    else {
+      this.colcade.reload();
+    }
   }
-
+  
 }

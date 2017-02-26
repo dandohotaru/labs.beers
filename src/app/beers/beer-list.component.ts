@@ -24,18 +24,16 @@ export class BeerListComponent implements OnInit {
 
     this.route.queryParams.subscribe(p => {
       this.term = p["q"] || "";
-      console.info(`BeerSearch: ${this.term}`);
 
       var beers = this.service.load()
-        .distinctUntilChanged()
         .subscribe(
           beers => {
             if (this.term && this.term.length > 0)
               this.beers = beers
-                .filter(p => p.name.toLowerCase()
-                .includes(this.term.toLowerCase()));
+                .filter(p => p.name.toLowerCase().includes(this.term.toLowerCase()))
+                .sort((a,b) => a.name.localeCompare(b.name));
             else
-              this.beers = beers;
+              this.beers = beers.sort((a,b)=> a.name.localeCompare(b.name));
           },
           error => {
             console.error(error);
