@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response, RequestOptionsArgs } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -25,8 +25,12 @@ export class BreweriesService {
 
     public load(): Observable<BreweryData[]> {
 
+        var options: RequestOptionsArgs = {
+
+        };
+
         return this.httpHandler
-            .get('../../assets/json/breweries.json')
+            .get('./assets/json/breweries.json')
             .map((response: Response) => {
                 let body = response.json();
                 return body.data || {};

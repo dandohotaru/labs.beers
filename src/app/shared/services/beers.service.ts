@@ -21,7 +21,7 @@ export class BeersService {
     public load(): Observable<BeerData[]> {
 
         return this.httpHandler
-            .get('../../assets/json/beers.json')
+            .get('./assets/json/beers.json')
             .map((response: Response)=>{
                 let body = response.json();
                 return body.data || {};

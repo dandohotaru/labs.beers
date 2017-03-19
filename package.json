@@ -9,7 +9,7 @@
     "build": "ng build",
     "build:dev": "ng build --output-path dev",
     "build:prod": "ng build --output-path prod --prod",
-    "deploy": "ng build -sm -ec -bh https://github.com/dandohotaru/labs.beers && gh-pages -d dist"
+    "deploy:git": "ng build --base-href https://dandohotaru.github.io/labs.beers/ && copy dist/index.html dist/404.html && ngh"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +36,7 @@
     "@angular/compiler-cli": "^2.3.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
+    "angular-cli-ghpages": "^0.5.0",
     "codelyzer": "~2.0.0-beta.1",
     "gh-pages": "^0.12.0",
     "ts-node": "1.2.1",
