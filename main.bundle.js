@@ -92,7 +92,7 @@ var BeersService = (function () {
     }
     BeersService.prototype.load = function () {
         return this.httpHandler
-            .get('../../assets/json/beers.json')
+            .get('/assets/json/beers.json')
             .map(function (response) {
             var body = response.json();
             return body.data || {};
@@ -159,7 +159,7 @@ var BreweriesService = (function () {
     }
     BreweriesService.prototype.load = function () {
         return this.httpHandler
-            .get('../../assets/json/breweries.json')
+            .get('/assets/json/breweries.json')
             .map(function (response) {
             var body = response.json();
             return body.data || {};
