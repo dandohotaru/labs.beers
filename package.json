@@ -8,7 +8,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:dev": "ng build --output-path dev",
-    "build:prod": "ng build --output-path prod --prod"
+    "build:prod": "ng build --output-path prod --prod",
+    "deploy": "ng build -sm -ec -bh https://github.com/dandohotaru/labs.beers && gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "codelyzer": "~2.0.0-beta.1",
+    "gh-pages": "^0.12.0",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
     "typescript": "~2.1.6"

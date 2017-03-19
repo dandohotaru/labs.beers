@@ -3,10 +3,9 @@
     "css.lint.emptyRules": "ignore",
     "files.exclude": {
         "**/.git": true,
-        "**/dist": true,
-        "**/dev": true,
-        "**/acc": true,
-        "**/prod": true,
+        "./dev": true,
+        "./acc": true,
+        "./prod": true,
         "**/.DS_Store": true,
         "**/*.js.map": true,
         "**/*.js": {
