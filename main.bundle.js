@@ -1688,7 +1688,7 @@ module.exports = "<div class=\"container\">\r\n\r\n  <div class=\"row\">\r\n    
 /***/ 723:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"container\" *ngFor=\"let brewery of breweries\">\r\n\r\n  <div class=\"row\">\r\n\r\n    <div class=\"col-sm-12\">\r\n      <h3>\r\n        <small>({{brewery.established}})</small>\r\n        <a href={{brewery.website}}>{{brewery.name}}</a>\r\n      </h3>\r\n    </div>\r\n\r\n    <div class=\"col-sm-4\">\r\n      <p *ngIf=\"brewery.images\">\r\n        <img class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n      </p>\r\n      <p *ngIf=\"!brewery.images\">\r\n        <img class=\"img-responsive center-block\" src=\"../../assets/img/place_holder.png\" />\r\n      </p>\r\n    </div>\r\n\r\n    <div class=\"col-sm-8\">\r\n      <p *ngIf=\"brewery.description\">\r\n        {{brewery.description}}\r\n      </p>\r\n      <p *ngIf=\"!brewery.description\">\r\n        no description is provided\r\n      </p>\r\n    </div>\r\n\r\n  </div>\r\n</div>"
+module.exports = "\r\n<div class=\"container\" *ngFor=\"let brewery of breweries\">\r\n\r\n  <div class=\"row\">\r\n\r\n    <div class=\"col-sm-12\">\r\n      <h3>\r\n        <small>({{brewery.established}})</small>\r\n        <a href={{brewery.website}}>{{brewery.name}}</a>\r\n      </h3>\r\n    </div>\r\n\r\n    <div class=\"col-sm-4\">\r\n      <p *ngIf=\"brewery.images\">\r\n        <img class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n      </p>\r\n      <p *ngIf=\"!brewery.images\">\r\n        <img class=\"img-responsive center-block\" src=\"./assets/img/place_holder.png\" />\r\n      </p>\r\n    </div>\r\n\r\n    <div class=\"col-sm-8\">\r\n      <p *ngIf=\"brewery.description\">\r\n        {{brewery.description}}\r\n      </p>\r\n      <p *ngIf=\"!brewery.description\">\r\n        no description is provided\r\n      </p>\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1723,7 +1723,7 @@ module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <
 /***/ 728:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"../../assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"../../assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
+module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
