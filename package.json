@@ -9,7 +9,10 @@
     "build": "ng build",
     "build:dev": "ng build --output-path dev",
     "build:prod": "ng build --output-path prod --prod",
-    "deploy:git": "ng build --base-href https://dandohotaru.github.io/labs.beers/ && copy dist/index.html dist/404.html && ngh"
+    "build:git": "ng build --output-path dist --base-href https://dandohotaru.github.io/labs.beers/",
+    "build:404": "copy dist\\index.html dist\\404.html",
+    "deploy:git": "npm run build:git && npm run build:404 && ngh",
+    "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
