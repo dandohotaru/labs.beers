@@ -1,15 +1,19 @@
 <div class="container">
 
+  <!-- Info -->
   <div class="row">
-    Found: {{beers.length}}
+    <small class="pull-right">
+      Found: {{beers.length}}
+    </small>
   </div>
 
-  <!--<beer-cards [beers]="beers"></beer-cards>-->
-
-  <app-cards [items]="beers">
-    <template let-item="item">
-      <beer-card [beer]="item"></beer-card>
-    </template>
-  </app-cards>
+  <!-- Results -->
+  <div class="row">
+    <app-cards [items]="beers">
+      <template let-item="item">
+        <beer-card [beer]="item"></beer-card>
+      </template>
+    </app-cards>
+  </div>
 
 </div>

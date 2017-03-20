@@ -26,7 +26,8 @@ export class BeerListComponent implements OnInit {
     this.route.queryParams.subscribe(p => {
       this.term = p["q"] || "";
 
-      var beers = this.service.search(this.term)
+      var beers = this.service
+        .search(this.term)
         .subscribe(beers => {
 
           this.beers = beers
