@@ -1,63 +1,33 @@
+<div class="card">
 
-<div class="col-sm-12" class="card">
   <img *ngIf="beer.labels" class="img-responsive center-block" src="{{beer.labels.medium}}" />
   <img *ngIf="!beer.labels" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
 
   <div class="content">
-    <h6 class="title">{{beer.nameDisplay}}</h6>
-    
-    <small>ABV: {{beer.abv}}</small>
-    <small>IBU: {{beer.ibu}}</small>
-    <small>Type: {{beer.style.name}}</small> 
-    <!--<small *ngIf="beer.description">
-      {{beer.description}}
-    </small>-->
-  </div>
-    
-</div>
+    <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">
+      <i class="fa fa-beer" aria-hidden="true"></i>
+      {{beer.nameDisplay}}
+    </h6>
 
-<!--<div class="col-sm-12">
-  <h3>
-    <small>ABV: {{beer.abv}}</small>
-    <small>IBU: {{beer.ibu}}</small>
-    <small>Type: {{beer.style.name}}</small> {{beer.nameDisplay}}
-  </h3>
-</div>
+    <div class="type">
+      <small>{{beer.style.name}}</small>
+    </div>
 
-<div class="col-sm-4 col-xs-4">
-  <p *ngIf="beer.labels">
-    
-  </p>
-  <p *ngIf="!beer.labels">
-    
-  </p>
-</div>
+    <div class="spec" title="{{legend.abv}}">
+      <small *ngIf="beer.abv">ABV %: {{beer.abv}}</small>
+      <small *ngIf="!beer.abv">ABV %: N/A</small>
+    </div>
 
-<div class="col-sm-8 col-xs-8">
-  <p *ngIf="beer.description">
-    {{beer.description}}
-  </p>
-  <p *ngIf="!beer.description">
-    no description is provided
-  </p>
-  <div>
-    <div><small>Glass:</small> {{beer.glass?.name}}</div>
-    <div><small>Available:</small>{{beer.available?.description}}</div>
-    <div><small>Style Name</small>{{beer.style?.name}}</div>
-    <div><small>Style Short:</small>{{beer.style?.shortName}}</div>
-    <div><small>Style Category:</small>{{beer.style?.category?.name}}</div>
-    <div><small>Style Description:</small><i>{{beer.style?.description}}</i></div>
-
-    <div *ngFor="let brewery of beer.breweries">
-      <div><small>Brewery Established:</small>{{brewery.established}}</div>
-      <div><small>Brewery Name:</small>{{brewery.name}}</div>
-      <div><small>Brewery Url:</small>{{brewery.website}}</div>
+    <div class="spec" title="{{legend.ibu}}" class="pull-right">
+      <small *ngIf="beer.ibu">IBU %: {{beer.ibu}}</small>
+      <small *ngIf="!beer.ibu">IBU %: N/A</small>
     </div>
   </div>
-</div>-->
 
+</div>
 
 <!--
+    description: {{beer.description}} |
     Name: {{beer.nameDisplay}} |
     Type: {{beer.style.name}} |
     ABV: {{beer.abv}} |
@@ -76,5 +46,8 @@
     Style Name: {{beer.style?.name}} |
     Style Short: {{beer.style?.shortName}} |
     Style Category: {{beer.style?.category?.name}} |
-    Style Description: {{beer.style?.description}}
+    Style Description: {{beer.style?.description}} |
+    Brewery Established: {{brewery.established}} |
+    Brewery Name: {{brewery.name}} |
+    Brewery Url: {{brewery.website}} |
 -->
