@@ -14,14 +14,17 @@
 
   <!-- Term -->
   <input #searchBox id="queryField" type="search" class="form-control" 
-    placeholder="What in the name of Bachus do you need to know?"
-    (keyup.enter)="search(searchBox.value)">
+    placeholder="What would Bachus know about?"
+    (keyup.enter)="search(searchBox.value)"/>
 
   <!-- Execute -->
   <div class="input-group-btn">
     <button id="searchButton" type="button" class="btn btn-primary" (click)="search(searchBox.value)">
       <i class="fa fa-search"></i>
-      Search
+      <span class="hidden-xs">
+        Search
+      </span>
     </button>
   </div>
+
 </div>
