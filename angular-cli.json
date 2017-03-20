@@ -22,7 +22,6 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "./assets/css/typography.css",
-        "./assets/css/colcade.css",
         "./assets/css/styles.css"
       ],
       "scripts": [
