@@ -55,7 +55,7 @@ ErrorHandler = __decorate([
     __metadata("design:paramtypes", [])
 ], ErrorHandler);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/error.handler.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/error.handler.js.map
 
 /***/ }),
 
@@ -117,7 +117,7 @@ BeersService = __decorate([
 ], BeersService);
 
 var _a, _b;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beers.service.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beers.service.js.map
 
 /***/ }),
 
@@ -175,7 +175,7 @@ BreweriesService = __decorate([
 ], BreweriesService);
 
 var _a, _b;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/breweries.service.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/breweries.service.js.map
 
 /***/ }),
 
@@ -235,7 +235,7 @@ BeerListComponent = __decorate([
 ], BeerListComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beer-list.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beer-list.component.js.map
 
 /***/ }),
 
@@ -280,7 +280,7 @@ BreweriesComponent = __decorate([
 ], BreweriesComponent);
 
 var _a;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/breweries.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/breweries.component.js.map
 
 /***/ }),
 
@@ -316,7 +316,7 @@ AboutComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], AboutComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/about.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/about.component.js.map
 
 /***/ }),
 
@@ -352,7 +352,7 @@ GlossaryComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], GlossaryComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/glossary.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/glossary.component.js.map
 
 /***/ }),
 
@@ -385,7 +385,7 @@ HomeComponent = __decorate([
     })
 ], HomeComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/home.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/home.component.js.map
 
 /***/ }),
 
@@ -420,7 +420,7 @@ LostComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], LostComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/lost.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/lost.component.js.map
 
 /***/ }),
 
@@ -490,7 +490,7 @@ MasonGridComponent = __decorate([
 ], MasonGridComponent);
 
 var _a, _b;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/mason-grid.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/mason-grid.component.js.map
 
 /***/ }),
 
@@ -522,14 +522,14 @@ var BrewerySearched = (function () {
     return BrewerySearched;
 }());
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/search.events.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/search.events.js.map
 
 /***/ }),
 
 /***/ 350:
 /***/ (function(module, exports) {
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beers.models.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beers.models.js.map
 
 /***/ }),
 
@@ -564,7 +564,7 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/main.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/main.js.map
 
 /***/ }),
 
@@ -616,7 +616,7 @@ AppComponent = __decorate([
 ], AppComponent);
 
 var _a;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/app.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/app.component.js.map
 
 /***/ }),
 
@@ -691,7 +691,7 @@ AppModule = __decorate([
     })
 ], AppModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/app.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/app.module.js.map
 
 /***/ }),
 
@@ -720,7 +720,7 @@ var AppRoutes = [
     { path: 'beers', component: __WEBPACK_IMPORTED_MODULE_4__beers_beer_list_component__["a" /* BeerListComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_1__layout_lost_component__["a" /* LostComponent */] }
 ];
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/app.routes.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/app.routes.js.map
 
 /***/ }),
 
@@ -764,7 +764,7 @@ BeerCardComponent = __decorate([
 ], BeerCardComponent);
 
 var _a;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beer-card.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beer-card.component.js.map
 
 /***/ }),
 
@@ -845,7 +845,7 @@ BeerCardsComponent = __decorate([
 ], BeerCardsComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beer-cards.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beer-cards.component.js.map
 
 /***/ }),
 
@@ -898,7 +898,7 @@ BeersModule = __decorate([
     })
 ], BeersModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/beers.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/beers.module.js.map
 
 /***/ }),
 
@@ -945,7 +945,7 @@ BreweriesModule = __decorate([
     })
 ], BreweriesModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/breweries.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/breweries.module.js.map
 
 /***/ }),
 
@@ -982,7 +982,7 @@ FooterComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], FooterComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/footer.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/footer.component.js.map
 
 /***/ }),
 
@@ -1018,7 +1018,7 @@ HeaderComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], HeaderComponent);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/header.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/header.component.js.map
 
 /***/ }),
 
@@ -1084,7 +1084,7 @@ LayoutModule = __decorate([
     })
 ], LayoutModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/layout.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/layout.module.js.map
 
 /***/ }),
 
@@ -1096,7 +1096,7 @@ LayoutModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__);
@@ -1189,7 +1189,7 @@ SearchComponent = __decorate([
 ], SearchComponent);
 
 var _a, _b, _c, _d;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/search.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/search.component.js.map
 
 /***/ }),
 
@@ -1233,7 +1233,7 @@ SearchModule = __decorate([
     })
 ], SearchModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/search.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/search.module.js.map
 
 /***/ }),
 
@@ -1293,7 +1293,7 @@ __decorate([
     __metadata("design:type", Object)
 ], CardsComponent.prototype, "items", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ContentChild */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* TemplateRef */]),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* ContentChild */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* TemplateRef */]),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* TemplateRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* TemplateRef */]) === "function" && _a || Object)
 ], CardsComponent.prototype, "template", void 0);
 __decorate([
@@ -1310,7 +1310,7 @@ CardsComponent = __decorate([
 ], CardsComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/cards.component.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/cards.component.js.map
 
 /***/ }),
 
@@ -1351,7 +1351,7 @@ CardsModule = __decorate([
     })
 ], CardsModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/cards.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/cards.module.js.map
 
 /***/ }),
 
@@ -1391,12 +1391,12 @@ MasonBrickDirective = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Directive */])({
         selector: '[colcade-grid-item], colcade-grid-item'
     }),
-    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Inject */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* forwardRef */])(function () { return __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__["a" /* MasonGridComponent */]; }))),
+    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Inject */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* forwardRef */])(function () { return __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__["a" /* MasonGridComponent */]; }))),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__["a" /* MasonGridComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__["a" /* MasonGridComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* ElementRef */]) === "function" && _b || Object])
 ], MasonBrickDirective);
 
 var _a, _b;
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/mason-brick.directive.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/mason-brick.directive.js.map
 
 /***/ }),
 
@@ -1424,14 +1424,14 @@ MasonColumnDirective = __decorate([
     })
 ], MasonColumnDirective);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/mason-column.directive.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/mason-column.directive.js.map
 
 /***/ }),
 
 /***/ 544:
 /***/ (function(module, exports) {
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/mason-grid.options.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/mason-grid.options.js.map
 
 /***/ }),
 
@@ -1474,7 +1474,7 @@ MasonModule = __decorate([
     })
 ], MasonModule);
 
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/mason.module.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/mason.module.js.map
 
 /***/ }),
 
@@ -1491,7 +1491,7 @@ MasonModule = __decorate([
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/Users/dando/Data/Work/Code/hubs/labs.beers/src/environment.js.map
+//# sourceMappingURL=D:/Work/Code/hub/labs.beers/src/environment.js.map
 
 /***/ }),
 
@@ -1557,7 +1557,7 @@ exports = module.exports = __webpack_require__(19)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "img.center {\r\n    display: block;\r\n    margin: 0 auto;\r\n}", ""]);
 
 // exports
 
@@ -1695,21 +1695,21 @@ module.exports = "\r\n<div class=\"container\" *ngFor=\"let brewery of breweries
 /***/ 724:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"row\">\n    <div class=\"col-sm-4 text-center\">\n        <br><br>\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\n    </div>\n    <div class=\"col-sm-8\">\n        <h2>A better way to discover craft beer</h2>\n\n        <h3>Tag lines</h3>\n        <p>\n            BreweryDB is your database of breweries, beers, beer events and guilds! \n            Our service is just about the facts.\n        </p>\n        <p>\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\n            We are proud to be a small part of the Craft Beer revolution!\n        </p>\n\n        <h3>Built for Developers</h3>\n        <p>\n            BreweryDB was made by developers, for developers. \n        </p>\n        <p>\n            Our vast collection of data can be accessed via our free API. \n        </p>\n\n        <h3>What people are saying</h3>\n        <p>\n            A great project that aims to build an open database of breweries and beers \n            <small>(ProgrammableWeb)</small>\n        </p>\n        <p>\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\n        </p>\n        <p>\n            Just discovered @brewerydb had an API #buildbuildbuild \n            <small>(@gideonco)</small>\n        </p>\n\n        <h3>Copyright</h3>\n        <p>\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\n        </p>\n\n        <h3>Terms</h3>\n        <p>\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\n        </p>\n\n        <h3>Disclaimer</h3>\n        <p>\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\n        </p>\n        <p>\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\n        </p>\n        <p>\n            All images of breweries, beers, guilds, or events are properties of those entities. \n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\n        </p>\n        <p>\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \n            After the initial import of data, user submissions and updates are what make up the current data set.\n        </p>\n\n        <h3>Shortcurt</h3>\n        <p>\n            <img alt=\"qr code\" src=\"./assets/img/app-url.png\" class=\"center\">\n        </p>\n\n    </div>\n</div>"
 
 /***/ }),
 
 /***/ 725:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-bottom\" role=\"navigation\">\r\n  <footer class=\"footer\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n          <p class=\"text-muted\">\r\n            <a routerLink=\"/about\">About</a>\r\n            <a routerLink=\"/glossary\">Glossary</a>\r\n            <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n          </p>\r\n        </div>\r\n\r\n        <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n          <p class=\"text-muted text-right\">\r\n            <span>Last update: {{lastUpdate | date}} </span>\r\n            |\r\n            <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n          </p>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</nav>"
+module.exports = "<nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <footer class=\"footer\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n          <p class=\"text-muted\">\r\n            <a routerLink=\"/about\">About</a>\r\n            <a routerLink=\"/glossary\">Glossary</a>\r\n            <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n          </p>\r\n        </div>\r\n\r\n        <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n          <p class=\"text-muted text-right\">\r\n            <span>Last update: {{lastUpdate | date}} </span>\r\n            |\r\n            <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n          </p>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</nav>"
 
 /***/ }),
 
 /***/ 726:
 /***/ (function(module, exports) {
 
-module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"../../assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
+module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
 
 /***/ }),
 
