@@ -10,6 +10,23 @@
     cursor: pointer;
 }
 
+.card .label {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.card .label .actions {
+    position: absolute;
+    display: block;
+    top: 1%;
+    left: 16px;
+}
+
+.card .label .actions i {
+    color: inherit;
+}
+
 .card .content {
     padding: 2px 16px;
 }

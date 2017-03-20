@@ -1,11 +1,18 @@
 <div class="card">
 
-  <img *ngIf="beer.labels" class="img-responsive center-block" src="{{beer.labels.medium}}" />
-  <img *ngIf="!beer.labels" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
+  <div class="label">
+    <img *ngIf="beer.labels" class="img-responsive center-block" src="{{beer.labels.medium}}" />
+    <img *ngIf="!beer.labels" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
+    <div class="actions">
+      <a href="#">
+        <i class="fa fa-2x fa-star-o" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
 
   <div class="content">
     <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">
-      <i class="fa fa-beer" aria-hidden="true"></i>
+      <span class="fa fa-2x fa-beer" aria-hidden="true"></span>
       {{beer.nameDisplay}}
     </h6>
 
