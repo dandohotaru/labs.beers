@@ -10,21 +10,19 @@
     cursor: pointer;
 }
 
+.card .actions {
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.card .actions .star {
+    color: yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: darkorange;
+}
+
 .card .label {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.card .label .actions {
-    position: absolute;
-    display: block;
-    top: 1%;
-    left: 16px;
-}
-
-.card .label .actions i {
-    color: inherit;
 }
 
 .card .content {

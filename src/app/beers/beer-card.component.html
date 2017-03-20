@@ -1,23 +1,24 @@
 <div class="card">
 
+  <div class="actions">
+    <span class="fa fa-1x fa-beer" aria-hidden="true"></span>
+    <a href="#" class="pull-right" (click)="favorite($event)">
+      <i class="fa fa fa-star-o" aria-hidden="true" [class.star]="beer.favorite" ></i>
+    </a>
+  </div>
+
   <div class="label">
-    <img *ngIf="beer.labels" class="img-responsive center-block" src="{{beer.labels.medium}}" />
-    <img *ngIf="!beer.labels" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
-    <div class="actions">
-      <a href="#">
-        <i class="fa fa-2x fa-star-o" aria-hidden="true"></i>
-      </a>
-    </div>
+    <img *ngIf="beer.label" class="img-responsive center-block" src="{{beer.label}}" />
+    <img *ngIf="!beer.label" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
   </div>
 
   <div class="content">
     <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">
-      <span class="fa fa-2x fa-beer" aria-hidden="true"></span>
-      {{beer.nameDisplay}}
+      {{beer.name}}
     </h6>
 
     <div class="type">
-      <small>{{beer.style.name}}</small>
+      <small>{{beer.style}}</small>
     </div>
 
     <div class="spec" title="{{legend.abv}}">

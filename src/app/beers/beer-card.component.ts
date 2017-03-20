@@ -1,5 +1,7 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { OnInit, OnChanges, SimpleChanges } from '@angular/core';
+
 import { BeerData } from './../shared/services/beers.models';
 
 @Component({
@@ -8,14 +10,14 @@ import { BeerData } from './../shared/services/beers.models';
   styleUrls: ['./beer-card.component.css'],
 
 })
-export class BeerCardComponent implements OnInit {
+export class BeerCardComponent implements OnInit, OnChanges {
 
   @Input()
-  beer: BeerData;
+  beer: BeerModel;
+  legend: LegendModel;
 
-  legend: { abv: string, ibu: string, srm: string };
-
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
     this.legend = {
@@ -25,4 +27,32 @@ export class BeerCardComponent implements OnInit {
     };
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+  }
+
+  favorite(event: any) : void {
+    event.preventDefault();
+    var value = !this.beer.favorite;
+    var text = value ? "favorite" : "not favorite";
+    this.beer.favorite = value;
+
+    console.log(`${this.beer.name} is marked as ${text}`);
+ }
+}
+
+export class BeerModel {
+    id: string;
+    name: string;
+    style: string;
+    label: string;
+    description: string;
+    abv: string;
+    ibu: string;
+    favorite?: boolean;
+}
+
+export class LegendModel {
+  abv: string; 
+  ibu: string;
+  srm: string; 
 }

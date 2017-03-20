@@ -32,12 +32,15 @@ export class BeersService {
     public search(term: string): Observable<BeerData[]> {
 
         return this.httpHandler
-            .get('../../assets/json/beers.json')
+            .get('./assets/json/beers.json')
             .map((response: Response)=>{
                 let body = response.json();
                 var results = body.data as BeerData[];
+                if (term && term.length > 0){
+                    return results.filter(p => p.name.toLowerCase().includes(term));
+                }
 
-                return results.filter(p => p.name.includes(term));
+                return results;
             })
             .catch(this.errorHandler.handle);
     }
