@@ -106,7 +106,7 @@ var BeersService = (function () {
             var body = response.json();
             var results = body.data;
             if (term && term.length > 0) {
-                return results.filter(function (p) { return p.name.toLowerCase().includes(term); });
+                return results.filter(function (p) { return p.name.toLowerCase().includes(term.toLowerCase()); });
             }
             return results;
         })
