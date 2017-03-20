@@ -1,12 +1,19 @@
 
-<div class="col-sm-12" class="box">
-    {{beer.nameDisplay}}
+<div class="col-sm-12" class="card">
+  <img *ngIf="beer.labels" class="img-responsive center-block" src="{{beer.labels.medium}}" />
+  <img *ngIf="!beer.labels" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
+
+  <div class="content">
+    <h6 class="title">{{beer.nameDisplay}}</h6>
+    
     <small>ABV: {{beer.abv}}</small>
     <small>IBU: {{beer.ibu}}</small>
     <small>Type: {{beer.style.name}}</small> 
-    <small *ngIf="beer.description">
+    <!--<small *ngIf="beer.description">
       {{beer.description}}
-    </small>
+    </small>-->
+  </div>
+    
 </div>
 
 <!--<div class="col-sm-12">
@@ -19,10 +26,10 @@
 
 <div class="col-sm-4 col-xs-4">
   <p *ngIf="beer.labels">
-    <img class="img-responsive center-block" src="{{beer.labels.medium}}" />
+    
   </p>
   <p *ngIf="!beer.labels">
-    <img class="img-responsive center-block" src="../../assets/img/place_holder.png" />
+    
   </p>
 </div>
 

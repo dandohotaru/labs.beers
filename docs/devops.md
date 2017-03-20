@@ -1,19 +1,3 @@
-
-Implement
-
-* Home
-  https://github.com/angular/angular-cli
-
-* Wiki
-  https://github.com/angular/angular-cli/wiki
-
-* Create module
-  ng generate module --spec false --routing false [name]
-
-* Create component
-  ng generate component --spec false --flat true [name] 
-
-
 Build
 * About the build options 
   https://github.com/angular/angular-cli/wiki/build
@@ -42,4 +26,3 @@ Deploy v2
   cp dist/index.html dist/404.html
   angular-cli-ghpages [OPTIONS]
   ngh [OPTIONS]
-  
