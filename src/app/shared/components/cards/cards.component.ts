@@ -42,9 +42,7 @@ export class CardsComponent implements OnInit, OnChanges {
                 items: ".grid-item",
             };
 
-            //var grid = this.mygrid.nativeElement;
             var grid = this.element.nativeElement.querySelector('.grid');
-
             this.colcade = new Colcade(grid, options);
         }
         else {

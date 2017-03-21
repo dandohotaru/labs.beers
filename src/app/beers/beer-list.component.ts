@@ -7,8 +7,7 @@ import { BeerModel } from "./beer-card.component";
 
 @Component({
   selector: 'beer-list',
-  templateUrl: './beer-list.component.html',
-  styleUrls: ["./beer-list.component.css"]
+  templateUrl: './beer-list.component.html'
 })
 export class BeerListComponent implements OnInit {
 

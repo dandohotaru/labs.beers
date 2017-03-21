@@ -3,19 +3,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { BreweriesComponent } from './breweries.component';
+import { MasonModule } from './../shared/components/mason/mason.module';
+import { CardsModule } from './../shared/components/cards/cards.module';
+
+import { BreweryListComponent } from './brewery-list.component';
+import { BreweryCardComponent } from './brewery-card.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    HttpModule
+    HttpModule,
+    MasonModule,
+    CardsModule
   ],
   declarations: [
-    BreweriesComponent
+    BreweryListComponent,
+    BreweryCardComponent
   ],
   exports: [
-    BreweriesComponent
+    BreweryListComponent
   ],
   providers:[
   ]

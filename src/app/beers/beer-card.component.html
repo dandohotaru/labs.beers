@@ -3,7 +3,8 @@
   <div class="actions">
     <span class="fa fa-1x fa-beer" aria-hidden="true"></span>
     <a href="#" class="pull-right" (click)="favorite($event)">
-      <i class="fa fa fa-star-o" aria-hidden="true" [class.star]="beer.favorite" ></i>
+      <i *ngIf="!beer.favorite" class="fa fa fa-2x fa-star-o" aria-hidden="true"></i>
+      <i *ngIf="beer.favorite" class="fa fa fa-2x fa-star star" aria-hidden="true"></i>
     </a>
   </div>
 

@@ -5,11 +5,11 @@ import { BreweryData } from './../shared/services/breweries.models';
 
 @Component({
   selector: 'app-breweries',
-  templateUrl: './breweries.component.html'
+  templateUrl: './brewery-list.component.html'
 })
-export class BreweriesComponent implements OnInit {
+export class BreweryListComponent implements OnInit {
 
-  breweries: BreweryData[];
+  breweries: BreweryData[] = [];
 
   constructor(private service: BreweriesService) { }
 

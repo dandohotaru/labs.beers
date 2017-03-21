@@ -1,5 +1,27 @@
+<div class="container">
 
-<div class="container" *ngFor="let brewery of breweries">
+  <!-- Info -->
+  <div class="row">
+    <small class="pull-right">
+      Found: {{breweries.length}}
+    </small>
+  </div>
+
+  <!-- Results -->
+  <div class="row">
+    <app-cards [items]="breweries">
+      <template let-item="item">
+        <brewery-card [brewery]="item"></brewery-card>
+      </template>
+    </app-cards>
+  </div>
+
+</div>
+
+
+
+
+<!--<div class="container" *ngFor="let brewery of breweries">
 
   <div class="row">
 
@@ -30,3 +52,4 @@
 
   </div>
 </div>
+-->

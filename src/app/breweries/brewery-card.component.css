@@ -1,0 +1,42 @@
+.card {
+    border: 1px lightgray solid;
+    box-shadow: 0px 2px 4px 0px lightgray;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border: 1px orange solid;
+    box-shadow: 0px 8px 16px 0px orange;
+    cursor: pointer;
+}
+
+.card .actions {
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.card .actions .star {
+    color: yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: darkorange;
+}
+
+.card .label {
+}
+
+.card .content {
+    padding: 2px 16px;
+}
+
+.card .title {
+    font-weight: bold;
+}
+
+.card .date {
+    font-style: italic;
+}
+
+.card .spec {
+    display: inline;
+}
