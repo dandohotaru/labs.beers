@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DialogModule }  from 'primeng/primeng';
+
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
@@ -26,6 +28,7 @@ import { BreweriesService } from './shared/services/breweries.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
+    DialogModule,
     LayoutModule,
     BreweriesModule,
     BeersModule

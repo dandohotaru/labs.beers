@@ -13,6 +13,8 @@ export class BeerListComponent implements OnInit {
 
   term: string;
   beers: BeerModel[] = [];
+  display: boolean = false;
+
 
   constructor(
     private router: Router,
@@ -51,4 +53,8 @@ export class BeerListComponent implements OnInit {
     });
 
   }
+
+  showDialog() {
+        this.display = true;
+    }
 }
