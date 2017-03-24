@@ -14,6 +14,7 @@ export class BeerListComponent implements OnInit {
   term: string;
   beers: BeerModel[] = [];
   display: boolean = false;
+  selection  : BeerModel;
 
 
   constructor(
@@ -56,5 +57,11 @@ export class BeerListComponent implements OnInit {
 
   showDialog() {
         this.display = true;
+    }
+
+    select(item: BeerModel) : void {
+      this.selection = item;
+      console.log(this.selection.name);
+      this.display = true;
     }
 }
