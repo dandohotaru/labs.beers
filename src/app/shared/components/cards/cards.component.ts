@@ -36,10 +36,10 @@ export class CardsComponent implements OnInit, OnChanges {
     }
 
     arrange(): void {
-        if (!this.colcade) {
+        if (!this.colcade) {    
             var options = {
                 columns: ".grid-col",
-                items: ".grid-item",
+                items: ".grid-card",
             };
 
             var grid = this.element.nativeElement.querySelector('.grid');
