@@ -1,5 +1,4 @@
-
-<div class="card" *ngIf="beer">
+<div class="beer" *ngIf="beer">
 
   <div class="actions">
     <span class="fa fa-1x fa-beer" aria-hidden="true"></span>
@@ -9,9 +8,9 @@
     </a>
   </div>
 
-  <div class="label">
-    <img *ngIf="beer.label" class="img-responsive center-block" src="{{beer.label}}" />
-    <img *ngIf="!beer.label" class="img-responsive center-block" src="./assets/img/beer-generic.jpg" />
+  <div class="label"> 
+    <img *ngIf="beer.label" class="image img-responsive center-block" src="{{beer.label}}" />
+    <img *ngIf="!beer.label" class="image img-responsive center-block" src="./assets/img/beer-generic.jpg" />
   </div>
 
   <div class="content">

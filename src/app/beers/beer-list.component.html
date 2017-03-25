@@ -22,15 +22,20 @@
 </div>
 
 <!-- Dialog -->
-<p-dialog modal="true" responsive="true" dismissableMask="true" [(visible)]="display">
+<p-dialog modal="true" 
+  [responsive]="true" 
+  [dismissableMask]="true" 
+  [(visible)]="display">
   <p-header *ngIf="selection">
-     {{selection.name}}
-  </p-header>  
-  <beer-card [beer]="selection"></beer-card>
+     Details
+  </p-header>
+  <div  style="min-width: 75%">
+    <beer-card [beer]="selection"></beer-card>
+  </div>  
   <p-footer>
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-      <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
-      <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
+      <!--<button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>-->
+      <button type="button" pButton icon="fa-check" (click)="display=false" label="Ok"></button>
     </div>
   </p-footer>
 </p-dialog>

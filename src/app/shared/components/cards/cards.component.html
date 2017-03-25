@@ -1,11 +1,11 @@
-<div #myGrid class="grid">
+<div #myGrid class="grid" [style.display]="hidden ? 'none' : ''">
 
     <div class="grid-col grid-col--1"></div>
     <div class="grid-col grid-col--2"></div>
     <div class="grid-col grid-col--3"></div>
     <div class="grid-col grid-col--4"></div>
 
-    <div class="grid-item" *ngFor="let item of items" [style.display]="hidden ? 'none' : ''">
+    <div class="grid-item card" *ngFor="let item of items">
         <template
             [ngTemplateOutlet]="template" 
             [ngOutletContext]="{ item: item }">
