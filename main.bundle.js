@@ -223,7 +223,7 @@ var BeerListComponent = (function () {
                         id: p.id,
                         name: p.nameDisplay,
                         style: p.style ? p.style.name : null,
-                        label: p.labels ? p.labels.medium : null,
+                        label: p.labels ? p.labels.medium : "./assets/img/beer-generic.jpg",
                         description: p.description,
                         abv: p.abv,
                         ibu: p.ibu,
@@ -847,6 +847,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var BeerCardComponent = (function () {
     function BeerCardComponent() {
+        this.selected = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     BeerCardComponent.prototype.ngOnInit = function () {
         this.legend = {
@@ -864,12 +865,20 @@ var BeerCardComponent = (function () {
         this.beer.favorite = value;
         console.log(this.beer.name + " is marked as " + text);
     };
+    BeerCardComponent.prototype.select = function () {
+        console.log(this.beer.name);
+        this.selected.next(this.beer);
+    };
     return BeerCardComponent;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", BeerModel)
 ], BeerCardComponent.prototype, "beer", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
+], BeerCardComponent.prototype, "selected", void 0);
 BeerCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-card',
@@ -891,6 +900,7 @@ var LegendModel = (function () {
     return LegendModel;
 }());
 
+var _a;
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/beer-card.component.js.map
 
 /***/ }),
@@ -1676,14 +1686,14 @@ module.exports = "<div class=\"container\">\r\n  <app-header></app-header>\r\n  
 /***/ 793:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"label\"> \r\n    <img *ngIf=\"beer.label\" class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    <img *ngIf=\"!beer.label\" class=\"image img-responsive center-block\" src=\"./assets/img/beer-generic.jpg\" />\r\n  </div>\r\n\r\n  <div class=\"content\">\r\n    <h6 class=\"title\" title=\"{{beer.description ? beer.description : 'N/A'}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
+module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\">\r\n\r\n    <div class=\"label\">\r\n      <img *ngIf=\"beer.label\" (click)=\"select\" class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{beer.description ? beer.description : 'N/A'}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
 
 /***/ }),
 
 /***/ 794:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{beers.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!--<button type=\"text\" (click)=\"showDialog()\" pButton icon=\"fa-external-link-square\" label=\"Show\">\r\n  </button>-->\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (click)=\"select(item)\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Dialog -->\r\n<p-dialog modal=\"true\" \r\n  [responsive]=\"true\" \r\n  [dismissableMask]=\"true\" \r\n  [(visible)]=\"display\">\r\n  <p-header *ngIf=\"selection\">\r\n     Details\r\n  </p-header>\r\n  <div  style=\"min-width: 75%\">\r\n    <beer-card [beer]=\"selection\"></beer-card>\r\n  </div>  \r\n  <p-footer>\r\n    <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\r\n      <!--<button type=\"button\" pButton icon=\"fa-close\" (click)=\"display=false\" label=\"Cancel\"></button>-->\r\n      <button type=\"button\" pButton icon=\"fa-check\" (click)=\"display=false\" label=\"Ok\"></button>\r\n    </div>\r\n  </p-footer>\r\n</p-dialog>"
+module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{beers.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!--<button type=\"text\" (click)=\"showDialog()\" pButton icon=\"fa-external-link-square\" label=\"Show\">\r\n  </button>-->\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item)\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Dialog -->\r\n<p-dialog modal=\"true\" \r\n  [responsive]=\"true\" \r\n  [dismissableMask]=\"true\" \r\n  [(visible)]=\"display\">\r\n\r\n  <p-header *ngIf=\"selection\">\r\n  </p-header>\r\n\r\n  <div style=\"min-width: 75%\" *ngIf=\"selection\" >\r\n    <beer-card [beer]=\"selection\"></beer-card>\r\n  </div>  \r\n  \r\n  <p-footer>\r\n    <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\r\n      <button type=\"button\" pButton icon=\"fa-check\" (click)=\"display=false\" label=\"Ok\"></button>\r\n    </div>\r\n  </p-footer>\r\n\r\n</p-dialog>"
 
 /***/ }),
 
