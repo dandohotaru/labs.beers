@@ -8,10 +8,10 @@
     </a>
   </div>
 
-  <div class="content">
+  <div class="content" (click)="select()">
 
     <div class="label">
-      <img *ngIf="beer.label" (click)="select" class="image img-responsive center-block" src="{{beer.label}}" />
+      <img *ngIf="beer.label" class="image img-responsive center-block" src="{{beer.label}}" />
     </div>
 
     <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">

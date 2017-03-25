@@ -15,7 +15,7 @@ export class BeerCardComponent implements OnInit, OnChanges {
   @Input()
   beer: BeerModel;
 
-  @Output() 
+  @Output()
   selected: EventEmitter<any> = new EventEmitter();
 
   legend: LegendModel;
