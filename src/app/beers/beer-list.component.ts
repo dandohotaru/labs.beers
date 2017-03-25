@@ -38,7 +38,7 @@ export class BeerListComponent implements OnInit {
                 id: p.id,
                 name: p.nameDisplay,
                 style: p.style ? p.style.name : null,
-                label: p.labels ? p.labels.medium : null,
+                label: p.labels ? p.labels.medium : "./assets/img/beer-generic.jpg",
                 description: p.description,
                 abv: p.abv,
                 ibu: p.ibu,

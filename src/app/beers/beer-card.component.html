@@ -8,12 +8,12 @@
     </a>
   </div>
 
-  <div class="label"> 
-    <img *ngIf="beer.label" class="image img-responsive center-block" src="{{beer.label}}" />
-    <img *ngIf="!beer.label" class="image img-responsive center-block" src="./assets/img/beer-generic.jpg" />
-  </div>
-
   <div class="content">
+
+    <div class="label">
+      <img *ngIf="beer.label" (click)="select" class="image img-responsive center-block" src="{{beer.label}}" />
+    </div>
+
     <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">
       {{beer.name}}
     </h6>
@@ -31,6 +31,8 @@
       <small *ngIf="beer.ibu">IBU %: {{beer.ibu}}</small>
       <small *ngIf="!beer.ibu">IBU %: N/A</small>
     </div>
+
+
   </div>
 
 </div>

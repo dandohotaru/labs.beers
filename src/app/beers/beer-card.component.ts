@@ -1,5 +1,5 @@
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { BeerData } from './../shared/services/beers.models';
@@ -14,9 +14,13 @@ export class BeerCardComponent implements OnInit, OnChanges {
 
   @Input()
   beer: BeerModel;
+
+  @Output() 
+  selected: EventEmitter<any> = new EventEmitter();
+
   legend: LegendModel;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
@@ -30,29 +34,34 @@ export class BeerCardComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
   }
 
-  favorite(event: any) : void {
+  favorite(event: any): void {
     event.preventDefault();
     var value = !this.beer.favorite;
     var text = value ? "favorite" : "not favorite";
     this.beer.favorite = value;
 
     console.log(`${this.beer.name} is marked as ${text}`);
- }
+  }
+
+  select(): void {
+    console.log(this.beer.name);
+    this.selected.next(this.beer);
+  }
 }
 
 export class BeerModel {
-    id: string;
-    name: string;
-    style: string;
-    label: string;
-    description: string;
-    abv: string;
-    ibu: string;
-    favorite?: boolean;
+  id: string;
+  name: string;
+  style: string;
+  label: string;
+  description: string;
+  abv: string;
+  ibu: string;
+  favorite?: boolean;
 }
 
 export class LegendModel {
-  abv: string; 
+  abv: string;
   ibu: string;
-  srm: string; 
+  srm: string;
 }
