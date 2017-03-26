@@ -8,7 +8,7 @@ webpackJsonp([1,5],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(810);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(813);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
@@ -222,9 +222,9 @@ var BeerListComponent = (function () {
                     var beer = {
                         id: p.id,
                         name: p.nameDisplay,
-                        style: p.style ? p.style.name : null,
+                        style: p.style ? p.style.name : "N/A",
                         label: p.labels ? p.labels.medium : "./assets/img/beer-generic.jpg",
-                        description: p.description,
+                        description: p.description ? p.description : "N/A",
                         abv: p.abv,
                         ibu: p.ibu,
                         favorite: false,
@@ -250,7 +250,8 @@ var BeerListComponent = (function () {
 BeerListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-list',
-        template: __webpack_require__(794)
+        template: __webpack_require__(797),
+        styles: [__webpack_require__(719)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */]) === "function" && _c || Object])
 ], BeerListComponent);
@@ -296,7 +297,7 @@ var BreweryListComponent = (function () {
 BreweryListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-breweries',
-        template: __webpack_require__(796)
+        template: __webpack_require__(799)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _a || Object])
 ], BreweryListComponent);
@@ -332,8 +333,8 @@ var AboutComponent = (function () {
 AboutComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-about',
-        template: __webpack_require__(797),
-        styles: [__webpack_require__(718)]
+        template: __webpack_require__(800),
+        styles: [__webpack_require__(721)]
     }),
     __metadata("design:paramtypes", [])
 ], AboutComponent);
@@ -368,8 +369,8 @@ var GlossaryComponent = (function () {
 GlossaryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-glossary',
-        template: __webpack_require__(799),
-        styles: [__webpack_require__(720)]
+        template: __webpack_require__(802),
+        styles: [__webpack_require__(723)]
     }),
     __metadata("design:paramtypes", [])
 ], GlossaryComponent);
@@ -402,8 +403,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
-        template: __webpack_require__(801),
-        styles: [__webpack_require__(722)]
+        template: __webpack_require__(804),
+        styles: [__webpack_require__(725)]
     })
 ], HomeComponent);
 
@@ -437,7 +438,7 @@ var LostComponent = (function () {
 LostComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-lost',
-        template: __webpack_require__(802)
+        template: __webpack_require__(805)
     }),
     __metadata("design:paramtypes", [])
 ], LostComponent);
@@ -452,7 +453,7 @@ LostComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(554);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -492,7 +493,7 @@ CardsModule = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options__ = __webpack_require__(557);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__mason_grid_options__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_colcade__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_colcade__);
@@ -563,8 +564,8 @@ var _a, _b;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mason_column_directive__ = __webpack_require__(555);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mason_brick_directive__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mason_column_directive__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mason_brick_directive__ = __webpack_require__(555);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MasonModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -651,10 +652,10 @@ webpackEmptyContext.id = 417;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(512);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(558);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(543);
 
 
 
@@ -667,7 +668,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 541:
+/***/ 542:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -709,7 +710,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(792)
+        template: __webpack_require__(795)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"]) === "function" && _a || Object])
 ], AppComponent);
@@ -719,7 +720,7 @@ var _a;
 
 /***/ }),
 
-/***/ 542:
+/***/ 543:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -730,11 +731,11 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_primeng_primeng__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(541);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__layout_layout_module__ = __webpack_require__(550);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__breweries_breweries_module__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__beers_beers_module__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__layout_layout_module__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__breweries_breweries_module__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__beers_beers_module__ = __webpack_require__(546);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_exceptions_error_handler__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_services_beers_service__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_aurelia_event_aggregator__ = __webpack_require__(233);
@@ -798,7 +799,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 543:
+/***/ 544:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -827,7 +828,7 @@ var AppRoutes = [
 
 /***/ }),
 
-/***/ 544:
+/***/ 545:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -882,8 +883,8 @@ __decorate([
 BeerCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-card',
-        template: __webpack_require__(793),
-        styles: [__webpack_require__(716)],
+        template: __webpack_require__(796),
+        styles: [__webpack_require__(718)],
     }),
     __metadata("design:paramtypes", [])
 ], BeerCardComponent);
@@ -905,7 +906,7 @@ var _a;
 
 /***/ }),
 
-/***/ 545:
+/***/ 546:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -916,7 +917,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_mason_mason_module__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_cards_cards_module__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__beer_list_component__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__beer_card_component__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__beer_card_component__ = __webpack_require__(545);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeersModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -960,7 +961,7 @@ BeersModule = __decorate([
 
 /***/ }),
 
-/***/ 546:
+/***/ 547:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -971,7 +972,7 @@ BeersModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_mason_mason_module__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_cards_module__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__ = __webpack_require__(548);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweriesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1016,11 +1017,11 @@ BreweriesModule = __decorate([
 
 /***/ }),
 
-/***/ 547:
+/***/ 548:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(558);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweryCardComponent; });
@@ -1053,8 +1054,8 @@ __decorate([
 BreweryCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'brewery-card',
-        template: __webpack_require__(795),
-        styles: [__webpack_require__(717)]
+        template: __webpack_require__(798),
+        styles: [__webpack_require__(720)]
     }),
     __metadata("design:paramtypes", [])
 ], BreweryCardComponent);
@@ -1064,7 +1065,7 @@ var _a;
 
 /***/ }),
 
-/***/ 548:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1091,8 +1092,8 @@ var FooterComponent = (function () {
 FooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-footer',
-        template: __webpack_require__(798),
-        styles: [__webpack_require__(719)]
+        template: __webpack_require__(801),
+        styles: [__webpack_require__(722)]
     }),
     __metadata("design:paramtypes", [])
 ], FooterComponent);
@@ -1101,7 +1102,7 @@ FooterComponent = __decorate([
 
 /***/ }),
 
-/***/ 549:
+/***/ 550:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1127,8 +1128,8 @@ var HeaderComponent = (function () {
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-header',
-        template: __webpack_require__(800),
-        styles: [__webpack_require__(721)]
+        template: __webpack_require__(803),
+        styles: [__webpack_require__(724)]
     }),
     __metadata("design:paramtypes", [])
 ], HeaderComponent);
@@ -1137,16 +1138,16 @@ HeaderComponent = __decorate([
 
 /***/ }),
 
-/***/ 550:
+/***/ 551:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(552);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(549);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(549);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_component__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_component__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lost_component__ = __webpack_require__(353);
@@ -1203,7 +1204,7 @@ LayoutModule = __decorate([
 
 /***/ }),
 
-/***/ 551:
+/***/ 552:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1215,15 +1216,15 @@ LayoutModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__(233);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(809);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(812);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__(811);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__(814);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(812);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(815);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__ = __webpack_require__(813);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__ = __webpack_require__(816);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__ = __webpack_require__(231);
@@ -1298,7 +1299,7 @@ var SearchComponent = (function () {
 SearchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-search',
-        template: __webpack_require__(803)
+        template: __webpack_require__(806)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__["EventAggregator"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__["a" /* BeersService */]) === "function" && _d || Object])
 ], SearchComponent);
@@ -1308,14 +1309,14 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 552:
+/***/ 553:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_component__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_component__ = __webpack_require__(552);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1352,7 +1353,7 @@ SearchModule = __decorate([
 
 /***/ }),
 
-/***/ 553:
+/***/ 554:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1417,8 +1418,8 @@ __decorate([
 CardsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-cards',
-        template: __webpack_require__(804),
-        styles: [__webpack_require__(723)]
+        template: __webpack_require__(807),
+        styles: [__webpack_require__(726)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _c || Object])
 ], CardsComponent);
@@ -1428,7 +1429,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 554:
+/***/ 555:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1473,7 +1474,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 555:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1501,21 +1502,21 @@ MasonColumnDirective = __decorate([
 
 /***/ }),
 
-/***/ 556:
+/***/ 557:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/mason-grid.options.js.map
 
 /***/ }),
 
-/***/ 557:
+/***/ 558:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/breweries.models.js.map
 
 /***/ }),
 
-/***/ 558:
+/***/ 559:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1532,15 +1533,15 @@ var environment = {
 
 /***/ }),
 
-/***/ 716:
+/***/ 718:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
 // module
-exports.push([module.i, ".beer {\r\n}\r\n\r\n.beer .actions {\r\n    margin-top: 1%;\r\n    margin-left: 5%;\r\n    margin-right: 5%;\r\n}\r\n\r\n.beer .actions .star {\r\n    color: yellow;\r\n    -webkit-text-stroke-width: 1px;\r\n    -webkit-text-stroke-color: darkorange;\r\n}\r\n\r\n.beer .label {\r\n}\r\n\r\n.beer .label .image {\r\n    max-width: 200px;\r\n    max-height: 200px;\r\n}\r\n\r\n.beer .content {\r\n    padding: 2px 16px;\r\n}\r\n\r\n.beer .title {\r\n    font-weight: bold;\r\n}\r\n\r\n.beer .type {\r\n    font-style: italic;\r\n}\r\n\r\n.beer .spec {\r\n    display: inline;\r\n}", ""]);
+exports.push([module.i, ".beer {\r\n}\r\n\r\n.beer .actions {\r\n    margin-top: 1%;\r\n    margin-left: 5%;\r\n    margin-right: 5%;\r\n}\r\n\r\n.beer .actions .star {\r\n    color: yellow;\r\n    -webkit-text-stroke-width: 1px;\r\n    -webkit-text-stroke-color: darkorange;\r\n}\r\n\r\n.beer .label {\r\n}\r\n\r\n.beer .label .image {\r\n}\r\n\r\n.beer .content {\r\n    padding: 2px 16px;\r\n}\r\n\r\n.beer .title {\r\n    font-weight: bold;\r\n}\r\n\r\n.beer .type {\r\n    font-style: italic;\r\n}\r\n\r\n.beer .spec {\r\n    display: inline;\r\n}", ""]);
 
 // exports
 
@@ -1550,10 +1551,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 717:
+/***/ 719:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
+// imports
+
+
+// module
+exports.push([module.i, ".dialog {\r\n}\r\n\r\n.dialog .title {\r\n    border-bottom: none;\r\n    font: 12px/14px 'Armata', Arial, sans-serif;\r\n    letter-spacing: 0.14em;\r\n    margin: 5px 0;\r\n    padding: 5px 0;\r\n    text-transform: uppercase;\r\n    word-spacing: 0.4em;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 720:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1568,10 +1587,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 718:
+/***/ 721:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1586,10 +1605,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 719:
+/***/ 722:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1604,10 +1623,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 720:
+/***/ 723:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1622,10 +1641,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 721:
+/***/ 724:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1640,10 +1659,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 722:
+/***/ 725:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1658,10 +1677,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 723:
+/***/ 726:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)();
+exports = module.exports = __webpack_require__(23)();
 // imports
 
 
@@ -1676,98 +1695,98 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 792:
+/***/ 795:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\r\n  <app-header></app-header>\r\n  <router-outlet></router-outlet>\r\n  <app-footer></app-footer>\r\n</div>"
 
 /***/ }),
 
-/***/ 793:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n\r\n    <div class=\"label\">\r\n      <img *ngIf=\"beer.label\" class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{beer.description ? beer.description : 'N/A'}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
-
-/***/ }),
-
-/***/ 794:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{beers.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item)\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Dialog -->\r\n<p-dialog modal=\"true\" \r\n  [responsive]=\"true\" \r\n  [dismissableMask]=\"true\" \r\n  [(visible)]=\"display\">\r\n\r\n  <p-header *ngIf=\"selection\">\r\n  </p-header>\r\n\r\n  <div style=\"min-width: 75%\" *ngIf=\"selection\" >\r\n    <beer-card [beer]=\"selection\"></beer-card>\r\n  </div>  \r\n  \r\n  <p-footer>\r\n    <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\r\n      <button type=\"button\" pButton icon=\"fa-check\" (click)=\"display=false\" label=\"Ok\"></button>\r\n    </div>\r\n  </p-footer>\r\n\r\n</p-dialog>"
-
-/***/ }),
-
-/***/ 795:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"brewery\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-cog\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!brewery.favorite\" class=\"fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"brewery.favorite\" class=\"fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"label\">\r\n    <img *ngIf=\"brewery.images\" class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n    <img *ngIf=\"!brewery.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n  </div>\r\n\r\n  <div class=\"content\">\r\n    <h6 class=\"title\" title=\"{{brewery.description ? brewery.description : 'N/A'}}\">\r\n      {{brewery.name}}\r\n    </h6>\r\n\r\n    <div class=\"date\">\r\n      <small>Established: {{brewery.established}}</small>\r\n    </div>\r\n\r\n</div>\r\n\r\n<!--Established: {{brewery.established}}\r\nName: {{brewery.name}}\r\nLabel: {{brewery.images.medium}}\r\nDescription: {{brewery.description}}-->"
-
-/***/ }),
-
 /***/ 796:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{breweries.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"breweries\">\r\n      <template let-item=\"item\">\r\n        <brewery-card [brewery]=\"item\"></brewery-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n\r\n    <div class=\"label\">\r\n      <img class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{beer.description}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
 
 /***/ }),
 
 /***/ 797:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n        <h3>Shortcurt</h3>\r\n        <p>\r\n            <img class=\"center\" src=\"./assets/img/app-url.png\" alt=\"https://dandohotaru.github.io/labs.beers/\">\r\n        </p>\r\n\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{beers.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item)\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Dialog -->\r\n<p-dialog modal=\"true\"  \r\n  [dismissableMask]=\"true\" \r\n  [resizable]=\"true\"\r\n  [(visible)]=\"display\"\r\n  class=\"dialog\">\r\n\r\n  <p-header *ngIf=\"selection\">\r\n      <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n        {{selection.name}}\r\n      </span>\r\n  </p-header>\r\n\r\n  <div class=\"container-fluid pre-scrollable\" *ngIf=\"selection\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <!--<beer-card [beer]=\"selection\"></beer-card>-->\r\n        {{selection.description}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <p-footer>\r\n    <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\r\n      <button type=\"button\" pButton icon=\"fa-check\" (click)=\"display=false\" label=\"Ok\"></button>\r\n    </div>\r\n  </p-footer>\r\n\r\n</p-dialog>"
 
 /***/ }),
 
 /***/ 798:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <footer class=\"footer\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n          <p class=\"text-muted\">\r\n            <a routerLink=\"/about\">About</a>\r\n            <a routerLink=\"/glossary\">Glossary</a>\r\n            <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n          </p>\r\n        </div>\r\n\r\n        <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n          <p class=\"text-muted text-right\">\r\n            <span>Last update: {{lastUpdate | date}} </span>\r\n            |\r\n            <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n          </p>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</nav>"
+module.exports = "<div class=\"brewery\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-cog\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!brewery.favorite\" class=\"fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"brewery.favorite\" class=\"fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"label\">\r\n    <img *ngIf=\"brewery.images\" class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n    <img *ngIf=\"!brewery.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n  </div>\r\n\r\n  <div class=\"content\">\r\n    <h6 class=\"title\" title=\"{{brewery.description ? brewery.description : 'N/A'}}\">\r\n      {{brewery.name}}\r\n    </h6>\r\n\r\n    <div class=\"date\">\r\n      <small>Established: {{brewery.established}}</small>\r\n    </div>\r\n\r\n</div>\r\n\r\n<!--Established: {{brewery.established}}\r\nName: {{brewery.name}}\r\nLabel: {{brewery.images.medium}}\r\nDescription: {{brewery.description}}-->"
 
 /***/ }),
 
 /***/ 799:
 /***/ (function(module, exports) {
 
-module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
+module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{breweries.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"breweries\">\r\n      <template let-item=\"item\">\r\n        <brewery-card [brewery]=\"item\"></brewery-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n"
 
 /***/ }),
 
 /***/ 800:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search></app-search>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n        <h3>Shortcurt</h3>\r\n        <p>\r\n            <img class=\"center\" src=\"./assets/img/app-url.png\" alt=\"https://dandohotaru.github.io/labs.beers/\">\r\n        </p>\r\n\r\n    </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 801:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <footer class=\"footer\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n          <p class=\"text-muted\">\r\n            <a routerLink=\"/about\">About</a>\r\n            <a routerLink=\"/glossary\">Glossary</a>\r\n            <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n          </p>\r\n        </div>\r\n\r\n        <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n          <p class=\"text-muted text-right\">\r\n            <span>Last update: {{lastUpdate | date}} </span>\r\n            |\r\n            <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n          </p>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</nav>"
 
 /***/ }),
 
 /***/ 802:
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Page not found</h3>"
+module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
 
 /***/ }),
 
 /***/ 803:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Types -->\r\n  <!--<div class=\"input-group-btn\">\r\n    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n        <span id=\"searchIndexButton\">Beers</span> \r\n        <span class=\"caret\"></span>\r\n    </button>\r\n    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n      <li><a id=\"beersSearchIndex\" href=\"#\">Beers</a></li>\r\n      <li><a id=\"breweriesSearchIndex\" href=\"#\">Breweries</a></li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search></app-search>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
 
 /***/ }),
 
 /***/ 804:
 /***/ (function(module, exports) {
 
+module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 805:
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Page not found</h3>"
+
+/***/ }),
+
+/***/ 806:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Types -->\r\n  <!--<div class=\"input-group-btn\">\r\n    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n        <span id=\"searchIndexButton\">Beers</span> \r\n        <span class=\"caret\"></span>\r\n    </button>\r\n    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n      <li><a id=\"beersSearchIndex\" href=\"#\">Beers</a></li>\r\n      <li><a id=\"breweriesSearchIndex\" href=\"#\">Breweries</a></li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 807:
+/***/ (function(module, exports) {
+
 module.exports = "<div #myGrid class=\"grid\" [style.display]=\"hidden ? 'none' : ''\">\r\n\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <div class=\"grid-card\" *ngFor=\"let item of items\">\r\n        <template\r\n            [ngTemplateOutlet]=\"template\" \r\n            [ngOutletContext]=\"{ item: item }\">\r\n        </template>\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
-/***/ 844:
+/***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(418);
@@ -1775,5 +1794,5 @@ module.exports = __webpack_require__(418);
 
 /***/ })
 
-},[844]);
+},[847]);
 //# sourceMappingURL=main.bundle.js.map
