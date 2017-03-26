@@ -19,18 +19,28 @@
 </div>
 
 <!-- Dialog -->
-<p-dialog modal="true" 
-  [responsive]="true" 
+<p-dialog modal="true"  
   [dismissableMask]="true" 
-  [(visible)]="display">
+  [resizable]="true"
+  [(visible)]="display"
+  class="dialog">
 
   <p-header *ngIf="selection">
+      <span class="title">
+        <span class="fa fa-1x fa-beer" aria-hidden="true"></span>
+        {{selection.name}}
+      </span>
   </p-header>
 
-  <div style="min-width: 75%" *ngIf="selection" >
-    <beer-card [beer]="selection"></beer-card>
-  </div>  
-  
+  <div class="container-fluid pre-scrollable" *ngIf="selection">
+    <div class="row">
+      <div class="col-xs-12">
+        <!--<beer-card [beer]="selection"></beer-card>-->
+        {{selection.description}}
+      </div>
+    </div>
+  </div>
+
   <p-footer>
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
       <button type="button" pButton icon="fa-check" (click)="display=false" label="Ok"></button>

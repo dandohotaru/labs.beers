@@ -1,0 +1,12 @@
+.dialog {
+}
+
+.dialog .title {
+    border-bottom: none;
+    font: 12px/14px 'Armata', Arial, sans-serif;
+    letter-spacing: 0.14em;
+    margin: 5px 0;
+    padding: 5px 0;
+    text-transform: uppercase;
+    word-spacing: 0.4em;
+}

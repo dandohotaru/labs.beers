@@ -11,10 +11,10 @@
   <div class="content" (click)="select()">
 
     <div class="label">
-      <img *ngIf="beer.label" class="image img-responsive center-block" src="{{beer.label}}" />
+      <img class="image img-responsive center-block" src="{{beer.label}}" />
     </div>
 
-    <h6 class="title" title="{{beer.description ? beer.description : 'N/A'}}">
+    <h6 class="title" title="{{beer.description}}">
       {{beer.name}}
     </h6>
 

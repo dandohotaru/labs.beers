@@ -7,7 +7,8 @@ import { BeerModel } from "./beer-card.component";
 
 @Component({
   selector: 'beer-list',
-  templateUrl: './beer-list.component.html'
+  templateUrl: './beer-list.component.html',
+  styleUrls:['./beer-list.component.css']
 })
 export class BeerListComponent implements OnInit {
 
@@ -37,9 +38,9 @@ export class BeerListComponent implements OnInit {
               var beer: BeerModel = {
                 id: p.id,
                 name: p.nameDisplay,
-                style: p.style ? p.style.name : null,
+                style: p.style ? p.style.name : "N/A",
                 label: p.labels ? p.labels.medium : "./assets/img/beer-generic.jpg",
-                description: p.description,
+                description: p.description ? p.description : "N/A",
                 abv: p.abv,
                 ibu: p.ibu,
                 favorite: false,
