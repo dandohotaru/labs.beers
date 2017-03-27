@@ -30,6 +30,7 @@ import { BreweriesService } from './shared/services/breweries.service';
     RouterModule.forRoot(AppRoutes),
     DialogModule,
     LayoutModule,
+    
     BreweriesModule,
     BeersModule
   ],

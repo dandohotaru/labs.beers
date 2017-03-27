@@ -19,10 +19,10 @@ import { BeerData } from './../shared/services/beers.models';
 import { TermSearched, BeerSearched, BrewerySearched } from './../shared/events/search.events';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html'
+  selector: 'app-search-bar',
+  templateUrl: './search-bar.component.html'
 })
-export class SearchComponent implements OnInit {
+export class SearchBarComponent implements OnInit {
 
   private terms: Subject<string> = new Subject<string>();
   private results: any[];
