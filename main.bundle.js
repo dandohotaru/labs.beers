@@ -8,7 +8,7 @@ webpackJsonp([1,5],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(813);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(816);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
@@ -187,7 +187,7 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__ = __webpack_require__(231);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeerListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -249,9 +249,9 @@ var BeerListComponent = (function () {
 }());
 BeerListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'beer-list',
-        template: __webpack_require__(797),
-        styles: [__webpack_require__(719)]
+        selector: 'app-beer-list',
+        template: __webpack_require__(799),
+        styles: [__webpack_require__(720)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */]) === "function" && _c || Object])
 ], BeerListComponent);
@@ -262,6 +262,117 @@ var _a, _b, _c;
 /***/ }),
 
 /***/ 349:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_primeng_primeng__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_mason_mason_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_cards_cards_module__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__beer_list_component__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__beer_card_component__ = __webpack_require__(549);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeersModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+var BeersModule = (function () {
+    function BeersModule() {
+    }
+    return BeersModule;
+}());
+BeersModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_3__shared_components_mason_mason_module__["a" /* MasonModule */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_components_cards_cards_module__["a" /* CardsModule */],
+            __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__["DialogModule"],
+            __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__["ButtonModule"]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__beer_list_component__["a" /* BeerListComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__beer_card_component__["a" /* BeerCardComponent */],
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_5__beer_list_component__["a" /* BeerListComponent */]
+        ],
+        providers: []
+    })
+], BeersModule);
+
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/beers.module.js.map
+
+/***/ }),
+
+/***/ 350:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_mason_mason_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_cards_module__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__ = __webpack_require__(550);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweriesModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var BreweriesModule = (function () {
+    function BreweriesModule() {
+    }
+    return BreweriesModule;
+}());
+BreweriesModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_components_mason_mason_module__["a" /* MasonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_cards_module__["a" /* CardsModule */]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__["a" /* BreweryListComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__["a" /* BreweryCardComponent */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__["a" /* BreweryListComponent */]
+        ],
+        providers: []
+    })
+], BreweriesModule);
+
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/breweries.module.js.map
+
+/***/ }),
+
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -296,8 +407,8 @@ var BreweryListComponent = (function () {
 }());
 BreweryListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-breweries',
-        template: __webpack_require__(799)
+        selector: 'app-brewery-list',
+        template: __webpack_require__(801)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _a || Object])
 ], BreweryListComponent);
@@ -307,7 +418,7 @@ var _a;
 
 /***/ }),
 
-/***/ 350:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -333,8 +444,8 @@ var AboutComponent = (function () {
 AboutComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-about',
-        template: __webpack_require__(800),
-        styles: [__webpack_require__(721)]
+        template: __webpack_require__(802),
+        styles: [__webpack_require__(722)]
     }),
     __metadata("design:paramtypes", [])
 ], AboutComponent);
@@ -343,7 +454,7 @@ AboutComponent = __decorate([
 
 /***/ }),
 
-/***/ 351:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -369,8 +480,8 @@ var GlossaryComponent = (function () {
 GlossaryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-glossary',
-        template: __webpack_require__(802),
-        styles: [__webpack_require__(723)]
+        template: __webpack_require__(804),
+        styles: [__webpack_require__(724)]
     }),
     __metadata("design:paramtypes", [])
 ], GlossaryComponent);
@@ -379,7 +490,7 @@ GlossaryComponent = __decorate([
 
 /***/ }),
 
-/***/ 352:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -403,8 +514,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
-        template: __webpack_require__(804),
-        styles: [__webpack_require__(725)]
+        template: __webpack_require__(806),
+        styles: [__webpack_require__(726)]
     })
 ], HomeComponent);
 
@@ -412,7 +523,7 @@ HomeComponent = __decorate([
 
 /***/ }),
 
-/***/ 353:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -438,7 +549,7 @@ var LostComponent = (function () {
 LostComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-lost',
-        template: __webpack_require__(805)
+        template: __webpack_require__(807)
     }),
     __metadata("design:paramtypes", [])
 ], LostComponent);
@@ -447,13 +558,107 @@ LostComponent = __decorate([
 
 /***/ }),
 
-/***/ 354:
+/***/ 356:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(20);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchResultsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchResultsComponent = (function () {
+    function SearchResultsComponent(router, route) {
+        this.router = router;
+        this.route = route;
+    }
+    SearchResultsComponent.prototype.ngOnInit = function () {
+    };
+    return SearchResultsComponent;
+}());
+SearchResultsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-search-results',
+        template: __webpack_require__(809),
+        styles: [__webpack_require__(727)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object])
+], SearchResultsComponent);
+
+var _a, _b;
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/search-results.component.js.map
+
+/***/ }),
+
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beers_beers_module__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__breweries_breweries_module__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_bar_component__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_results_component__ = __webpack_require__(356);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+var SearchModule = (function () {
+    function SearchModule() {
+    }
+    return SearchModule;
+}());
+SearchModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"],
+            __WEBPACK_IMPORTED_MODULE_3__beers_beers_module__["a" /* BeersModule */],
+            __WEBPACK_IMPORTED_MODULE_4__breweries_breweries_module__["a" /* BreweriesModule */]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__search_bar_component__["a" /* SearchBarComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__search_results_component__["a" /* SearchResultsComponent */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_5__search_bar_component__["a" /* SearchBarComponent */]
+        ],
+        providers: []
+    })
+], SearchModule);
+
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/search.module.js.map
+
+/***/ }),
+
+/***/ 358:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(555);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -488,14 +693,14 @@ CardsModule = __decorate([
 
 /***/ }),
 
-/***/ 355:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options__ = __webpack_require__(558);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__mason_grid_options__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_colcade__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_colcade__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_colcade__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MasonGridComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -558,14 +763,14 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 356:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mason_column_directive__ = __webpack_require__(556);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mason_brick_directive__ = __webpack_require__(555);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mason_column_directive__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mason_brick_directive__ = __webpack_require__(556);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MasonModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -601,13 +806,13 @@ MasonModule = __decorate([
 
 /***/ }),
 
-/***/ 357:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export TermSearched */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeerSearched; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return BrewerySearched; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TermSearched; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return BeerSearched; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return BrewerySearched; });
 var TermSearched = (function () {
     function TermSearched(term) {
         this.term = term;
@@ -633,7 +838,7 @@ var BrewerySearched = (function () {
 
 /***/ }),
 
-/***/ 417:
+/***/ 421:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -642,20 +847,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 417;
+webpackEmptyContext.id = 421;
 
 
 /***/ }),
 
-/***/ 418:
+/***/ 422:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(516);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(559);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(547);
 
 
 
@@ -668,14 +873,14 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 542:
+/***/ 546:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__ = __webpack_require__(233);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__ = __webpack_require__(361);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -695,11 +900,14 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         console.log("app is initialized");
-        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__["a" /* BeerSearched */], function (response) {
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__["b" /* BeerSearched */], function (response) {
             console.info("BeerSearched: " + response.term);
         });
-        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__["b" /* BrewerySearched */], function (response) {
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__["c" /* BrewerySearched */], function (response) {
             console.info("BrewerySearched: " + response.term);
+        });
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_2__shared_events_search_events__["a" /* TermSearched */], function (response) {
+            console.info("TermSearched: " + response.term);
         });
         this.eventAggregator.subscribe("termSearched", function (response) {
             console.info("TermSearched: " + response.term);
@@ -710,7 +918,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(795)
+        template: __webpack_require__(797)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"]) === "function" && _a || Object])
 ], AppComponent);
@@ -720,7 +928,7 @@ var _a;
 
 /***/ }),
 
-/***/ 543:
+/***/ 547:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -728,19 +936,20 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_primeng_primeng__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(544);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(542);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__layout_layout_module__ = __webpack_require__(551);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__breweries_breweries_module__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__beers_beers_module__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_exceptions_error_handler__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_services_beers_service__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_aurelia_event_aggregator__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__shared_services_breweries_service__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__layout_layout_module__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__search_search_module__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__breweries_breweries_module__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__beers_beers_module__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_exceptions_error_handler__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_services_beers_service__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_aurelia_event_aggregator__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_aurelia_event_aggregator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_services_breweries_service__ = __webpack_require__(232);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -748,6 +957,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -780,14 +990,15 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routes__["a" /* AppRoutes */]),
             __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__["DialogModule"],
             __WEBPACK_IMPORTED_MODULE_8__layout_layout_module__["a" /* LayoutModule */],
-            __WEBPACK_IMPORTED_MODULE_9__breweries_breweries_module__["a" /* BreweriesModule */],
-            __WEBPACK_IMPORTED_MODULE_10__beers_beers_module__["a" /* BeersModule */]
+            __WEBPACK_IMPORTED_MODULE_9__search_search_module__["a" /* SearchModule */],
+            __WEBPACK_IMPORTED_MODULE_10__breweries_breweries_module__["a" /* BreweriesModule */],
+            __WEBPACK_IMPORTED_MODULE_11__beers_beers_module__["a" /* BeersModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_11__shared_exceptions_error_handler__["a" /* ErrorHandler */],
-            __WEBPACK_IMPORTED_MODULE_14__shared_services_breweries_service__["a" /* BreweriesService */],
-            __WEBPACK_IMPORTED_MODULE_12__shared_services_beers_service__["a" /* BeersService */],
-            __WEBPACK_IMPORTED_MODULE_13_aurelia_event_aggregator__["EventAggregator"]
+            __WEBPACK_IMPORTED_MODULE_12__shared_exceptions_error_handler__["a" /* ErrorHandler */],
+            __WEBPACK_IMPORTED_MODULE_15__shared_services_breweries_service__["a" /* BreweriesService */],
+            __WEBPACK_IMPORTED_MODULE_13__shared_services_beers_service__["a" /* BeersService */],
+            __WEBPACK_IMPORTED_MODULE_14_aurelia_event_aggregator__["EventAggregator"]
         ],
         bootstrap: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]
@@ -799,17 +1010,19 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 544:
+/***/ 548:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layout_home_component__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_lost_component__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_about_component__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__breweries_brewery_list_component__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layout_home_component__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_lost_component__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_about_component__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__breweries_brewery_list_component__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__beers_beer_list_component__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_glossary_component__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_glossary_component__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_search_results_component__ = __webpack_require__(356);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutes; });
+
 
 
 
@@ -822,13 +1035,14 @@ var AppRoutes = [
     { path: 'glossary', component: __WEBPACK_IMPORTED_MODULE_5__layout_glossary_component__["a" /* GlossaryComponent */] },
     { path: 'breweries', component: __WEBPACK_IMPORTED_MODULE_3__breweries_brewery_list_component__["a" /* BreweryListComponent */] },
     { path: 'beers', component: __WEBPACK_IMPORTED_MODULE_4__beers_beer_list_component__["a" /* BeerListComponent */] },
+    { path: 'search', component: __WEBPACK_IMPORTED_MODULE_6__search_search_results_component__["a" /* SearchResultsComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_1__layout_lost_component__["a" /* LostComponent */] }
 ];
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/app.routes.js.map
 
 /***/ }),
 
-/***/ 545:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -883,8 +1097,8 @@ __decorate([
 BeerCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-card',
-        template: __webpack_require__(796),
-        styles: [__webpack_require__(718)],
+        template: __webpack_require__(798),
+        styles: [__webpack_require__(719)],
     }),
     __metadata("design:paramtypes", [])
 ], BeerCardComponent);
@@ -906,122 +1120,11 @@ var _a;
 
 /***/ }),
 
-/***/ 546:
+/***/ 550:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_primeng_primeng__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_mason_mason_module__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_cards_cards_module__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__beer_list_component__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__beer_card_component__ = __webpack_require__(545);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeersModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-var BeersModule = (function () {
-    function BeersModule() {
-    }
-    return BeersModule;
-}());
-BeersModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_3__shared_components_mason_mason_module__["a" /* MasonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__shared_components_cards_cards_module__["a" /* CardsModule */],
-            __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__["DialogModule"],
-            __WEBPACK_IMPORTED_MODULE_2_primeng_primeng__["ButtonModule"]
-        ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_5__beer_list_component__["a" /* BeerListComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__beer_card_component__["a" /* BeerCardComponent */],
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_5__beer_list_component__["a" /* BeerListComponent */]
-        ],
-        providers: []
-    })
-], BeersModule);
-
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/beers.module.js.map
-
-/***/ }),
-
-/***/ 547:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_mason_mason_module__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_cards_module__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__ = __webpack_require__(548);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweriesModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-var BreweriesModule = (function () {
-    function BreweriesModule() {
-    }
-    return BreweriesModule;
-}());
-BreweriesModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_4__shared_components_mason_mason_module__["a" /* MasonModule */],
-            __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_cards_module__["a" /* CardsModule */]
-        ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__["a" /* BreweryListComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__brewery_card_component__["a" /* BreweryCardComponent */]
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_6__brewery_list_component__["a" /* BreweryListComponent */]
-        ],
-        providers: []
-    })
-], BreweriesModule);
-
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/breweries.module.js.map
-
-/***/ }),
-
-/***/ 548:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(559);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweryCardComponent; });
@@ -1054,8 +1157,8 @@ __decorate([
 BreweryCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'brewery-card',
-        template: __webpack_require__(798),
-        styles: [__webpack_require__(720)]
+        template: __webpack_require__(800),
+        styles: [__webpack_require__(721)]
     }),
     __metadata("design:paramtypes", [])
 ], BreweryCardComponent);
@@ -1065,7 +1168,7 @@ var _a;
 
 /***/ }),
 
-/***/ 549:
+/***/ 551:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1092,8 +1195,8 @@ var FooterComponent = (function () {
 FooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-footer',
-        template: __webpack_require__(801),
-        styles: [__webpack_require__(722)]
+        template: __webpack_require__(803),
+        styles: [__webpack_require__(723)]
     }),
     __metadata("design:paramtypes", [])
 ], FooterComponent);
@@ -1102,7 +1205,7 @@ FooterComponent = __decorate([
 
 /***/ }),
 
-/***/ 550:
+/***/ 552:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1128,8 +1231,8 @@ var HeaderComponent = (function () {
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-header',
-        template: __webpack_require__(803),
-        styles: [__webpack_require__(724)]
+        template: __webpack_require__(805),
+        styles: [__webpack_require__(725)]
     }),
     __metadata("design:paramtypes", [])
 ], HeaderComponent);
@@ -1138,20 +1241,20 @@ HeaderComponent = __decorate([
 
 /***/ }),
 
-/***/ 551:
+/***/ 553:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(553);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(550);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(549);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_component__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_component__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lost_component__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__glossary_component__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(552);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_component__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_component__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lost_component__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__glossary_component__ = __webpack_require__(353);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1204,32 +1307,32 @@ LayoutModule = __decorate([
 
 /***/ }),
 
-/***/ 552:
+/***/ 554:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__(233);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(812);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(815);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__(817);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(815);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(818);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__ = __webpack_require__(816);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__ = __webpack_require__(819);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_events_search_events__ = __webpack_require__(357);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_events_search_events__ = __webpack_require__(361);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchBarComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1252,22 +1355,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SearchComponent = (function () {
-    function SearchComponent(router, eventAggregator, breweriesService, beersService) {
+var SearchBarComponent = (function () {
+    function SearchBarComponent(router, eventAggregator, breweriesService, beersService) {
         this.router = router;
         this.eventAggregator = eventAggregator;
         this.breweriesService = breweriesService;
         this.beersService = beersService;
-        this.terms = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.termsProxy = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
     }
-    SearchComponent.prototype.ngOnInit = function () {
+    SearchBarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.terms
-            .debounceTime(300)
+        this.termsProxy
             .distinctUntilChanged()
+            .debounceTime(300)
             .switchMap(function (term) {
+            _this.eventAggregator.publish(new __WEBPACK_IMPORTED_MODULE_12__shared_events_search_events__["a" /* TermSearched */](term));
             var temp = term
-                ? _this.beersService.search(term)
+                ? __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].of([term])
                 : __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].of([]);
             return temp;
         })
@@ -1275,90 +1379,39 @@ var SearchComponent = (function () {
             console.log(error);
             return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].of([]);
         })
-            .subscribe(function (results) {
-            console.log("Found: " + results.length);
-            _this.results = results;
+            .subscribe(function (term) {
+            var options = {
+                queryParams: {
+                    q: term
+                }
+            };
+            _this.router.navigate(["/search"], options);
         });
     };
-    SearchComponent.prototype.search = function (term) {
-        this.terms.next(term);
-        this.eventAggregator.publish(new __WEBPACK_IMPORTED_MODULE_12__shared_events_search_events__["a" /* BeerSearched */](term));
-        this.eventAggregator.publish(new __WEBPACK_IMPORTED_MODULE_12__shared_events_search_events__["b" /* BrewerySearched */](term));
-        this.eventAggregator.publish("termSearched", {
-            term: term
-        });
-        var options = {
-            queryParams: {
-                q: term
-            }
-        };
-        this.router.navigate(["/beers"], options);
+    SearchBarComponent.prototype.search = function (term) {
+        this.termsProxy.next(term);
     };
-    return SearchComponent;
+    return SearchBarComponent;
 }());
-SearchComponent = __decorate([
+SearchBarComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-search',
-        template: __webpack_require__(806)
+        selector: 'app-search-bar',
+        template: __webpack_require__(808)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__["EventAggregator"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__shared_services_beers_service__["a" /* BeersService */]) === "function" && _d || Object])
-], SearchComponent);
+], SearchBarComponent);
 
 var _a, _b, _c, _d;
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/search.component.js.map
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/search-bar.component.js.map
 
 /***/ }),
 
-/***/ 553:
+/***/ 555:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_component__ = __webpack_require__(552);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var SearchModule = (function () {
-    function SearchModule() {
-    }
-    return SearchModule;
-}());
-SearchModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"]
-        ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__search_component__["a" /* SearchComponent */]
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_3__search_component__["a" /* SearchComponent */]
-        ],
-        providers: []
-    })
-], SearchModule);
-
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/search.module.js.map
-
-/***/ }),
-
-/***/ 554:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_colcade__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1418,8 +1471,8 @@ __decorate([
 CardsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-cards',
-        template: __webpack_require__(807),
-        styles: [__webpack_require__(726)]
+        template: __webpack_require__(810),
+        styles: [__webpack_require__(728)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _c || Object])
 ], CardsComponent);
@@ -1429,12 +1482,12 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 555:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mason_grid_component__ = __webpack_require__(359);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MasonBrickDirective; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1474,7 +1527,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 556:
+/***/ 557:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1502,21 +1555,21 @@ MasonColumnDirective = __decorate([
 
 /***/ }),
 
-/***/ 557:
+/***/ 558:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/mason-grid.options.js.map
 
 /***/ }),
 
-/***/ 558:
+/***/ 559:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/breweries.models.js.map
 
 /***/ }),
 
-/***/ 559:
+/***/ 560:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1533,10 +1586,10 @@ var environment = {
 
 /***/ }),
 
-/***/ 718:
+/***/ 719:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1551,10 +1604,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 719:
+/***/ 720:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1569,10 +1622,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 720:
+/***/ 721:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1587,10 +1640,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 721:
+/***/ 722:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1605,10 +1658,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1623,10 +1676,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 723:
+/***/ 724:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1641,10 +1694,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 724:
+/***/ 725:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1659,10 +1712,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 725:
+/***/ 726:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1677,10 +1730,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 726:
+/***/ 727:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(23)();
+exports = module.exports = __webpack_require__(21)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 728:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(21)();
 // imports
 
 
@@ -1695,104 +1766,111 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 795:
+/***/ 797:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\r\n  <app-header></app-header>\r\n  <router-outlet></router-outlet>\r\n  <app-footer></app-footer>\r\n</div>"
 
 /***/ }),
 
-/***/ 796:
+/***/ 798:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n\r\n    <div class=\"label\">\r\n      <img class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{beer.description}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
 
 /***/ }),
 
-/***/ 797:
+/***/ 799:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{beers.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item)\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Dialog -->\r\n<p-dialog modal=\"true\"  \r\n  [dismissableMask]=\"true\" \r\n  [resizable]=\"true\"\r\n  [(visible)]=\"display\"\r\n  class=\"dialog\">\r\n\r\n  <p-header *ngIf=\"selection\">\r\n      <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n        {{selection.name}}\r\n      </span>\r\n  </p-header>\r\n\r\n  <div class=\"container pre-scrollable\" *ngIf=\"selection\">\r\n    <div class=\"row\">\r\n      <em class=\"col-xs-12\">\r\n        {{selection.description}}\r\n      </em>\r\n    </div>\r\n  </div>\r\n\r\n  <p-footer>\r\n    <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\r\n      <button type=\"button\" pButton icon=\"fa-check\" (click)=\"display=false\" label=\"Ok\"></button>\r\n    </div>\r\n  </p-footer>\r\n\r\n</p-dialog>"
 
 /***/ }),
 
-/***/ 798:
+/***/ 800:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"brewery\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-cog\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!brewery.favorite\" class=\"fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"brewery.favorite\" class=\"fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"label\">\r\n    <img *ngIf=\"brewery.images\" class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n    <img *ngIf=\"!brewery.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n  </div>\r\n\r\n  <div class=\"content\">\r\n    <h6 class=\"title\" title=\"{{brewery.description ? brewery.description : 'N/A'}}\">\r\n      {{brewery.name}}\r\n    </h6>\r\n\r\n    <div class=\"date\">\r\n      <small>Established: {{brewery.established}}</small>\r\n    </div>\r\n\r\n</div>\r\n\r\n<!--Established: {{brewery.established}}\r\nName: {{brewery.name}}\r\nLabel: {{brewery.images.medium}}\r\nDescription: {{brewery.description}}-->"
 
 /***/ }),
 
-/***/ 799:
+/***/ 801:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\r\n\r\n  <!-- Info -->\r\n  <div class=\"row\">\r\n    <small class=\"pull-right\">\r\n      Found: {{breweries.length}}\r\n    </small>\r\n  </div>\r\n\r\n  <!-- Results -->\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"breweries\">\r\n      <template let-item=\"item\">\r\n        <brewery-card [brewery]=\"item\"></brewery-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n"
 
 /***/ }),
 
-/***/ 800:
+/***/ 802:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n        <h3>Shortcurt</h3>\r\n        <p>\r\n            <img class=\"center\" src=\"./assets/img/app-url.png\" alt=\"https://dandohotaru.github.io/labs.beers/\">\r\n        </p>\r\n\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ 801:
+/***/ 803:
 /***/ (function(module, exports) {
 
 module.exports = "<nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <footer class=\"footer\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n          <p class=\"text-muted\">\r\n            <a routerLink=\"/about\">About</a>\r\n            <a routerLink=\"/glossary\">Glossary</a>\r\n            <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n          </p>\r\n        </div>\r\n\r\n        <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n          <p class=\"text-muted text-right\">\r\n            <span>Last update: {{lastUpdate | date}} </span>\r\n            |\r\n            <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n          </p>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</nav>"
 
 /***/ }),
 
-/***/ 802:
+/***/ 804:
 /***/ (function(module, exports) {
 
 module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
 
 /***/ }),
 
-/***/ 803:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search></app-search>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
-
-/***/ }),
-
-/***/ 804:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
-
-/***/ }),
-
 /***/ 805:
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Page not found</h3>"
+module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search-bar></app-search-bar>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
 
 /***/ }),
 
 /***/ 806:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Types -->\r\n  <!--<div class=\"input-group-btn\">\r\n    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n        <span id=\"searchIndexButton\">Beers</span> \r\n        <span class=\"caret\"></span>\r\n    </button>\r\n    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n      <li><a id=\"beersSearchIndex\" href=\"#\">Beers</a></li>\r\n      <li><a id=\"breweriesSearchIndex\" href=\"#\">Breweries</a></li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer_factory.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Breweries</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-4 col-xs-5 text-center\">\r\n    <a routerLink=\"/beers\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-glass.png\" alt=\"Breweries\">\r\n    </a>\r\n    <h1>Beers</h1>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 col-xs-1\">\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
 /***/ 807:
 /***/ (function(module, exports) {
 
+module.exports = "<h3>Page not found</h3>"
+
+/***/ }),
+
+/***/ 808:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" \r\n      (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 809:
+/***/ (function(module, exports) {
+
+module.exports = "<div role=\"tabpanel\">\r\n  <!-- Tabs -->\r\n  <ul class=\"nav nav-tabs\" role=\"tablist\">\r\n    <li role=\"presentation\" class=\"active\">\r\n      <a href=\"#beers\" aria-controls=\"beers\" role=\"tab\" data-toggle=\"tab\">\r\n        <!--<span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>-->\r\n        Beers\r\n      </a>\r\n    </li>\r\n    <li role=\"presentation\">\r\n      <a href=\"#breweries\" aria-controls=\"breweries\" role=\"tab\" data-toggle=\"tab\">\r\n        <!--<span class=\"fa fa-1x fa-cog\" aria-hidden=\"true\"></span>-->\r\n        Breweries\r\n      </a>\r\n    </li>\r\n  </ul>\r\n\r\n  <!-- Panels -->\r\n  <div class=\"tab-content\">\r\n    <div role=\"tabpanel\" class=\"tab-pane active\" id=\"beers\">\r\n      <app-beer-list></app-beer-list>\r\n    </div>\r\n    <div role=\"tabpanel\" class=\"tab-pane\" id=\"breweries\">\r\n      <app-brewery-list></app-brewery-list>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ 810:
+/***/ (function(module, exports) {
+
 module.exports = "<div #myGrid class=\"grid\" [style.display]=\"hidden ? 'none' : ''\">\r\n\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <div class=\"grid-card\" *ngFor=\"let item of items\">\r\n        <template\r\n            [ngTemplateOutlet]=\"template\" \r\n            [ngOutletContext]=\"{ item: item }\">\r\n        </template>\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
-/***/ 847:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(418);
+module.exports = __webpack_require__(422);
 
 
 /***/ })
 
-},[847]);
+},[850]);
 //# sourceMappingURL=main.bundle.js.map
