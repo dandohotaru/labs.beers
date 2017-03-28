@@ -36,7 +36,7 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
     this.termsProxy
-      .distinctUntilChanged()
+      //.distinctUntilChanged()
       .debounceTime(300)
       .switchMap(term => {
 
