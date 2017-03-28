@@ -5271,9 +5271,7 @@ function CompilerInjectable() {
 //# sourceMappingURL=injectable.js.map
 
 /***/ }),
-/* 18 */,
-/* 19 */,
-/* 20 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5328,6 +5326,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //# sourceMappingURL=index.js.map
 
 /***/ }),
+/* 19 */,
+/* 20 */,
 /* 21 */
 /***/ (function(module, exports) {
 
@@ -84145,7 +84145,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var Breadcrumb = (function () {
     function Breadcrumb(router) {
         this.router = router;
@@ -86541,7 +86541,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var ContextMenuSub = (function () {
     function ContextMenuSub(domHandler, router, contextMenu) {
         this.domHandler = domHandler;
@@ -92993,7 +92993,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var MegaMenu = (function () {
     function MegaMenu(el, domHandler, renderer, router) {
         this.el = el;
@@ -93148,7 +93148,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var Menu = (function () {
     function Menu(el, domHandler, renderer, router) {
         this.el = el;
@@ -93329,7 +93329,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var MenubarSub = (function () {
     function MenubarSub(domHandler, router) {
         this.domHandler = domHandler;
@@ -94347,7 +94347,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var BasePanelMenuItem = (function () {
     function BasePanelMenuItem(router) {
         this.router = router;
@@ -95896,7 +95896,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var SlideMenuSub = (function () {
     function SlideMenuSub(slideMenu, router) {
         this.slideMenu = slideMenu;
@@ -96696,7 +96696,7 @@ var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
 var button_1 = __webpack_require__(52);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var SplitButton = (function () {
     function SplitButton(el, domHandler, renderer, router) {
         this.el = el;
@@ -96836,7 +96836,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var Steps = (function () {
     function Steps(router) {
         this.router = router;
@@ -96939,7 +96939,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var TabMenu = (function () {
     function TabMenu(router) {
         this.router = router;
@@ -97439,7 +97439,7 @@ var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(2);
 var domhandler_1 = __webpack_require__(3);
 var common_2 = __webpack_require__(2);
-var router_1 = __webpack_require__(20);
+var router_1 = __webpack_require__(18);
 var TieredMenuSub = (function () {
     function TieredMenuSub(domHandler, router, location) {
         this.domHandler = domHandler;
