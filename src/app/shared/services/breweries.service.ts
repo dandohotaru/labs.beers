@@ -37,4 +37,20 @@ export class BreweriesService {
             })
             .catch(this.errorHandler.handle);
     }
+
+    public search(term: string): Observable<BreweryData[]> {
+
+        return this.httpHandler
+            .get('./assets/json/breweries.json')
+            .map((response: Response)=>{
+                let body = response.json();
+                var results = body.data as BreweryData[];
+                if (term && term.length > 0){
+                    return results.filter(p => p.name.toLowerCase().includes(term.toLowerCase()));
+                }
+
+                return results;
+            })
+            .catch(this.errorHandler.handle);
+    }
 }

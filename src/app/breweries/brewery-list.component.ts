@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { BreweriesService } from './../shared/services/breweries.service';
 import { BreweryData } from './../shared/services/breweries.models';
@@ -9,19 +11,34 @@ import { BreweryData } from './../shared/services/breweries.models';
 })
 export class BreweryListComponent implements OnInit {
 
+  term: string;
   breweries: BreweryData[] = [];
 
-  constructor(private service: BreweriesService) { }
+  @Output()
+  loaded: EventEmitter<{ found: number }> = new EventEmitter();
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: BreweriesService) {
+  }
 
   ngOnInit() {
 
-    var breweries = this.service.load().subscribe(
-      breweries => {
-        this.breweries = breweries.filter(p => p.established);
-      },
-      error => {
-        console.error(error);
-      });
+    this.route.queryParams.subscribe(p => {
+      this.term = p["q"] || "";
+      var breweries = this.service
+        .search(this.term)
+        .subscribe(breweries => {
+
+          this.breweries = breweries.filter(p => p.established);
+          this.loaded.next({ found: this.breweries.length });
+          
+        },
+        error => {
+          console.error(error);
+        });
+    });
 
   }
 }

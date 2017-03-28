@@ -3,14 +3,16 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
       <a href="#beers" aria-controls="beers" role="tab" data-toggle="tab">
-        <!--<span class="fa fa-1x fa-beer" aria-hidden="true"></span>-->
+        <span class="fa fa-th" aria-hidden="true"></span>
         Beers
+        <span class="badge">{{beers}}</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#breweries" aria-controls="breweries" role="tab" data-toggle="tab">
-        <!--<span class="fa fa-1x fa-cog" aria-hidden="true"></span>-->
+        <span class="fa fa-th" aria-hidden="true"></span>
         Breweries
+        <span class="badge">{{breweries}}</span>
       </a>
     </li>
   </ul>
@@ -18,10 +20,10 @@
   <!-- Panels -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="beers">
-      <app-beer-list></app-beer-list>
+      <app-beer-list (loaded)="beers=$event.found"></app-beer-list>
     </div>
     <div role="tabpanel" class="tab-pane" id="breweries">
-      <app-brewery-list></app-brewery-list>
+      <app-brewery-list (loaded)="breweries=$event.found"></app-brewery-list>
     </div>
   </div>
 </div>

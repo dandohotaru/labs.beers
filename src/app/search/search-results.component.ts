@@ -9,13 +9,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SearchResultsComponent implements OnInit {
 
   term: string;
+  beers: number;
+  breweries: number;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute)
-  { }
+  constructor(private router: Router, private route: ActivatedRoute){ 
+  }
 
   ngOnInit() {
   }
-
+  
 }
