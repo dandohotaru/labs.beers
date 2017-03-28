@@ -1,17 +1,5 @@
 <div class="input-group">
 
-  <!-- Types -->
-  <!--<div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="searchIndexButton">Beers</span> 
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-right">
-      <li><a id="beersSearchIndex" href="#">Beers</a></li>
-      <li><a id="breweriesSearchIndex" href="#">Breweries</a></li>
-    </ul>
-  </div>-->
-
   <!-- Term -->
   <input #searchBox id="queryField" type="search" class="form-control" 
     placeholder="What would Bachus know about?"
@@ -19,7 +7,8 @@
 
   <!-- Execute -->
   <div class="input-group-btn">
-    <button id="searchButton" type="button" class="btn btn-primary" (click)="search(searchBox.value)">
+    <button id="searchButton" type="button" class="btn btn-primary" 
+      (click)="search(searchBox.value)">
       <i class="fa fa-search"></i>
       <span class="hidden-xs">
         Search

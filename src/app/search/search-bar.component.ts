@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { EventAggregator } from 'aurelia-event-aggregator';
@@ -24,7 +24,7 @@ import { TermSearched, BeerSearched, BrewerySearched } from './../shared/events/
 })
 export class SearchBarComponent implements OnInit {
 
-  private terms: Subject<string> = new Subject<string>();
+  private termsProxy: Subject<string> = new Subject<string>();
   private results: any[];
 
   constructor(
@@ -35,41 +35,34 @@ export class SearchBarComponent implements OnInit {
   { }
 
   ngOnInit() {
-    this.terms
-      .debounceTime(300)
+    this.termsProxy
       .distinctUntilChanged()
+      .debounceTime(300)
       .switchMap(term => {
+
+        this.eventAggregator.publish(new TermSearched(term));
+
         var temp = term
-          ? this.beersService.search(term)
-          : Observable.of<BeerData[]>([]);
+          ? Observable.of<string[]>([term])
+          : Observable.of<string[]>([]);
         return temp;
       })
       .catch(error => {
         console.log(error);
-        return Observable.of<BeerData[]>([]);
+        return Observable.of<string[]>([]);
       })
-      .subscribe(results => {
-        console.log(`Found: ${results.length}`);
-        this.results = results;
+      .subscribe(term => {
+        var options: NavigationExtras = {
+          queryParams: {
+            q: term
+          }
+        };
+        this.router.navigate([`/beers`], options);
       });
   }
 
   public search(term: string): void {
-    this.terms.next(term);
-
-    this.eventAggregator.publish(new BeerSearched(term));
-    this.eventAggregator.publish(new BrewerySearched(term));
-    this.eventAggregator.publish("termSearched", {
-      term: term
-    });
-
-    var options = {
-      queryParams: {
-        q: term
-      }
-    };
-
-    this.router.navigate([`/beers`], options);
+    this.termsProxy.next(term);
   }
 }
 
