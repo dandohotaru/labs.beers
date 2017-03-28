@@ -4,7 +4,7 @@ import { BreweriesService } from './../shared/services/breweries.service';
 import { BreweryData } from './../shared/services/breweries.models';
 
 @Component({
-  selector: 'app-breweries',
+  selector: 'app-brewery-list',
   templateUrl: './brewery-list.component.html'
 })
 export class BreweryListComponent implements OnInit {

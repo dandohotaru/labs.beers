@@ -57,7 +57,7 @@ export class SearchBarComponent implements OnInit {
             q: term
           }
         };
-        this.router.navigate([`/beers`], options);
+        this.router.navigate([`/search`], options);
       });
   }
 

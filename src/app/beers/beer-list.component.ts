@@ -6,7 +6,7 @@ import { BeerData } from './../shared/services/beers.models';
 import { BeerModel } from "./beer-card.component";
 
 @Component({
-  selector: 'beer-list',
+  selector: 'app-beer-list',
   templateUrl: './beer-list.component.html',
   styleUrls:['./beer-list.component.css']
 })
@@ -16,7 +16,6 @@ export class BeerListComponent implements OnInit {
   beers: BeerModel[] = [];
   display: boolean = false;
   selection  : BeerModel;
-
 
   constructor(
     private router: Router,

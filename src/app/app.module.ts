@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +11,7 @@ import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { LayoutModule } from './layout/layout.module';
+import { SearchModule } from './search/search.module';
 import { BreweriesModule } from './breweries/breweries.module';
 import { BeersModule } from './beers/beers.module';
 
@@ -30,7 +32,7 @@ import { BreweriesService } from './shared/services/breweries.service';
     RouterModule.forRoot(AppRoutes),
     DialogModule,
     LayoutModule,
-    
+    SearchModule,
     BreweriesModule,
     BeersModule
   ],

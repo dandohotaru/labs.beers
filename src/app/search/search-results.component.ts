@@ -10,7 +10,7 @@ export class SearchResultsComponent implements OnInit {
 
   term: string;
 
-    constructor(
+  constructor(
     private router: Router,
     private route: ActivatedRoute)
   { }

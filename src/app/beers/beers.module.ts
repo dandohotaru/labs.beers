@@ -11,7 +11,7 @@ import { CardsModule } from './../shared/components/cards/cards.module';
 import { BeerListComponent } from './beer-list.component';
 import { BeerCardComponent } from './beer-card.component';
 
-@NgModule({
+@NgModule({ 
   imports: [
     CommonModule,
     MasonModule,

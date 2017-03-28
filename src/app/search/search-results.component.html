@@ -1,3 +1,27 @@
-<p>
-  search-results works!
-</p>
+<div role="tabpanel">
+  <!-- Tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#beers" aria-controls="beers" role="tab" data-toggle="tab">
+        <!--<span class="fa fa-1x fa-beer" aria-hidden="true"></span>-->
+        Beers
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#breweries" aria-controls="breweries" role="tab" data-toggle="tab">
+        <!--<span class="fa fa-1x fa-cog" aria-hidden="true"></span>-->
+        Breweries
+      </a>
+    </li>
+  </ul>
+
+  <!-- Panels -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="beers">
+      <app-beer-list></app-beer-list>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="breweries">
+      <app-brewery-list></app-brewery-list>
+    </div>
+  </div>
+</div>
