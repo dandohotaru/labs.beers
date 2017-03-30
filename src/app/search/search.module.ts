@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { BeersModule } from './../beers/beers.module';
 import { BreweriesModule } from './../breweries/breweries.module';
-
+import { SearchService } from "./search.service";
 import { SearchBarComponent } from './search-bar.component';
 import { SearchResultsComponent } from './search-results.component';
+import { SearchHistoryComponent } from './search-history.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import { SearchResultsComponent } from './search-results.component';
   ],
   declarations: [
     SearchBarComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SearchHistoryComponent
   ],
   exports:[
     SearchBarComponent
   ],
   providers: [
+    SearchService
   ]
 })
 export class SearchModule { }

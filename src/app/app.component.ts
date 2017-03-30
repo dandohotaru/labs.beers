@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private eventAggregator: EventAggregator) { }
 
   public ngOnInit() {
-    console.log("app is initialized");
+    console.log("starting up");
 
     this.eventAggregator.subscribe(BeerSearched, response =>{
         console.info(`BeerSearched: ${response.term}`);

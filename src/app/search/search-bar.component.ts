@@ -1,15 +1,13 @@
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/switchMap';
 
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { EventAggregator } from 'aurelia-event-aggregator';
-
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/switchMap';
 
 import { BreweriesService } from './../shared/services/breweries.service';
 import { BreweryData } from './../shared/services/breweries.models';
@@ -36,7 +34,6 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
     this.termsProxy
-      //.distinctUntilChanged()
       .debounceTime(300)
       .switchMap(term => {
 
