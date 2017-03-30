@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
+import { SearchService } from './search/search.service';
+
 import { TermSearched, BeerSearched, BrewerySearched } from './shared/events/search.events';
 
 @Component({
@@ -9,7 +11,7 @@ import { TermSearched, BeerSearched, BrewerySearched } from './shared/events/sea
 })
 export class AppComponent implements OnInit {
 
-  constructor(private eventAggregator: EventAggregator) { }
+  constructor(private eventAggregator: EventAggregator, private searchService: SearchService) { }
 
   public ngOnInit() {
     console.log("starting up");
@@ -22,8 +24,9 @@ export class AppComponent implements OnInit {
         console.info(`BrewerySearched: ${response.term}`);
     });
 
-    this.eventAggregator.subscribe(TermSearched, response =>{
+    this.eventAggregator.subscribe(TermSearched, (response: TermSearched) =>{
         console.info(`TermSearched: ${response.term}`);
+        this.searchService.handle(response.term)
     });
 
     this.eventAggregator.subscribe("termSearched", response =>{

@@ -7,18 +7,24 @@ export class SearchService {
 
     handle(term: string): void {
         var value = localStorage.getItem("search-history");
-        if (value) {
-            var data: SearchData = JSON.parse(value);
-            data.counter++;
-            localStorage["search-history"] = JSON.stringify(data);
+
+        var searches: SearchData[] = value
+            ? JSON.parse(value)
+            : [];
+
+        var search = searches.find(p => p.term == term);
+        if (search) {
+            search.counter++;
         }
         else {
-            var data: SearchData = {
+            search = {
                 term: term,
                 counter: 1,
             };
-            localStorage["search-history"] = JSON.stringify(data);
+            searches.push(search);
         }
+
+        localStorage["search-history"] = JSON.stringify(searches);
     }
 }
 

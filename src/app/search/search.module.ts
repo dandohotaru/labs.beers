@@ -23,7 +23,8 @@ import { SearchHistoryComponent } from './search-history.component';
     SearchHistoryComponent
   ],
   exports:[
-    SearchBarComponent
+    SearchBarComponent,
+    SearchResultsComponent
   ],
   providers: [
     SearchService

@@ -1,9 +1,11 @@
 
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 import { DialogModule }  from 'primeng/primeng';
 
@@ -17,7 +19,8 @@ import { BeersModule } from './beers/beers.module';
 
 import { ErrorHandler } from './shared/exceptions/error.handler';
 import { BeersService } from './shared/services/beers.service';
-import { EventAggregator } from 'aurelia-event-aggregator';
+import { SearchService } from 'app/search/search.service';
+
 
 import { BreweriesService } from './shared/services/breweries.service';
 
@@ -38,9 +41,10 @@ import { BreweriesService } from './shared/services/breweries.service';
   ],
   providers: [
     ErrorHandler,
+    EventAggregator,
+    SearchService,
     BreweriesService,
     BeersService,
-    EventAggregator
   ],
   bootstrap: [
     AppComponent
