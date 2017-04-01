@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
 
     this.eventAggregator.subscribe(TermSearched, (response: TermSearched) =>{
         console.info(`TermSearched: ${response.term}`);
-        this.searchService.handle(response.term)
+        this.searchService.track(response.term)
     });
 
     this.eventAggregator.subscribe("termSearched", response =>{

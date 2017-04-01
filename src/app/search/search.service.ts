@@ -5,11 +5,11 @@ export class SearchService {
 
     constructor() { }
 
-    handle(term: string): void {
-        var value = localStorage.getItem("search-history");
+    track(term: string): void {
+        var content = localStorage.getItem("search-history");
 
-        var searches: SearchData[] = value
-            ? JSON.parse(value)
+        var searches: SearchData[] = content
+            ? JSON.parse(content)
             : [];
 
         var search = searches.find(p => p.term == term);
@@ -25,6 +25,17 @@ export class SearchService {
         }
 
         localStorage["search-history"] = JSON.stringify(searches);
+    }
+
+    query() : SearchData[]{
+        var content = localStorage.getItem("search-history");
+        var searches: SearchData[] = content
+            ? JSON.parse(content)
+            : [];
+
+        return searches.sort((a,b)=> {
+            return b.counter - a.counter;
+        });
     }
 }
 

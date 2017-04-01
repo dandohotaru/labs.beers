@@ -1,3 +1,6 @@
-<p>
-  search-history works!
-</p>
+
+
+<div *ngFor="let search of searches">
+  {{search.term}} ({{search.counter}})     
+
+</div>

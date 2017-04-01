@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 
 import { TermSearched } from "app/shared/events/search.events";
+import { SearchService } from "app/search/search.service";
 
 @Component({
   selector: 'app-search-history',
@@ -10,14 +11,21 @@ import { TermSearched } from "app/shared/events/search.events";
 export class SearchHistoryComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
+  searches: { term: string, counter: number }[] = [];
 
-  constructor(private eventAggregator: EventAggregator) { }
+  constructor(private eventAggregator: EventAggregator, private searchService: SearchService) { }
 
   ngOnInit() {
     var subscription = this.eventAggregator.subscribe(TermSearched, response => {
       console.info(`TermSearched: ${response.term}`);
     });
     this.subscriptions.push(subscription);
+
+    this.searches = this.searchService.query().map(p => {
+      return { 
+        term: p.term, 
+        counter: p.counter }
+    });
   }
 
   ngOnDestroy(): void {
