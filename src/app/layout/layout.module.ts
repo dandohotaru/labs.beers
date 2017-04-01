@@ -9,7 +9,7 @@ import { SearchModule } from './../search/search.module';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { AboutComponent } from './about.component';
-import { HomeComponent } from './home.component';
+
 import { LostComponent } from './lost.component';
 import { GlossaryComponent } from './glossary.component';
 
@@ -23,7 +23,6 @@ import { GlossaryComponent } from './glossary.component';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent,
     LostComponent,
     GlossaryComponent,
   ],
@@ -31,7 +30,6 @@ import { GlossaryComponent } from './glossary.component';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent,
     LostComponent,
     GlossaryComponent,
   ]

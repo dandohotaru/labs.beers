@@ -2,13 +2,13 @@
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './layout/home.component';
-import { LostComponent } from './layout/lost.component';
-import { AboutComponent } from './layout/about.component';
-import { BreweryListComponent } from './breweries/brewery-list.component';
-import { BeerListComponent } from './beers/beer-list.component';
-import { GlossaryComponent } from './layout/glossary.component';
-import { SearchResultsComponent } from './search/search-results.component';
+import { HomeComponent } from 'app/home/home.component';
+import { LostComponent } from 'app/layout/lost.component';
+import { AboutComponent } from 'app/layout/about.component';
+import { BreweryListComponent } from 'app/breweries/brewery-list.component';
+import { BeerListComponent } from 'app/beers/beer-list.component';
+import { GlossaryComponent } from 'app/layout/glossary.component';
+import { SearchResultsComponent } from 'app/search/search-results.component';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },

@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,17 +10,18 @@ import { DialogModule }  from 'primeng/primeng';
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
-import { LayoutModule } from './layout/layout.module';
-import { SearchModule } from './search/search.module';
-import { BreweriesModule } from './breweries/breweries.module';
-import { BeersModule } from './beers/beers.module';
+import { LayoutModule } from 'app/layout/layout.module';
+import { HomeModule } from "app/home/home.module";
+import { SearchModule } from 'app/search/search.module';
+import { BreweriesModule } from 'app/breweries/breweries.module';
+import { BeersModule } from 'app/beers/beers.module';
 
-import { ErrorHandler } from './shared/exceptions/error.handler';
-import { BeersService } from './shared/services/beers.service';
+import { ErrorHandler } from 'app/shared/exceptions/error.handler';
+import { BeersService } from 'app/shared/services/beers.service';
 import { SearchService } from 'app/search/search.service';
 
+import { BreweriesService } from 'app/shared/services/breweries.service';
 
-import { BreweriesService } from './shared/services/breweries.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +34,7 @@ import { BreweriesService } from './shared/services/breweries.service';
     RouterModule.forRoot(AppRoutes),
     DialogModule,
     LayoutModule,
+    HomeModule,
     SearchModule,
     BreweriesModule,
     BeersModule
