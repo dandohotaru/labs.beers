@@ -22,7 +22,6 @@ import { SearchService } from 'app/search/search.service';
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 
-
 @NgModule({
   declarations: [
     AppComponent

@@ -1,0 +1,2 @@
+based on 
+https://github.com/valor-software/ng2-bootstrap/tree/development/src/carousel
