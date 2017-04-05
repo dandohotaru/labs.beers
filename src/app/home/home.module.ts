@@ -11,7 +11,7 @@ import { CarouselModule } from "app/shared/components/carousel/carousel.module";
     CommonModule,
     RouterModule,
     SearchModule,
-    CarouselModule.forRoot()
+    CarouselModule
   ],  
   declarations: [
     HomeComponent,

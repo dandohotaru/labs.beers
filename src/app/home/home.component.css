@@ -1,0 +1,17 @@
+@media (max-width: 480px) {
+    .carousel-caption img {
+        max-width:20% !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .carousel-caption img {
+        max-width:50% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-caption img {
+        max-width:100% !important;
+    }
+}

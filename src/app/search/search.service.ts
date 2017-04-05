@@ -27,15 +27,22 @@ export class SearchService {
         localStorage["search-history"] = JSON.stringify(searches);
     }
 
-    query() : SearchData[]{
+    query(options?: { page: number, size: number }): SearchData[] {
         var content = localStorage.getItem("search-history");
         var searches: SearchData[] = content
             ? JSON.parse(content)
             : [];
 
-        return searches.sort((a,b)=> {
-            return b.counter - a.counter;
-        });
+        searches = searches
+            .sort((a, b) => {
+                return b.counter - a.counter;
+            });
+
+        if (options) {
+            searches = searches.slice(0, options.size ? options.size : 5);
+        }
+
+        return searches;
     }
 }
 

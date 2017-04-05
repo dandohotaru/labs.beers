@@ -21,11 +21,14 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.push(subscription);
 
-    this.searches = this.searchService.query().map(p => {
-      return { 
-        term: p.term, 
-        counter: p.counter }
-    });
+    this.searches = this.searchService
+      .query({page: 0, size: 5})
+      .map(p => {
+        return {
+          term: p.term,
+          counter: p.counter
+        }
+      });
   }
 
   ngOnDestroy(): void {
