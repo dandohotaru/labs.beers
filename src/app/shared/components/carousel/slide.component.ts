@@ -4,11 +4,7 @@ import { CarouselComponent } from './carousel.component';
 
 @Component({
   selector: 'slide',
-  template: `
-    <div [class.active]="active" class="item">
-      <ng-content></ng-content>
-    </div>
-  `
+  templateUrl: './slide.component.html'
 })
 export class SlideComponent implements OnInit, OnDestroy {
 
