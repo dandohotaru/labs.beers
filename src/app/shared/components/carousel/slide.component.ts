@@ -26,7 +26,6 @@ export class SlideComponent implements OnInit, OnDestroy {
     this.carousel.addSlide(this);
   }
 
-  /** Fires changes in container collection after removing of this slide instance */
   public ngOnDestroy():void {
     this.carousel.removeSlide(this);
   }
