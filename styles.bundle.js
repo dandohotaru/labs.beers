@@ -343,7 +343,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n\r\n/*html { overflow-y: scroll !important; }*/\r\n\r\n.add-button {\r\n    position:relative;\r\n}\r\n\r\n.result-logo {\r\n    font-size:42px;\r\n    padding-top:8px;\r\n}\r\n            \r\n.rating-star {\r\n    padding-left: 0px !important;\r\n    padding-right: 0px !important;\r\n}\r\n\r\n.help {\r\n    padding-left:8px;\r\n}  \r\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n\r\n/*html { overflow-y: scroll !important; }*/\r\n\r\nbody {\r\n}\r\n\r\n.add-button {\r\n    position:relative;\r\n}\r\n\r\n.result-logo {\r\n    font-size:42px;\r\n    padding-top:8px;\r\n}\r\n            \r\n.rating-star {\r\n    padding-left: 0px !important;\r\n    padding-right: 0px !important;\r\n}\r\n\r\n.help {\r\n    padding-left:8px;\r\n}  \r\n", ""]);
 
 // exports
 
