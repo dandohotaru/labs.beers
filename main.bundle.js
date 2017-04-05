@@ -171,7 +171,7 @@ var BrewerySearched = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(823);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(824);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
@@ -1796,13 +1796,13 @@ LayoutModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(822);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(823);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(824);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(825);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(825);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(826);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(15);
@@ -2115,7 +2115,7 @@ __decorate([
 SlideComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'slide',
-        template: "\n    <div [class.active]=\"active\" class=\"item\">\n      <ng-content></ng-content>\n    </div>\n  "
+        template: __webpack_require__(818)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */]) === "function" && _a || Object])
 ], SlideComponent);
@@ -2429,7 +2429,7 @@ module.exports = "  <!-- Results -->\r\n<div class=\"container\">\r\n\r\n  <br/>
 /***/ 807:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <carousel>\r\n\r\n      <!-- Breweries -->\r\n      <slide>\r\n        <img src=\"../assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- Beers -->\r\n      <slide>\r\n        <img src=\"../assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- History -->\r\n      <slide>\r\n        <img src=\"../assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div class=\"text-center\">\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n    </carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <carousel>\r\n\r\n      <!-- Breweries -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- Beers -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- History -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div class=\"text-center\">\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n    </carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2503,7 +2503,14 @@ module.exports = "<div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" (mouseup
 
 /***/ }),
 
-/***/ 856:
+/***/ 818:
+/***/ (function(module, exports) {
+
+module.exports = "<div [class.active]=\"active\" class=\"item\">\r\n    <ng-content></ng-content>\r\n</div>"
+
+/***/ }),
+
+/***/ 857:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(424);
@@ -2511,5 +2518,5 @@ module.exports = __webpack_require__(424);
 
 /***/ })
 
-},[856]);
+},[857]);
 //# sourceMappingURL=main.bundle.js.map
