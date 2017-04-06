@@ -13,22 +13,27 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   searches: { term: string, counter: number }[] = [];
 
-  constructor(private eventAggregator: EventAggregator, private searchService: SearchService) { }
+  constructor(
+    private eventAggregator: EventAggregator, 
+    private searchService: SearchService) { 
+  }
 
   ngOnInit() {
+
     var subscription = this.eventAggregator.subscribe(TermSearched, response => {
       console.info(`TermSearched: ${response.term}`);
     });
     this.subscriptions.push(subscription);
 
     this.searches = this.searchService
-      .query({page: 0, size: 5})
+      .query({page: 0, size: 6})
       .map(p => {
         return {
           term: p.term,
           counter: p.counter
         }
       });
+
   }
 
   ngOnDestroy(): void {

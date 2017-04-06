@@ -1,6 +1,11 @@
 
+<div *ngFor="let search of searches" class="col-xs-6 col-sm-12">
 
-<div *ngFor="let search of searches">
-  {{search.term}} ({{search.counter}})     
+  <div style="padding: 0.25em">
+    <a [routerLink]="['/search']" [queryParams]="{q: search.term}">
+      <span class="badge">{{search.counter}}</span>
+    </a>
+    {{search.term}}
+  </div>
 
 </div>
