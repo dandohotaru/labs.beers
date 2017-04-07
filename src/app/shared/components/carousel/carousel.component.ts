@@ -1,16 +1,16 @@
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 import { SlideComponent } from './slide.component';
-import { CarouselConfig } from './carousel.config';
 
 export enum Direction { UNKNOWN, NEXT, PREV }
-
 
 @Component({
   selector: 'carousel',
   templateUrl: './carousel.component.html'
 })
 export class CarouselComponent implements OnDestroy {
+
+  public frequency: number = 5000;
   protected _currentActiveSlide: number;
 
   @Output() public activeSlideChange: EventEmitter<any> = new EventEmitter<any>(false);
@@ -45,8 +45,8 @@ export class CarouselComponent implements OnDestroy {
   protected isPlaying: boolean;
   protected destroyed: boolean = false;
 
-  public constructor(config: CarouselConfig) {
-    Object.assign(this, config);
+  public constructor() {
+    this.interval = this.frequency;
   }
 
   public ngOnDestroy(): void {

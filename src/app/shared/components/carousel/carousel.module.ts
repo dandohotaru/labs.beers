@@ -3,7 +3,6 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { CarouselComponent } from './carousel.component';
 import { SlideComponent } from './slide.component';
-import { CarouselConfig } from './carousel.config';
 
 /*
   based on 
@@ -22,7 +21,6 @@ import { CarouselConfig } from './carousel.config';
     CarouselComponent
   ],
   providers: [
-    CarouselConfig
   ]
 })
 export class CarouselModule { }
