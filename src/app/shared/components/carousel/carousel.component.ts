@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, AfterContentChecked } from '@angular/core';
 import { Input, ContentChildren, QueryList } from '@angular/core';
 
-import { NgbCarouselConfig } from './carousel.config';
-import { NgbSlide } from "./slide.directive";
+import { CarouselConfig } from './carousel.config';
+import { SlideDirective } from "./slide.directive";
 
 @Component({
-    selector: 'ngb-carousel',
-    exportAs: 'ngbCarousel',
+    selector: 'app-carousel',
+    exportAs: 'appCarousel',
     host: {
         'class': 'carousel slide',
         '[style.display]': '"block"',
@@ -18,12 +18,12 @@ import { NgbSlide } from "./slide.directive";
     },
     templateUrl: './carousel.component.html'
 })
-export class NgbCarousel implements AfterContentChecked, OnDestroy, OnInit {
+export class CarouselComponent implements AfterContentChecked, OnDestroy, OnInit {
 
     private timerInterval;
 
-    @ContentChildren(NgbSlide)
-    slides: QueryList<NgbSlide>;
+    @ContentChildren(SlideDirective)
+    slides: QueryList<SlideDirective>;
 
     @Input()
     interval: number;
@@ -37,7 +37,7 @@ export class NgbCarousel implements AfterContentChecked, OnDestroy, OnInit {
     @Input()
     activeId: string;
 
-    constructor(config: NgbCarouselConfig) {
+    constructor(config: CarouselConfig) {
         this.interval = config.interval;
         this.wrap = config.wrap;
         this.keyboard = config.keyboard;
@@ -121,8 +121,8 @@ export class NgbCarousel implements AfterContentChecked, OnDestroy, OnInit {
         clearInterval(this.timerInterval);
     }
 
-    private getSlideById(slideId: string): NgbSlide {
-        let slideWithId: NgbSlide[] = this.slides.filter(slide => slide.id === slideId);
+    private getSlideById(slideId: string): SlideDirective {
+        let slideWithId: SlideDirective[] = this.slides.filter(slide => slide.id === slideId);
         return slideWithId.length ? slideWithId[0] : null;
     }
 

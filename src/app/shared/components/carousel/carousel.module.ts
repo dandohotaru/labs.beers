@@ -1,24 +1,24 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NgbCarousel } from './carousel.component';
-import { NgbSlide } from "./slide.directive";
-import { NgbCarouselConfig } from './carousel.config';
+import { CarouselComponent } from './carousel.component';
+import { SlideDirective } from "./slide.directive";
+import { CarouselConfig } from './carousel.config';
 
 @NgModule({
-    declarations: [
-        NgbCarousel,
-        NgbSlide
-    ],
-    exports: [
-        NgbCarousel,
-        NgbSlide
-    ],
     imports: [
         CommonModule
     ],
+    declarations: [
+        CarouselComponent,
+        SlideDirective
+    ],
+    exports: [
+        CarouselComponent,
+        SlideDirective
+    ],
     providers: [
-        NgbCarouselConfig
+        CarouselConfig
     ]
 })
-export class NgbCarouselModule { }
+export class CarouselModule { }
