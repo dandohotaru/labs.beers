@@ -10,8 +10,8 @@ import { CarouselModule } from "app/shared/components/carousel/carousel.module";
   imports: [
     CommonModule,
     RouterModule,
+    CarouselModule,
     SearchModule,
-    CarouselModule
   ],  
   declarations: [
     HomeComponent,

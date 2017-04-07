@@ -45,7 +45,11 @@ export class CarouselComponent implements AfterContentChecked, OnDestroy, OnInit
 
     public ngAfterContentChecked() {
         let activeSlide = this.getSlideById(this.activeId);
-        this.activeId = activeSlide ? activeSlide.id : (this.slides.length ? this.slides.first.id : null);
+        this.activeId = activeSlide 
+            ? activeSlide.id 
+            : this.slides.length 
+                ? this.slides.first.id 
+                : null;
     }
 
     public ngOnInit() { 
@@ -135,8 +139,11 @@ export class CarouselComponent implements AfterContentChecked, OnDestroy, OnInit
         const currentSlideIdx = this.getSlideIndexById(currentSlideId);
         const isLastSlide = currentSlideIdx === slideArr.length - 1;
 
-        return isLastSlide ? (this.wrap ? slideArr[0].id : slideArr[slideArr.length - 1].id) :
-            slideArr[currentSlideIdx + 1].id;
+        return isLastSlide 
+            ? this.wrap 
+                ? slideArr[0].id 
+                : slideArr[slideArr.length - 1].id
+            : slideArr[currentSlideIdx + 1].id;
     }
 
     private getPrevSlide(currentSlideId: string): string {
@@ -144,7 +151,10 @@ export class CarouselComponent implements AfterContentChecked, OnDestroy, OnInit
         const currentSlideIdx = this.getSlideIndexById(currentSlideId);
         const isFirstSlide = currentSlideIdx === 0;
 
-        return isFirstSlide ? (this.wrap ? slideArr[slideArr.length - 1].id : slideArr[0].id) :
-            slideArr[currentSlideIdx - 1].id;
+        return isFirstSlide 
+            ? this.wrap 
+                ? slideArr[slideArr.length - 1].id 
+                : slideArr[0].id
+            : slideArr[currentSlideIdx - 1].id;
     }
 }

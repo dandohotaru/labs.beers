@@ -5,6 +5,7 @@ import { CarouselComponent } from './carousel.component';
 import { SlideDirective } from "./slide.directive";
 import { CarouselConfig } from './carousel.config';
 
+/* Base on https://github.com/ng-bootstrap/ng-bootstrap/tree/master/src/carousel */
 @NgModule({
     imports: [
         CommonModule
