@@ -171,7 +171,7 @@ var BrewerySearched = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(824);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(823);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
@@ -843,293 +843,6 @@ CardsModule = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_config__ = __webpack_require__(361);
-/* unused harmony export Direction */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var Direction;
-(function (Direction) {
-    Direction[Direction["UNKNOWN"] = 0] = "UNKNOWN";
-    Direction[Direction["NEXT"] = 1] = "NEXT";
-    Direction[Direction["PREV"] = 2] = "PREV";
-})(Direction || (Direction = {}));
-/**
- * Base element to create carousel
- */
-var CarouselComponent = (function () {
-    function CarouselComponent(config) {
-        /** Will be emitted when active slide has been changed. Part of two-way-bindable [(activeSlide)] property */
-        this.activeSlideChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"](false);
-        this._slides = [];
-        this.destroyed = false;
-        Object.assign(this, config);
-    }
-    Object.defineProperty(CarouselComponent.prototype, "activeSlide", {
-        get: function () {
-            return this._currentActiveSlide;
-        },
-        /** Index of currently displayed slide(started for 0) */
-        set: function (index) {
-            if (this._slides.length && index !== this._currentActiveSlide) {
-                this._select(index);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CarouselComponent.prototype, "interval", {
-        /**
-         * Delay of item cycling in milliseconds. If false, carousel won't cycle automatically.
-         */
-        get: function () {
-            return this._interval;
-        },
-        set: function (value) {
-            this._interval = value;
-            this.restartTimer();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CarouselComponent.prototype, "slides", {
-        get: function () {
-            return this._slides;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    CarouselComponent.prototype.ngOnDestroy = function () {
-        this.destroyed = true;
-    };
-    /**
-     * Adds new slide. If this slide is first in collection - set it as active and starts auto changing
-     * @param slide
-     */
-    CarouselComponent.prototype.addSlide = function (slide) {
-        this._slides.push(slide);
-        if (this._slides.length === 1) {
-            this._currentActiveSlide = void 0;
-            this.activeSlide = 0;
-            this.play();
-        }
-    };
-    /**
-     * Removes specified slide. If this slide is active - will roll to another slide
-     * @param slide
-     */
-    CarouselComponent.prototype.removeSlide = function (slide) {
-        var _this = this;
-        var remIndex = this._slides.indexOf(slide);
-        if (this._currentActiveSlide === remIndex) {
-            // removing of active slide
-            var nextSlideIndex_1 = void 0;
-            if (this._slides.length > 1) {
-                // if this slide last - will roll to first slide, if noWrap flag is FALSE or to previous, if noWrap is TRUE
-                // in case, if this slide in middle of collection, index of next slide is same to removed
-                nextSlideIndex_1 = !this.isLast(remIndex) ? remIndex :
-                    this.noWrap ? remIndex - 1 : 0;
-            }
-            this._slides.splice(remIndex);
-            // prevents exception with changing some value after checking
-            setTimeout(function () {
-                _this._select(nextSlideIndex_1);
-            }, 0);
-        }
-        else {
-            this._slides.splice(remIndex);
-            var currentSlideIndex_1 = this.getCurrentSlideIndex();
-            setTimeout(function () {
-                // after removing, need to actualize index of current active slide
-                _this._currentActiveSlide = currentSlideIndex_1;
-                _this.activeSlideChange.emit(_this._currentActiveSlide);
-            }, 0);
-        }
-    };
-    /**
-     * Rolling to next slide
-     * @param force: {boolean} if true - will ignore noWrap flag
-     */
-    CarouselComponent.prototype.nextSlide = function (force) {
-        if (force === void 0) { force = false; }
-        this.activeSlide = this.findNextSlideIndex(Direction.NEXT, force);
-    };
-    /**
-     * Rolling to previous slide
-     * @param force: {boolean} if true - will ignore noWrap flag
-     */
-    CarouselComponent.prototype.previousSlide = function (force) {
-        if (force === void 0) { force = false; }
-        this.activeSlide = this.findNextSlideIndex(Direction.PREV, force);
-    };
-    /**
-     * Rolling to specified slide
-     * @param index: {number} index of slide, which must be shown
-     */
-    CarouselComponent.prototype.selectSlide = function (index) {
-        this.activeSlide = index;
-    };
-    /**
-     * Starts a auto changing of slides
-     */
-    CarouselComponent.prototype.play = function () {
-        if (!this.isPlaying) {
-            this.isPlaying = true;
-            this.restartTimer();
-        }
-    };
-    /**
-     * Stops a auto changing of slides
-     */
-    CarouselComponent.prototype.pause = function () {
-        if (!this.noPause) {
-            this.isPlaying = false;
-            this.resetTimer();
-        }
-    };
-    /**
-     * Finds and returns index of currently displayed slide
-     * @returns {number}
-     */
-    CarouselComponent.prototype.getCurrentSlideIndex = function () {
-        return this._slides.findIndex(function (slide) { return slide.active; });
-    };
-    /**
-     * Defines, whether the specified index is last in collection
-     * @param index
-     * @returns {boolean}
-     */
-    CarouselComponent.prototype.isLast = function (index) {
-        return index + 1 >= this._slides.length;
-    };
-    /**
-     * Defines next slide index, depending of direction
-     * @param direction: Direction(UNKNOWN|PREV|NEXT)
-     * @param force: {boolean} if TRUE - will ignore noWrap flag, else will return undefined if next slide require wrapping
-     * @returns {any}
-     */
-    CarouselComponent.prototype.findNextSlideIndex = function (direction, force) {
-        var nextSlideIndex = 0;
-        if (!force && (this.isLast(this.activeSlide) && direction !== Direction.PREV && this.noWrap)) {
-            return void 0;
-        }
-        switch (direction) {
-            case Direction.NEXT:
-                // if this is last slide, not force, looping is disabled and need to going forward - select current slide, as a next
-                nextSlideIndex = (!this.isLast(this._currentActiveSlide)) ? this._currentActiveSlide + 1 :
-                    (!force && this.noWrap) ? this._currentActiveSlide : 0;
-                break;
-            case Direction.PREV:
-                // if this is first slide, not force, looping is disabled and need to going backward - select current slide, as a next
-                nextSlideIndex = (this._currentActiveSlide > 0) ? this._currentActiveSlide - 1 :
-                    (!force && this.noWrap) ? this._currentActiveSlide : this._slides.length - 1;
-                break;
-            default:
-                throw new Error('Unknown direction');
-        }
-        return nextSlideIndex;
-    };
-    /**
-     * Sets a slide, which specified through index, as active
-     * @param index
-     * @private
-     */
-    CarouselComponent.prototype._select = function (index) {
-        if (isNaN(index)) {
-            this.pause();
-            return;
-        }
-        var currentSlide = this._slides[this._currentActiveSlide];
-        if (currentSlide) {
-            currentSlide.active = false;
-        }
-        var nextSlide = this._slides[index];
-        if (nextSlide) {
-            this._currentActiveSlide = index;
-            nextSlide.active = true;
-            this.activeSlide = index;
-            this.activeSlideChange.emit(index);
-        }
-    };
-    /**
-     * Starts loop of auto changing of slides
-     */
-    CarouselComponent.prototype.restartTimer = function () {
-        var _this = this;
-        this.resetTimer();
-        var interval = +this.interval;
-        if (!isNaN(interval) && interval > 0) {
-            this.currentInterval = setInterval(function () {
-                var nInterval = +_this.interval;
-                if (_this.isPlaying && !isNaN(_this.interval) && nInterval > 0 && _this.slides.length) {
-                    _this.nextSlide();
-                }
-                else {
-                    _this.pause();
-                }
-            }, interval);
-        }
-    };
-    /**
-     * Stops loop of auto changing of slides
-     */
-    CarouselComponent.prototype.resetTimer = function () {
-        if (this.currentInterval) {
-            clearInterval(this.currentInterval);
-            this.currentInterval = void 0;
-        }
-    };
-    return CarouselComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Boolean)
-], CarouselComponent.prototype, "noWrap", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Boolean)
-], CarouselComponent.prototype, "noPause", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
-], CarouselComponent.prototype, "activeSlideChange", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], CarouselComponent.prototype, "activeSlide", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], CarouselComponent.prototype, "interval", null);
-CarouselComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'carousel',
-        template: __webpack_require__(817)
-    }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */]) === "function" && _b || Object])
-], CarouselComponent);
-
-var _a, _b;
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/carousel.component.js.map
-
-/***/ }),
-
-/***/ 361:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselConfig; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1141,8 +854,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var CarouselConfig = (function () {
     function CarouselConfig() {
         this.interval = 5000;
-        this.noPause = false;
-        this.noWrap = false;
+        this.wrap = true;
+        this.keyboard = true;
     }
     return CarouselConfig;
 }());
@@ -1151,6 +864,44 @@ CarouselConfig = __decorate([
 ], CarouselConfig);
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/carousel.config.js.map
+
+/***/ }),
+
+/***/ 361:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlideDirective; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var nextId = 0;
+var SlideDirective = (function () {
+    function SlideDirective(tplRef) {
+        this.tplRef = tplRef;
+        this.id = "app-carousel-slide-" + nextId++;
+    }
+    return SlideDirective;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], SlideDirective.prototype, "id", void 0);
+SlideDirective = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: 'template[app-carousel-slide]' }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === "function" && _a || Object])
+], SlideDirective);
+
+var _a;
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/slide.directive.js.map
 
 /***/ }),
 
@@ -1617,7 +1368,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_home_home_component__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_search_search_module__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__ = __webpack_require__(561);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1641,8 +1392,8 @@ HomeModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"],
+            __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__["a" /* CarouselModule */],
             __WEBPACK_IMPORTED_MODULE_4_app_search_search_module__["a" /* SearchModule */],
-            __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__["a" /* CarouselModule */]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3_app_home_home_component__["a" /* HomeComponent */],
@@ -1796,13 +1547,13 @@ LayoutModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(823);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(822);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(825);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(824);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(826);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(825);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(15);
@@ -1923,7 +1674,7 @@ var SearchHistoryComponent = (function () {
         });
         this.subscriptions.push(subscription);
         this.searches = this.searchService
-            .query({ page: 0, size: 5 })
+            .query({ page: 0, size: 6 })
             .map(function (p) {
             return {
                 term: p.term,
@@ -2031,11 +1782,177 @@ var _a, _b, _c;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_component__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slide_component__ = __webpack_require__(561);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_config__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_config__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slide_directive__ = __webpack_require__(361);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CarouselComponent = (function () {
+    function CarouselComponent(config) {
+        this.interval = config.interval;
+        this.wrap = config.wrap;
+        this.keyboard = config.keyboard;
+    }
+    CarouselComponent.prototype.ngAfterContentChecked = function () {
+        var activeSlide = this.getSlideById(this.activeId);
+        this.activeId = activeSlide
+            ? activeSlide.id
+            : this.slides.length
+                ? this.slides.first.id
+                : null;
+    };
+    CarouselComponent.prototype.ngOnInit = function () {
+        this.startTimer();
+    };
+    CarouselComponent.prototype.ngOnDestroy = function () {
+        clearInterval(this.timerInterval);
+    };
+    CarouselComponent.prototype.select = function (slideId) {
+        this.cycleToSelected(slideId);
+        this.restartTimer();
+    };
+    CarouselComponent.prototype.prev = function () {
+        this.cycleToPrev();
+        this.restartTimer();
+    };
+    CarouselComponent.prototype.next = function () {
+        this.cycleToNext();
+        this.restartTimer();
+    };
+    CarouselComponent.prototype.pause = function () {
+        this.stopTimer();
+    };
+    CarouselComponent.prototype.cycle = function () {
+        this.startTimer();
+    };
+    CarouselComponent.prototype.cycleToNext = function () {
+        this.cycleToSelected(this.getNextSlide(this.activeId));
+    };
+    CarouselComponent.prototype.cycleToPrev = function () {
+        this.cycleToSelected(this.getPrevSlide(this.activeId));
+    };
+    CarouselComponent.prototype.cycleToSelected = function (slideIdx) {
+        var selectedSlide = this.getSlideById(slideIdx);
+        if (selectedSlide) {
+            this.activeId = selectedSlide.id;
+        }
+    };
+    CarouselComponent.prototype.keyPrev = function () {
+        if (this.keyboard) {
+            this.prev();
+        }
+    };
+    CarouselComponent.prototype.keyNext = function () {
+        if (this.keyboard) {
+            this.next();
+        }
+    };
+    CarouselComponent.prototype.restartTimer = function () {
+        this.stopTimer();
+        this.startTimer();
+    };
+    CarouselComponent.prototype.startTimer = function () {
+        var _this = this;
+        if (this.interval > 0) {
+            this.timerInterval = setInterval(function () { _this.cycleToNext(); }, this.interval);
+        }
+    };
+    CarouselComponent.prototype.stopTimer = function () {
+        clearInterval(this.timerInterval);
+    };
+    CarouselComponent.prototype.getSlideById = function (slideId) {
+        var slideWithId = this.slides.filter(function (slide) { return slide.id === slideId; });
+        return slideWithId.length ? slideWithId[0] : null;
+    };
+    CarouselComponent.prototype.getSlideIndexById = function (slideId) {
+        return this.slides.toArray().indexOf(this.getSlideById(slideId));
+    };
+    CarouselComponent.prototype.getNextSlide = function (currentSlideId) {
+        var slideArr = this.slides.toArray();
+        var currentSlideIdx = this.getSlideIndexById(currentSlideId);
+        var isLastSlide = currentSlideIdx === slideArr.length - 1;
+        return isLastSlide
+            ? this.wrap
+                ? slideArr[0].id
+                : slideArr[slideArr.length - 1].id
+            : slideArr[currentSlideIdx + 1].id;
+    };
+    CarouselComponent.prototype.getPrevSlide = function (currentSlideId) {
+        var slideArr = this.slides.toArray();
+        var currentSlideIdx = this.getSlideIndexById(currentSlideId);
+        var isFirstSlide = currentSlideIdx === 0;
+        return isFirstSlide
+            ? this.wrap
+                ? slideArr[slideArr.length - 1].id
+                : slideArr[0].id
+            : slideArr[currentSlideIdx - 1].id;
+    };
+    return CarouselComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ContentChildren"])(__WEBPACK_IMPORTED_MODULE_2__slide_directive__["a" /* SlideDirective */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"]) === "function" && _a || Object)
+], CarouselComponent.prototype, "slides", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Number)
+], CarouselComponent.prototype, "interval", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Boolean)
+], CarouselComponent.prototype, "wrap", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Boolean)
+], CarouselComponent.prototype, "keyboard", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], CarouselComponent.prototype, "activeId", void 0);
+CarouselComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-carousel',
+        exportAs: 'appCarousel',
+        host: {
+            'class': 'carousel slide',
+            '[style.display]': '"block"',
+            'tabIndex': '0',
+            '(mouseenter)': 'pause()',
+            '(mouseleave)': 'cycle()',
+            '(keydown.arrowLeft)': 'keyPrev()',
+            '(keydown.arrowRight)': 'keyNext()'
+        },
+        template: __webpack_require__(817)
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */]) === "function" && _b || Object])
+], CarouselComponent);
+
+var _a, _b;
+//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/carousel.component.js.map
+
+/***/ }),
+
+/***/ 561:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_component__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slide_directive__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_config__ = __webpack_require__(360);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2048,80 +1965,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CarouselModule = CarouselModule_1 = (function () {
+/* Base on https://github.com/ng-bootstrap/ng-bootstrap/tree/master/src/carousel */
+var CarouselModule = (function () {
     function CarouselModule() {
     }
-    CarouselModule.forRoot = function () {
-        return { ngModule: CarouselModule_1, providers: [] };
-    };
     return CarouselModule;
 }());
-CarouselModule = CarouselModule_1 = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["CommonModule"]],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_4__carousel_config__["a" /* CarouselConfig */]]
+CarouselModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__slide_directive__["a" /* SlideDirective */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__slide_directive__["a" /* SlideDirective */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_4__carousel_config__["a" /* CarouselConfig */]
+        ]
     })
 ], CarouselModule);
 
-var CarouselModule_1;
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/carousel.module.js.map
-
-/***/ }),
-
-/***/ 561:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_component__ = __webpack_require__(360);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlideComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var SlideComponent = (function () {
-    function SlideComponent(carousel) {
-        this.addClass = true;
-        this.carousel = carousel;
-    }
-    SlideComponent.prototype.ngOnInit = function () {
-        this.carousel.addSlide(this);
-    };
-    /** Fires changes in container collection after removing of this slide instance */
-    SlideComponent.prototype.ngOnDestroy = function () {
-        this.carousel.removeSlide(this);
-    };
-    return SlideComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.active'),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Boolean)
-], SlideComponent.prototype, "active", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.item'),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.carousel-item'),
-    __metadata("design:type", Boolean)
-], SlideComponent.prototype, "addClass", void 0);
-SlideComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'slide',
-        template: __webpack_require__(818)
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */]) === "function" && _a || Object])
-], SlideComponent);
-
-var _a;
-//# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/slide.component.js.map
 
 /***/ }),
 
@@ -2429,7 +2298,7 @@ module.exports = "  <!-- Results -->\r\n<div class=\"container\">\r\n\r\n  <br/>
 /***/ 807:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <carousel>\r\n\r\n      <!-- Breweries -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- Beers -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n\r\n      <!-- History -->\r\n      <slide>\r\n        <img src=\"./assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div class=\"text-center\">\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </slide>\r\n    </carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <app-carousel>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div>\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </template>\r\n      \r\n    </app-carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2478,7 +2347,7 @@ module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Term -->\r\n  <input
 /***/ 814:
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div *ngFor=\"let search of searches\">\n  {{search.term}} ({{search.counter}})     \n\n</div>\n"
+module.exports = "\n<div *ngFor=\"let search of searches\" class=\"col-xs-6 col-sm-12\">\n\n  <div style=\"padding: 0.25em\">\n    <a [routerLink]=\"['/search']\" [queryParams]=\"{q: search.term}\">\n      <span class=\"badge\">{{search.counter}}</span>\n    </a>\n    {{search.term}}\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -2499,18 +2368,11 @@ module.exports = "<div #myGrid class=\"grid\" [style.display]=\"hidden ? 'none' 
 /***/ 817:
 /***/ (function(module, exports) {
 
-module.exports = "<div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" (mouseup)=\"play()\" class=\"carousel slide\">\r\n      <ol class=\"carousel-indicators\" *ngIf=\"slides.length > 1\">\r\n         <li *ngFor=\"let slidez of slides; let i = index;\" [class.active]=\"slidez.active === true\" (click)=\"selectSlide(i)\"></li>\r\n      </ol>\r\n      <div class=\"carousel-inner\"><ng-content></ng-content></div>\r\n      <a class=\"left carousel-control carousel-control-prev\" [class.disabled]=\"activeSlide === 0 && noWrap\" (click)=\"previousSlide()\" *ngIf=\"slides.length > 1\">\r\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n        <span *ngIf=\"isBs4\" class=\"sr-only\">Previous</span>\r\n      </a>\r\n      <a class=\"right carousel-control carousel-control-next\" (click)=\"nextSlide()\"  [class.disabled]=\"isLast(activeSlide) && noWrap\" *ngIf=\"slides.length > 1\">\r\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n      </a>\r\n    </div>"
+module.exports = "<div id=\"carousel-id\" class=\"carousel slide\">\r\n\r\n    <ol class=\"carousel-indicators\">\r\n        <li *ngFor=\"let slide of slides\" \r\n            [id]=\"slide.id\" \r\n            [class.active]=\"slide.id === activeId\" \r\n            (click)=\"cycleToSelected(slide.id)\"></li>\r\n    </ol>\r\n\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n        <div *ngFor=\"let slide of slides\" class=\"item\" \r\n            [class.active]=\"slide.id === activeId\">\r\n            <template [ngTemplateOutlet]=\"slide.tplRef\"></template>\r\n        </div>\r\n    </div>\r\n\r\n    <a class=\"left carousel-control\" role=\"button\" (click)=\"cycleToPrev()\">\r\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" role=\"button\" (click)=\"cycleToNext()\">\r\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n    </a>\r\n</div>"
 
 /***/ }),
 
-/***/ 818:
-/***/ (function(module, exports) {
-
-module.exports = "<div [class.active]=\"active\" class=\"item\">\r\n    <ng-content></ng-content>\r\n</div>"
-
-/***/ }),
-
-/***/ 857:
+/***/ 856:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(424);
@@ -2518,5 +2380,5 @@ module.exports = __webpack_require__(424);
 
 /***/ })
 
-},[857]);
+},[856]);
 //# sourceMappingURL=main.bundle.js.map
