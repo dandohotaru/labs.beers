@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from "app/home/home.component";
 import { SearchModule } from 'app/search/search.module';
-import { NgbCarouselModule } from "app/shared/components/carousel2/carousel.module";
+import { NgbCarouselModule } from "app/shared/components/carousel/carousel.module";
 
 @NgModule({
   imports: [
