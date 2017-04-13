@@ -50,28 +50,18 @@
 
 <div class="row">
 
-  <button (click)="openModal('custom-modal-1')">Open Modal 1</button>
-
-  <button type="button" class="btn btn-info btn-lg" 
-    data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button type="button" class="btn btn-info" (click)="openModal('custom-modal-1')">
+    Open
+  </button>
   
-  
-  
+  <modal id="custom-modal-1" 
+    [title]="'Testing'"
+    (opening)="log('opening')"
+    (opened)="log('opened')"
+    (closing)="log('closing')"
+    (closed)="log('closed')">
 
-
-  <modal id="custom-modal-1">
-    <!--<div class="modal1">
-      <div class="modal-body1">
-        <h1>A Custom Modal!</h1>
-        <p>
-          Home page text: <input type="text" />
-        </p>
-        <button (click)="closeModal('custom-modal-1');">Close</button>
-      </div>
-    </div>
-    <div class="modal-background"></div>-->
-
-    <!-- Modal -->
+    <p>Some text in the modal.</p>
 
   </modal>
 
