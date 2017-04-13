@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
     this.bodyText = 'This text can be updated in modal 1';
   }
 
-  openModal(id: string) {
-    this.modalService.open(id);
+  openModal(modal: any) {
+    this.modalService.open(modal);
   }
 
-  closeModal(id: string) {
-    this.modalService.close(id);
+  closeModal(modal: any) {
+    this.modalService.close(modal);
   }
 
   log(message: string){

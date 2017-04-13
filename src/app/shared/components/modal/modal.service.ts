@@ -1,26 +1,24 @@
 ﻿import { Injectable } from "@angular/core";
+import { ModalComponent } from './modal.component';
 
 @Injectable()
 export class ModalService {
-    private modals: any[] = [];
+    private modals: ModalComponent[] = [];
 
-    add(modal: any) {
+    add(modal: ModalComponent) {
         this.modals.push(modal);
     }
 
-    remove(id: string) {
-        var modal = this.modals.find(p => p.id == id);
+    remove(modal: ModalComponent) {
         var index = this.modals.indexOf(modal);
         this.modals.splice(index, 1);
     }
 
-    open(id: string) {
-        var modal = this.modals.find(p => p.id == id);
-        modal.open();
+    open(modal: ModalComponent) {
+        modal.show();
     }
 
-    close(id: string) {
-        var modal = this.modals.find(p => p.id == id);
-        modal.close();
+    close(modal: ModalComponent) {
+        modal.hide();
     }
 }

@@ -28,10 +28,10 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit, OnDestroy {
 
     @Input() 
-    id: string;
+    title: string;
 
     @Input() 
-    title: string;
+    size: "small" | "large";
 
     @Output() 
     opening = new EventEmitter();
@@ -45,55 +45,55 @@ export class ModalComponent implements OnInit, OnDestroy {
     @Output() 
     closed = new EventEmitter();
 
-    private instance: any;
+    private modal: any;
 
     constructor(private reference: ElementRef, private modalService: ModalService) {
     }
 
     ngOnInit(): void {
 
-        this.instance = $(this.reference.nativeElement).find("#myModal");
+        this.modal = $(this.reference.nativeElement).find(".modal").first();
+        if (!this.modal)
+            console.warn("The underlying modal element could not be found");
 
-        Observable.fromEvent(this.instance, "show.bs.modal")
+        Observable.fromEvent(this.modal, "show.bs.modal")
             .subscribe(p => {
                 this.opening.next();
             });
 
-        Observable.fromEvent(this.instance, "shown.bs.modal")
+        Observable.fromEvent(this.modal, "shown.bs.modal")
             .subscribe(p => {
                 this.opened.next();
             });
 
-        Observable.fromEvent(this.instance, "hide.bs.modal")
+        Observable.fromEvent(this.modal, "hide.bs.modal")
             .subscribe(p => {
                 this.closing.next();
             });
 
-        Observable.fromEvent(this.instance, "hidden.bs.modal")
+        Observable.fromEvent(this.modal, "hidden.bs.modal")
             .subscribe(p => {
                 this.closed.next();
             });
-
 
         this.modalService.add(this);
     }
 
     ngOnDestroy(): void {
-        this.modalService.remove(this.id);
+        this.modalService.remove(this);
     }
 
-    open(): void {
+    show(): void {
         var options = {
             backdrop: true,
             keyboard: true,
             show: true,
         };
 
-        this.instance.modal(options);
+        this.modal.modal(options);
     }
 
-    close(): void {
-        this.instance.modal("hide");
-        //console.log("modal closed")
+    hide(): void {
+        this.modal.modal("hide");
     }
 }

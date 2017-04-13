@@ -50,11 +50,12 @@
 
 <div class="row">
 
-  <button type="button" class="btn btn-info" (click)="openModal('custom-modal-1')">
+  <button type="button" class="btn btn-info" (click)="openModal(temp)">
     Open
   </button>
   
-  <modal id="custom-modal-1" 
+  <modal #temp
+    [size]="'large'"
     [title]="'Testing'"
     (opening)="log('opening')"
     (opened)="log('opened')"
