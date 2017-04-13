@@ -56,14 +56,20 @@
   
   <modal #temp
     [size]="'large'"
-    [title]="'Testing'"
     (opening)="log('opening')"
     (opened)="log('opened')"
     (closing)="log('closing')"
     (closed)="log('closed')">
-
-    <p>Some text in the modal.</p>
-
+    <modal-header>
+      Sample modal
+    </modal-header>
+    <modal-body>
+      <p>Working?</p>
+    </modal-body>
+    <modal-footer>
+      <button type="button" class="btn btn-default" (click)="closeModal(temp)">Cancel</button>
+      <button type="button" class="btn btn-default" (click)="closeModal(temp)">Ok</button>
+    </modal-footer>
   </modal>
 
 </div>

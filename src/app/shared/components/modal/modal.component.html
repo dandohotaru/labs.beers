@@ -1,5 +1,13 @@
-
 <div class="modal fade" role="dialog">
+<div class="modal-dialog {{size == 'small' ? 'modal-sm' : 'modal-lg'}}">
+    <div class="modal-content">
+        <ng-content></ng-content>
+    </div>
+</div>
+</div>
+
+
+<!--<div class="modal fade" role="dialog">
     <div class="modal-dialog {{size == 'small' ? 'modal-sm' : 'modal-lg'}}">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,7 +27,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <!-- Sample
 <div id="myModal" class="modal fade" role="dialog">

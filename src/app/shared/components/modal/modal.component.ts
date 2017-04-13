@@ -1,7 +1,8 @@
 ﻿declare var $: any;
 
-import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { ElementRef, ViewChild } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
@@ -28,9 +29,6 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit, OnDestroy {
 
     @Input() 
-    title: string;
-
-    @Input() 
     size: "small" | "large";
 
     @Output() 
@@ -54,7 +52,10 @@ export class ModalComponent implements OnInit, OnDestroy {
 
         this.modal = $(this.reference.nativeElement).find(".modal").first();
         if (!this.modal)
+        {
             console.warn("The underlying modal element could not be found");
+            return;
+        }
 
         Observable.fromEvent(this.modal, "show.bs.modal")
             .subscribe(p => {
