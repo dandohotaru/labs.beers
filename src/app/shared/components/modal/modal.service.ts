@@ -15,10 +15,18 @@ export class ModalService {
     }
 
     open(modal: ModalComponent) {
-        modal.show();
+        modal.open();
     }
 
     close(modal: ModalComponent) {
-        modal.hide();
+        modal.close();
+    }
+
+    submit(modal: ModalComponent) {
+        modal.submit();
+    }
+
+    dismiss(modal: ModalComponent) {
+        modal.dismiss();
     }
 }

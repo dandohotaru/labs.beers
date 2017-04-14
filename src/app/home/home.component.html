@@ -50,7 +50,7 @@
 
 <div class="row">
 
-  <button type="button" class="btn btn-info" (click)="openModal(temp)">
+  <button type="button" class="btn btn-info" (click)="temp.open()">
     Open
   </button>
   
@@ -59,7 +59,9 @@
     (opening)="log('opening')"
     (opened)="log('opened')"
     (closing)="log('closing')"
-    (closed)="log('closed')">
+    (closed)="log('closed')"
+    (submitted)="log('submitted')"
+    (dismissed)="log('dismissed')">
     <modal-header>
       Sample modal
     </modal-header>
@@ -67,8 +69,8 @@
       <p>Working?</p>
     </modal-body>
     <modal-footer>
-      <button type="button" class="btn btn-default" (click)="closeModal(temp)">Cancel</button>
-      <button type="button" class="btn btn-default" (click)="closeModal(temp)">Ok</button>
+      <button type="button" class="btn btn-danger" (click)="temp.dismiss()">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="temp.submit()">Ok</button>
     </modal-footer>
   </modal>
 

@@ -43,6 +43,12 @@ export class ModalComponent implements OnInit, OnDestroy {
     @Output() 
     closed = new EventEmitter();
 
+    @Output() 
+    submitted = new EventEmitter();
+
+    @Output() 
+    dismissed = new EventEmitter();
+
     private modal: any;
 
     constructor(private reference: ElementRef, private modalService: ModalService) {
@@ -84,7 +90,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         this.modalService.remove(this);
     }
 
-    show(): void {
+    open(): void {
         var options = {
             backdrop: true,
             keyboard: true,
@@ -94,7 +100,17 @@ export class ModalComponent implements OnInit, OnDestroy {
         this.modal.modal(options);
     }
 
-    hide(): void {
+    close(): void {
         this.modal.modal("hide");
+    }
+
+    submit(): void {
+        this.submitted.next();
+        this.close();
+    }
+
+    dismiss(): void {
+        this.dismissed.next();
+        this.close();
     }
 }
