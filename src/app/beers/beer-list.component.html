@@ -6,12 +6,34 @@
   <div class="row">
     <app-cards [items]="beers">
       <template let-item="item">
-        <beer-card [beer]="item" (selected)="select(item)"></beer-card>
+        <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
       </template>
     </app-cards>
   </div>
 
 </div>
+
+<!-- Modal -->
+<modal #dialog [size]="'large'">
+
+  <div data-section="header" *ngIf="selection">
+    <span class="title">
+        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> 
+        {{selection.name}}
+    </span>
+  </div>
+  <div data-section="body" *ngIf="selection">
+    <div class="row">
+      <em class="col-xs-12">
+          {{selection.description}}
+        </em>
+    </div>
+  </div>
+  <div data-section="footer" *ngIf="selection">
+    <button type="button" class="btn btn-primary" (click)="dialog.close()">Ok</button>
+  </div>
+
+</modal>
 
 <!-- Dialog -->
 <p-dialog modal="true"  

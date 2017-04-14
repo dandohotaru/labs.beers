@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 
 import { DialogModule, ButtonModule }  from 'primeng/primeng';
 
-
-import { MasonModule } from './../shared/components/mason/mason.module';
-import { CardsModule } from './../shared/components/cards/cards.module';
+import { ModalModule } from "app/shared/components/modal/modal.module";
+import { MasonModule } from 'app/shared/components/mason/mason.module';
+import { CardsModule } from 'app/shared/components/cards/cards.module';
 
 import { BeerListComponent } from './beer-list.component';
 import { BeerCardComponent } from './beer-card.component';
@@ -16,6 +16,7 @@ import { BeerCardComponent } from './beer-card.component';
     CommonModule,
     MasonModule,
     CardsModule,
+    ModalModule,
     DialogModule,
     ButtonModule
   ],

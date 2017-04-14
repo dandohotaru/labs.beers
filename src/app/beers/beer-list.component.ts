@@ -68,6 +68,6 @@ export class BeerListComponent implements OnInit {
   select(item: BeerModel): void {
     this.selection = item;
     console.log(this.selection.name);
-    this.display = true;
+    //this.display = true;
   }
 }
