@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+import { ModalModule } from "app/shared/components/modal/modal.module";
 import { MasonModule } from './../shared/components/mason/mason.module';
 import { CardsModule } from './../shared/components/cards/cards.module';
 
@@ -14,8 +15,9 @@ import { BreweryCardComponent } from './brewery-card.component';
     CommonModule,
     RouterModule,
     HttpModule,
+    ModalModule,
     MasonModule,
-    CardsModule
+    CardsModule,
   ],
   declarations: [
     BreweryListComponent,

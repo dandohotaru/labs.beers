@@ -1,5 +1,6 @@
 import { BreweryData } from './../shared/services/breweries.models';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'brewery-card',
@@ -11,9 +12,17 @@ export class BreweryCardComponent implements OnInit {
   @Input()
   brewery: BreweryData;
 
+  @Output()
+  selected: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  select(): void {
+    console.log(this.brewery.name);
+    this.selected.next(this.brewery);
   }
 
   favorite(event: any): void {

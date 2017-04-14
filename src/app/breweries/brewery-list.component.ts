@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { BreweriesService } from './../shared/services/breweries.service';
-import { BreweryData } from './../shared/services/breweries.models';
+import { BreweriesService } from 'app/shared/services/breweries.service';
+import { BreweryData } from 'app/shared/services/breweries.models';
 
 @Component({
   selector: 'app-brewery-list',
@@ -13,6 +13,7 @@ export class BreweryListComponent implements OnInit {
 
   term: string;
   breweries: BreweryData[] = [];
+  selection: BreweryData;
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -24,7 +25,6 @@ export class BreweryListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.route.queryParams.subscribe(p => {
       this.term = p["q"] || "";
       var breweries = this.service
@@ -39,6 +39,10 @@ export class BreweryListComponent implements OnInit {
           console.error(error);
         });
     });
+  }
 
+  select(item: BreweryData): void {
+    this.selection = item;
+    console.log(this.selection.name);
   }
 }

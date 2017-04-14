@@ -8,12 +8,12 @@
     </a>
   </div>
 
-  <div class="label">
-    <img *ngIf="brewery.images" class="img-responsive center-block" src="{{brewery.images.medium}}" />
-    <img *ngIf="!brewery.images" class="img-responsive center-block" src="./assets/img/brewery-generic.png" />
-  </div>
+  <div class="content" (click)="select()">
+    <div class="label">
+      <img *ngIf="brewery.images" class="img-responsive center-block" src="{{brewery.images.medium}}" />
+      <img *ngIf="!brewery.images" class="img-responsive center-block" src="./assets/img/brewery-generic.png" />
+    </div>
 
-  <div class="content">
     <h6 class="title" title="{{brewery.description ? brewery.description : 'N/A'}}">
       {{brewery.name}}
     </h6>
@@ -23,8 +23,3 @@
     </div>
 
 </div>
-
-<!--Established: {{brewery.established}}
-Name: {{brewery.name}}
-Label: {{brewery.images.medium}}
-Description: {{brewery.description}}-->

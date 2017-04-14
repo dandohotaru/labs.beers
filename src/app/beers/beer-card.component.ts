@@ -34,6 +34,11 @@ export class BeerCardComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
   }
 
+  select(): void {
+    console.log(this.beer.name);
+    this.selected.next(this.beer);
+  }
+
   favorite(event: any): void {
     event.preventDefault();
     var value = !this.beer.favorite;
@@ -41,11 +46,6 @@ export class BeerCardComponent implements OnInit, OnChanges {
     this.beer.favorite = value;
 
     console.log(`${this.beer.name} is marked as ${text}`);
-  }
-
-  select(): void {
-    console.log(this.beer.name);
-    this.selected.next(this.beer);
   }
 }
 

@@ -1,15 +1,41 @@
   <!-- Results -->
 <div class="container">
-
   <br/>
-
   <div class="row">
     <app-cards [items]="breweries">
       <template let-item="item">
-        <brewery-card [brewery]="item"></brewery-card>
+        <brewery-card [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
       </template>
     </app-cards>
   </div>
 
 </div>
+
+<!-- Modal -->
+<modal #dialog size="large" class="dialog">
+  <div data-section="header" *ngIf="selection">
+    <span class="title">
+        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> 
+        {{selection.name}}
+    </span>
+  </div>
+  <div data-section="body" *ngIf="selection">
+    <div class="row">
+      <div class="col-sm-12">
+        <em>{{selection.description}}</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <img *ngIf="selection.images" class="img-responsive center-block" src="{{selection.images.medium}}" />
+        <img *ngIf="!selection.images" class="img-responsive center-block" src="./assets/img/brewery-generic.png" />
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+  <div data-section="footer" *ngIf="selection">
+    <button type="button" class="btn btn-primary" (click)="dialog.close()">Ok</button>
+  </div>
+</modal>
 
