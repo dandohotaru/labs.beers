@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
-import { DialogModule }  from 'primeng/primeng';
-
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
@@ -31,7 +29,6 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
-    DialogModule,
     LayoutModule,
     HomeModule,
     SearchModule,
