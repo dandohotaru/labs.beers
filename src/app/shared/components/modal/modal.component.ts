@@ -1,24 +1,13 @@
 ﻿declare var $: any;
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Input, Output, EventEmitter } from '@angular/core';
-import { ElementRef, ViewChild } from '@angular/core';
-
+import 'rxjs/add/observable/fromEvent';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/observable/empty';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/observable/zip';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/first';
-import 'rxjs/add/operator/last';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/partition';
-import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/toPromise';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Input, Output, EventEmitter } from '@angular/core';
+import { ElementRef, ViewChild } from '@angular/core';
 
 import { ModalService } from './modal.service';
 
