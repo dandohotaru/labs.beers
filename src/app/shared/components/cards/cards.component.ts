@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ViewChild, ElementRef } from '@angular/core';
 import { Input, ContentChild, TemplateRef } from '@angular/core';
 import * as Colcade from 'colcade';
 

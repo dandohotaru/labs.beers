@@ -14,6 +14,8 @@ import { BeerModel } from "./beer.models";
 export class BeerListComponent implements OnInit {
 
   term: string;
+  chunk: number = 4;
+  cache: BeerModel[] = [];
   beers: BeerModel[] = [];
   selection: BeerModel;
   
@@ -35,7 +37,7 @@ export class BeerListComponent implements OnInit {
         .search(this.term)
         .subscribe(beers => {
 
-          this.beers = beers
+          this.cache = beers
             .map(p => {
               var beer: BeerModel = {
                 id: p.id,
@@ -51,6 +53,9 @@ export class BeerListComponent implements OnInit {
             })
             .sort((a, b) => a.name.localeCompare(b.name));
 
+            var total = this.beers.length;
+            this.beers = this.cache.splice(total, this.chunk);
+
             this.loaded.next({found:this.beers.length});
         },
         error => {
@@ -63,5 +68,16 @@ export class BeerListComponent implements OnInit {
   select(item: BeerModel): void {
     this.selection = item;
     console.log(this.selection.name);
+  }
+
+  scroll(event: any){
+    console.log(`scrolled: ${event}`);
+  }
+
+  more():void{
+    var total = this.beers.length;
+    var slice = this.cache.splice(total, this.chunk);
+    var items = this.beers.concat(slice);  
+    this.beers = items;
   }
 }
