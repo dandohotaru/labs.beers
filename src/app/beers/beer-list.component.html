@@ -1,6 +1,13 @@
 <!-- Results -->
 <div class="container">
   <br/>
+
+  <div class="row">
+    <virtual-scroll [items]="beers" (update)="temp = $event">
+      <beer-item *ngFor="let item of temp" [beer]="item"></beer-item>
+    </virtual-scroll>
+  </div>
+
   <div class="row">
     <app-cards [items]="beers">
       <template let-item="item">
@@ -8,14 +15,14 @@
       </template>
     </app-cards>
   </div>
+  
 </div>
 
 <!-- Modal -->
 <modal #dialog size="large" class="dialog">
   <div data-section="header" *ngIf="selection">
     <span class="title">
-        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> 
-        {{selection.name}}
+        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> {{selection.name}}
     </span>
   </div>
   <div data-section="body" *ngIf="selection">

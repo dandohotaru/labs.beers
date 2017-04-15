@@ -3,6 +3,10 @@
 
 * Wiki
   https://github.com/angular/angular-cli/wiki
+  
+* Create project 
+  https://github.com/angular/angular-cli/wiki/new
+  ng new [name] --skip-commit --skip-git --skip-install --skip-tests
 
 * Create module
   ng generate module --spec false --routing false [name]

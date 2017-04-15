@@ -1,0 +1,18 @@
+.beer {
+}
+
+.beer .content {
+    padding: 2px 16px;
+}
+
+.beer .title {
+    font-weight: bold;
+}
+
+.beer .type {
+    font-style: italic;
+}
+
+.beer .spec {
+    display: inline;
+}

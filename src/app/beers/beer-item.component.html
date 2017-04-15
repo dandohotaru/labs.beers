@@ -1,0 +1,26 @@
+<div class="beer" *ngIf="beer">
+
+  <div class="content" (click)="select()">
+    <div class="row">
+      <div class="col-xs-12">
+        <h6 class="title" title="{{beer.description}}">
+          {{beer.name}}
+        </h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 type">
+        <small>{{beer.style}}</small>
+      </div>
+      <div class="col-xs-4 spec">
+        <small *ngIf="beer.abv">ABV %: {{beer.abv}}</small>
+        <small *ngIf="!beer.abv">ABV %: N/A</small>
+      </div>
+      <div class="col-xs-4 spec" class="pull-right">
+        <small *ngIf="beer.ibu">IBU %: {{beer.ibu}}</small>
+        <small *ngIf="!beer.ibu">IBU %: N/A</small>
+      </div>
+    </div>
+  </div>
+
+</div>

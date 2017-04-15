@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { BeersService } from './../shared/services/beers.service';
 import { BeerData } from './../shared/services/beers.models';
-import { BeerModel } from "./beer-card.component";
+import { BeerModel } from "./beer.models";
 
 @Component({
   selector: 'app-beer-list',

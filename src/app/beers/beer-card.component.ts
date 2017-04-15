@@ -1,8 +1,8 @@
-
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
-import { BeerData } from './../shared/services/beers.models';
+import { BeerData } from 'app/shared/services/beers.models';
+import { BeerModel, LegendModel } from "app/beers/beer.models";
 
 @Component({
   selector: 'beer-card',
@@ -49,19 +49,4 @@ export class BeerCardComponent implements OnInit, OnChanges {
   }
 }
 
-export class BeerModel {
-  id: string;
-  name: string;
-  style: string;
-  label: string;
-  description: string;
-  abv: string;
-  ibu: string;
-  favorite?: boolean;
-}
 
-export class LegendModel {
-  abv: string;
-  ibu: string;
-  srm: string;
-}
