@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ModalModule } from "app/shared/components/modal/modal.module";
 import { MasonModule } from 'app/shared/components/mason/mason.module';
 import { CardsModule } from 'app/shared/components/cards/cards.module';
+import { ColcadeModule } from "app/shared/components/colcade/colcade.module";
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
 import { BeerListComponent } from './beer-list.component';
@@ -16,6 +17,7 @@ import { BeerItemComponent } from './beer-item.component';
     CommonModule,
     MasonModule,
     CardsModule,
+    ColcadeModule,
     ModalModule,
     VirtualScrollModule,
   ],
