@@ -70,7 +70,6 @@ export class BeerListComponent implements OnInit {
 
   select(item: BeerModel): void {
     this.selection = item;
-    console.log(this.selection.name);
   }
 
   scroll(event: any){

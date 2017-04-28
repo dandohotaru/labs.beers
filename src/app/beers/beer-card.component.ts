@@ -35,7 +35,6 @@ export class BeerCardComponent implements OnInit, OnChanges {
   }
 
   select(): void {
-    console.log(this.beer.name);
     this.selected.next(this.beer);
   }
 
