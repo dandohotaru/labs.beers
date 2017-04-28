@@ -20,7 +20,7 @@ export class BeerListComponent implements OnInit {
   selection: BeerModel;
   
   @Output()
-  loaded: EventEmitter<{found:number}> = new EventEmitter();
+  loaded: EventEmitter<{found:string}> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -37,7 +37,7 @@ export class BeerListComponent implements OnInit {
         .search(this.term)
         .subscribe(beers => {
 
-          this.cache = beers
+          var models = beers
             .map(p => {
               var beer: BeerModel = {
                 id: p.id,
@@ -53,16 +53,19 @@ export class BeerListComponent implements OnInit {
             })
             .sort((a, b) => a.name.localeCompare(b.name));
 
-            var total = this.beers.length;
-            this.beers = this.cache.splice(total, this.chunk);
-
-            this.loaded.next({found:this.beers.length});
+            this.cache = models;
+            this.beers = models.slice(0, this.chunk);
+            this.loaded.next({found:this.summary()});
         },
         error => {
           console.error(error);
         });
     });
 
+  }
+
+  summary(): string{
+    return `${this.beers.length} / ${this.cache.length}`;
   }
 
   select(item: BeerModel): void {
@@ -75,9 +78,11 @@ export class BeerListComponent implements OnInit {
   }
 
   more():void{
-    var total = this.beers.length;
-    var slice = this.cache.splice(total, this.chunk);
-    var items = this.beers.concat(slice);  
-    this.beers = items;
+    var start = this.beers.length;
+    var end = this.beers.length + this.chunk;
+    var slice = this.cache.slice(start, end);
+    this.beers = this.beers.concat(slice);  
+
+    this.loaded.next({found:this.summary()});
   }
 }

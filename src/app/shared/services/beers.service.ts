@@ -22,7 +22,7 @@ export class BeersService {
 
         return this.httpHandler
             .get('./assets/json/beers.json')
-            .map((response: Response)=>{
+            .map((response: Response) => {
                 let body = response.json();
                 return body.data || {};
             })
@@ -33,11 +33,17 @@ export class BeersService {
 
         return this.httpHandler
             .get('./assets/json/beers.json')
-            .map((response: Response)=>{
+            .map((response: Response) => {
                 let body = response.json();
                 var results = body.data as BeerData[];
-                if (term && term.length > 0){
-                    return results.filter(p => p.name.toLowerCase().includes(term.toLowerCase()));
+                if (term && term.length > 0) {
+                    var data = results.filter(p => {
+                        var found = p.name && p.name.toLowerCase().includes(term.toLowerCase())
+                            || p.description && p.description.toLowerCase().includes(term.toLowerCase());
+                        return found;
+                    });
+
+                    return data;
                 }
 
                 return results;

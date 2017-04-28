@@ -8,6 +8,7 @@
     </virtual-scroll>
   </div>-->
 
+  <!-- ToDo: Uncomment this -->
   <div class="row">
     <app-cards #cards [items]="beers">
       <template let-item="item">
@@ -23,7 +24,7 @@
 
   <div class="row">
     <button type="button" class="btn btn-info center-block" (click)="more()">
-      Load more
+      Load more ({{summary()}})
     </button>
   </div>
   
