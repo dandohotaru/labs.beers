@@ -1,8 +1,4 @@
-<div #dummy >
-
-
-
-<div class="grid">
+<div #dummy class="grid">
 
     <!-- Columns -->
     <div class="grid-col grid-col-1"></div>
@@ -11,7 +7,7 @@
     <div class="grid-col grid-col-4"></div>
 
     <!-- Bricks -->
-    <div *ngFor="let brick of bricks" class="grid-item">
+    <div class="grid-item" *ngFor="let brick of bricks">
         <div class="card">
             <p>{{brick.name}}</p>
             <div>
@@ -19,7 +15,5 @@
             </div>
         </div>
     </div>
-
-</div>
 
 </div>

@@ -1,19 +1,20 @@
 
-//import * as Colcade from 'colcade';
-import Colcade from 'colcade';
+import * as Colcade from 'colcade';
+import 'rxjs/add/operator/first';
+
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
-import { AfterViewInit, AfterViewChecked } from '@angular/core';
+import { AfterViewInit, AfterViewChecked, AfterContentInit, NgZone } from '@angular/core';
+
 
 @Component({
-    moduleId: module.id,
     selector: 'app-colcade',
     templateUrl: 'colcade.html',
-    styleUrls: ['./colcade.css']
+    styleUrls: ['./colcade.css'],
 })
-export class ColcadeComponent implements OnInit, OnChanges, AfterViewInit, AfterViewChecked {
+export class ColcadeComponent implements OnInit, OnChanges, AfterViewInit {
 
-    @ViewChild("dummy") 
+    @ViewChild("dummy")
     dummy: ElementRef;
 
     @Input()
@@ -23,13 +24,15 @@ export class ColcadeComponent implements OnInit, OnChanges, AfterViewInit, After
 
     colcade = null;
 
-    constructor(private element: ElementRef) { }
+    constructor(private element: ElementRef, private zone: NgZone) { }
 
     ngOnInit() {
-
+        console.log("ngOnInit");
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+        console.log("ngOnChanges");
+
         var sizes = ["a", "b", "c"];
         this.bricks = this.data.map(p => {
             var index = Math.floor(Math.random() * sizes.length);
@@ -42,38 +45,23 @@ export class ColcadeComponent implements OnInit, OnChanges, AfterViewInit, After
             return brick;
         });
 
-        console.log(this.bricks);
+        this.zone.onStable.first().subscribe(() => {
+            console.log("onStable");
 
-        setTimeout(p => {
-
-            console.log("ngOnChanges: late");
-
-            var grid = this.dummy.nativeElement.querySelector('.grid');
-            this.colcade = new Colcade(grid, {
-                columns: ".grid-col",
-                items: ".grid-item",
-            });
-
-            
-
-        }, 10);
-
-        console.log("ngOnChanges");
+            if (!this.colcade) {
+                var grid = this.dummy.nativeElement;
+                this.colcade = new Colcade(grid, {
+                    columns: ".grid-col",
+                    items: ".grid-item",
+                });
+            }
+            this.colcade.reload();
+        });
 
     }
 
     ngAfterViewInit(): void {
         console.log("ngAfterViewInit");
-        console.log(this.dummy.nativeElement.querySelector('.grid'));
-
-        
-    }
-
-    ngAfterViewChecked(): void {
-        console.log("ngAfterViewChecked");
-
-        
-
     }
 }
 
