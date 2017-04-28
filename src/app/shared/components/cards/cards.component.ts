@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, NgZone } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { Input, ContentChild, TemplateRef } from '@angular/core';
 import * as Colcade from 'colcade';
@@ -22,7 +22,8 @@ export class CardsComponent implements OnInit, OnChanges {
     hidden: boolean;
     colcade: Colcade;
 
-    constructor() { }
+    constructor(private zone: NgZone) {
+    }
 
     ngOnInit(): void {
     }
@@ -30,20 +31,23 @@ export class CardsComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         //this.hidden = true;
         setTimeout(p => {
-            this.arrange();
+            
             //this.hidden = false;
         }, 0);
+
+        this.zone.onStable.first().subscribe(() => {
+            this.arrange();
+        });
     }
 
     arrange(): void {
-        if (!this.colcade) {    
-            
+        if (!this.colcade) {
             this.colcade = new Colcade(this.grid.nativeElement, {
                 columns: ".grid-col",
                 items: ".grid-item",
             });
         }
-        
+
         this.colcade.reload();
     }
 }
