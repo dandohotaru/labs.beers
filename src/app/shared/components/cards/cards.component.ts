@@ -16,38 +16,34 @@ export class CardsComponent implements OnInit, OnChanges {
     @ContentChild(TemplateRef)
     template: TemplateRef<any>;
 
-    @ViewChild('myGrid')
-    mygrid: ElementRef;
+    @ViewChild('grid')
+    grid: ElementRef;
 
     hidden: boolean;
+    colcade: Colcade;
 
-    private colcade = null;
-
-    constructor(private element: ElementRef) { }
+    constructor() { }
 
     ngOnInit(): void {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.hidden = true;
+        //this.hidden = true;
         setTimeout(p => {
             this.arrange();
-            this.hidden = false;
+            //this.hidden = false;
         }, 0);
     }
 
     arrange(): void {
         if (!this.colcade) {    
-            var options = {
+            
+            this.colcade = new Colcade(this.grid.nativeElement, {
                 columns: ".grid-col",
-                items: ".grid-card",
-            };
-
-            var grid = this.element.nativeElement.querySelector('.grid');
-            this.colcade = new Colcade(grid, options);
+                items: ".grid-item",
+            });
         }
-        else {
-            this.colcade.reload();
-        }
+        
+        this.colcade.reload();
     }
 }
