@@ -1,89 +1,96 @@
-
-* { 
-  box-sizing: border-box; 
-}
-
-/* Grid */
+/* Wall */
 .grid {
 }
 
 .grid:after {
-  display: block;
-  content: '';
-  clear: both;
-}
-
-.grid-col {
-  float: left;
-  width: 49%;
-  margin-right: 2%;
-}
-
-.grid-col-4 { 
-  margin-right: 0; 
-}
-
-.grid-col-2, .grid-col-3 { 
-  display: none; 
+    display: block;
+    content: '';
+    clear: both;
 }
 
 @media (min-width: 320px ) {
-  .grid-col { 
-    width: 99%; 
-  }
-  .grid-col-1, .grid-col-2, .grid-col-3 { 
-    display: none; 
-  }
+    .grid-col { 
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 98%; 
+    }
+    .grid-col-1, .grid-col-2, .grid-col-3 { 
+        display: none; 
+    }
+    .grid-col-4 {
+        display: block;
+        margin-right: 0;
+    }
 }
 
 @media (min-width: 480px ) {
-  .grid-col { 
-    width: 49%; 
-  }
-  .grid-col-1 { 
-    display: block; 
-  }
-  .grid-col-2, .grid-col-3 { 
-    display: none; 
-  }
+    .grid-col { 
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 48%; 
+    }
+    .grid-col-1 { 
+        display: block; 
+    }
+    .grid-col-2, .grid-col-3 { 
+        display: none; 
+    }
+    .grid-col-4 {
+        display: block;
+        margin-right: 0;
+    }
 }
 
-@media (min-width: 768px ) {
-  .grid-col { 
-    width: 32%; 
-  }
-  .grid-col-2 { 
-    display: block; 
-  }
+@media ( min-width: 768px) {
+    .grid-col {
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 31%;
+    }
+    .grid-col-2 {
+        display: block;
+    }
+    .grid-col-4 {
+        display: block;
+        margin-right: 0;
+    }
 }
 
-@media (min-width: 1200px ) {
-  .grid-col { 
-    width: 23.5%; 
-  }
-  .grid-col-2, .grid-col-3 { 
-    display: block; 
-  }
+@media ( min-width: 1200px) {
+    .grid-col {
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 23%;
+    }
+    .grid-col-2, .grid-col-3 {
+        display: block;
+    }
+    .grid-col-4 {
+        display: block;
+        margin-right: 0;
+    }
 }
 
-/* Item */
+/* Brick */
 .grid-item {
     margin-bottom: 10px;
     background: transparent;
 }
 
-/* Cards*/
-.grid-card {
+/* Card */
+.card {
   background: transparent;
   border: 1px lightgray solid;
   box-shadow: 0px 2px 4px 0px lightgray;
   transition: 0.3s;
 }
 
-.grid-card:hover {
+.card:hover {
   border: 1px orange solid;
   box-shadow: 0px 8px 16px 0px orange;
   cursor: pointer;
 }
-
-
