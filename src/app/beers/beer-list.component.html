@@ -17,9 +17,28 @@
     </app-cards>
   </div>
 
-  <!-- ToDo: Work in progress -->
+  <!-- ToDo: Work in progress with custom  -->
   <!--<div class="row">
     <app-colcade [data]="beers"></app-colcade>
+  </div>-->
+
+  <!-- ToDo: Work in progress with sample -->
+  <!--<div class="row">
+    <colcade-grid>
+      <colcade-grid-col class="grid-col grid-col-1"></colcade-grid-col>
+      <colcade-grid-col class="grid-col grid-col-2"></colcade-grid-col>
+      <colcade-grid-col class="grid-col grid-col-3"></colcade-grid-col>
+      <colcade-grid-col class="grid-col grid-col-4"></colcade-grid-col>
+
+      <template ngFor let-item [ngForOf]="beers">
+        <colcade-grid-item>
+          <div class="grid-item card">
+            <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
+          </div>
+        </colcade-grid-item>
+      </template>
+    </colcade-grid>
+
   </div>-->
 
   <div class="row">
@@ -27,7 +46,7 @@
       Load more ({{summary()}})
     </button>
   </div>
-  
+
 </div>
 
 <!-- Modal -->

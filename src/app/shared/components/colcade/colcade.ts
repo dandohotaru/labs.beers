@@ -9,8 +9,7 @@ import { AfterViewInit, AfterViewChecked, AfterContentInit, NgZone } from '@angu
 
 @Component({
     selector: 'app-colcade',
-    templateUrl: 'colcade.html',
-    styleUrls: ['./colcade.css'],
+    templateUrl: 'colcade.html'
 })
 export class ColcadeComponent implements OnInit, OnChanges, AfterViewInit {
 
