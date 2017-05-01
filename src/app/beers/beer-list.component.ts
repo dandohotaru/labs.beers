@@ -81,6 +81,7 @@ export class BeerListComponent implements OnInit {
     var end = this.beers.length + this.chunk;
     var slice = this.cache.slice(start, end);
     this.beers = this.beers.concat(slice);  
+    //this.beers.push(...slice);
 
     this.loaded.next({found:this.summary()});
   }

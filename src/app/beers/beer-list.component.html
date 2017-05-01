@@ -9,13 +9,13 @@
   </div>-->
 
   <!-- ToDo: Uncomment this -->
-  <div class="row">
+  <!--<div class="row">
     <app-cards [items]="beers">
       <template let-item="item">
         <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
       </template>
     </app-cards>
-  </div>
+  </div>-->
 
   <!-- ToDo: Work in progress with custom  -->
   <!--<div class="row">
@@ -23,23 +23,21 @@
   </div>-->
 
   <!-- ToDo: Work in progress with sample -->
-  <!--<div class="row">
+  <div class="row">
     <colcade-grid>
       <colcade-grid-col class="grid-col grid-col-1"></colcade-grid-col>
       <colcade-grid-col class="grid-col grid-col-2"></colcade-grid-col>
       <colcade-grid-col class="grid-col grid-col-3"></colcade-grid-col>
       <colcade-grid-col class="grid-col grid-col-4"></colcade-grid-col>
 
-      <template ngFor let-item [ngForOf]="beers">
-        <colcade-grid-item>
-          <div class="grid-item card">
-            <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
-          </div>
-        </colcade-grid-item>
-      </template>
+      <colcade-grid-item *ngFor="let item of beers">
+        <div class="grid-item card">
+          <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
+        </div>
+      </colcade-grid-item>
     </colcade-grid>
 
-  </div>-->
+  </div>
 
   <div class="row">
     <button type="button" class="btn btn-info center-block" (click)="more()">
