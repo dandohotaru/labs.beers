@@ -1,6 +1,6 @@
 import * as Colcade from 'colcade';
 import { Component, ElementRef, Input, OnInit, AfterViewInit, OnDestroy, ContentChildren, QueryList, NgZone, AfterContentInit, Renderer } from '@angular/core';
-import { BrickDirective } from "app/shared/components/mason/brick.directive";
+import { BrickDirective } from "./brick.directive";
 
 @Component({
   selector: 'app-wall',
