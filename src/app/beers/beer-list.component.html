@@ -33,7 +33,7 @@
 
   <!-- ToDo: Work in progress with masonry1  -->
   <div class="row">
-    <masonry [options]="{transitionDuration: '0.5s'}">
+    <masonry [options]="{transitionDuration: '0.05s'}">
       <masonry-brick class="brick" *ngFor="let item of beers">
         <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>
         <!--<div class="card">

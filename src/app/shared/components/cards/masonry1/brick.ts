@@ -5,27 +5,29 @@ interface MutationWindow extends Window {
 
 declare var window: MutationWindow;
 
-import {Directive,Inject,ElementRef,forwardRef,OnDestroy,AfterViewInit} from '@angular/core';
+import { Directive, Inject, ElementRef, forwardRef, OnDestroy, AfterViewInit } from '@angular/core';
 
-import { AngularMasonry } from './masonry';
+import { WallComponent } from './masonry';
 
 @Directive({
     selector: '[masonry-brick], masonry-brick'
 })
-export class AngularMasonryBrick implements OnDestroy, AfterViewInit {
+export class BrickDirective implements OnDestroy, AfterViewInit {
 
     constructor(
-        private _element: ElementRef,
-        @Inject(forwardRef(() => AngularMasonry)) private _parent: AngularMasonry
-    ) { }
+        @Inject(forwardRef(() => WallComponent))
+        private parent: WallComponent,
+        private element: ElementRef,
+    ) {
+    }
 
     ngAfterViewInit() {
-        this._parent.add(this._element.nativeElement);
+        this.parent.add(this.element.nativeElement);
         this.watchForHtmlChanges();
     }
 
     ngOnDestroy() {
-        this._parent.remove(this._element.nativeElement);
+        this.parent.remove(this.element.nativeElement);
     }
 
     /** When HTML in brick changes dinamically, observe that and change layout */
@@ -36,12 +38,12 @@ export class AngularMasonryBrick implements OnDestroy, AfterViewInit {
             /** Watch for any changes to subtree */
             let self = this;
             let observer = new MutationObserver(function (mutations, observerFromElement) {
-                self._parent.layout();
+                self.parent.layout();
             });
 
             // define what element should be observed by the observer
             // and what types of mutations trigger the callback
-            observer.observe(this._element.nativeElement, {
+            observer.observe(this.element.nativeElement, {
                 subtree: true,
                 childList: true
             });

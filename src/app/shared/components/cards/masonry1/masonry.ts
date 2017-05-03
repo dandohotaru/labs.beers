@@ -9,7 +9,7 @@ import { MasonryOptions } from './masonry-options';
     template: '<ng-content></ng-content>',
     styleUrls: ['./masonry.css']
 })
-export class AngularMasonry implements OnInit, OnDestroy {
+export class WallComponent implements OnInit, OnDestroy {
 
     constructor(private element: ElementRef) { 
     }

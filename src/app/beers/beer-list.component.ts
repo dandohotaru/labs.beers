@@ -14,7 +14,7 @@ import { BeerModel } from "./beer.models";
 export class BeerListComponent implements OnInit {
 
   term: string;
-  chunk: number = 4;
+  chunk: number = 10;
   cache: BeerModel[] = [];
   beers: BeerModel[] = [];
   selection: BeerModel;
