@@ -46,7 +46,6 @@ git branch
 ### create branch
 ```
 git branch [name]
-
 ```
 ### checkout branch
 ```
@@ -72,3 +71,34 @@ git branch -D [name]
 ```
 git branch -m [name]
 ```
+
+# How to manage undos [wiki](https://www.atlassian.com/git/tutorials/undoing-changes)
+
+### reset commit
+```
+git reset HEAD~1
+```
+### revert commit
+```
+git revert --no-commit [hash]..HEAD
+git commit
+```
+### undo files
+```
+git checkout [hash] [file.path]
+```
+### temp switch
+```
+git checkout [hash]
+```
+### commit reset
+```
+git reset --hard [hash]
+```
+### commit stash
+```
+git stash
+git reset --hard [hash]
+git stash pop
+```
+
