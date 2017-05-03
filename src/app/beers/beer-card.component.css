@@ -13,14 +13,14 @@
     -webkit-text-stroke-color: darkorange;
 }
 
-.beer .label {
-}
-
-.beer .label .image {
-}
-
 .beer .content {
     padding: 2px 16px;
+}
+
+.beer .image {
+}
+
+.beer .description {
 }
 
 .beer .title {

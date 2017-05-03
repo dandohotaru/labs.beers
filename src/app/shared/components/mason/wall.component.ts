@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, AfterViewInit, OnDestroy } from '
 import * as Colcade from 'colcade';
 
 @Component({
-  selector: '[colcade-grid], colcade-grid',
+  selector: 'app-wall',
   templateUrl: "./wall.component.html",
   styleUrls: ["./wall.component.css"]
 })
@@ -14,10 +14,9 @@ export class WallComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
 
-
     this.colcade = new Colcade(this.element.nativeElement, {
       columns: '.wall-col',
-      items: '.wall-brick'
+      items: '.card'
     });
   }
 

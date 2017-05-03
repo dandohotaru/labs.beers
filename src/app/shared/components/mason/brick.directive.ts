@@ -3,7 +3,7 @@ import { Inject, forwardRef } from '@angular/core';
 import { WallComponent } from './wall.component';
 
 @Directive({
-  selector: '[colcade-grid-item], colcade-grid-item'
+  selector: 'app-brick'
 })
 export class BrickDirective implements AfterViewInit {
 

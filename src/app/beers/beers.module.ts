@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { PipesModule } from "app/shared/pipes/pipes.module";
 import { ModalModule } from "app/shared/components/modal/modal.module";
 import { WallModule } from 'app/shared/components/mason/wall.module';
 import { CardsModule } from 'app/shared/components/cards/cards.module';
@@ -15,6 +16,7 @@ import { BeerItemComponent } from './beer-item.component';
 @NgModule({ 
   imports: [
     CommonModule,
+    PipesModule,
     WallModule,
     CardsModule,
     ColcadeModule,

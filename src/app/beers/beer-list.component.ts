@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
+import { Output, EventEmitter, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { BeersService } from './../shared/services/beers.service';
@@ -19,6 +19,9 @@ export class BeerListComponent implements OnInit {
   beers: BeerModel[] = [];
   selection: BeerModel;
   
+  @Input()
+  images: boolean = true;
+
   @Output()
   loaded: EventEmitter<{found:string}> = new EventEmitter();
 

@@ -8,6 +8,11 @@
     clear: both;
 }
 
+/* Bricks */
+.wall-brick {
+}
+
+/* Columns */
 @media (min-width: 320px ) {
     .wall-col { 
         float: left;
@@ -73,10 +78,4 @@
         display: block;
         margin-right: 0;
     }
-}
-
-/* Brick */
-.wall-brick {
-    margin-bottom: 10px;
-    background: transparent;
 }

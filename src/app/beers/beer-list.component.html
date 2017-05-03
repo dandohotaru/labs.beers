@@ -24,13 +24,11 @@
 
   <!-- ToDo: Work in progress with sample -->
   <div class="row">
-    <colcade-grid>
-      <colcade-grid-item *ngFor="let item of beers">
-        <div class="wall-brick card">
-          <beer-card [beer]="item" (selected)="select(item);dialog.open();"></beer-card>
-        </div>
-      </colcade-grid-item>
-    </colcade-grid>
+    <app-wall>
+      <app-brick *ngFor="let item of beers">
+          <beer-card [beer]="item" [images]="images" (selected)="select(item);dialog.open();"></beer-card>
+      </app-brick>
+    </app-wall>
   </div>
 
   <!-- More -->

@@ -14,3 +14,8 @@ export class LegendModel {
   ibu: string;
   srm: string;
 }
+
+export class ToggleModel {
+  images: boolean;
+  descriptions: boolean;
+}

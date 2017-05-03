@@ -13,6 +13,9 @@ import { BeerModel, LegendModel } from "app/beers/beer.models";
 export class BeerCardComponent implements OnInit, OnChanges {
 
   @Input()
+  images: boolean;
+
+  @Input()
   beer: BeerModel;
 
   @Output()

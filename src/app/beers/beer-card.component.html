@@ -1,4 +1,4 @@
-<div class="beer" *ngIf="beer">
+<div class="beer card" *ngIf="beer">
 
   <div class="actions">
     <span class="fa fa-1x fa-beer" aria-hidden="true"></span>
@@ -10,10 +10,14 @@
 
   <div class="content" (click)="select()">
 
-    <div class="label">
+    <div class="image" *ngIf="images">
       <img class="image img-responsive center-block" src="{{beer.label}}" />
     </div>
 
+    <div class="description" *ngIf="!images">
+      {{beer.description | words : 20}}
+    </div>
+    
     <h6 class="title" title="{{beer.description}}">
       {{beer.name}}
     </h6>
