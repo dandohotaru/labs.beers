@@ -12,25 +12,36 @@ export class WallComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+  }
 
+  public ngAfterViewInit() {
+    this.init();
+  }
+
+  public ngOnDestroy() {
+    this.clear();
+  }
+
+  public init() {
     this.colcade = new Colcade(this.element.nativeElement, {
-      columns: '.wall-col',
-      items: '.card'
+      columns: '.column',
+      items: '.card, .brick'
     });
   }
 
-  ngAfterViewInit() {
-  }
-
-  ngOnDestroy() {
-    if (this.colcade) {
+  public clear() {
+    if (this.colcade)
       this.colcade.destroy();
-    }
   }
 
-  append(element: HTMLElement) {
-    console.log('append');
-    this.colcade.append(element);
+  public reset() {
+    this.clear();
+    this.init();
+  }
+
+  public append(element: HTMLElement) {
+    if (this.colcade)
+      this.colcade.append(element);
   }
 }

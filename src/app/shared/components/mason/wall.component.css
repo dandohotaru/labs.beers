@@ -8,73 +8,94 @@
     clear: both;
 }
 
-/* Bricks */
-.wall-brick {
+/* Brick */
+.brick {
 }
 
-/* Columns */
+/* Column */
 @media (min-width: 320px ) {
-    .wall-col { 
+    .column { 
         float: left;
         margin-left: 1%;
         margin-right: 1%;
         width: 98%; 
     }
-    .wall-col-1, .wall-col-2, .wall-col-3 { 
+    .column-1st { 
         display: none; 
     }
-    .wall-col-4 {
+    .column-2nd { 
+        display: none; 
+    }
+    .column-3rd { 
+        display: none; 
+    }
+    .column-4th {
         display: block;
         margin-right: 0;
     }
 }
 
 @media (min-width: 480px ) {
-    .wall-col { 
+    .column { 
         float: left;
         margin-left: 1%;
         margin-right: 1%;
         width: 48%; 
     }
-    .wall-col-1 { 
+    .column-1st { 
         display: block; 
     }
-    .wall-col-2, .wall-col-3 { 
+    .column-2nd { 
         display: none; 
     }
-    .wall-col-4 {
+    .column-3rd { 
+        display: none; 
+    }
+    .column-4th {
         display: block;
         margin-right: 0;
     }
 }
 
 @media ( min-width: 768px) {
-    .wall-col {
+    .column {
         float: left;
         margin-left: 1%;
         margin-right: 1%;
         width: 31%;
     }
-    .wall-col-2 {
+    .column-1st { 
+        display: block; 
+    }
+    .column-2nd {
         display: block;
     }
-    .wall-col-4 {
+    .column-3rd {
+        display: none;
+    }
+    .column-4th {
         display: block;
         margin-right: 0;
     }
 }
 
 @media ( min-width: 1200px) {
-    .wall-col {
+    .column {
         float: left;
         margin-left: 1%;
         margin-right: 1%;
         width: 23%;
     }
-    .wall-col-2, .wall-col-3 {
+    .column-1st { 
+        display: block; 
+    }
+    .column-2nd {
         display: block;
     }
-    .wall-col-4 {
+    .column-3rd {
+        display: block;
+    }
+    .column-4th {
         display: block;
         margin-right: 0;
     }
