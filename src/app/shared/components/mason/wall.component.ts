@@ -3,9 +3,10 @@ import * as Colcade from 'colcade';
 
 @Component({
   selector: '[colcade-grid], colcade-grid',
-  template: `<ng-content></ng-content>`
+  templateUrl: "./wall.component.html",
+  styleUrls: ["./wall.component.css"]
 })
-export class MasonGridComponent implements OnInit, AfterViewInit, OnDestroy {
+export class WallComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private colcade = null;
 
@@ -15,13 +16,12 @@ export class MasonGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     this.colcade = new Colcade(this.element.nativeElement, {
-      columns: '[colcade-grid-col], colcade-grid-col',
-      items: '[colcade-grid-item], colcade-grid-item'
+      columns: '.wall-col',
+      items: '.wall-brick'
     });
   }
 
   ngAfterViewInit() {
-    console.log('afterviewinit');
   }
 
   ngOnDestroy() {

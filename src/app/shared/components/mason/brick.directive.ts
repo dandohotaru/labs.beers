@@ -1,15 +1,15 @@
 import { Directive, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { Inject, forwardRef } from '@angular/core';
-import { MasonGridComponent } from './mason-grid.component';
+import { WallComponent } from './wall.component';
 
 @Directive({
   selector: '[colcade-grid-item], colcade-grid-item'
 })
-export class MasonBrickDirective implements AfterViewInit {
+export class BrickDirective implements AfterViewInit {
 
   constructor(
-    @Inject(forwardRef(() => MasonGridComponent))
-    private parent: MasonGridComponent,
+    @Inject(forwardRef(() => WallComponent))
+    private parent: WallComponent,
     private element: ElementRef) { }
 
   ngAfterViewInit() {

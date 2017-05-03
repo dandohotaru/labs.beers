@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ModalModule } from "app/shared/components/modal/modal.module";
-import { MasonModule } from 'app/shared/components/mason/mason.module';
+import { WallModule } from 'app/shared/components/mason/wall.module';
 import { CardsModule } from 'app/shared/components/cards/cards.module';
 import { ColcadeModule } from "app/shared/components/colcade/colcade.module";
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
@@ -15,7 +15,7 @@ import { BeerItemComponent } from './beer-item.component';
 @NgModule({ 
   imports: [
     CommonModule,
-    MasonModule,
+    WallModule,
     CardsModule,
     ColcadeModule,
     ModalModule,

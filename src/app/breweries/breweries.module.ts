@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { ModalModule } from "app/shared/components/modal/modal.module";
-import { MasonModule } from './../shared/components/mason/mason.module';
+import { WallModule } from './../shared/components/mason/wall.module';
 import { CardsModule } from './../shared/components/cards/cards.module';
 
 import { BreweryListComponent } from './brewery-list.component';
@@ -16,7 +16,7 @@ import { BreweryCardComponent } from './brewery-card.component';
     RouterModule,
     HttpModule,
     ModalModule,
-    MasonModule,
+    WallModule,
     CardsModule,
   ],
   declarations: [
