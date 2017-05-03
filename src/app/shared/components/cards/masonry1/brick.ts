@@ -5,14 +5,7 @@ interface MutationWindow extends Window {
 
 declare var window: MutationWindow;
 
-import {
-    Directive,
-    Inject,
-    ElementRef,
-    forwardRef,
-    OnDestroy,
-    AfterViewInit
-} from '@angular/core';
+import {Directive,Inject,ElementRef,forwardRef,OnDestroy,AfterViewInit} from '@angular/core';
 
 import { AngularMasonry } from './masonry';
 

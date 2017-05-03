@@ -1,116 +1,93 @@
-declare var require: any;
 declare var imagesLoaded: any;
 
-import {
-    Component,
-    OnInit,
-    OnDestroy,
-    Input,
-    Output,
-    ElementRef,
-    EventEmitter,
-} from '@angular/core';
-
 import * as masonry from 'masonry-layout';
-// var masonry = require('masonry-layout');
-
+import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter } from '@angular/core';
 import { MasonryOptions } from './masonry-options';
 
 @Component({
     selector: '[masonry], masonry',
     template: '<ng-content></ng-content>',
-    styleUrls:['./masonry.css']
+    styleUrls: ['./masonry.css']
 })
 export class AngularMasonry implements OnInit, OnDestroy {
 
-    constructor(
-        private _element: ElementRef
-    ) { }
+    constructor(private element: ElementRef) { 
+    }
 
-    public _msnry: any;
-    // private _imagesLoaded = null;
+    masonry: any;
 
-    // Inputs
-    @Input() public options: MasonryOptions;
-    @Input() public useImagesLoaded: Boolean = false;
+    @Input() 
+    options: MasonryOptions;
 
-    // Outputs
-    @Output() layoutComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
-    @Output() removeComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
+    @Input() 
+    useImagesLoaded: Boolean = false;
+
+    @Output() 
+    layoutComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
+
+    @Output() 
+    removeComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
 
     ngOnInit() {
-        ///TODO: How to load imagesloaded only if this.useImagesLoaded===true?
-        // if (this.useImagesLoaded) {
-        //     this._imagesLoaded = require('imagesloaded');
-        // }
+        if (!this.options) 
+            this.options = {};
 
-        // Create masonry options object
-        if (!this.options) this.options = {};
-
-        // Set default itemSelector
         if (!this.options.itemSelector) {
             this.options.itemSelector = '[masonry-brick], masonry-brick';
         }
 
-        // Set element display to block
-        if (this._element.nativeElement.tagName === 'MASONRY') {
-            this._element.nativeElement.style.display = 'block';
+        if (this.element.nativeElement.tagName === 'MASONRY') {
+            this.element.nativeElement.style.display = 'block';
         }
 
-        // Initialize Masonry
-        this._msnry = new masonry(this._element.nativeElement, this.options);
-
-        // console.log('AngularMasonry:', 'Initialized');
-
-        // Bind to events
-        this._msnry.on('layoutComplete', (items: any) => {
+        this.masonry = new masonry(this.element.nativeElement, this.options);
+        
+        this.masonry.on('layoutComplete', (items: any) => {
             this.layoutComplete.emit(items);
         });
-        this._msnry.on('removeComplete', (items: any) => {
+        
+        this.masonry.on('removeComplete', (items: any) => {
             this.removeComplete.emit(items);
         });
     }
 
     ngOnDestroy() {
-        if (this._msnry) {
-            this._msnry.destroy();
+        if (this.masonry) {
+            this.masonry.destroy();
         }
     }
 
     public layout() {
         setTimeout(() => {
-            this._msnry.layout();
+            this.masonry.layout();
         });
-
-        // console.log('AngularMasonry:', 'Layout');
     }
 
-    // public add(element: HTMLElement, prepend: boolean = false) {
     public add(element: HTMLElement) {
-        
+
         var isFirstItem = false;
 
         // Check if first item
-        if(this._msnry.items.length === 0){
+        if (this.masonry.items.length === 0) {
             isFirstItem = true;
         }
 
         if (this.useImagesLoaded) {
             imagesLoaded(element, (instance: any) => {
-                this._element.nativeElement.appendChild(element);
-                
+                this.element.nativeElement.appendChild(element);
+
                 // Tell Masonry that a child element has been added
-                this._msnry.appended(element);
+                this.masonry.appended(element);
 
                 // layout if first item
-                if(isFirstItem) this.layout();
+                if (isFirstItem) this.layout();
             });
 
-            this._element.nativeElement.removeChild(element);
+            this.element.nativeElement.removeChild(element);
         }
         else {
             // Tell Masonry that a child element has been added
-            this._msnry.appended(element);
+            this.masonry.appended(element);
 
             // layout if first item
             if (isFirstItem) this.layout();
@@ -121,7 +98,7 @@ export class AngularMasonry implements OnInit, OnDestroy {
 
     public remove(element: HTMLElement) {
         // Tell Masonry that a child element has been removed
-        this._msnry.remove(element);
+        this.masonry.remove(element);
 
         // Layout items
         this.layout();
