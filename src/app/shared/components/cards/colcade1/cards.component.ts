@@ -5,7 +5,8 @@ import * as Colcade from 'colcade';
 
 @Component({
     selector: 'app-cards',
-    templateUrl: './cards.component.html'
+    templateUrl: './cards.component.html',
+    styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit, OnChanges {
 

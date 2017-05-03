@@ -25,8 +25,7 @@
         "../node_modules/primeng/resources/themes/bootstrap/theme.css",
         "./assets/css/typography.css",
         "./assets/css/custom.css",
-        "./assets/css/styles.css",
-        "./assets/css/masons.css"
+        "./assets/css/styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
