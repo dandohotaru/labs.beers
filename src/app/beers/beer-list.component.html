@@ -8,7 +8,7 @@
     </virtual-scroll>
   </div>-->
 
-  <!-- ToDo: Uncomment this -->
+  <!-- ToDo: Work in progress with colcade1  -->
   <!--<div class="row">
     <app-cards [items]="beers">
       <template let-item="item">
@@ -17,12 +17,12 @@
     </app-cards>
   </div>-->
 
-  <!-- ToDo: Work in progress with custom  -->
-  <div class="row">
+  <!-- ToDo: Work in progress with colcade2  -->
+  <!--<div class="row">
     <app-colcade [data]="beers"></app-colcade>
-  </div>
+  </div>-->
 
-  <!-- ToDo: Work in progress with sample -->
+  <!-- ToDo: Work in progress with colcade3  -->
   <!--<div class="row">
     <app-wall #wall>
       <app-brick *ngFor="let item of beers">
@@ -31,13 +31,22 @@
     </app-wall>
   </div>-->
 
+  <!-- ToDo: Work in progress with masonry1  -->
+  <div class="row">
+    <masonry [options]="{transitionDuration: '0.3s'}">
+      <masonry-brick class="brick" *ngFor="let item of beers">
+        <!--<beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>-->
+        <div class="card">
+          {{item.description | words : 30}}
+        </div>
+      </masonry-brick>
+    </masonry>
+  </div>
+
   <!-- More -->
   <div class="row">
     <button type="button" class="btn btn-info center-block" (click)="more()">
       Load more ({{summary()}})
-    </button>
-    <button type="button" class="btn btn-info center-block" (click)="wall.reset()">
-      Reset
     </button>
   </div>
 

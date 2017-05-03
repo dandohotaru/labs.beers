@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PipesModule } from "app/shared/pipes/pipes.module";
+import { Masonry1Module } from "app/shared/components/cards/masonry1/module";
 import { ModalModule } from "app/shared/components/modal/modal.module";
 import { WallModule } from 'app/shared/components/cards/colcade3/wall.module';
 import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
@@ -13,12 +14,14 @@ import { BeerListComponent } from './beer-list.component';
 import { BeerCardComponent } from './beer-card.component';
 import { BeerItemComponent } from './beer-item.component';
 
+
 @NgModule({ 
   imports: [
     CommonModule,
     PipesModule,
-    WallModule,
-    CardsModule,
+    Masonry1Module,
+    //WallModule,
+    //CardsModule,
     ColcadeModule,
     ModalModule,
     VirtualScrollModule,
