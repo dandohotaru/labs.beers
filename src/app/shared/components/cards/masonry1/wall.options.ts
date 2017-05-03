@@ -1,4 +1,4 @@
-export interface MasonryOptions {
+export interface WallOptions {
     itemSelector?: string;
     columnWidth?: number | string;
     gutter?: number | string;

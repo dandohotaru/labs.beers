@@ -2,11 +2,11 @@ declare var imagesLoaded: any;
 
 import * as masonry from 'masonry-layout';
 import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter } from '@angular/core';
-import { MasonryOptions } from './wall.options';
+import { WallOptions } from './wall.options';
 
 @Component({
     selector: '[masonry], masonry',
-    template: '<ng-content></ng-content>',
+    templateUrl: './wall.component.html',
     styleUrls: ['./wall.component.css']
 })
 export class WallComponent implements OnInit, OnDestroy {
@@ -17,7 +17,7 @@ export class WallComponent implements OnInit, OnDestroy {
     masonry: any;
 
     @Input() 
-    options: MasonryOptions;
+    options: WallOptions;
 
     @Input() 
     useImagesLoaded: Boolean = false;
@@ -59,7 +59,8 @@ export class WallComponent implements OnInit, OnDestroy {
 
     public layout() {
         setTimeout(() => {
-            this.masonry.layout();
+            if (this.masonry)
+                this.masonry.layout();
         });
     }
 
@@ -68,7 +69,7 @@ export class WallComponent implements OnInit, OnDestroy {
         var isFirstItem = false;
 
         // Check if first item
-        if (this.masonry.items.length === 0) {
+        if (this.masonry.items.length == 0) {
             isFirstItem = true;
         }
 
@@ -92,17 +93,10 @@ export class WallComponent implements OnInit, OnDestroy {
             // layout if first item
             if (isFirstItem) this.layout();
         }
-
-        // console.log('AngularMasonry:', 'Brick added');
     }
 
     public remove(element: HTMLElement) {
-        // Tell Masonry that a child element has been removed
         this.masonry.remove(element);
-
-        // Layout items
         this.layout();
-
-        // console.log('AngularMasonry:', 'Brick removed');
     }
 }

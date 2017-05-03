@@ -19,7 +19,7 @@ export class BrickDirective implements OnDestroy, AfterViewInit {
 
     ngAfterViewInit() {
         this.parent.add(this.element.nativeElement);
-        this.watcher.watch(this.element.nativeElement, this.parent.layout);
+        //this.watcher.watch(this.element.nativeElement, this.parent.layout);
     }
 
     ngOnDestroy() {
