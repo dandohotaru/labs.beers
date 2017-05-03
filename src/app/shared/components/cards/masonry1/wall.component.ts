@@ -1,11 +1,9 @@
-declare var imagesLoaded: any;
-
 import * as masonry from 'masonry-layout';
 import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter } from '@angular/core';
 import { WallOptions } from './wall.options';
 
 @Component({
-    selector: '[masonry], masonry',
+    selector: 'masonry',
     templateUrl: './wall.component.html',
     styleUrls: ['./wall.component.css']
 })
@@ -19,9 +17,6 @@ export class WallComponent implements OnInit, OnDestroy {
     @Input() 
     options: WallOptions;
 
-    @Input() 
-    useImagesLoaded: Boolean = false;
-
     @Output() 
     layoutComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
 
@@ -33,7 +28,11 @@ export class WallComponent implements OnInit, OnDestroy {
             this.options = {};
 
         if (!this.options.itemSelector) {
-            this.options.itemSelector = '[masonry-brick], masonry-brick';
+            this.options.itemSelector = 'masonry-brick';
+        }
+
+        if (!this.options.transitionDuration) {
+            this.options.transitionDuration = '0.05s';
         }
 
         if (this.element.nativeElement.tagName === 'MASONRY') {
@@ -59,40 +58,21 @@ export class WallComponent implements OnInit, OnDestroy {
 
     public layout() {
         setTimeout(() => {
-            if (this.masonry)
-                this.masonry.layout();
+            this.masonry.layout();
         });
     }
 
     public add(element: HTMLElement) {
 
-        var isFirstItem = false;
-
-        // Check if first item
+        var first = false;
         if (this.masonry.items.length == 0) {
-            isFirstItem = true;
+            first = true;
         }
 
-        if (this.useImagesLoaded) {
-            imagesLoaded(element, (instance: any) => {
-                this.element.nativeElement.appendChild(element);
+        this.masonry.appended(element);
 
-                // Tell Masonry that a child element has been added
-                this.masonry.appended(element);
-
-                // layout if first item
-                if (isFirstItem) this.layout();
-            });
-
-            this.element.nativeElement.removeChild(element);
-        }
-        else {
-            // Tell Masonry that a child element has been added
-            this.masonry.appended(element);
-
-            // layout if first item
-            if (isFirstItem) this.layout();
-        }
+        if (first) 
+            this.layout();
     }
 
     public remove(element: HTMLElement) {

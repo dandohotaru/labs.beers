@@ -5,7 +5,7 @@ import { WallComponent } from './wall.component';
 import { WatcherService } from "./watch.service";
 
 @Directive({
-    selector: '[masonry-brick], masonry-brick'
+    selector: 'masonry-brick'
 })
 export class BrickDirective implements OnDestroy, AfterViewInit {
 
