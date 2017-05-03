@@ -5,12 +5,12 @@ import { BrickDirective } from './brick.directive';
 
 @NgModule({
   declarations: [
+    BrickDirective,
     WallComponent,
-    BrickDirective
   ],
   exports: [
+    BrickDirective,
     WallComponent,
-    BrickDirective
   ]
 })
 

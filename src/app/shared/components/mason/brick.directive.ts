@@ -1,18 +1,10 @@
-import { Directive, ElementRef, OnInit, AfterViewInit } from '@angular/core';
-import { Inject, forwardRef } from '@angular/core';
-import { WallComponent } from './wall.component';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: 'app-brick'
 })
-export class BrickDirective implements AfterViewInit {
+export class BrickDirective  {
 
-  constructor(
-    @Inject(forwardRef(() => WallComponent))
-    private parent: WallComponent,
-    private element: ElementRef) { }
-
-  ngAfterViewInit() {
-    this.parent.append(this.element.nativeElement);
+  constructor(public element: ElementRef) {
   }
 }

@@ -24,7 +24,7 @@
 
   <!-- ToDo: Work in progress with sample -->
   <div class="row">
-    <app-wall>
+    <app-wall #wall>
       <app-brick *ngFor="let item of beers">
           <beer-card [beer]="item" [images]="images" (selected)="select(item);dialog.open();"></beer-card>
       </app-brick>
@@ -35,6 +35,9 @@
   <div class="row">
     <button type="button" class="btn btn-info center-block" (click)="more()">
       Load more ({{summary()}})
+    </button>
+    <button type="button" class="btn btn-info center-block" (click)="wall.reset()">
+      Reset
     </button>
   </div>
 
