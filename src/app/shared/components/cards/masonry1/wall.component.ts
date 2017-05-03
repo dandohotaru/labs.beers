@@ -2,12 +2,12 @@ declare var imagesLoaded: any;
 
 import * as masonry from 'masonry-layout';
 import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter } from '@angular/core';
-import { MasonryOptions } from './masonry-options';
+import { MasonryOptions } from './wall.options';
 
 @Component({
     selector: '[masonry], masonry',
     template: '<ng-content></ng-content>',
-    styleUrls: ['./masonry.css']
+    styleUrls: ['./wall.component.css']
 })
 export class WallComponent implements OnInit, OnDestroy {
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { WallComponent } from './masonry';
-import { BrickDirective } from './brick';
-import { WatcherService } from "./observe.service";
+import { WallComponent } from './wall.component';
+import { BrickDirective } from './brick.directive';
+import { WatcherService } from "./watch.service";
 
 @NgModule({
     declarations: [

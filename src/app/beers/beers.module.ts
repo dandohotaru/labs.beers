@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PipesModule } from "app/shared/pipes/pipes.module";
-import { Masonry1Module } from "app/shared/components/cards/masonry1/module";
+import { Masonry1Module } from "app/shared/components/cards/masonry1/wall.module";
 import { ModalModule } from "app/shared/components/modal/modal.module";
 import { WallModule } from 'app/shared/components/cards/colcade3/wall.module';
 import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';

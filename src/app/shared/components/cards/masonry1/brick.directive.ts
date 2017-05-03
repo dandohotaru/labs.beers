@@ -1,8 +1,8 @@
 import { Directive, OnDestroy, AfterViewInit } from '@angular/core';
 import { Inject, ElementRef, forwardRef } from '@angular/core';
 
-import { WallComponent } from './masonry';
-import { WatcherService } from "./observe.service";
+import { WallComponent } from './wall.component';
+import { WatcherService } from "./watch.service";
 
 @Directive({
     selector: '[masonry-brick], masonry-brick'
