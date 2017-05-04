@@ -33,11 +33,14 @@
 
   <!-- ToDo: Work in progress with masonry1  -->
   <div class="row">
-    <masonry>
-      <masonry-brick *ngFor="let item of beers">
-        <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>
-      </masonry-brick>
-    </masonry>
+    <!--<div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScroll()" [scrollWindow]="false">-->
+    <div infinite-scroll (scrolled)="onScroll()">
+      <masonry>
+        <masonry-brick *ngFor="let item of beers">
+          <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>
+        </masonry-brick>
+      </masonry>
+    </div>
   </div>
 
   <!-- More -->

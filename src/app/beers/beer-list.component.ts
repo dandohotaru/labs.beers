@@ -79,6 +79,12 @@ export class BeerListComponent implements OnInit {
     console.log(`scrolled: ${event}`);
   }
 
+  onScroll(){
+    console.log('scrolled!!');
+    this.more();
+
+  }
+
   more():void{
     var start = this.beers.length;
     var end = this.beers.length + this.chunk;
@@ -88,4 +94,6 @@ export class BeerListComponent implements OnInit {
 
     this.loaded.next({found:this.summary()});
   }
+
+  
 }
