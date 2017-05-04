@@ -1,6 +1,6 @@
 webpackJsonp([1,5],{
 
-/***/ 156:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,19 +69,19 @@ var SearchData = (function () {
 
 /***/ }),
 
-/***/ 225:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beers_beers_module__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__breweries_breweries_module__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_service__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_bar_component__ = __webpack_require__(556);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_results_component__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__search_history_component__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beers_beers_module__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__breweries_breweries_module__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_service__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_bar_component__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_results_component__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__search_history_component__ = __webpack_require__(567);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -106,7 +106,7 @@ var SearchModule = (function () {
 SearchModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_3__beers_beers_module__["a" /* BeersModule */],
             __WEBPACK_IMPORTED_MODULE_4__breweries_breweries_module__["a" /* BreweriesModule */]
@@ -131,7 +131,7 @@ SearchModule = __decorate([
 
 /***/ }),
 
-/***/ 226:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -177,7 +177,7 @@ ModalService = __decorate([
 
 /***/ }),
 
-/***/ 227:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -209,19 +209,19 @@ var BrewerySearched = (function () {
 
 /***/ }),
 
-/***/ 228:
+/***/ 231:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(784);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(793);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorHandler; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -268,17 +268,17 @@ ErrorHandler = __decorate([
 
 /***/ }),
 
-/***/ 229:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exceptions_error_handler__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exceptions_error_handler__ = __webpack_require__(231);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeersService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -338,17 +338,17 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 230:
+/***/ 233:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exceptions_error_handler__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exceptions_error_handler__ = __webpack_require__(231);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweriesService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -409,13 +409,13 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 349:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__ = __webpack_require__(232);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeerListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -435,7 +435,7 @@ var BeerListComponent = (function () {
         this.router = router;
         this.route = route;
         this.service = service;
-        this.chunk = 10;
+        this.chunk = 4;
         this.cache = [];
         this.beers = [];
         this.images = true;
@@ -478,15 +478,54 @@ var BeerListComponent = (function () {
         this.selection = item;
     };
     BeerListComponent.prototype.scroll = function (event) {
-        console.log("scrolled: " + event);
+        //console.log(`scrolled: ${event}`);
+    };
+    BeerListComponent.prototype.onScroll = function () {
+        //console.log('scrolled!!');
+        this.more();
     };
     BeerListComponent.prototype.more = function () {
         var start = this.beers.length;
         var end = this.beers.length + this.chunk;
         var slice = this.cache.slice(start, end);
         this.beers = this.beers.concat(slice);
-        //this.beers.push(...slice);
         this.loaded.next({ found: this.summary() });
+    };
+    BeerListComponent.prototype.onWindowScroll = function (event) {
+        var context = {
+            windowHeight: window.innerHeight,
+            documentHeight: document.documentElement.clientHeight,
+            bodyHeight: document.body.clientHeight,
+            scrollTop: event.target.scrollingElement.scrollTop,
+            scrollHeight: event.target.scrollingElement.scrollHeight,
+        };
+        var height = context.windowHeight || context.documentHeight || context.bodyHeight;
+        var reach = context.scrollTop + height;
+        var limit = context.scrollHeight - 100;
+        if (reach >= limit) {
+            console.info("scroll with scrollbars");
+            this.more();
+        }
+    };
+    BeerListComponent.prototype.onWheelScroll = function (event) {
+        var context = {
+            windowHeight: window.innerHeight,
+            documentHeight: document.documentElement.clientHeight,
+            bodyHeight: document.body.clientHeight,
+            scrollTop: document.documentElement.scrollTop,
+            scrollHeight: document.documentElement.scrollHeight,
+            scrollDelta: event.deltaY,
+        };
+        var height = context.windowHeight || context.documentHeight || context.bodyHeight;
+        var reach = context.scrollTop + height;
+        var limit = context.scrollHeight - 100;
+        if (reach >= limit && context.scrollDelta > 0 && context.scrollTop == 0) {
+            console.info("scroll without scrollbars");
+            this.more();
+        }
+    };
+    BeerListComponent.prototype.height = function () {
+        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
     };
     return BeerListComponent;
 }());
@@ -498,11 +537,23 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
 ], BeerListComponent.prototype, "loaded", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])("window:scroll", ["$event"]),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], BeerListComponent.prototype, "onWindowScroll", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])("window:wheel", ["$event"]),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], BeerListComponent.prototype, "onWheelScroll", null);
 BeerListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-beer-list',
-        template: __webpack_require__(760),
-        styles: [__webpack_require__(734)]
+        template: __webpack_require__(771),
+        styles: [__webpack_require__(745)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_beers_service__["a" /* BeersService */]) === "function" && _d || Object])
 ], BeerListComponent);
@@ -512,7 +563,7 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 350:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -541,21 +592,21 @@ var ToggleModel = (function () {
 
 /***/ }),
 
-/***/ 351:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_shared_components_cards_masonry1_wall_module__ = __webpack_require__(565);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_cards_colcade2_colcade_module__ = __webpack_require__(560);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_virtual_scroll__ = __webpack_require__(572);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_virtual_scroll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_virtual_scroll__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__beer_list_component__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__beer_card_component__ = __webpack_require__(549);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beer_item_component__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_shared_components_cards_masonry1_wall_module__ = __webpack_require__(575);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_cards_colcade2_colcade_module__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_infinite_scroll__ = __webpack_require__(582);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_infinite_scroll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_infinite_scroll__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__beer_list_component__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__beer_card_component__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beer_item_component__ = __webpack_require__(560);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeersModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -581,14 +632,13 @@ var BeersModule = (function () {
 BeersModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__["a" /* PipesModule */],
             __WEBPACK_IMPORTED_MODULE_3_app_shared_components_cards_masonry1_wall_module__["a" /* Masonry1Module */],
-            //WallModule,
-            //CardsModule,
             __WEBPACK_IMPORTED_MODULE_5_app_shared_components_cards_colcade2_colcade_module__["a" /* ColcadeModule */],
             __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__["a" /* ModalModule */],
-            __WEBPACK_IMPORTED_MODULE_6_angular2_virtual_scroll__["VirtualScrollModule"],
+            //VirtualScrollModule,
+            __WEBPACK_IMPORTED_MODULE_6_angular2_infinite_scroll__["InfiniteScrollModule"]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__beer_list_component__["a" /* BeerListComponent */],
@@ -606,19 +656,19 @@ BeersModule = __decorate([
 
 /***/ }),
 
-/***/ 352:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_colcade3_wall_module__ = __webpack_require__(563);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_cards_colcade1_cards_module__ = __webpack_require__(559);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_list_component__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__brewery_card_component__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_cards_colcade3_wall_module__ = __webpack_require__(573);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_cards_colcade1_cards_module__ = __webpack_require__(569);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brewery_list_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__brewery_card_component__ = __webpack_require__(561);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweriesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -643,7 +693,7 @@ var BreweriesModule = (function () {
 BreweriesModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_4_app_shared_components_modal_modal_module__["a" /* ModalModule */],
@@ -665,13 +715,13 @@ BreweriesModule = __decorate([
 
 /***/ }),
 
-/***/ 353:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_services_breweries_service__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_services_breweries_service__ = __webpack_require__(233);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweryListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -721,7 +771,7 @@ __decorate([
 BreweryListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-brewery-list',
-        template: __webpack_require__(762)
+        template: __webpack_require__(773)
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_app_shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_app_shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _d || Object])
 ], BreweryListComponent);
@@ -731,12 +781,12 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 354:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_shared_components_modal_modal_service__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_shared_components_modal_modal_service__ = __webpack_require__(229);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -771,8 +821,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
-        template: __webpack_require__(763),
-        styles: [__webpack_require__(736)]
+        template: __webpack_require__(774),
+        styles: [__webpack_require__(747)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_app_shared_components_modal_modal_service__["a" /* ModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_app_shared_components_modal_modal_service__["a" /* ModalService */]) === "function" && _a || Object])
 ], HomeComponent);
@@ -782,7 +832,7 @@ var _a;
 
 /***/ }),
 
-/***/ 355:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -808,8 +858,8 @@ var AboutComponent = (function () {
 AboutComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-about',
-        template: __webpack_require__(764),
-        styles: [__webpack_require__(737)]
+        template: __webpack_require__(775),
+        styles: [__webpack_require__(748)]
     }),
     __metadata("design:paramtypes", [])
 ], AboutComponent);
@@ -818,7 +868,7 @@ AboutComponent = __decorate([
 
 /***/ }),
 
-/***/ 356:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -844,8 +894,8 @@ var GlossaryComponent = (function () {
 GlossaryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-glossary',
-        template: __webpack_require__(766),
-        styles: [__webpack_require__(739)]
+        template: __webpack_require__(777),
+        styles: [__webpack_require__(750)]
     }),
     __metadata("design:paramtypes", [])
 ], GlossaryComponent);
@@ -854,7 +904,7 @@ GlossaryComponent = __decorate([
 
 /***/ }),
 
-/***/ 357:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -880,7 +930,7 @@ var LostComponent = (function () {
 LostComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-lost',
-        template: __webpack_require__(768)
+        template: __webpack_require__(779)
     }),
     __metadata("design:paramtypes", [])
 ], LostComponent);
@@ -889,12 +939,12 @@ LostComponent = __decorate([
 
 /***/ }),
 
-/***/ 358:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchResultsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -919,7 +969,7 @@ var SearchResultsComponent = (function () {
 SearchResultsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-search-results',
-        template: __webpack_require__(771)
+        template: __webpack_require__(782)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _b || Object])
 ], SearchResultsComponent);
@@ -929,7 +979,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 359:
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -963,14 +1013,14 @@ var _a;
 
 /***/ }),
 
-/***/ 360:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(762);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_masonry_layout__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wall_options__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wall_options__ = __webpack_require__(576);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wall_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__wall_options__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WallComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1051,8 +1101,8 @@ __decorate([
 WallComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'masonry',
-        template: __webpack_require__(775),
-        styles: [__webpack_require__(745)]
+        template: __webpack_require__(786),
+        styles: [__webpack_require__(756)]
     }),
     __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["Renderer"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["Renderer"]) === "function" && _e || Object])
 ], WallComponent);
@@ -1062,7 +1112,7 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 361:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1109,7 +1159,7 @@ WatcherService = __decorate([
 
 /***/ }),
 
-/***/ 362:
+/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1124,7 +1174,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var CarouselConfig = (function () {
     function CarouselConfig() {
-        this.interval = 5000;
+        this.interval = 10000;
         this.wrap = true;
         this.keyboard = true;
     }
@@ -1138,7 +1188,7 @@ CarouselConfig = __decorate([
 
 /***/ }),
 
-/***/ 363:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1176,13 +1226,13 @@ var _a;
 
 /***/ }),
 
-/***/ 364:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_component__ = __webpack_require__(569);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_service__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_component__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_service__ = __webpack_require__(229);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1211,12 +1261,12 @@ ModalModule = __decorate([
 
 /***/ }),
 
-/***/ 365:
+/***/ 370:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__truncate_pipe__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__truncate_pipe__ = __webpack_require__(371);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1251,7 +1301,7 @@ PipesModule = __decorate([
 
 /***/ }),
 
-/***/ 366:
+/***/ 371:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1324,7 +1374,7 @@ TruncateWordsPipe = __decorate([
 
 /***/ }),
 
-/***/ 420:
+/***/ 430:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -1333,20 +1383,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 420;
+webpackEmptyContext.id = 430;
 
 
 /***/ }),
 
-/***/ 421:
+/***/ 431:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(526);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(571);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(557);
 
 
 
@@ -1359,15 +1409,16 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 546:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_service__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_events_search_events__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_event_aggregator__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_aurelia_event_aggregator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_service__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_events_search_events__ = __webpack_require__(230);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1382,21 +1433,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(eventAggregator, searchService) {
+    function AppComponent(router, eventAggregator, searchService) {
+        this.router = router;
         this.eventAggregator = eventAggregator;
         this.searchService = searchService;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log("starting up");
-        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_3__shared_events_search_events__["b" /* BeerSearched */], function (response) {
+        // Scroll
+        this.routerSubscription = this.router.events
+            .filter(function (event) { return event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* NavigationEnd */]; })
+            .subscribe(function (event) {
+            document.body.scrollTop = 0;
+        });
+        // Events
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_4__shared_events_search_events__["b" /* BeerSearched */], function (response) {
             console.info("BeerSearched: " + response.term);
         });
-        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_3__shared_events_search_events__["c" /* BrewerySearched */], function (response) {
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_4__shared_events_search_events__["c" /* BrewerySearched */], function (response) {
             console.info("BrewerySearched: " + response.term);
         });
-        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_3__shared_events_search_events__["a" /* TermSearched */], function (response) {
+        this.eventAggregator.subscribe(__WEBPACK_IMPORTED_MODULE_4__shared_events_search_events__["a" /* TermSearched */], function (response) {
             console.info("TermSearched: " + response.term);
             _this.searchService.track(response.term);
         });
@@ -1404,43 +1464,46 @@ var AppComponent = (function () {
             console.info("TermSearched: " + response.term);
         });
     };
+    AppComponent.prototype.ngOnDestroy = function () {
+        this.routerSubscription.unsubscribe();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(757)
+        template: __webpack_require__(768)
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__search_search_service__["a" /* SearchService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__search_search_service__["a" /* SearchService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_aurelia_event_aggregator__["EventAggregator"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__search_search_service__["a" /* SearchService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__search_search_service__["a" /* SearchService */]) === "function" && _c || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/app.component.js.map
 
 /***/ }),
 
-/***/ 547:
+/***/ 557:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(507);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_event_aggregator__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_event_aggregator__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(548);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_app_layout_layout_module__ = __webpack_require__(555);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_app_home_home_module__ = __webpack_require__(552);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_app_search_search_module__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_app_breweries_breweries_module__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_app_beers_beers_module__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_app_shared_exceptions_error_handler__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_app_shared_services_beers_service__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_app_search_search_service__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_app_shared_services_breweries_service__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routes__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_app_layout_layout_module__ = __webpack_require__(565);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_app_home_home_module__ = __webpack_require__(562);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_app_search_search_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_app_breweries_breweries_module__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_app_beers_beers_module__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_app_shared_exceptions_error_handler__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_app_shared_services_beers_service__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_app_search_search_service__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_app_shared_services_breweries_service__ = __webpack_require__(233);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1503,17 +1566,17 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 548:
+/***/ 558:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_app_home_home_component__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_layout_lost_component__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_layout_about_component__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_breweries_brewery_list_component__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_beers_beer_list_component__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_layout_glossary_component__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_search_search_results_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_app_home_home_component__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_layout_lost_component__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_layout_about_component__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_breweries_brewery_list_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_beers_beer_list_component__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_layout_glossary_component__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_search_search_results_component__ = __webpack_require__(363);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutes; });
 
 
@@ -1535,12 +1598,12 @@ var AppRoutes = [
 
 /***/ }),
 
-/***/ 549:
+/***/ 559:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_beers_beer_models__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_beers_beer_models__ = __webpack_require__(355);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeerCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1593,8 +1656,8 @@ __decorate([
 BeerCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-card',
-        template: __webpack_require__(758),
-        styles: [__webpack_require__(732)],
+        template: __webpack_require__(769),
+        styles: [__webpack_require__(743)],
     }),
     __metadata("design:paramtypes", [])
 ], BeerCardComponent);
@@ -1604,12 +1667,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 550:
+/***/ 560:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_beers_beer_models__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_beers_beer_models__ = __webpack_require__(355);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeerItemComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1646,8 +1709,8 @@ __decorate([
 BeerItemComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'beer-item',
-        template: __webpack_require__(759),
-        styles: [__webpack_require__(733)],
+        template: __webpack_require__(770),
+        styles: [__webpack_require__(744)],
     }),
     __metadata("design:paramtypes", [])
 ], BeerItemComponent);
@@ -1657,11 +1720,11 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 551:
+/***/ 561:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__ = __webpack_require__(580);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__shared_services_breweries_models__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreweryCardComponent; });
@@ -1704,8 +1767,8 @@ __decorate([
 BreweryCardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'brewery-card',
-        template: __webpack_require__(761),
-        styles: [__webpack_require__(735)]
+        template: __webpack_require__(772),
+        styles: [__webpack_require__(746)]
     }),
     __metadata("design:paramtypes", [])
 ], BreweryCardComponent);
@@ -1715,16 +1778,16 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 552:
+/***/ 562:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_home_home_component__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_search_search_module__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__ = __webpack_require__(568);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_home_home_component__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_search_search_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__ = __webpack_require__(578);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1746,7 +1809,7 @@ var HomeModule = (function () {
 HomeModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_5_app_shared_components_carousel_carousel_module__["a" /* CarouselModule */],
             __WEBPACK_IMPORTED_MODULE_4_app_search_search_module__["a" /* SearchModule */],
@@ -1764,7 +1827,7 @@ HomeModule = __decorate([
 
 /***/ }),
 
-/***/ 553:
+/***/ 563:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1791,8 +1854,8 @@ var FooterComponent = (function () {
 FooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-footer',
-        template: __webpack_require__(765),
-        styles: [__webpack_require__(738)]
+        template: __webpack_require__(776),
+        styles: [__webpack_require__(749)]
     }),
     __metadata("design:paramtypes", [])
 ], FooterComponent);
@@ -1801,7 +1864,7 @@ FooterComponent = __decorate([
 
 /***/ }),
 
-/***/ 554:
+/***/ 564:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1827,8 +1890,8 @@ var HeaderComponent = (function () {
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-header',
-        template: __webpack_require__(767),
-        styles: [__webpack_require__(740)]
+        template: __webpack_require__(778),
+        styles: [__webpack_require__(751)]
     }),
     __metadata("design:paramtypes", [])
 ], HeaderComponent);
@@ -1837,19 +1900,19 @@ HeaderComponent = __decorate([
 
 /***/ }),
 
-/***/ 555:
+/***/ 565:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(554);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(553);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_component__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lost_component__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__glossary_component__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_component__ = __webpack_require__(564);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_component__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_component__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lost_component__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__glossary_component__ = __webpack_require__(361);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1874,7 +1937,7 @@ var LayoutModule = (function () {
 LayoutModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_3__search_search_module__["a" /* SearchModule */],
         ],
@@ -1899,29 +1962,29 @@ LayoutModule = __decorate([
 
 /***/ }),
 
-/***/ 556:
+/***/ 566:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(783);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__ = __webpack_require__(413);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(796);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(800);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Observable__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Observable__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_breweries_service__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_beers_service__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_events_search_events__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_breweries_service__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_beers_service__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_events_search_events__ = __webpack_require__(230);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchBarComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1984,7 +2047,7 @@ var SearchBarComponent = (function () {
 SearchBarComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
         selector: 'app-search-bar',
-        template: __webpack_require__(769)
+        template: __webpack_require__(780)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8_aurelia_event_aggregator__["EventAggregator"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__shared_services_breweries_service__["a" /* BreweriesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__shared_services_breweries_service__["a" /* BreweriesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_10__shared_services_beers_service__["a" /* BeersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__shared_services_beers_service__["a" /* BeersService */]) === "function" && _d || Object])
 ], SearchBarComponent);
@@ -1994,15 +2057,15 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 557:
+/***/ 567:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_events_search_events__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_search_search_service__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_events_search_events__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_search_search_service__ = __webpack_require__(158);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchHistoryComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2048,7 +2111,7 @@ var SearchHistoryComponent = (function () {
 SearchHistoryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-search-history',
-        template: __webpack_require__(770)
+        template: __webpack_require__(781)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_aurelia_event_aggregator__["EventAggregator"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_app_search_search_service__["a" /* SearchService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_app_search_search_service__["a" /* SearchService */]) === "function" && _b || Object])
 ], SearchHistoryComponent);
@@ -2058,12 +2121,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 558:
+/***/ 568:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_colcade__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2119,8 +2182,8 @@ __decorate([
 CardsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-cards',
-        template: __webpack_require__(772),
-        styles: [__webpack_require__(741)]
+        template: __webpack_require__(783),
+        styles: [__webpack_require__(752)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _c || Object])
 ], CardsComponent);
@@ -2130,13 +2193,13 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 559:
+/***/ 569:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_component__ = __webpack_require__(568);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2155,7 +2218,7 @@ var CardsModule = (function () {
 CardsModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
         ],
         exports: [
             __WEBPACK_IMPORTED_MODULE_2__cards_component__["a" /* CardsComponent */]
@@ -2171,14 +2234,14 @@ CardsModule = __decorate([
 
 /***/ }),
 
-/***/ 560:
+/***/ 570:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__colcade__ = __webpack_require__(561);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__colcade__ = __webpack_require__(571);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColcadeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2198,7 +2261,7 @@ var ColcadeModule = (function () {
 ColcadeModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2_app_shared_pipes_pipes_module__["a" /* PipesModule */],
         ],
         exports: [
@@ -2215,13 +2278,13 @@ ColcadeModule = __decorate([
 
 /***/ }),
 
-/***/ 561:
+/***/ 571:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_colcade__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_first__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_first__ = __webpack_require__(798);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_first__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColcadeComponent; });
@@ -2291,8 +2354,8 @@ __decorate([
 ColcadeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
         selector: 'app-colcade',
-        template: __webpack_require__(773),
-        styles: [__webpack_require__(742)]
+        template: __webpack_require__(784),
+        styles: [__webpack_require__(753)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_core__["NgZone"]) === "function" && _c || Object])
 ], ColcadeComponent);
@@ -2308,14 +2371,14 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 562:
+/***/ 572:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_colcade___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_colcade__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(364);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WallComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2381,8 +2444,8 @@ __decorate([
 WallComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'app-wall',
-        template: __webpack_require__(774),
-        styles: [__webpack_require__(743)]
+        template: __webpack_require__(785),
+        styles: [__webpack_require__(754)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgZone"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["Renderer"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["Renderer"]) === "function" && _d || Object])
 ], WallComponent);
@@ -2392,13 +2455,13 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 563:
+/***/ 573:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(562);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(572);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(364);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WallModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2431,13 +2494,13 @@ WallModule = __decorate([
 
 /***/ }),
 
-/***/ 564:
+/***/ 574:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__watch_service__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__watch_service__ = __webpack_require__(366);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BrickDirective; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2473,7 +2536,7 @@ BrickDirective = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'masonry-brick',
         template: '<ng-content></ng-content>',
-        styles: [__webpack_require__(744)]
+        styles: [__webpack_require__(755)]
     }),
     __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return __WEBPACK_IMPORTED_MODULE_1__wall_component__["a" /* WallComponent */]; }))),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__wall_component__["a" /* WallComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__wall_component__["a" /* WallComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__watch_service__["a" /* WatcherService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__watch_service__["a" /* WatcherService */]) === "function" && _c || Object])
@@ -2484,14 +2547,14 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 565:
+/***/ 575:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(564);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__watch_service__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wall_component__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brick_directive__ = __webpack_require__(574);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__watch_service__ = __webpack_require__(366);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Masonry1Module; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2528,20 +2591,20 @@ Masonry1Module = __decorate([
 
 /***/ }),
 
-/***/ 566:
+/***/ 576:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/wall.options.js.map
 
 /***/ }),
 
-/***/ 567:
+/***/ 577:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_config__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slide_directive__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_config__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slide_directive__ = __webpack_require__(368);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2691,7 +2754,7 @@ CarouselComponent = __decorate([
             '(keydown.arrowLeft)': 'keyPrev()',
             '(keydown.arrowRight)': 'keyNext()'
         },
-        template: __webpack_require__(776)
+        template: __webpack_require__(787)
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__carousel_config__["a" /* CarouselConfig */]) === "function" && _b || Object])
 ], CarouselComponent);
@@ -2701,15 +2764,15 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 568:
+/***/ 578:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_component__ = __webpack_require__(567);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slide_directive__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_config__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_component__ = __webpack_require__(577);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slide_directive__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_config__ = __webpack_require__(367);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2733,7 +2796,7 @@ var CarouselModule = (function () {
 CarouselModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */],
@@ -2753,16 +2816,16 @@ CarouselModule = __decorate([
 
 /***/ }),
 
-/***/ 569:
+/***/ 579:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_fromEvent__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_fromEvent__ = __webpack_require__(412);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_service__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_service__ = __webpack_require__(229);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2870,7 +2933,7 @@ __decorate([
 ModalComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
         selector: 'modal',
-        template: __webpack_require__(777)
+        template: __webpack_require__(788)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_core__["ElementRef"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__modal_service__["a" /* ModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__modal_service__["a" /* ModalService */]) === "function" && _b || Object])
 ], ModalComponent);
@@ -2880,14 +2943,14 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 570:
+/***/ 580:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=D:/Work/Codes/hub/labs.beers/src/breweries.models.js.map
 
 /***/ }),
 
-/***/ 571:
+/***/ 581:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2904,7 +2967,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 732:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -2922,7 +2985,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 733:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -2940,7 +3003,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 734:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -2948,7 +3011,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, ".dialog {\r\n}\r\n\r\n.dialog .title {\r\n    border-bottom: none;\r\n    font: 12px/14px 'Armata', Arial, sans-serif;\r\n    letter-spacing: 0.14em;\r\n    margin: 5px 0;\r\n    padding: 5px 0;\r\n    text-transform: uppercase;\r\n    word-spacing: 0.4em;\r\n}\r\n\r\nvirtual-scroll {\r\n  overflow: hidden;\r\n  overflow-y: auto;\r\n  border: 1px solid lightcoral;\r\n  height: 50vh;\r\n  display: block;\r\n}\r\n\r\nbeer-item {\r\n    display: inline-block;\r\n    overflow: hidden;\r\n    vertical-align: top;\r\n    border: 0;\r\n    margin: 0px;\r\n    width: 100%;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".dialog {\r\n}\r\n\r\n.dialog .title {\r\n    border-bottom: none;\r\n    font: 12px/14px 'Armata', Arial, sans-serif;\r\n    letter-spacing: 0.14em;\r\n    margin: 5px 0;\r\n    padding: 5px 0;\r\n    text-transform: uppercase;\r\n    word-spacing: 0.4em;\r\n}\r\n\r\nvirtual-scroll {\r\n  overflow: hidden;\r\n  overflow-y: auto;\r\n  border: 1px solid lightcoral;\r\n  height: 50vh;\r\n  display: block;\r\n}\r\n\r\nbeer-item {\r\n    display: inline-block;\r\n    overflow: hidden;\r\n    vertical-align: top;\r\n    border: 0;\r\n    margin: 0px;\r\n    width: 100%;\r\n}\r\n\r\n.search-results {\r\n    height: 75rem;\r\n    /*height: 75%;*/\r\n    /*height: calc(100% - (100px + 150px)); */\r\n    overflow-y: scroll;\r\n    /*overflow-x: hidden;*/\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -2958,7 +3021,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 735:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -2976,7 +3039,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 736:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -2994,7 +3057,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 737:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3012,7 +3075,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 738:
+/***/ 749:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3030,7 +3093,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 739:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3048,7 +3111,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 740:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3066,7 +3129,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 741:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3084,7 +3147,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 742:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3102,7 +3165,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 743:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3120,7 +3183,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 744:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3138,7 +3201,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 745:
+/***/ 756:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)();
@@ -3156,160 +3219,160 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 757:
+/***/ 768:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\r\n  <app-header></app-header>\r\n  <router-outlet></router-outlet>\r\n  <app-footer></app-footer>\r\n</div>"
 
 /***/ }),
 
-/***/ 758:
+/***/ 769:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"beer card\" *ngIf=\"beer\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!beer.favorite\" class=\"fa fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"beer.favorite\" class=\"fa fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n\r\n    <div class=\"image\" *ngIf=\"images\">\r\n      <img class=\"image img-responsive center-block\" src=\"{{beer.label}}\" />\r\n    </div>\r\n\r\n    <div class=\"description\" *ngIf=\"!images\">\r\n      {{beer.description | words : 20}}\r\n    </div>\r\n    \r\n    <h6 class=\"title\" title=\"{{beer.description}}\">\r\n      {{beer.name}}\r\n    </h6>\r\n\r\n    <div class=\"type\">\r\n      <small>{{beer.style}}</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.abv}}\">\r\n      <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n      <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n    </div>\r\n\r\n    <div class=\"spec\" title=\"{{legend.ibu}}\" class=\"pull-right\">\r\n      <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n      <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n    description: {{beer.description}} |\r\n    Name: {{beer.nameDisplay}} |\r\n    Type: {{beer.style.name}} |\r\n    ABV: {{beer.abv}} |\r\n    IBU: {{beer.ibu}} |\r\n    IBU Min: {{beer.style?.ibuMin}} |\r\n    IBU Max: {{beer.style?.ibuMax}} |\r\n    ABV Min: {{beer.style?.abvMin}} |\r\n    SRM Min: {{beer.style?.srmMin}} |\r\n    SRM Max: {{beer.style?.srmMax}} |\r\n    OG Min: {{beer.style?.ogMin}} |\r\n    FG Min: {{beer.style?.fgMin}} |\r\n    FG Max: {{beer.style?.fgMax}} |\r\n    Glass: {{beer.glass?.name}} |\r\n    Description: {{beer.description}} |\r\n    Availability: {{beer.available?.description}} |\r\n    Style Name: {{beer.style?.name}} |\r\n    Style Short: {{beer.style?.shortName}} |\r\n    Style Category: {{beer.style?.category?.name}} |\r\n    Style Description: {{beer.style?.description}} |\r\n    Brewery Established: {{brewery.established}} |\r\n    Brewery Name: {{brewery.name}} |\r\n    Brewery Url: {{brewery.website}} |\r\n-->"
 
 /***/ }),
 
-/***/ 759:
+/***/ 770:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"beer\" *ngIf=\"beer\">\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <h6 class=\"title\" title=\"{{beer.description}}\">\r\n          {{beer.name}}\r\n        </h6>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-4 type\">\r\n        <small>{{beer.style}}</small>\r\n      </div>\r\n      <div class=\"col-xs-4 spec\">\r\n        <small *ngIf=\"beer.abv\">ABV %: {{beer.abv}}</small>\r\n        <small *ngIf=\"!beer.abv\">ABV %: N/A</small>\r\n      </div>\r\n      <div class=\"col-xs-4 spec\" class=\"pull-right\">\r\n        <small *ngIf=\"beer.ibu\">IBU %: {{beer.ibu}}</small>\r\n        <small *ngIf=\"!beer.ibu\">IBU %: N/A</small>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
-/***/ 760:
-/***/ (function(module, exports) {
-
-module.exports = "<!-- Results -->\r\n<div class=\"container\" (window:scroll)=\"scroll($event)\">\r\n  <br/>\r\n\r\n  <!--<div class=\"row\">\r\n    <virtual-scroll [items]=\"beers\" (update)=\"temp = $event\">\r\n      <beer-item *ngFor=\"let item of temp\" [beer]=\"item\"></beer-item>\r\n    </virtual-scroll>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade1  -->\r\n  <!--<div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade2  -->\r\n  <!--<div class=\"row\">\r\n    <app-colcade [data]=\"beers\"></app-colcade>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade3  -->\r\n  <!--<div class=\"row\">\r\n    <app-wall #wall>\r\n      <app-brick *ngFor=\"let item of beers\">\r\n          <beer-card [beer]=\"item\" [images]=\"images\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n      </app-brick>\r\n    </app-wall>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with masonry1  -->\r\n  <div class=\"row\">\r\n    <masonry>\r\n      <masonry-brick *ngFor=\"let item of beers\">\r\n        <beer-card [beer]=\"item\" [images]=\"false\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n      </masonry-brick>\r\n    </masonry>\r\n  </div>\r\n\r\n  <!-- More -->\r\n  <div class=\"row\">\r\n    <button type=\"button\" class=\"btn btn-info center-block\" (click)=\"more()\">\r\n      Load more ({{summary()}})\r\n    </button>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Modal -->\r\n<modal #dialog size=\"large\" class=\"dialog\">\r\n  <div data-section=\"header\" *ngIf=\"selection\">\r\n    <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span> {{selection.name}}\r\n    </span>\r\n  </div>\r\n  <div data-section=\"body\" *ngIf=\"selection\">\r\n    <em>{{selection.description}}</em>\r\n  </div>\r\n  <div data-section=\"footer\" *ngIf=\"selection\">\r\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"dialog.close()\">Ok</button>\r\n  </div>\r\n</modal>"
-
-/***/ }),
-
-/***/ 761:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"brewery\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-industry\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!brewery.favorite\" class=\"fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"brewery.favorite\" class=\"fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n    <div class=\"label\">\r\n      <img *ngIf=\"brewery.images\" class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n      <img *ngIf=\"!brewery.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{brewery.description ? brewery.description : 'N/A'}}\">\r\n      {{brewery.name}}\r\n    </h6>\r\n\r\n    <div class=\"date\">\r\n      <small>Established: {{brewery.established}}</small>\r\n    </div>\r\n\r\n</div>"
-
-/***/ }),
-
-/***/ 762:
-/***/ (function(module, exports) {
-
-module.exports = "  <!-- Results -->\r\n<div class=\"container\">\r\n  <br/>\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"breweries\">\r\n      <template let-item=\"item\">\r\n        <brewery-card [brewery]=\"item\" (selected)=\"select(item);dialog.open();\"></brewery-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Modal -->\r\n<modal #dialog size=\"large\" class=\"dialog\">\r\n  <div data-section=\"header\" *ngIf=\"selection\">\r\n    <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span> \r\n        {{selection.name}}\r\n    </span>\r\n  </div>\r\n  <div data-section=\"body\" *ngIf=\"selection\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12\">\r\n        <em>{{selection.description}}</em>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\"></div>\r\n      <div class=\"col-sm-6\">\r\n        <img *ngIf=\"selection.images\" class=\"img-responsive center-block\" src=\"{{selection.images.medium}}\" />\r\n        <img *ngIf=\"!selection.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n      </div>\r\n      <div class=\"col-sm-3\"></div>\r\n    </div>\r\n  </div>\r\n  <div data-section=\"footer\" *ngIf=\"selection\">\r\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"dialog.close()\">Ok</button>\r\n  </div>\r\n</modal>\r\n\r\n"
-
-/***/ }),
-
-/***/ 763:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <app-carousel>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div>\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n    </app-carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ 764:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n        <h3>Shortcurt</h3>\r\n        <p>\r\n            <img class=\"center\" src=\"./assets/img/app-url.png\" alt=\"https://dandohotaru.github.io/labs.beers/\">\r\n        </p>\r\n\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ 765:
-/***/ (function(module, exports) {
-
-module.exports = "<footer class=\"footer\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n        <p class=\"text-muted\">\r\n          <a routerLink=\"/about\">About</a>\r\n          <a routerLink=\"/glossary\">Glossary</a>\r\n          <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n        </p>\r\n      </div>\r\n\r\n      <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n        <p class=\"text-muted text-right\">\r\n          <span>Last update: {{lastUpdate | date}} </span> |\r\n          <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n        </p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>"
-
-/***/ }),
-
-/***/ 766:
-/***/ (function(module, exports) {
-
-module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
-
-/***/ }),
-
-/***/ 767:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search-bar></app-search-bar>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
-
-/***/ }),
-
-/***/ 768:
-/***/ (function(module, exports) {
-
-module.exports = "<h3>Page not found</h3>"
-
-/***/ }),
-
-/***/ 769:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" \r\n      (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
-
-/***/ }),
-
-/***/ 770:
-/***/ (function(module, exports) {
-
-module.exports = "\n<div *ngFor=\"let search of searches\" class=\"col-xs-6 col-sm-12\">\n\n  <div style=\"padding: 0.25em\">\n    <a [routerLink]=\"['/search']\" [queryParams]=\"{q: search.term}\">\n      <span class=\"badge\">{{search.counter}}</span>\n    </a>\n    {{search.term}}\n  </div>\n\n</div>"
-
-/***/ }),
-
 /***/ 771:
 /***/ (function(module, exports) {
 
-module.exports = "<div role=\"tabpanel\">\r\n  \r\n  <!-- Tabs -->\r\n  <ul class=\"nav nav-tabs\" role=\"tablist\">\r\n    <li role=\"presentation\" class=\"active\">\r\n      <a href=\"#beers\" aria-controls=\"beers\" role=\"tab\" data-toggle=\"tab\">\r\n        <span class=\"fa fa-th\" aria-hidden=\"true\"></span>\r\n        Beers\r\n        <span class=\"badge\">{{beers}}</span>\r\n      </a>\r\n    </li>\r\n    <li role=\"presentation\">\r\n      <a href=\"#breweries\" aria-controls=\"breweries\" role=\"tab\" data-toggle=\"tab\">\r\n        <span class=\"fa fa-th\" aria-hidden=\"true\"></span>\r\n        Breweries\r\n        <span class=\"badge\">{{breweries}}</span>\r\n      </a>\r\n    </li>\r\n  </ul>\r\n\r\n  <!-- Panels -->\r\n  <div class=\"tab-content\">\r\n    <div role=\"tabpanel\" class=\"tab-pane active\" id=\"beers\">\r\n      <app-beer-list [images]=\"false\" (loaded)=\"beers=$event.found\"></app-beer-list>\r\n    </div>\r\n    <div role=\"tabpanel\" class=\"tab-pane\" id=\"breweries\">\r\n      <app-brewery-list (loaded)=\"breweries=$event.found\"></app-brewery-list>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<!-- Results -->\r\n<div class=\"container\" (window:scroll)=\"scroll($event)\">\r\n  <br/>\r\n\r\n  <!--<div class=\"row\">\r\n    <virtual-scroll [items]=\"beers\" (update)=\"temp = $event\">\r\n      <beer-item *ngFor=\"let item of temp\" [beer]=\"item\"></beer-item>\r\n    </virtual-scroll>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade1  -->\r\n  <!--<div class=\"row\">\r\n    <app-cards [items]=\"beers\">\r\n      <template let-item=\"item\">\r\n        <beer-card [beer]=\"item\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade2  -->\r\n  <!--<div class=\"row\">\r\n    <app-colcade [data]=\"beers\"></app-colcade>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with colcade3  -->\r\n  <!--<div class=\"row\">\r\n    <app-wall #wall>\r\n      <app-brick *ngFor=\"let item of beers\">\r\n          <beer-card [beer]=\"item\" [images]=\"images\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n      </app-brick>\r\n    </app-wall>\r\n  </div>-->\r\n\r\n  <!-- ToDo: Work in progress with masonry1  -->\r\n  <div class=\"row\">\r\n    <!--<div class=\"search-results\" infinite-scroll [infiniteScrollDistance]=\"2\" [infiniteScrollThrottle]=\"100\" (scrolled)=\"onScroll()\" [scrollWindow]=\"false\">-->\r\n    <!--<div infinite-scroll (scrolled)=\"onScroll()\">-->\r\n    <div (scrolled)=\"onScroll()\">\r\n      <masonry>\r\n        <masonry-brick *ngFor=\"let item of beers\">\r\n          <beer-card [beer]=\"item\" [images]=\"false\" (selected)=\"select(item);dialog.open();\"></beer-card>\r\n        </masonry-brick>\r\n      </masonry>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- More -->\r\n  <div class=\"row\">\r\n    <button type=\"button\" class=\"btn btn-info center-block\" (click)=\"more()\">\r\n      Load more ({{summary()}})\r\n    </button>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Modal -->\r\n<modal #dialog size=\"large\" class=\"dialog\">\r\n  <div data-section=\"header\" *ngIf=\"selection\">\r\n    <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span> {{selection.name}}\r\n    </span>\r\n  </div>\r\n  <div data-section=\"body\" *ngIf=\"selection\">\r\n    <em>{{selection.description}}</em>\r\n  </div>\r\n  <div data-section=\"footer\" *ngIf=\"selection\">\r\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"dialog.close()\">Ok</button>\r\n  </div>\r\n</modal>"
 
 /***/ }),
 
 /***/ 772:
 /***/ (function(module, exports) {
 
-module.exports = "<div #grid class=\"grid\" [style.display]=\"hidden ? 'none' : ''\">\r\n\r\n    <!-- Columns -->\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <!-- Bricks -->\r\n    <div class=\"grid-item\" *ngFor=\"let item of items\">\r\n        <div class=\"card\">\r\n            <template \r\n                [ngTemplateOutlet]=\"template\" \r\n                [ngOutletContext]=\"{ item: item }\">\r\n            </template>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
+module.exports = "<div class=\"brewery\">\r\n\r\n  <div class=\"actions\">\r\n    <span class=\"fa fa-1x fa-industry\" aria-hidden=\"true\"></span>\r\n    <a href=\"#\" class=\"pull-right\" (click)=\"favorite($event)\">\r\n      <i *ngIf=\"!brewery.favorite\" class=\"fa fa-2x fa-star-o\" aria-hidden=\"true\"></i>\r\n      <i *ngIf=\"brewery.favorite\" class=\"fa fa-2x fa-star star\" aria-hidden=\"true\"></i>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"content\" (click)=\"select()\">\r\n    <div class=\"label\">\r\n      <img *ngIf=\"brewery.images\" class=\"img-responsive center-block\" src=\"{{brewery.images.medium}}\" />\r\n      <img *ngIf=\"!brewery.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n    </div>\r\n\r\n    <h6 class=\"title\" title=\"{{brewery.description ? brewery.description : 'N/A'}}\">\r\n      {{brewery.name}}\r\n    </h6>\r\n\r\n    <div class=\"date\">\r\n      <small>Established: {{brewery.established}}</small>\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
 /***/ 773:
 /***/ (function(module, exports) {
 
-module.exports = "<div #dummy class=\"grid\">\r\n\r\n    <!-- Columns -->\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <!-- Bricks -->\r\n    <div class=\"grid-item\" *ngFor=\"let brick of bricks\">\r\n        <div class=\"card\">\r\n            <p>{{brick.name}}</p>\r\n            <div>\r\n                {{brick.description | words : 20}}\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n"
+module.exports = "  <!-- Results -->\r\n<div class=\"container\">\r\n  <br/>\r\n  <div class=\"row\">\r\n    <app-cards [items]=\"breweries\">\r\n      <template let-item=\"item\">\r\n        <brewery-card [brewery]=\"item\" (selected)=\"select(item);dialog.open();\"></brewery-card>\r\n      </template>\r\n    </app-cards>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- Modal -->\r\n<modal #dialog size=\"large\" class=\"dialog\">\r\n  <div data-section=\"header\" *ngIf=\"selection\">\r\n    <span class=\"title\">\r\n        <span class=\"fa fa-1x fa-beer\" aria-hidden=\"true\"></span> \r\n        {{selection.name}}\r\n    </span>\r\n  </div>\r\n  <div data-section=\"body\" *ngIf=\"selection\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12\">\r\n        <em>{{selection.description}}</em>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\"></div>\r\n      <div class=\"col-sm-6\">\r\n        <img *ngIf=\"selection.images\" class=\"img-responsive center-block\" src=\"{{selection.images.medium}}\" />\r\n        <img *ngIf=\"!selection.images\" class=\"img-responsive center-block\" src=\"./assets/img/brewery-generic.png\" />\r\n      </div>\r\n      <div class=\"col-sm-3\"></div>\r\n    </div>\r\n  </div>\r\n  <div data-section=\"footer\" *ngIf=\"selection\">\r\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"dialog.close()\">Ok</button>\r\n  </div>\r\n</modal>\r\n\r\n"
 
 /***/ }),
 
 /***/ 774:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- wall -->\r\n<div class=\"wall\">\r\n\r\n    <!-- columns -->\r\n    <div class=\"column column-1st\"></div>\r\n    <div class=\"column column-2nd\"></div>\r\n    <div class=\"column column-3rd\"></div>\r\n    <div class=\"column column-4th\"></div>\r\n\r\n    <!-- bricks -->\r\n    <ng-content></ng-content>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n\r\n  <div class=\"col-md-6 col-sm-8 col-xs-12\">\r\n    <app-carousel>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-1.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/breweries\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer_factory.png\" class=\"img-responsive center-block\" alt=\"Breweries\">\r\n            </a>\r\n            <h2>Breweries</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-2.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Visit</h3>\r\n          <div class=\"text-center\">\r\n            <a routerLink=\"/beers\" style=\"display: block\">\r\n              <img src=\"./assets/img/beer-glass.png\" class=\"img-responsive center-block\" alt=\"Beers\">\r\n            </a>\r\n            <h2>Beers</h2>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n      <template app-carousel-slide>\r\n        <img src=\"./assets/img/beer-foam-3.jpg\" class=\"img-responsive center-block\" alt=\"foam\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>History</h3>\r\n          <div>\r\n            <app-search-history></app-search-history>\r\n          </div>\r\n        </div>\r\n      </template>\r\n\r\n    </app-carousel>\r\n  </div>\r\n\r\n  <div class=\"col-md-3 col-sm-2 hidden-xs\">\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 775:
 /***/ (function(module, exports) {
 
-module.exports = "<div>   \r\n    <ng-content></ng-content>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-4 text-center\">\r\n        <br><br>\r\n        <img alt=\"logo kiklos\" src=\"./assets/img/beer_logo.png\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <h2>A better way to discover craft beer</h2>\r\n\r\n        <h3>Tag lines</h3>\r\n        <p>\r\n            BreweryDB is your database of breweries, beers, beer events and guilds! \r\n            Our service is just about the facts.\r\n        </p>\r\n        <p>\r\n            All of our data is curated by our administrators, so you can be sure that the information you get is timely and accurate\r\n            We are proud to be a small part of the Craft Beer revolution!\r\n        </p>\r\n\r\n        <h3>Built for Developers</h3>\r\n        <p>\r\n            BreweryDB was made by developers, for developers. \r\n        </p>\r\n        <p>\r\n            Our vast collection of data can be accessed via our free API. \r\n        </p>\r\n\r\n        <h3>What people are saying</h3>\r\n        <p>\r\n            A great project that aims to build an open database of breweries and beers \r\n            <small>(ProgrammableWeb)</small>\r\n        </p>\r\n        <p>\r\n            The IMDB of Breweries <small>(Tech Cocktail)</small>\r\n        </p>\r\n        <p>\r\n            Just discovered @brewerydb had an API #buildbuildbuild \r\n            <small>(@gideonco)</small>\r\n        </p>\r\n\r\n        <h3>Copyright</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/\">visit</a>\r\n        </p>\r\n\r\n        <h3>Terms</h3>\r\n        <p>\r\n            For more details <a href=\"http://www.brewerydb.com/index/terms\">visit</a>\r\n        </p>\r\n\r\n        <h3>Disclaimer</h3>\r\n        <p>\r\n            BreweryDB makes every effort to be accurate in our data set. If something is wrong, you can often submit the change yourself\r\n        </p>\r\n        <p>\r\n            2012 Brewers Association Beer Style Guidelines used with permission of Brewers Association.\r\n        </p>\r\n        <p>\r\n            All images of breweries, beers, guilds, or events are properties of those entities. \r\n            If an image you hold the copyright to is on BreweryDB.com and you would like it not to be, we understand. \r\n            Even though it makes our database more complete, and in return provides free marketing and enhanced recognition for your brand, we will remove it\r\n        </p>\r\n        <p>\r\n            The initial set of data was taken from OpenBeerDB (www.openbeerdb.com) in 2010 which was released under the Open Database License (ODbL) \r\n            (http://www.opendatacommons.org/licenses/odbl/1.0/). \r\n            After the initial import of data, user submissions and updates are what make up the current data set.\r\n        </p>\r\n\r\n        <h3>Shortcurt</h3>\r\n        <p>\r\n            <img class=\"center\" src=\"./assets/img/app-url.png\" alt=\"https://dandohotaru.github.io/labs.beers/\">\r\n        </p>\r\n\r\n    </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 776:
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"carousel-id\" class=\"carousel slide\">\r\n\r\n    <ol class=\"carousel-indicators\">\r\n        <li *ngFor=\"let slide of slides\" \r\n            [id]=\"slide.id\" \r\n            [class.active]=\"slide.id === activeId\" \r\n            (click)=\"cycleToSelected(slide.id)\"></li>\r\n    </ol>\r\n\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n        <div *ngFor=\"let slide of slides\" class=\"item\" \r\n            [class.active]=\"slide.id === activeId\">\r\n            <template [ngTemplateOutlet]=\"slide.template\"></template>\r\n        </div>\r\n    </div>\r\n\r\n    <a class=\"left carousel-control\" role=\"button\" (click)=\"cycleToPrev()\">\r\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" role=\"button\" (click)=\"cycleToNext()\">\r\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n    </a>\r\n</div>"
+module.exports = "<footer class=\"footer\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n        <p class=\"text-muted\">\r\n          <a routerLink=\"/about\">About</a>\r\n          <a routerLink=\"/glossary\">Glossary</a>\r\n          <a href=\"mailto:john.doe@gmail.com?Subject=Whaddup?\" target=\"_top\">\r\n              Contact us\r\n            </a>\r\n        </p>\r\n      </div>\r\n\r\n      <div class=\"hidden-xs col-sm-6 col-md-8 text-right\">\r\n        <p class=\"text-muted text-right\">\r\n          <span>Last update: {{lastUpdate | date}} </span> |\r\n          <span class=\"hidden-xs\">Techday &copy;2017</span>\r\n        </p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>"
 
 /***/ }),
 
 /***/ 777:
 /***/ (function(module, exports) {
 
+module.exports = "  <div class=\"col-sm-12 text-center\">\r\n    <a routerLink=\"/breweries\" style=\"display: block\">\r\n      <img src=\"./assets/img/beer-sign.jpg\" alt=\"beer ahead\">\r\n    </a>\r\n  </div>"
+
+/***/ }),
+
+/***/ 778:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row app-hdr\">\r\n\r\n    <!-- Brand -->\r\n    <div class=\"col-lg-4 col-md-4 col-sm-3 col-xs-3 brand\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <h2 >\r\n                    <a routerLink=\"/\">Demo</a>\r\n                </h2>\r\n            </li>\r\n            <li class=\"hidden-xs\">\r\n                <i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n\r\n    <!-- Search -->\r\n    <div class=\"col-lg-6 col-md-6 col-sm-7 col-xs-7\">\r\n        <app-search-bar></app-search-bar>\r\n    </div>\r\n\r\n    <!-- Add -->\r\n    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-2\" style=\"padding-left:0px;\">\r\n        <ul class=\"list-inline\">\r\n            <li>\r\n                <div class=\"btn-group add-button\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <span class=\"fa fa-plus\"></span> \r\n                        <span class=\"caret\"></span>\r\n                    </button>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li><a id=\"addNewBeerLink\" href=\"#\">Beer</a></li>\r\n                        <li><a id=\"addNewBreweryLink\" href=\"#\">Brewery</a></li>\r\n                    </ul>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<hr style=\"margin-top:0px;\" />"
+
+/***/ }),
+
+/***/ 779:
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Page not found</h3>"
+
+/***/ }),
+
+/***/ 780:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"input-group\">\r\n\r\n  <!-- Term -->\r\n  <input #searchBox id=\"queryField\" type=\"search\" class=\"form-control\" \r\n    placeholder=\"What would Bachus know about?\"\r\n    (keyup.enter)=\"search(searchBox.value)\"/>\r\n\r\n  <!-- Execute -->\r\n  <div class=\"input-group-btn\">\r\n    <button id=\"searchButton\" type=\"button\" class=\"btn btn-primary\" \r\n      (click)=\"search(searchBox.value)\">\r\n      <i class=\"fa fa-search\"></i>\r\n      <span class=\"hidden-xs\">\r\n        Search\r\n      </span>\r\n    </button>\r\n  </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 781:
+/***/ (function(module, exports) {
+
+module.exports = "\n<div *ngFor=\"let search of searches\" class=\"col-xs-6 col-sm-12\">\n\n  <div style=\"padding: 0.25em\">\n    <a [routerLink]=\"['/search']\" [queryParams]=\"{q: search.term}\">\n      <span class=\"badge\">{{search.counter}}</span>\n    </a>\n    {{search.term}}\n  </div>\n\n</div>"
+
+/***/ }),
+
+/***/ 782:
+/***/ (function(module, exports) {
+
+module.exports = "<div role=\"tabpanel\">\r\n  \r\n  <!-- Tabs -->\r\n  <ul class=\"nav nav-tabs\" role=\"tablist\">\r\n    <li role=\"presentation\" class=\"active\">\r\n      <a href=\"#beers\" aria-controls=\"beers\" role=\"tab\" data-toggle=\"tab\">\r\n        <span class=\"fa fa-th\" aria-hidden=\"true\"></span>\r\n        Beers\r\n        <span class=\"badge\">{{beers}}</span>\r\n      </a>\r\n    </li>\r\n    <li role=\"presentation\">\r\n      <a href=\"#breweries\" aria-controls=\"breweries\" role=\"tab\" data-toggle=\"tab\">\r\n        <span class=\"fa fa-th\" aria-hidden=\"true\"></span>\r\n        Breweries\r\n        <span class=\"badge\">{{breweries}}</span>\r\n      </a>\r\n    </li>\r\n  </ul>\r\n\r\n  <!-- Panels -->\r\n  <div class=\"tab-content\">\r\n    <div role=\"tabpanel\" class=\"tab-pane active\" id=\"beers\">\r\n      <app-beer-list [images]=\"false\" (loaded)=\"beers=$event.found\"></app-beer-list>\r\n    </div>\r\n    <div role=\"tabpanel\" class=\"tab-pane\" id=\"breweries\">\r\n      <app-brewery-list (loaded)=\"breweries=$event.found\"></app-brewery-list>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ 783:
+/***/ (function(module, exports) {
+
+module.exports = "<div #grid class=\"grid\" [style.display]=\"hidden ? 'none' : ''\">\r\n\r\n    <!-- Columns -->\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <!-- Bricks -->\r\n    <div class=\"grid-item\" *ngFor=\"let item of items\">\r\n        <div class=\"card\">\r\n            <template \r\n                [ngTemplateOutlet]=\"template\" \r\n                [ngOutletContext]=\"{ item: item }\">\r\n            </template>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 784:
+/***/ (function(module, exports) {
+
+module.exports = "<div #dummy class=\"grid\">\r\n\r\n    <!-- Columns -->\r\n    <div class=\"grid-col grid-col-1\"></div>\r\n    <div class=\"grid-col grid-col-2\"></div>\r\n    <div class=\"grid-col grid-col-3\"></div>\r\n    <div class=\"grid-col grid-col-4\"></div>\r\n\r\n    <!-- Bricks -->\r\n    <div class=\"grid-item\" *ngFor=\"let brick of bricks\">\r\n        <div class=\"card\">\r\n            <p>{{brick.name}}</p>\r\n            <div>\r\n                {{brick.description | words : 20}}\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ 785:
+/***/ (function(module, exports) {
+
+module.exports = "<!-- wall -->\r\n<div class=\"wall\">\r\n\r\n    <!-- columns -->\r\n    <div class=\"column column-1st\"></div>\r\n    <div class=\"column column-2nd\"></div>\r\n    <div class=\"column column-3rd\"></div>\r\n    <div class=\"column column-4th\"></div>\r\n\r\n    <!-- bricks -->\r\n    <ng-content></ng-content>\r\n</div>"
+
+/***/ }),
+
+/***/ 786:
+/***/ (function(module, exports) {
+
+module.exports = "<div>   \r\n    <ng-content></ng-content>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ 787:
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"carousel-id\" class=\"carousel slide\">\r\n\r\n    <ol class=\"carousel-indicators\">\r\n        <li *ngFor=\"let slide of slides\" \r\n            [id]=\"slide.id\" \r\n            [class.active]=\"slide.id === activeId\" \r\n            (click)=\"cycleToSelected(slide.id)\"></li>\r\n    </ol>\r\n\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n        <div *ngFor=\"let slide of slides\" class=\"item\" \r\n            [class.active]=\"slide.id === activeId\">\r\n            <template [ngTemplateOutlet]=\"slide.template\"></template>\r\n        </div>\r\n    </div>\r\n\r\n    <a class=\"left carousel-control\" role=\"button\" (click)=\"cycleToPrev()\">\r\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" role=\"button\" (click)=\"cycleToNext()\">\r\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n    </a>\r\n</div>"
+
+/***/ }),
+
+/***/ 788:
+/***/ (function(module, exports) {
+
 module.exports = "<div class=\"modal fade\" role=\"dialog\" tabindex=\"-1\">\r\n    <div class=\"modal-dialog {{size == 'small' ? 'modal-sm' : 'modal-lg'}}\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                <h4 class=\"modal-title\">\r\n                    <ng-content select=\"[data-section=header]\"></ng-content>\r\n                </h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <ng-content select=\"[data-section=body]\"></ng-content>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <ng-content select=\"[data-section=footer]\"></ng-content>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ 819:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(421);
+module.exports = __webpack_require__(431);
 
 
 /***/ })
 
-},[819]);
+},[836]);
 //# sourceMappingURL=main.bundle.js.map
