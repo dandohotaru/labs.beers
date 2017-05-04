@@ -35,7 +35,7 @@
   <div class="row">
     <!--<div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScroll()" [scrollWindow]="false">-->
     <!--<div infinite-scroll (scrolled)="onScroll()">-->
-    <div (scrolled)="onScroll()">
+    <div window-scroll (scrolled)="onScroll($event)">
       <masonry>
         <masonry-brick *ngFor="let item of beers">
           <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>

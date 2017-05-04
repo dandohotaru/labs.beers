@@ -80,8 +80,8 @@ export class BeerListComponent implements OnInit {
 
   }
 
-  onScroll() {
-    //console.log('scrolled!!');
+  onScroll(event : {source: string}) {
+    console.log(event.source);
     this.more();
 
   }
@@ -93,58 +93,4 @@ export class BeerListComponent implements OnInit {
     this.beers = this.beers.concat(slice);
     this.loaded.next({ found: this.summary() });
   }
-
-  @HostListener("window:scroll", ["$event"])
-  onWindowScroll(event) {
-
-    var context = {
-      windowHeight: window.innerHeight,
-      documentHeight: document.documentElement.clientHeight,
-      bodyHeight: document.body.clientHeight,
-      scrollTop: event.target.scrollingElement.scrollTop,
-      scrollHeight: event.target.scrollingElement.scrollHeight,
-    };
-
-    var height = context.windowHeight || context.documentHeight || context.bodyHeight;
-    var reach = context.scrollTop + height;
-    var limit = context.scrollHeight - 100;
-
-    if (reach >= limit) {
-      console.info("scroll with scrollbars");
-      this.more();
-    }
-
-  }
-
-  @HostListener("window:wheel", ["$event"])
-  onWheelScroll(event: WheelEvent) {
-
-    var context = {
-      windowHeight: window.innerHeight,
-      documentHeight: document.documentElement.clientHeight,
-      bodyHeight: document.body.clientHeight,
-      scrollTop: document.documentElement.scrollTop,
-      scrollHeight: document.documentElement.scrollHeight,
-      scrollDelta: event.deltaY,
-    };
-
-    var height = context.windowHeight || context.documentHeight || context.bodyHeight;
-    var reach = context.scrollTop + height;
-    var limit = context.scrollHeight - 100;
-
-    if (reach >= limit && context.scrollDelta > 0 && context.scrollTop == 0) {
-      console.info("scroll without scrollbars");
-      this.more();
-    }
-  }
-
-  height() {
-    return Math.max(
-      document.body.scrollHeight, document.documentElement.scrollHeight,
-      document.body.offsetHeight, document.documentElement.offsetHeight,
-      document.body.clientHeight, document.documentElement.clientHeight
-    );
-  }
-
-
 }

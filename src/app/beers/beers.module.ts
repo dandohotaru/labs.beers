@@ -9,6 +9,8 @@ import { ColcadeModule } from "app/shared/components/cards/colcade2/colcade.modu
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
+import { WindowScrollDirective } from "app/shared/directives/scroll/window-scroll.directive";
+
 import { BeerListComponent } from './beer-list.component';
 import { BeerCardComponent } from './beer-card.component';
 import { BeerItemComponent } from './beer-item.component';
@@ -21,12 +23,13 @@ import { BeerItemComponent } from './beer-item.component';
     ColcadeModule,
     ModalModule,
     //VirtualScrollModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   declarations: [
     BeerListComponent,
     BeerCardComponent,
-    BeerItemComponent
+    BeerItemComponent,
+    WindowScrollDirective
   ],
   exports: [
     BeerListComponent
