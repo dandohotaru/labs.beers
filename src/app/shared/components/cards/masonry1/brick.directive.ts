@@ -1,11 +1,13 @@
 import { Directive, OnDestroy, AfterViewInit } from '@angular/core';
-import { Inject, ElementRef, forwardRef } from '@angular/core';
+import { Inject, ElementRef, forwardRef, Component } from '@angular/core';
 
 import { WallComponent } from './wall.component';
 import { WatcherService } from "./watch.service";
 
-@Directive({
-    selector: 'masonry-brick'
+@Component({
+    selector: 'masonry-brick',
+    template: '<ng-content></ng-content>',
+    styleUrls: ['./brick.component.css']
 })
 export class BrickDirective implements OnDestroy, AfterViewInit {
 

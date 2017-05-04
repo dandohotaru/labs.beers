@@ -1,5 +1,5 @@
 import * as masonry from 'masonry-layout';
-import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter, Renderer } from '@angular/core';
 import { WallOptions } from './wall.options';
 
 @Component({
@@ -9,7 +9,7 @@ import { WallOptions } from './wall.options';
 })
 export class WallComponent implements OnInit, OnDestroy {
 
-    constructor(private element: ElementRef) { 
+    constructor(private element: ElementRef, private renderer: Renderer) { 
     }
 
     masonry: any;
@@ -33,10 +33,6 @@ export class WallComponent implements OnInit, OnDestroy {
 
         if (!this.options.transitionDuration) {
             this.options.transitionDuration = '0.05s';
-        }
-
-        if (this.element.nativeElement.tagName === 'MASONRY') {
-            this.element.nativeElement.style.display = 'block';
         }
 
         this.masonry = new masonry(this.element.nativeElement, this.options);
@@ -63,7 +59,6 @@ export class WallComponent implements OnInit, OnDestroy {
     }
 
     public add(element: HTMLElement) {
-
         var first = false;
         if (this.masonry.items.length == 0) {
             first = true;

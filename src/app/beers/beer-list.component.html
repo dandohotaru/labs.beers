@@ -34,11 +34,8 @@
   <!-- ToDo: Work in progress with masonry1  -->
   <div class="row">
     <masonry>
-      <masonry-brick class="brick" *ngFor="let item of beers">
+      <masonry-brick *ngFor="let item of beers">
         <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>
-        <!--<div class="card">
-          {{item.description | words : 30}}
-        </div>-->
       </masonry-brick>
     </masonry>
   </div>

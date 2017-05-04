@@ -1,3 +1,9 @@
-[masonry-brick] {
-    
+/* Wall */
+:host {
+  display: block;
 }
+
+:host /deep/ masonry-brick{
+    /*background-color: red;*/
+}
+
