@@ -34,7 +34,7 @@
   <!-- ToDo: Work in progress with masonry1  -->
   <div class="row">
     <!--<div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScroll()" [scrollWindow]="false">-->
-    <!--<div infinite-scroll (scrolled)="onScroll()">-->
+    <!--<div infinite-scroll window-scroll (scrolled)="onScroll($event)">-->
     <div window-scroll (scrolled)="onScroll($event)">
       <masonry>
         <masonry-brick *ngFor="let item of beers">

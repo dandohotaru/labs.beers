@@ -2,6 +2,7 @@ import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({ selector: '[window-scroll]' })
 export class WindowScrollDirective {
+    
     constructor() { }
 
     /**
@@ -26,8 +27,8 @@ export class WindowScrollDirective {
             windowHeight: window.innerHeight,
             documentHeight: document.documentElement.clientHeight,
             bodyHeight: document.body.clientHeight,
-            scrollTop: document.documentElement.scrollTop,
-            scrollHeight: document.documentElement.scrollHeight,
+            scrollTop: this.max(document.body, document.documentElement, (element)=> element.scrollTop),
+            scrollHeight: this.max(document.body, document.documentElement, (element)=> element.scrollHeight),
             scrollDelta: event.deltaY,
         };
 
@@ -48,12 +49,13 @@ export class WindowScrollDirective {
      */
     @HostListener('window:scroll', ['$event'])
     scroll(event) {
+
         var context = {
             windowHeight: window.innerHeight,
             documentHeight: document.documentElement.clientHeight,
             bodyHeight: document.body.clientHeight,
-            scrollTop: event.target.scrollingElement.scrollTop,
-            scrollHeight: event.target.scrollingElement.scrollHeight,
+            scrollTop: this.max(event.target.body, event.target.documentElement, (element)=> element.scrollTop),
+            scrollHeight: this.max(event.target.body, event.target.documentElement, (element)=> element.scrollHeight),
         };
 
         var height = context.windowHeight
@@ -65,6 +67,12 @@ export class WindowScrollDirective {
         if (reach >= limit && this.direction && this.direction == "down") {
             this.scrolled.next({ source: "scroll" });
         }
+    }
+
+    private max(first: HTMLElement, second: HTMLElement, selector: (element: HTMLElement)=>number): number{
+        let firstSize = selector(first);
+        let secondSize = selector(second);
+        return Math.max(firstSize, secondSize);
     }
 
     private height() {
