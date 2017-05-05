@@ -64,7 +64,7 @@ export class WindowScrollDirective {
         var reach = context.scrollTop + height;
         var limit = context.scrollHeight -100;
 
-        if (reach >= limit && this.direction && this.direction == "down") {
+        if ((reach >= limit && this.direction && this.direction == "down") || (reach >= limit && !this.direction)) {
             this.scrolled.next({ source: "scroll" });
         }
     }

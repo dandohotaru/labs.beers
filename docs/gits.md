@@ -72,11 +72,32 @@ git branch -D [name]
 git branch -m [name]
 ```
 
+
+# How to manage changes [wiki](todo)
+
+### unpushed commits
+```
+git log origin/master..HEAD
+```
+### unpushed diffs
+```
+git diff origin/master..HEAD --stat --cached
+```
+### simulate push
+```
+git push --dry-run
+```
+
+
 # How to manage undos [wiki](https://www.atlassian.com/git/tutorials/undoing-changes)
 
-### reset commit
+### reset commit (changes show as modified)
 ```
 git reset HEAD~1
+```
+### nuke commit (changes are well nuked)
+```
+git reset HEAD~1 --hard 
 ```
 ### revert commit
 ```
