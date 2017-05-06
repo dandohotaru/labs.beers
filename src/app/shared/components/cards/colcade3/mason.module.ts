@@ -14,4 +14,4 @@ import { BrickDirective } from './brick.directive';
   ]
 })
 
-export class WallModule { }
+export class Colcade3Module { }
