@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "app/home/home.component";
 import { SearchModule } from 'app/search/search.module';
 import { CarouselModule } from "app/shared/components/carousel/carousel.module";
+import { TooltipModule } from 'app/shared/components/tooltips/tooltip.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     CarouselModule,
+    TooltipModule,
     SearchModule,
   ],  
   declarations: [
