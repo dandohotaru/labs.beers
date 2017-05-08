@@ -6,10 +6,10 @@ import { WatcherService } from "./watch.service";
 
 @Component({
     selector: 'mason-brick',
-    template: '<ng-content></ng-content>',
+    templateUrl: './brick.component.html',
     styleUrls: ['./brick.component.css']
 })
-export class BrickDirective implements OnDestroy, AfterViewInit {
+export class BrickComponent implements OnDestroy, AfterViewInit {
 
     constructor(
         @Inject(forwardRef(() => WallComponent))

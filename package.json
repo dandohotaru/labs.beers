@@ -7,9 +7,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:dev": "ng build --output-path dev",
-    "build:prod": "ng build --output-path prod --prod",
-    "build:git": "ng build --output-path dist --base-href https://dandohotaru.github.io/labs.beers/",
+    "build:dev": "ng build --output-path=dev --prod=true --aot=true",
+    "build:prod": "ng build --output-path=prod --prod=true --aot=false --sourcemap",
+    "build:git": "ng build --output-path=dist --prod=true --aot=false --base-href=https://dandohotaru.github.io/labs.beers/",
     "build:404": "copy dist\\index.html dist\\404.html",
     "deploy:git": "npm run build:git && npm run build:404 && ngh",
     "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist"
@@ -24,8 +24,6 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
-    "angular2-infinite-scroll": "^0.3.5",
-    "angular2-virtual-scroll": "^0.1.5",
     "aurelia-event-aggregator": "^1.0.1",
     "bootstrap": "^3.3.7",
     "colcade": "^0.2.0",
@@ -39,7 +37,7 @@
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0",
+    "@angular/cli": "^1.0.2",
     "@angular/compiler-cli": "^2.3.1",
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^2.0.41",

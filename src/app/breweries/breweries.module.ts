@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { ModalModule } from "app/shared/components/modal/modal.module";
-import { WallModule } from './../shared/components/cards/colcade3/wall.module';
+import { Colcade3Module } from './../shared/components/cards/colcade3/mason.module';
 import { CardsModule } from './../shared/components/cards/colcade1/cards.module';
 
 import { BreweryListComponent } from './brewery-list.component';
@@ -16,7 +16,7 @@ import { BreweryCardComponent } from './brewery-card.component';
     RouterModule,
     HttpModule,
     ModalModule,
-    WallModule,
+    Colcade3Module,
     CardsModule,
   ],
   declarations: [

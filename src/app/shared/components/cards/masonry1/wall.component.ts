@@ -32,7 +32,7 @@ export class WallComponent implements OnInit, OnDestroy {
         }
 
         if (!this.options.transitionDuration) {
-            this.options.transitionDuration = '0.05s';
+            this.options.transitionDuration = '0.5s';
         }
 
         this.masonry = new masonry(this.element.nativeElement, this.options);

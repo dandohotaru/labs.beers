@@ -22,6 +22,7 @@ export interface BreweryData {
     updateDate: string;
     type: string;
     mailingListUrl: string;
+    favorite?: boolean;
 }
 
 export interface ImagesData {

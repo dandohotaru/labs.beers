@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { WallComponent } from './wall.component';
-import { BrickDirective } from './brick.directive';
+import { BrickComponent } from './brick.component';
 import { WatcherService } from "./watch.service";
 
 @NgModule({
     declarations: [
         WallComponent,
-        BrickDirective
+        BrickComponent
     ],
     exports: [
         WallComponent,
-        BrickDirective
+        BrickComponent
     ],
     providers:[
         WatcherService
