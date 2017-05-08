@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy, Input, Output, ElementRef, EventEmitter, 
 import { WallOptions } from './wall.options';
 
 @Component({
-    selector: 'masonry',
+    selector: 'mason-wall',
     templateUrl: './wall.component.html',
     styleUrls: ['./wall.component.css']
 })
@@ -28,7 +28,7 @@ export class WallComponent implements OnInit, OnDestroy {
             this.options = {};
 
         if (!this.options.itemSelector) {
-            this.options.itemSelector = 'masonry-brick';
+            this.options.itemSelector = 'mason-brick';
         }
 
         if (!this.options.transitionDuration) {

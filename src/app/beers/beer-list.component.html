@@ -36,11 +36,11 @@
     <!--<div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScroll()" [scrollWindow]="false">-->
     <!--<div infinite-scroll window-scroll (scrolled)="onScroll($event)">-->
     <div window-scroll (scrolled)="onScroll($event)">
-      <masonry>
-        <masonry-brick *ngFor="let item of beers">
+      <mason-wall>
+        <mason-brick *ngFor="let item of beers">
           <beer-card [beer]="item" [images]="false" (selected)="select(item);dialog.open();"></beer-card>
-        </masonry-brick>
-      </masonry>
+        </mason-brick>
+      </mason-wall>
     </div>
   </div>
 

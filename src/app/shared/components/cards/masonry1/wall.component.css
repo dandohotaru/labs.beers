@@ -3,7 +3,7 @@
   display: block;
 }
 
-:host /deep/ masonry-brick{
+:host /deep/ mason-brick{
     /*background-color: red;*/
 }
 

@@ -5,7 +5,7 @@ import { WallComponent } from './wall.component';
 import { WatcherService } from "./watch.service";
 
 @Component({
-    selector: 'masonry-brick',
+    selector: 'mason-brick',
     template: '<ng-content></ng-content>',
     styleUrls: ['./brick.component.css']
 })
