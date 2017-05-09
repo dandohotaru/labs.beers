@@ -11,7 +11,6 @@ import { WindowScrollDirective } from "app/shared/directives/scroll/window-scrol
 
 import { BeerListComponent } from './beer-list.component';
 import { BeerCardComponent } from './beer-card.component';
-import { BeerItemComponent } from './beer-item.component';
 
 @NgModule({ 
   imports: [
@@ -24,7 +23,6 @@ import { BeerItemComponent } from './beer-item.component';
   declarations: [
     BeerListComponent,
     BeerCardComponent,
-    BeerItemComponent,
     WindowScrollDirective
   ],
   exports: [

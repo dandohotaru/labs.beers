@@ -37,13 +37,11 @@ export class BeersService {
                 let body = response.json();
                 var results = body.data as BeerData[];
                 if (term && term.length > 0) {
-                    var data = results.filter(p => {
+                    return results.filter(p => {
                         var found = p.name && p.name.toLowerCase().includes(term.toLowerCase())
                             || p.description && p.description.toLowerCase().includes(term.toLowerCase());
                         return found;
                     });
-
-                    return data;
                 }
 
                 return results;
