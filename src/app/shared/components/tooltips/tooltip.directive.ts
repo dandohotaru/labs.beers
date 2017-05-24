@@ -1,8 +1,8 @@
+declare var $: any;
+import 'bootstrap';
 import { Component, Directive, OnDestroy } from '@angular/core';
 import { OnInit, Input, AfterViewInit } from '@angular/core';
 import { ElementRef, Renderer } from '@angular/core';
-declare var $: any;
-import 'bootstrap';
 
 @Directive({
     selector: '[app-tooltip]'
