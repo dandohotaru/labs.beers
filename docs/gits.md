@@ -12,6 +12,7 @@ git config --global --get http.proxy
 ### setup proxy
 ```
 git config --global http.proxy http://proxyvip1:8080
+git config --global http.proxy http://user:passwd@proxy.ces-cdr.eu.int:8080
 ```
 ### reset proxy
 ```
