@@ -13,7 +13,8 @@
     "deploy:git": "npm run build:git && npm run build:404 && ngh",
     "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist",
     "start": "ng serve",
-    "start:dev": "ng serve --prod"
+    "start:dev": "ng serve --prod",
+    "start:prod": "ng serve --prod"
   },
   "private": true,
   "dependencies": {

@@ -34,7 +34,7 @@ export class BeerListComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe(p => {
-      this.term = p["q"] || "";
+      this.term = p["q"][0] || "";
 
       var beers = this.service
         .search(this.term)
