@@ -5,18 +5,18 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
-    "build:dev": "ng build --output-path=dev --prod=true --aot=true",
-    "build:prod": "ng build --output-path=prod --prod=true --aot=false --sourcemap",
-    "build:git": "ng build --output-path=dist --prod=true --aot=false --base-href=https://dandohotaru.github.io/labs.beers/",
+    "build:dev": "ng build --output-path=dev --prod=true --aot=true --sourcemap=true",
+    "build:prod": "ng build --output-path=prod --prod=true --aot=true --sourcemap=true",
+    "build:git": "ng build --output-path=dist --prod=true --aot=true --sourcemap=true --base-href=https://dandohotaru.github.io/labs.beers/",
     "build:404": "copy dist\\index.html dist\\404.html",
     "deploy:git": "npm run build:git && npm run build:404 && ngh",
-    "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist"
+    "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist",
+    "start": "ng serve",
+    "start:dev": "ng serve --prod"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^4.2.2",
     "@angular/common": "^4.2.2",
     "@angular/compiler": "^4.2.2",
     "@angular/compiler-cli": "^4.2.2",
@@ -27,7 +27,6 @@
     "@angular/platform-browser-dynamic": "^4.2.2",
     "@angular/platform-server": "^4.2.2",
     "@angular/router": "^4.2.2",
-    "aurelia-event-aggregator": "^1.0.1",
     "bootstrap": "^3.3.7",
     "colcade": "^0.2.0",
     "core-js": "^2.4.1",
@@ -42,6 +41,7 @@
   "devDependencies": {
     "@angular/cli": "^1.1.1",
     "@angular/compiler-cli": "^2.3.1",
+    "@angular/service-worker": "^1.0.0-beta.15",
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^2.0.41",
     "@types/node": "^6.0.42",

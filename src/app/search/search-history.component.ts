@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 
+import { EventAggregator, Subscription } from "app/shared/messages/event.aggregator";
 import { TermSearched } from "app/shared/events/search.events";
 import { SearchService } from "app/search/search.service";
 

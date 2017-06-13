@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { EventAggregator } from 'aurelia-event-aggregator';
 
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -17,6 +16,7 @@ import { BeersModule } from 'app/beers/beers.module';
 import { ErrorHandler } from 'app/shared/exceptions/error.handler';
 import { BeersService } from 'app/shared/services/beers.service';
 import { SearchService } from 'app/search/search.service';
+import { EventAggregator } from "app/shared/messages/event.aggregator";
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 

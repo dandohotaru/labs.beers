@@ -1,11 +1,11 @@
 import 'rxjs/add/operator/filter';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
-import { EventAggregator } from 'aurelia-event-aggregator';
 
-import { SearchService } from './search/search.service';
-import { TermSearched, BeerSearched, BrewerySearched } from './shared/events/search.events';
+import { SearchService } from 'app/search/search.service';
+import { TermSearched, BeerSearched, BrewerySearched } from 'app/shared/events/search.events';
 import { Subscription } from "rxjs/Subscription";
+import { EventAggregator } from "app/shared/messages/event.aggregator";
 
 @Component({
     selector: 'app-root',

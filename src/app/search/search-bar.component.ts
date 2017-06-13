@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { EventAggregator } from 'aurelia-event-aggregator';
+
+import { EventAggregator } from "app/shared/messages/event.aggregator";
 
 import { BreweriesService } from './../shared/services/breweries.service';
 import { BreweryData } from './../shared/services/breweries.models';

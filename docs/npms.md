@@ -14,3 +14,7 @@ npm config rm proxy
 
 npm set https-proxy=https://{domain}%5C{username}:{mypassword}@{proxyip}:{port}/
 npm config rm https-proxy
+
+npm config set strict-ssl false
+
+npm config get registry

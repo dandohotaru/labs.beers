@@ -1,169 +1,122 @@
-import * as LogManager from 'aurelia-logging';
-
-const logger = LogManager.getLogger('event-aggregator');
-
+/**
+ * Based on https://github.com/aurelia/event-aggregator
+ */
 class Handler {
-    callback: any;
-    messageType: any;
-  constructor(messageType, callback) {
-    this.messageType = messageType;
-    this.callback = callback;
-  }
-
-  handle(message) {
-    if (message instanceof this.messageType) {
-      this.callback.call(null, message);
+    constructor(public messageType, public callback) {
+        this.messageType = messageType;
+        this.callback = callback;
     }
-  }
-}
 
-function invokeCallback(callback, data, event) {
-  try {
-    callback(data, event);
-  } catch (e) {
-    logger.error(e);
-  }
-}
-
-function invokeHandler(handler, data) {
-  try {
-    handler.handle(data);
-  } catch (e) {
-    logger.error(e);
-  }
+    handle(message) {
+        if (message instanceof this.messageType) {
+            this.callback.call(null, message);
+        }
+    }
 }
 
 /**
 * Represents a disposable subsciption to an EventAggregator event.
 */
-interface Subscription {
-  /**
-  * Disposes the subscription.
-  */
-  dispose(): void;
+export interface Subscription {
+    dispose(): void;
 }
 
 /**
 * Enables loosely coupled publish/subscribe messaging.
 */
 export class EventAggregator {
-    messageHandlers: any[];
-    eventLookup: {};
-  /**
-  * Creates an instance of the EventAggregator class.
-  */
-  constructor() {
-    this.eventLookup = {};
-    this.messageHandlers = [];
-  }
-
-  /**
-  * Publishes a message.
-  * @param event The event or channel to publish to.
-  * @param data The data to publish on the channel.
-  */
-  publish(event: string | any, data?: any): void {
-    let subscribers;
-    let i;
-
-    if (!event) {
-      throw new Error('Event was invalid.');
+    public eventLookup;
+    public messageHandlers;
+    constructor() {
+        this.eventLookup = {};
+        this.messageHandlers = [];
     }
 
-    if (typeof event === 'string') {
-      subscribers = this.eventLookup[event];
-      if (subscribers) {
-        subscribers = subscribers.slice();
-        i = subscribers.length;
+    /**
+    * Publishes a message.
+    * @param event The event or channel to publish to.
+    * @param data The data to publish on the channel.
+    */
+    publish(event: string | any, data?: any): void {
+        let subscribers;
+        let i;
 
-        while (i--) {
-          invokeCallback(subscribers[i], data, event);
+        if (!event) {
+            throw new Error('Event was invalid.');
         }
-      }
-    } else {
-      subscribers = this.messageHandlers.slice();
-      i = subscribers.length;
 
-      while (i--) {
-        invokeHandler(subscribers[i], event);
-      }
-    }
-  }
+        if (typeof event === 'string') {
+            subscribers = this.eventLookup[event];
+            if (subscribers) {
+                subscribers = subscribers.slice();
+                i = subscribers.length;
 
-  /**
-  * Subscribes to a message channel or message type.
-  * @param event The event channel or event data type.
-  * @param callback The callback to be invoked when when the specified message is published.
-  */
-  subscribe(event: string | Function, callback: Function): Subscription {
-    let handler;
-    let subscribers;
+                try {
+                    while (i--) {
+                        subscribers[i](data, event);
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        } else {
+            subscribers = this.messageHandlers.slice();
+            i = subscribers.length;
 
-    if (!event) {
-      throw new Error('Event channel/type was invalid.');
-    }
-
-    if (typeof event === 'string') {
-      handler = callback;
-      subscribers = this.eventLookup[event] || (this.eventLookup[event] = []);
-    } else {
-      handler = new Handler(event, callback);
-      subscribers = this.messageHandlers;
-    }
-
-    subscribers.push(handler);
-
-    return {
-      dispose() {
-        let idx = subscribers.indexOf(handler);
-        if (idx !== -1) {
-          subscribers.splice(idx, 1);
+            try {
+                while (i--) {
+                    subscribers[i].handle(event);
+                }
+            } catch (e) {
+                console.log(e);
+            }
         }
-      }
-    };
-  }
+    }
 
-  /**
-  * Subscribes to a message channel or message type, then disposes the subscription automatically after the first message is received.
-  * @param event The event channel or event data type.
-  * @param callback The callback to be invoked when when the specified message is published.
-  */
-  subscribeOnce(event: string | Function, callback: Function): Subscription {
-    let sub = this.subscribe(event, (a, b) => {
-      sub.dispose();
-      return callback(a, b);
-    });
+    /**
+    * Subscribes to a message channel or message type.
+    * @param event The event channel or event data type.
+    * @param callback The callback to be invoked when when the specified message is published.
+    */
+    subscribe(event: string | Function, callback: Function): Subscription {
+        let handler;
+        let subscribers;
 
-    return sub;
-  }
-}
+        if (!event) {
+            throw new Error('Event channel/type was invalid.');
+        }
 
-/**
-* Includes EA functionality into an object instance.
-* @param obj The object to mix Event Aggregator functionality into.
-*/
-export function includeEventsIn(obj: any): EventAggregator {
-  let ea = new EventAggregator();
+        if (typeof event === 'string') {
+            handler = callback;
+            subscribers = this.eventLookup[event] || (this.eventLookup[event] = []);
+        } else {
+            handler = new Handler(event, callback);
+            subscribers = this.messageHandlers;
+        }
 
-  obj.subscribeOnce = function(event, callback) {
-    return ea.subscribeOnce(event, callback);
-  };
+        subscribers.push(handler);
 
-  obj.subscribe = function(event, callback) {
-    return ea.subscribe(event, callback);
-  };
+        return {
+            dispose() {
+                let idx = subscribers.indexOf(handler);
+                if (idx !== -1) {
+                    subscribers.splice(idx, 1);
+                }
+            }
+        };
+    }
 
-  obj.publish = function(event, data) {
-    ea.publish(event, data);
-  };
+    /**
+    * Subscribes to a message channel or message type, then disposes the subscription automatically after the first message is received.
+    * @param event The event channel or event data type.
+    * @param callback The callback to be invoked when when the specified message is published.
+    */
+    subscribeOnce(event: string | Function, callback: Function): Subscription {
+        let sub = this.subscribe(event, (a, b) => {
+            sub.dispose();
+            return callback(a, b);
+        });
 
-  return ea;
-}
-
-/**
-* Configures a global EA by merging functionality into the Aurelia instance.
-* @param config The Aurelia Framework configuration object used to configure the plugin.
-*/
-export function configure(config: any): void {
-  config.instance(EventAggregator, includeEventsIn(config.aurelia));
+        return sub;
+    }
 }
