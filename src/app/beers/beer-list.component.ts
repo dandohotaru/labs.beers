@@ -34,7 +34,9 @@ export class BeerListComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe(p => {
-      this.term = p["q"][0] || "";
+      this.term = p["q"] && p["q"][0]
+        ? p["q"][0]
+        : "";
 
       var beers = this.service
         .search(this.term)
@@ -77,13 +79,11 @@ export class BeerListComponent implements OnInit {
 
   scroll(event: any) {
     //console.log(`scrolled: ${event}`);
-
   }
 
-  onScroll(event : {source: string}) {
+  onScroll(event: { source: string }) {
     console.log(event.source);
     this.more();
-
   }
 
   more(): void {
