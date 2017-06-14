@@ -29,9 +29,13 @@ export class CardsComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.zone.onStable.subscribe(() => {
-            this.arrange();
-        });
+        if (this.zone.onStable.first)
+        {
+            this.zone.onStable.first().subscribe(() => {
+                this.arrange();
+                console.log("arrange items")
+            });
+        }
     }
 
     arrange(): void {
