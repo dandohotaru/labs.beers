@@ -29,24 +29,19 @@ export class CardsComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (this.zone.onStable)
-        {
-            this.zone.onStable.first().subscribe(() => {
-                this.arrange();
-            });
-        }
+        this.zone.onStable.subscribe(() => {
+            this.arrange();
+        });
     }
 
     arrange(): void {
         if (this.colcade)
             this.colcade.destroy();
 
-        //if (!this.colcade) {
-            this.colcade = new Colcade(this.grid.nativeElement, {
-                columns: ".grid-col",
-                items: ".grid-item",
-            });
-        //}
+        this.colcade = new Colcade(this.grid.nativeElement, {
+            columns: ".grid-col",
+            items: ".grid-item",
+        });
 
         this.colcade.reload();
     }
