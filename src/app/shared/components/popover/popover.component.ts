@@ -6,7 +6,6 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
     selector: 'app-popover',
     templateUrl: 'popover.component.html',
 })
-
 export class PopoverComponent implements OnInit {
 
     @Input()

@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { ModalModule } from "app/shared/components/modal/modal.module";
-import { Colcade3Module } from './../shared/components/cards/colcade3/mason.module';
-import { CardsModule } from './../shared/components/cards/colcade1/cards.module';
+import { Colcade3Module } from 'app/shared/components/cards/colcade3/mason.module';
+import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
+import { SelectModule } from "app/shared/components/select/select.module";
 
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
+
+import { EventAggregator } from 'app/shared/messages/event.aggregator';
 
 @NgModule({
   imports: [
@@ -18,6 +21,7 @@ import { BreweryCardComponent } from './brewery-card.component';
     ModalModule,
     Colcade3Module,
     CardsModule,
+    SelectModule,
   ],
   declarations: [
     BreweryListComponent,
@@ -27,6 +31,7 @@ import { BreweryCardComponent } from './brewery-card.component';
     BreweryListComponent
   ],
   providers:[
+    EventAggregator
   ]
 })
 export class BreweriesModule { }

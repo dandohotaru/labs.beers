@@ -12,7 +12,7 @@
     "build:404": "copy dist\\index.html dist\\404.html",
     "deploy:git": "npm run build:git && npm run build:404 && ngh",
     "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist",
-    "start": "ng serve",
+    "start": "ng serve --host=localhost --port=4000",
     "start:dev": "ng serve --prod",
     "start:prod": "ng serve --prod"
   },

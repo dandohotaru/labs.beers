@@ -1,0 +1,17 @@
+<div>
+    <label for="optionsId">{{label}}</label>
+    <select id="optionsId" class="form-control" (change)="changed($event.target.value)">
+        <option *ngIf="default" value="*">
+            {{default}}
+        </option>
+        <option *ngFor="let option of visible()" [value]="option.key" [disabled]="option.disabled">
+            <div *ngIf="option.disabled; then disabledBlock; else enabledBlock"></div>
+            <ng-template #disabledBlock>
+                 {{option.value}}*
+            </ng-template>
+            <ng-template #enabledBlock>
+                {{option.value}}
+            </ng-template>
+        </option>
+    </select>
+</div>

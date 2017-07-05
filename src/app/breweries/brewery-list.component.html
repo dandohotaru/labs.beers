@@ -1,12 +1,17 @@
-  <!-- Results -->
+<!-- Results -->
 <div class="container">
   <br/>
   <div class="row">
-    <app-cards [items]="breweries">
-      <template let-item="item">
-        <brewery-card [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
-      </template>
-    </app-cards>
+    <div class="col-sm-3">
+      <app-select [channel]="'establishedChanged'" [label]="'Established'" [options]="establishedOptions"></app-select>
+    </div>
+    <div class="col-sm-9">
+      <app-cards [items]="filter()">
+        <template let-item="item">
+          <brewery-card [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
+        </template>
+      </app-cards>
+    </div>
   </div>
 
 </div>
@@ -15,8 +20,7 @@
 <modal #dialog size="large" class="dialog">
   <div data-section="header" *ngIf="selection">
     <span class="title">
-        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> 
-        {{selection.name}}
+        <span class="fa fa-1x fa-beer" aria-hidden="true"></span> {{selection.name}}
     </span>
   </div>
   <div data-section="body" *ngIf="selection">
@@ -38,4 +42,3 @@
     <button type="button" class="btn btn-primary" (click)="dialog.close()">Ok</button>
   </div>
 </modal>
-

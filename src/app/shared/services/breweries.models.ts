@@ -13,7 +13,7 @@ export interface BreweryData {
     nameShortDisplay: string;
     description: string;
     website: string;
-    established: string;
+    established: number;
     isOrganic: string;
     images: ImagesData;
     status: string;
