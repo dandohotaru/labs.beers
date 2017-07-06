@@ -9,6 +9,7 @@ import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
 
 import { BreweryListComponent } from './brewery-list.component';
+import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 
 import { EventAggregator } from 'app/shared/messages/event.aggregator';
@@ -25,7 +26,8 @@ import { EventAggregator } from 'app/shared/messages/event.aggregator';
   ],
   declarations: [
     BreweryListComponent,
-    BreweryCardComponent
+    BreweryCardComponent,
+    BreweryFilterComponent,
   ],
   exports: [
     BreweryListComponent

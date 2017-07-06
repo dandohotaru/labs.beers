@@ -1,16 +1,22 @@
-<!-- Results -->
+<!-- Content -->
 <div class="container">
   <br/>
   <div class="row">
+    <!-- Filters -->
     <div class="col-sm-3">
-      <app-select [channel]="'establishedChanged'" [label]="'Established'" [options]="establishedOptions"></app-select>
+      <brewery-filter [years]="establishedOptions" [after]="afterOptions" [before]="beforeOptions"></brewery-filter>
     </div>
+
+    <!-- Results -->
     <div class="col-sm-9">
-      <app-cards [items]="filter()">
+      <div style="border: 1px lightgray solid">
+        <brewery-card *ngFor="let item of breweries" [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
+      </div>
+      <!--<app-cards [items]="filter()">
         <template let-item="item">
           <brewery-card [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
         </template>
-      </app-cards>
+      </app-cards>-->
     </div>
   </div>
 

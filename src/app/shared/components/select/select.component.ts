@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EventAggregator } from 'app/shared/messages/event.aggregator';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-select',
@@ -8,39 +7,38 @@ import { EventAggregator } from 'app/shared/messages/event.aggregator';
 export class SelectComponent implements OnInit {
 
     @Input()
-    public channel: string;
-
-    @Input()
     public label: string;
 
     @Input()
-    public default: string = "ALL";
+    public options: OptionModel[] = [];
 
-    @Input()
-    public options: Option[] = [];
+    @Output()
+    public changed: EventEmitter<OptionModel> = new EventEmitter<OptionModel>();
 
-    constructor(private mediator: EventAggregator) {
+    constructor() {
     }
 
     ngOnInit() {
-        if (!this.channel)
-            throw new Error("the channel is required");
     }
 
-    public visible(): Option[] {
+    public visible(): OptionModel[] {
         return this.options.filter(p => !p.hidden);
     }
 
-    public changed(key: any) {
-        var option = this.options.find(p => p.key == key);
-        if (option)
-            this.mediator.publish(this.channel, option);
+    public handle(target: any) {
+        var option = this.options.find(p => p.value == target.value);
+        if (option) {
+            this.changed.emit(option);
+        }
+        else {
+            this.changed.emit();
+        }
     }
 }
 
-class Option {
-    key: any;
-    value: any;
+class OptionModel {
+    value: string | number | boolean;
+    text: string | number | boolean;
     disabled?: boolean;
     hidden?: boolean;
 }
