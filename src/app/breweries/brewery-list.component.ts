@@ -1,3 +1,4 @@
+import { YearFilterCleared, AfterFilterChanged, AfterFilterCleared, BeforeFilterChanged, BeforeFilterCleared } from './brewery-filter.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -6,6 +7,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { Subscription } from 'app/shared/messages/event.aggregator';
+import { YearFilterChanged } from "app/breweries/brewery-filter.component";
 
 @Component({
   selector: 'app-brewery-list',
@@ -15,14 +17,14 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   term: string;
   breweries: BreweryData[] = [];
+  temp: BreweryData[] = [];
   selection: BreweryData;
   subscriptions: Subscription[] = [];
   establishedOptions: { value: number, text: number }[] = [];
   afterOptions: { value: number, text: string }[] = [];
   beforeOptions: { value: number, text: string }[] = [];
 
-  //predicates: { id: string, (data: BreweryData[]): BreweryData[] }[] = [];
-  predicates: Something[] = [];
+  predicates: { name: string, query: (item: BreweryData) => boolean }[] = [];
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -34,7 +36,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private mediator: EventAggregator) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.term = params["q"] && params["q"][0]
         ? params["q"][0]
@@ -45,6 +47,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         .subscribe(breweries => {
 
           this.breweries = breweries.filter(p => p.established);
+          this.temp = this.breweries;
           this.loaded.next({ found: this.breweries.length });
 
           this.establishedOptions = this.breweries
@@ -77,84 +80,103 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         });
     });
 
-    this.subscriptions.push(this.mediator.subscribe("yearChanged", event => {
-      console.log(event);
 
-      var logic = (data: BreweryData[]) => data.filter(p => p.established == event.value);
-      var predicate = this.predicates.find(p => p.id == "year");
-      if (predicate) {
-        predicate.filter = logic;
-      }
-      else {
-        this.predicates.push({ id: "year", filter: logic });
-      }
+    this.subscriptions.push(this.mediator.subscribe(YearFilterChanged, event => {
+      this.filter("yearChanged", (item: BreweryData) => {
+        return item.established == event.value;
+      });
     }));
 
-    this.subscriptions.push(this.mediator.subscribe("afterChanged", event => {
-      console.log(event);
-
-      var logic = (data: BreweryData[]) => data.filter(p => p.established >= event.value);
-      this.predicates.push({ id: "after", filter: logic });
+    this.subscriptions.push(this.mediator.subscribe(YearFilterCleared, event => {
+      this.clear("yearChanged");
     }));
 
-    this.subscriptions.push(this.mediator.subscribe("beforeChanged", event => {
-      console.log(event);
+    this.subscriptions.push(this.mediator.subscribe(AfterFilterChanged, event => {
+      this.filter("afterChanged", (item: BreweryData) => {
+        return item.established >= event.value;
+      });
+    }));
 
-      var logic = (data: BreweryData[]) => data.filter(p => p.established <= event.value);
-      this.predicates.push({ id: "before", filter: logic });
+    this.subscriptions.push(this.mediator.subscribe(AfterFilterCleared, event => {
+      this.clear("afterChanged");
+    }));
+
+    this.subscriptions.push(this.mediator.subscribe(BeforeFilterChanged, event => {
+      this.filter("beforeChanged", (item: BreweryData) => {
+        return item.established <= event.value;
+      });
+    }));
+
+    this.subscriptions.push(this.mediator.subscribe(BeforeFilterCleared, event => {
+      this.clear("beforeChanged");
     }));
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.subscriptions.forEach(p => p.dispose());
   }
 
-
-//predicates: { id: string, (data: BreweryData[]): BreweryData[] }[] = [];
-  //test: { id: string, (data: BreweryData[]): BreweryData[] }[] = [];
-
-  and(p1, p2) {
-    return (x) => {
-      return p1(x) && p2(x);
-    }
-  }
-
-  matchEstablished(items: BreweryData[], established: number) {
-    return items.filter(p=>p.established == established);
-  }
-
-  matchAfter(items: BreweryData[], after: number) {
-    return items.filter(p=>p.established >= after);
-  }
-
-  matchBefore(items: BreweryData[], before: number) {
-    return items.filter(p=>p.established <= before);
-  }
-
-  filter() {
-
-    var temp = this.breweries;
-    this.predicates.forEach(predicate => {
-      temp = predicate.filter(temp);
-    });
-
-    console.log(temp.length);
-
-    return temp;
-  }
-
-  select(item: BreweryData): void {
+  public select(item: BreweryData): void {
     this.selection = item;
     console.log(this.selection.name);
   }
+
+  public filter(name: string, query: (item: any) => boolean) {
+
+    let predicate = this.predicates.find(p => p.name == name);
+    if (predicate) {
+      var index = this.predicates.indexOf(predicate);
+      this.predicates.splice(index, 1);
+    }
+
+    this.predicates.push({
+      name: name,
+      query: query
+    });
+
+    this.temp = this.breweries.filter(brewery => {
+      var match = this.predicates.every(p => p.query(brewery) == true);
+      return match;
+    });
+
+    console.log(this.temp.length);
+  }
+
+  public clear(name: string) {
+
+    let predicate = this.predicates.find(p => p.name == name);
+    if (predicate) {
+      var index = this.predicates.indexOf(predicate);
+      this.predicates.splice(index, 1);
+    }
+
+    this.temp = this.breweries.filter(brewery => {
+      var match = this.predicates.every(p => p.query(brewery) == true);
+      return match;
+    });
+
+    console.log(this.temp.length);
+  }
+
+
+
+
+  private and(first, second) {
+    return (p: any) => {
+      return first(p) && second(p);
+    }
+  }
+
+  private or(first, second) {
+    return (p: any) => {
+      return first(p) || second(p);
+    }
+  }
+
+
 }
 
-//predicates: { id: string, (data: BreweryData[]): BreweryData[] }[] = [];
 
-export class Something {
-  id: string;
-  filter: (data: BreweryData[]) => BreweryData[];
-}
 
 
 

@@ -10,7 +10,7 @@
     <!-- Results -->
     <div class="col-sm-9">
       <div style="border: 1px lightgray solid">
-        <brewery-card *ngFor="let item of breweries" [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
+        <brewery-card *ngFor="let item of temp" [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
       </div>
       <!--<app-cards [items]="filter()">
         <template let-item="item">
