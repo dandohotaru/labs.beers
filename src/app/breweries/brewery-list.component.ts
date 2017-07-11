@@ -127,27 +127,27 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public apply(name: string, query: (item: any) => boolean) {
 
-    //var test = this.predicates;
+    var test = this.predicates;
 
-    let predicate = this.predicates.find(p => p.name == name);
+    let predicate = test.find(p => p.name == name);
     if (predicate) {
-      var index = this.predicates.indexOf(predicate);
-      this.predicates.splice(index, 1);
+      var index = test.indexOf(predicate);
+      test.splice(index, 1);
     }
 
-    this.predicates.push({
+    test.push({
       name: name,
       query: query
     });
 
     this.temp = this.breweries.filter(brewery => {
-      var match = this.predicates.every(p => p.query(brewery) == true);
+      var match = test.every(p => p.query(brewery) == true);
       return match;
     });
 
     console.log(this.temp.length);
 
-    this.predicates = this.predicates;
+    this.predicates =test.slice();
   }
 
   public clear(name: string) {

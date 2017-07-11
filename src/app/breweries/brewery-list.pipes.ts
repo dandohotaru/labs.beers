@@ -19,3 +19,7 @@ export class BreweryListPipe implements PipeTransform {
 //       var match = this.predicates.every(p => p.query(brewery) == true);
 //       return match;
 //     });
+
+// https://blog.mariusschulz.com/2016/11/03/typescript-2-0-tagged-union-types
+// https://stackoverflow.com/questions/41603250/angular-2-ngfor-pipe-filter-array-of-objects-by-object-property
+// https://stackoverflow.com/questions/34164413/how-to-apply-filters-to-ngfor
