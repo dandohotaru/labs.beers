@@ -1,16 +1,17 @@
 <div>
     <label for="optionsId">{{label}}</label>
     <select id="optionsId" class="form-control" (change)="handle($event.target)">
-        <option value="*">
-            ALL
-        </option>
         <option *ngFor="let option of options" [value]="option.value" [disabled]="option.disabled">
             <div *ngIf="option.disabled; then disabledBlock; else enabledBlock"></div>
             <ng-template #disabledBlock>
-                 {{option.text}}*
+                <span title="Disabled">
+                    {{option.text}}*
+                </span>
             </ng-template>
             <ng-template #enabledBlock>
-                {{option.text}}
+                <span>
+                    {{option.text}}
+                </span>
             </ng-template>
         </option>
     </select>

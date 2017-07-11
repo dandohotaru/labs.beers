@@ -20,9 +20,9 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   temp: BreweryData[] = [];
   selection: BreweryData;
   subscriptions: Subscription[] = [];
-  establishedOptions: { value: number, text: number }[] = [];
-  afterOptions: { value: number, text: string }[] = [];
-  beforeOptions: { value: number, text: string }[] = [];
+  yearsOptions: { value: number|string, text: string }[] = [];
+  afterOptions: { value: number|string, text: string }[] = [];
+  beforeOptions: { value: number|string, text: string }[] = [];
 
   predicates: { name: string, query: (item: BreweryData) => boolean }[] = [];
 
@@ -50,14 +50,16 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           this.temp = this.breweries;
           this.loaded.next({ found: this.breweries.length });
 
-          this.establishedOptions = this.breweries
+          this.yearsOptions = this.breweries
             .map(p => ({
               value: p.established,
-              text: p.established
+              text: p.established.toString()
             }))
             .sort((a, b) => a.value - b.value);
+          this.yearsOptions.unshift({value: "*", text: "ALL"})  
 
           this.afterOptions = [
+            { value: "*", text: "ALL" },
             { value: 1500, text: "16th century" },
             { value: 1600, text: "17th century" },
             { value: 1700, text: "18th century" },
@@ -67,6 +69,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           ];
 
           this.beforeOptions = [
+            { value: "*", text: "ALL" },
             { value: 1500, text: "16th century" },
             { value: 1600, text: "17th century" },
             { value: 1700, text: "18th century" },

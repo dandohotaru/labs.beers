@@ -14,8 +14,8 @@ export class BreweryFilterComponent implements OnInit {
     ngOnInit() { }
 
     @Input()
-    public years: { value: number, text: number }[] = [];
-    public yearChanged(event: { value: number, text: number }) {
+    public years: { value: number|string, text: number }[] = [];
+    public yearChanged(event: { value: number|string, text: number }) {
         if (event)
             this.mediator.publish(new YearFilterChanged(event.value));
         else
@@ -23,8 +23,8 @@ export class BreweryFilterComponent implements OnInit {
     }
 
     @Input()
-    public after: { value: number, text: string }[] = [];
-    public afterChanged(event: { value: number, text: string }) {
+    public after: { value: number|string, text: string }[] = [];
+    public afterChanged(event: { value: number|string, text: string }) {
         if (event)
             this.mediator.publish(new AfterFilterChanged(event.value));
         else
@@ -32,8 +32,8 @@ export class BreweryFilterComponent implements OnInit {
     }
 
     @Input()
-    public before: { value: number, text: string }[] = [];
-    public beforeChanged(event: { value: number, text: string }) {
+    public before: { value: number|string, text: string }[] = [];
+    public beforeChanged(event: { value: number|string, text: string }) {
         if (event)
             this.mediator.publish(new BeforeFilterChanged(event.value));
         else
@@ -43,7 +43,7 @@ export class BreweryFilterComponent implements OnInit {
 
 export class YearFilterChanged {
     name: string = "YearFilterChanged";
-    constructor(public value: number) { };
+    constructor(public value: number|string) { };
 }
 
 export class YearFilterCleared {
@@ -52,7 +52,7 @@ export class YearFilterCleared {
 
 export class AfterFilterChanged {
     name: string = "AfterFilterChanged";
-    constructor(public value: number) { };
+    constructor(public value: number|string) { };
 }
 
 export class AfterFilterCleared {
@@ -61,7 +61,7 @@ export class AfterFilterCleared {
 
 export class BeforeFilterChanged {
     name: string = "BeforeFilterChanged";
-    constructor(public value: number) { };
+    constructor(public value: number|string) { };
 }
 
 export class BeforeFilterCleared {
