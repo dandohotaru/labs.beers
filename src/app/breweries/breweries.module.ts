@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ import { SelectModule } from "app/shared/components/select/select.module";
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
+import { BreweryListPipe } from './brewery-list.pipes';
 
 import { EventAggregator } from 'app/shared/messages/event.aggregator';
 
@@ -28,6 +30,7 @@ import { EventAggregator } from 'app/shared/messages/event.aggregator';
     BreweryListComponent,
     BreweryCardComponent,
     BreweryFilterComponent,
+    BreweryListPipe,
   ],
   exports: [
     BreweryListComponent

@@ -127,6 +127,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public apply(name: string, query: (item: any) => boolean) {
 
+    //var test = this.predicates;
+
     let predicate = this.predicates.find(p => p.name == name);
     if (predicate) {
       var index = this.predicates.indexOf(predicate);
@@ -144,6 +146,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     });
 
     console.log(this.temp.length);
+
+    this.predicates = this.predicates;
   }
 
   public clear(name: string) {
