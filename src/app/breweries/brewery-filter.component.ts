@@ -14,57 +14,29 @@ export class BreweryFilterComponent implements OnInit {
     ngOnInit() { }
 
     @Input()
-    public years: { value: number|string, text: number }[] = [];
-    public yearChanged(event: { value: number|string, text: number }) {
-        if (event)
-            this.mediator.publish(new YearFilterChanged(event.value));
+    public years: { value: number, text: number }[] = [];
+    public yearChanged(event: { value: number, text: number }) {
+        if (event.value == 0)
+            this.mediator.publish("yearCleared");
         else
-            this.mediator.publish(new YearFilterCleared);
+            this.mediator.publish("yearChanged", { value: event.value });
     }
 
     @Input()
-    public after: { value: number|string, text: string }[] = [];
-    public afterChanged(event: { value: number|string, text: string }) {
-        if (event)
-            this.mediator.publish(new AfterFilterChanged(event.value));
+    public after: { value: number, text: string }[] = [];
+    public afterChanged(event: { value: number, text: string }) {
+        if (event.value == 0)
+            this.mediator.publish("afterCleared");
         else
-            this.mediator.publish(new AfterFilterCleared());
+            this.mediator.publish("afterChanged", { value: event.value });
     }
 
     @Input()
-    public before: { value: number|string, text: string }[] = [];
-    public beforeChanged(event: { value: number|string, text: string }) {
-        if (event)
-            this.mediator.publish(new BeforeFilterChanged(event.value));
+    public before: { value: number, text: string }[] = [];
+    public beforeChanged(event: { value: number, text: string }) {
+        if (event.value == 0)
+            this.mediator.publish("beforeCleared");
         else
-            this.mediator.publish(new BeforeFilterCleared());
+            this.mediator.publish("beforeChanged", { value: event.value + 100 });
     }
 }
-
-export class YearFilterChanged {
-    name: string = "YearFilterChanged";
-    constructor(public value: number|string) { };
-}
-
-export class YearFilterCleared {
-    name: string = "YearFilterCleared";
-}
-
-export class AfterFilterChanged {
-    name: string = "AfterFilterChanged";
-    constructor(public value: number|string) { };
-}
-
-export class AfterFilterCleared {
-    name: string = "AfterFilterCleared";
-}
-
-export class BeforeFilterChanged {
-    name: string = "BeforeFilterChanged";
-    constructor(public value: number|string) { };
-}
-
-export class BeforeFilterCleared {
-    name: string = "BeforeFilterCleared";
-}
-

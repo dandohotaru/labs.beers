@@ -30,9 +30,6 @@ export class SelectComponent implements OnInit {
         if (option) {
             this.changed.emit(option);
         }
-        else {
-            this.changed.emit();
-        }
     }
 }
 
