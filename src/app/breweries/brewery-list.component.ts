@@ -15,6 +15,7 @@ import { Query } from "app/shared/filters/query.models";
 export class BreweryListComponent implements OnInit, OnDestroy {
 
   term: string;
+  data: BreweryData[] = [];
   breweries: BreweryData[] = [];
   selection: BreweryData;
   queries: Query<BreweryData>[] = [];
@@ -44,7 +45,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         .search(this.term)
         .subscribe(breweries => {
 
-          this.breweries = breweries.filter(p => p.established);
+          // Data
+          this.data = breweries.filter(p => p.established);
+          this.breweries = this.data;
+
+          // Loaded
           this.loaded.next({ found: this.breweries.length });
 
           // Years
@@ -57,26 +62,36 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           this.yearsOptions.unshift({ value: 0, text: "ALL" })
 
           // After
-          this.afterOptions = [
-            { value: 0, text: "ALL" },
-            { value: 1500, text: "16th century" },
-            { value: 1600, text: "17th century" },
-            { value: 1700, text: "18th century" },
-            { value: 1800, text: "19th century" },
-            { value: 1900, text: "20th century" },
-            { value: 2000, text: "21th century" },
-          ];
+          this.afterOptions = this.breweries
+            .reduce((results: { value: number, text: string }[], current) => {
+              var century = this.century(current.established);
+              var found = results.find(p => p.value == century.start);
+              if (!found) {
+                results.push({
+                  value: century.start,
+                  text: century.text,
+                });
+              }
+              return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+          this.afterOptions.unshift({ value: 0, text: "ALL" })
 
           // Before
-          this.beforeOptions = [
-            { value: 0, text: "ALL" },
-            { value: 1500, text: "16th century" },
-            { value: 1600, text: "17th century" },
-            { value: 1700, text: "18th century" },
-            { value: 1800, text: "19th century" },
-            { value: 1900, text: "20th century" },
-            { value: 2000, text: "21th century" },
-          ];
+          this.beforeOptions = this.breweries
+            .reduce((results: { value: number, text: string }[], current) => {
+              var century = this.century(current.established);
+              var found = results.find(p => p.value == century.end);
+              if (!found) {
+                results.push({
+                  value: century.end,
+                  text: century.text,
+                });
+              }
+              return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+          this.beforeOptions.unshift({ value: 0, text: "ALL" })
         },
         error => {
           console.error(error);
@@ -147,6 +162,15 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }
 
     this.queries = this.queries.slice();
+  }
+
+  public century(year: number): { start: number, end: number, text: string } {
+    var value = Math.ceil(year / 100);
+    return {
+      start: (value - 1) * 100 + 1,
+      end: value * 100,
+      text: `${value}th century`
+    };
   }
 }
 

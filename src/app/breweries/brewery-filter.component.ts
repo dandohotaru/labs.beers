@@ -37,6 +37,6 @@ export class BreweryFilterComponent implements OnInit {
         if (event.value == 0)
             this.mediator.publish("beforeCleared");
         else
-            this.mediator.publish("beforeChanged", { value: event.value + 100 });
+            this.mediator.publish("beforeChanged", { value: event.value });
     }
 }
