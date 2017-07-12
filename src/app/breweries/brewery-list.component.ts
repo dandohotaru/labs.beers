@@ -21,9 +21,9 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   queries: Query<BreweryData>[] = [];
   subscriptions: Subscription[] = [];
 
-  yearsOptions: { value: number, text: string }[] = [];
-  afterOptions: { value: number, text: string }[] = [];
-  beforeOptions: { value: number, text: string }[] = [];
+  yearsOptions: { value: number, text: string, disabled?: boolean }[] = [];
+  afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
+  beforeOptions: { value: number, text: string, disabled?: boolean }[] = [];
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -43,13 +43,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
       var breweries = this.service
         .search(this.term)
-        .subscribe(breweries => {
+        .subscribe(response => {
 
           // Data
-          this.data = breweries.filter(p => p.established);
+          this.data = response;
           this.queries.push({
             name: "yearFound",
-            predicate: (model)=> model.established != null
+            predicate: (model) => model.established != null
           })
           this.build();
           this.refresh();
@@ -113,16 +113,26 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
     // Years
     this.yearsOptions = this.data
-      .map(p => ({
-        value: p.established,
-        text: p.established.toString()
-      }))
+      .reduce((results: { value: number, text: string }[], current) => {
+        if (!current.established)
+          return results;
+        var found = results.find(p => p.value == current.established);
+        if (!found) {
+          results.push({
+            value: current.established,
+            text: current.established.toString(),
+          });
+        }
+        return results;
+      }, [])
       .sort((a, b) => a.value - b.value);
-    this.yearsOptions.unshift({ value: 0, text: "ALL" })
+    this.yearsOptions.unshift({ value: 0, text: "ALL" });
 
     // After
     this.afterOptions = this.data
       .reduce((results: { value: number, text: string }[], current) => {
+        if (!current.established)
+          return results;
         var century = this.century(current.established);
         var found = results.find(p => p.value == century.start);
         if (!found) {
@@ -139,6 +149,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     // Before
     this.beforeOptions = this.data
       .reduce((results: { value: number, text: string }[], current) => {
+        if (!current.established)
+          return results;
         var century = this.century(current.established);
         var found = results.find(p => p.value == century.end);
         if (!found) {
