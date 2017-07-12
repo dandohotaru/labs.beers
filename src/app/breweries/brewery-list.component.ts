@@ -47,51 +47,15 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
           // Data
           this.data = breweries.filter(p => p.established);
-          this.breweries = this.data;
+          this.queries.push({
+            name: "yearFound",
+            predicate: (model)=> model.established != null
+          })
+          this.build();
+          this.refresh();
 
           // Loaded
-          this.loaded.next({ found: this.breweries.length });
-
-          // Years
-          this.yearsOptions = this.breweries
-            .map(p => ({
-              value: p.established,
-              text: p.established.toString()
-            }))
-            .sort((a, b) => a.value - b.value);
-          this.yearsOptions.unshift({ value: 0, text: "ALL" })
-
-          // After
-          this.afterOptions = this.breweries
-            .reduce((results: { value: number, text: string }[], current) => {
-              var century = this.century(current.established);
-              var found = results.find(p => p.value == century.start);
-              if (!found) {
-                results.push({
-                  value: century.start,
-                  text: century.text,
-                });
-              }
-              return results;
-            }, [])
-            .sort((a, b) => a.value - b.value);
-          this.afterOptions.unshift({ value: 0, text: "ALL" })
-
-          // Before
-          this.beforeOptions = this.breweries
-            .reduce((results: { value: number, text: string }[], current) => {
-              var century = this.century(current.established);
-              var found = results.find(p => p.value == century.end);
-              if (!found) {
-                results.push({
-                  value: century.end,
-                  text: century.text,
-                });
-              }
-              return results;
-            }, [])
-            .sort((a, b) => a.value - b.value);
-          this.beforeOptions.unshift({ value: 0, text: "ALL" })
+          this.loaded.emit({ found: this.breweries.length });
         },
         error => {
           console.error(error);
@@ -100,33 +64,39 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
 
     this.subscriptions.push(this.mediator.subscribe("yearChanged", event => {
-      this.apply("yearChanged", (item: BreweryData) => {
+      this.append("yearChanged", (item: BreweryData) => {
         return item.established == event.value;
       });
+      this.refresh();
     }));
 
     this.subscriptions.push(this.mediator.subscribe("yearCleared", event => {
-      this.clear("yearChanged");
+      this.detach("yearChanged");
+      this.refresh();
     }));
 
     this.subscriptions.push(this.mediator.subscribe("afterChanged", event => {
-      this.apply("afterChanged", (item: BreweryData) => {
+      this.append("afterChanged", (item: BreweryData) => {
         return item.established >= event.value;
       });
+      this.refresh();
     }));
 
     this.subscriptions.push(this.mediator.subscribe("afterCleared", event => {
-      this.clear("afterChanged");
+      this.detach("afterChanged");
+      this.refresh();
     }));
 
     this.subscriptions.push(this.mediator.subscribe("beforeChanged", event => {
-      this.apply("beforeChanged", (item: BreweryData) => {
+      this.append("beforeChanged", (item: BreweryData) => {
         return item.established <= event.value;
       });
+      this.refresh();
     }));
 
     this.subscriptions.push(this.mediator.subscribe("beforeCleared", event => {
-      this.clear("beforeChanged");
+      this.detach("beforeChanged");
+      this.refresh();
     }));
   }
 
@@ -139,6 +109,50 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.selection.name);
   }
 
+  public build() {
+
+    // Years
+    this.yearsOptions = this.data
+      .map(p => ({
+        value: p.established,
+        text: p.established.toString()
+      }))
+      .sort((a, b) => a.value - b.value);
+    this.yearsOptions.unshift({ value: 0, text: "ALL" })
+
+    // After
+    this.afterOptions = this.data
+      .reduce((results: { value: number, text: string }[], current) => {
+        var century = this.century(current.established);
+        var found = results.find(p => p.value == century.start);
+        if (!found) {
+          results.push({
+            value: century.start,
+            text: century.text,
+          });
+        }
+        return results;
+      }, [])
+      .sort((a, b) => a.value - b.value);
+    this.afterOptions.unshift({ value: 0, text: "ALL" })
+
+    // Before
+    this.beforeOptions = this.data
+      .reduce((results: { value: number, text: string }[], current) => {
+        var century = this.century(current.established);
+        var found = results.find(p => p.value == century.end);
+        if (!found) {
+          results.push({
+            value: century.end,
+            text: century.text,
+          });
+        }
+        return results;
+      }, [])
+      .sort((a, b) => a.value - b.value);
+    this.beforeOptions.unshift({ value: 0, text: "ALL" })
+  }
+
   public refresh(): void {
     this.breweries = this.data.filter(brewery => {
       var match = this.queries.every(p => p.predicate(brewery) == true);
@@ -146,7 +160,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     });
   }
 
-  public apply(name: string, predicate: (item: BreweryData) => boolean) {
+  public append(name: string, predicate: (item: BreweryData) => boolean) {
     let query = this.queries.find(p => p.name == name);
     if (query) {
       var index = this.queries.indexOf(query);
@@ -157,18 +171,14 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       name: name,
       predicate: predicate
     });
-
-    this.refresh();
   }
 
-  public clear(name: string) {
+  public detach(name: string) {
     let query = this.queries.find(p => p.name == name);
     if (query) {
       var index = this.queries.indexOf(query);
       this.queries.splice(index, 1);
     }
-
-    this.refresh();
   }
 
   public century(year: number): { start: number, end: number, text: string } {
