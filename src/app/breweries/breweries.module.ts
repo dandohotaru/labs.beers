@@ -8,11 +8,11 @@ import { ModalModule } from "app/shared/components/modal/modal.module";
 import { Colcade3Module } from 'app/shared/components/cards/colcade3/mason.module';
 import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
+import { QueryModule } from "app/shared/filters/query.module";
 
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
-import { BreweryListPipe } from './brewery-list.pipes';
 
 import { EventAggregator } from 'app/shared/messages/event.aggregator';
 
@@ -25,12 +25,13 @@ import { EventAggregator } from 'app/shared/messages/event.aggregator';
     Colcade3Module,
     CardsModule,
     SelectModule,
+    QueryModule,
   ],
   declarations: [
     BreweryListComponent,
     BreweryCardComponent,
     BreweryFilterComponent,
-    BreweryListPipe,
+    
   ],
   exports: [
     BreweryListComponent

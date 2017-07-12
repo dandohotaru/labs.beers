@@ -11,7 +11,7 @@
     <div class="col-sm-9">
       <div style="border: 1px lightgray solid">
         <brewery-card 
-          *ngFor="let item of breweries | breweryPredicate:predicates" 
+          *ngFor="let item of breweries | filterBy:queries" 
           [brewery]="item" 
           (selected)="select(item);dialog.open();">
         </brewery-card>
