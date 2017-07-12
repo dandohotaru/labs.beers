@@ -139,6 +139,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.selection.name);
   }
 
+  public refresh(): void {
+    this.breweries = this.data.filter(brewery => {
+      var match = this.queries.every(p => p.predicate(brewery) == true);
+      return match;
+    });
+  }
+
   public apply(name: string, predicate: (item: BreweryData) => boolean) {
     let query = this.queries.find(p => p.name == name);
     if (query) {
@@ -151,7 +158,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       predicate: predicate
     });
 
-    this.queries = this.queries.slice();
+    this.refresh();
   }
 
   public clear(name: string) {
@@ -161,7 +168,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       this.queries.splice(index, 1);
     }
 
-    this.queries = this.queries.slice();
+    this.refresh();
   }
 
   public century(year: number): { start: number, end: number, text: string } {
