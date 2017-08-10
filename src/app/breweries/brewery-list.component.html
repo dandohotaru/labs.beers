@@ -3,12 +3,12 @@
   <br/>
   <div class="row">
     <!-- Filters -->
-    <div class="col-sm-3">
+    <div class="col-xs-12 col-sm-3">
       <brewery-filter [years]="yearsOptions" [after]="afterOptions" [before]="beforeOptions"></brewery-filter>
     </div>
 
     <!-- Results -->
-    <div class="col-sm-9">
+    <div class="col-xs-12 col-sm-9">
       <div style="border: 1px lightgray solid">
         <brewery-card 
           *ngFor="let item of breweries" 

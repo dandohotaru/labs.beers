@@ -1,10 +1,11 @@
-import { Query } from "./query.models";
+import { QueryModel } from "./query.models";
 
-export class QueryFeature<T> {
+export class QueryProvider {
 
-    public queries: Query<T>[] = [];
+    private queries: QueryModel[] = [];
+    
 
-    public apply(name: string, predicate: (item: T) => boolean) {
+    public attach(name: string, predicate: (item: any) => boolean) {
 
         let query = this.queries.find(p => p.name == name);
         if (query) {
@@ -20,7 +21,7 @@ export class QueryFeature<T> {
         this.queries = this.queries.slice();
     }
 
-    public clear(name: string) {
+    public detach(name: string) {
         let query = this.queries.find(p => p.name == name);
         if (query) {
             var index = this.queries.indexOf(query);
@@ -28,5 +29,9 @@ export class QueryFeature<T> {
         }
 
         this.queries = this.queries.slice();
+    }
+
+    public match(target: any) {
+        return this.queries.every(query => query.predicate(target) == true);
     }
 }

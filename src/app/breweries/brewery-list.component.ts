@@ -5,7 +5,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
-import { Subscription } from 'app/shared/messages/event.aggregator';
 import { Query } from "app/shared/filters/query.models";
 
 @Component({
@@ -19,7 +18,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   breweries: BreweryData[] = [];
   selection: BreweryData;
   queries: Query<BreweryData>[] = [];
-  subscriptions: Subscription[] = [];
 
   yearsOptions: { value: number, text: string, disabled?: boolean }[] = [];
   afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
@@ -62,46 +60,45 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         });
     });
 
-
-    this.subscriptions.push(this.mediator.subscribe("yearChanged", event => {
+    this.mediator.subscribe("yearChanged", event => {
       this.append("yearChanged", (item: BreweryData) => {
         return item.established == event.value;
       });
       this.refresh();
-    }));
+    }, "breweries");
 
-    this.subscriptions.push(this.mediator.subscribe("yearCleared", event => {
+    this.mediator.subscribe("yearCleared", event => {
       this.detach("yearChanged");
       this.refresh();
-    }));
+    }, "breweries");
 
-    this.subscriptions.push(this.mediator.subscribe("afterChanged", event => {
+    this.mediator.subscribe("afterChanged", event => {
       this.append("afterChanged", (item: BreweryData) => {
         return item.established >= event.value;
       });
       this.refresh();
-    }));
+    }, "breweries");
 
-    this.subscriptions.push(this.mediator.subscribe("afterCleared", event => {
+    this.mediator.subscribe("afterCleared", event => {
       this.detach("afterChanged");
       this.refresh();
-    }));
+    }, "breweries");
 
-    this.subscriptions.push(this.mediator.subscribe("beforeChanged", event => {
+    this.mediator.subscribe("beforeChanged", event => {
       this.append("beforeChanged", (item: BreweryData) => {
         return item.established <= event.value;
       });
       this.refresh();
-    }));
+    }, "breweries");
 
-    this.subscriptions.push(this.mediator.subscribe("beforeCleared", event => {
+    this.mediator.subscribe("beforeCleared", event => {
       this.detach("beforeChanged");
       this.refresh();
-    }));
+    }, "breweries");
   }
 
   public ngOnDestroy(): void {
-    this.subscriptions.forEach(p => p.dispose());
+    this.mediator.unsubscribe("breweries");
   }
 
   public select(item: BreweryData): void {

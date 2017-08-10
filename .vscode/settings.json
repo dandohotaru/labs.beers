@@ -11,5 +11,10 @@
         "**/*.js": {
             "when": "$(basename).ts"
         }
-    }
+    },
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${activeEditorLong}",
+    "editor.codeLens": true,
+    "editor.minimap.enabled": false,
+    "editor.formatOnPaste": true,
+    "workbench.editor.showIcons": true
 }

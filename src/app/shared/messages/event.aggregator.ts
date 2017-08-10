@@ -1,3 +1,5 @@
+import { Subscription } from './event.aggregator';
+
 /**
  * Based on https://github.com/aurelia/event-aggregator
  */
@@ -7,7 +9,7 @@ class Handler {
         this.callback = callback;
     }
 
-    handle(message) {
+    public handle(message) {
         if (message instanceof this.messageType) {
             this.callback.call(null, message);
         }
@@ -18,15 +20,19 @@ class Handler {
 * Represents a disposable subsciption to an EventAggregator event.
 */
 export interface Subscription {
-    dispose(): void;
+    channel?: string;
+    dispose: () => void;
 }
 
 /**
 * Enables loosely coupled publish/subscribe messaging.
 */
 export class EventAggregator {
+
     public eventLookup;
     public messageHandlers;
+    public subscriptions: Subscription[] = [];
+
     constructor() {
         this.eventLookup = {};
         this.messageHandlers = [];
@@ -37,7 +43,7 @@ export class EventAggregator {
     * @param event The event or channel to publish to.
     * @param data The data to publish on the channel.
     */
-    publish(event: string | any, data?: any): void {
+    public publish(event: string | any, data?: any): void {
         let subscribers;
         let i;
 
@@ -77,8 +83,10 @@ export class EventAggregator {
     * Subscribes to a message channel or message type.
     * @param event The event channel or event data type.
     * @param callback The callback to be invoked when when the specified message is published.
+    * @param context The optional subscription context.
     */
-    subscribe(event: string | Function, callback: Function): Subscription {
+    public subscribe(event: string | Function, callback: Function, context?: string): Subscription {
+
         let handler;
         let subscribers;
 
@@ -96,14 +104,27 @@ export class EventAggregator {
 
         subscribers.push(handler);
 
-        return {
-            dispose() {
+        let subscription = {
+            context: context,
+            dispose: () => {
                 let idx = subscribers.indexOf(handler);
                 if (idx !== -1) {
                     subscribers.splice(idx, 1);
                 }
             }
         };
+        this.subscriptions.push(subscription);
+
+        return subscription;
+    }
+
+    /**
+     * Disposes the subscriptions matching the context
+     * @param context The event context to be used as predicate
+     */
+    public unsubscribe(context: string) {
+        var affected = this.subscriptions.filter(p => p.channel == context);
+        affected.forEach(p => p.dispose());
     }
 
     /**
@@ -111,7 +132,7 @@ export class EventAggregator {
     * @param event The event channel or event data type.
     * @param callback The callback to be invoked when when the specified message is published.
     */
-    subscribeOnce(event: string | Function, callback: Function): Subscription {
+    public subscribeOnce(event: string | Function, callback: Function): Subscription {
         let sub = this.subscribe(event, (a, b) => {
             sub.dispose();
             return callback(a, b);
