@@ -14,6 +14,15 @@ export class BreweryFilterComponent implements OnInit {
     ngOnInit() { }
 
     @Input()
+    public organic: { value: string, text: string }[] = [];
+    public organicChanged(event: { value: string, text: string }) {
+        if (event.value == "*")
+            this.mediator.publish("organicCleared");
+        else
+            this.mediator.publish("organicChanged", { value: event.value });
+    }
+
+    @Input()
     public years: { value: number, text: number }[] = [];
     public yearChanged(event: { value: number, text: number }) {
         if (event.value == 0)
