@@ -23,6 +23,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
   beforeOptions: { value: number, text: string, disabled?: boolean }[] = [];
   lettersOptions: { value: string, text: string, disabled?: boolean }[] = [];
+  lengthOptions: { value: number, text: string, disabled?: boolean }[] = [];
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -108,6 +109,18 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       this.detach("lettersCleared");
       this.refresh();
     }, "breweries");
+
+    this.mediator.subscribe("lengthChanged", event => {
+      this.append("lengthChanged", (item: BreweryData) => {
+        return item.name.length == event.value;
+      });
+      this.refresh();
+    }, "breweries");
+
+    this.mediator.subscribe("lengthCleared", event => {
+      this.detach("lengthCleared");
+      this.refresh();
+    }, "breweries");
   }
 
   public ngOnDestroy(): void {
@@ -174,7 +187,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       .sort((a, b) => a.value - b.value);
     this.beforeOptions.unshift({ value: 0, text: "ALL" })
 
-    // Before
+    // Letters
     this.lettersOptions = this.data
       .reduce((results: { value: string, text: string }[], current) => {
         if (!current.name)
@@ -190,7 +203,24 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         return results;
       }, [])
       .sort((a, b) => a.text.localeCompare(b.text));
-    this.lettersOptions.unshift({ value: "*", text: "ALL" })
+    this.lettersOptions.unshift({ value: "*", text: "ALL" });
+
+    // Length
+    this.lengthOptions = this.data
+      .reduce((results: { value: number, text: string }[], current) => {
+        if (!current.name)
+          return results;
+        var found = results.find(p => p.value == current.name.length);
+        if (!found) {
+          results.push({
+            value: current.name.length,
+            text: current.name.length.toString(),
+          });
+        }
+        return results;
+      }, [])
+      .sort((a, b) => a.value - b.value);
+    this.lengthOptions.unshift({ value: 0, text: "ALL" });
   }
 
   public refresh(): void {

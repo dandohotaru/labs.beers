@@ -48,4 +48,13 @@ export class BreweryFilterComponent implements OnInit {
         else
             this.mediator.publish("lettersChanged", { value: event.value });
     }
+
+    @Input()
+    public length: { value: number, text: string }[] = [];
+    public lengthChanged(event: { value: number, text: string }) {
+        if (event.value == 0)
+            this.mediator.publish("lengthCleared");
+        else
+            this.mediator.publish("lengthChanged", { value: event.value });
+    }
 }
