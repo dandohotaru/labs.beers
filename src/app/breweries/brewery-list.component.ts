@@ -19,13 +19,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   selection: BreweryData;
   queries: Query<BreweryData>[] = [];
 
-  //organicOptions: { value: string, text: string, disabled?: boolean }[] = [];
-  yearsOptions: { value: number, text: string, disabled?: boolean }[] = [];
-  afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
-  beforeOptions: { value: number, text: string, disabled?: boolean }[] = [];
-  lettersOptions: { value: string, text: string, disabled?: boolean }[] = [];
-  lengthOptions: { value: number, text: string, disabled?: boolean }[] = [];
-
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
 
@@ -121,7 +114,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }, "breweries");
 
     this.mediator.subscribe("lettersCleared", event => {
-      this.detach("lettersCleared");
+      this.detach("lettersChanged");
       this.refresh();
     }, "breweries");
 
@@ -133,7 +126,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }, "breweries");
 
     this.mediator.subscribe("lengthCleared", event => {
-      this.detach("lengthCleared");
+      this.detach("lengthChanged");
       this.refresh();
     }, "breweries");
   }
@@ -148,111 +141,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   public build() {
-
-    // // Organic
-    // this.organicOptions = this.data
-    //   .reduce((results: { value: string, text: string }[], current) => {
-    //     if (!current.isOrganic)
-    //       return results;
-    //     var found = results.find(p => p.value == current.isOrganic);
-    //     if (!found) {
-    //       results.push({
-    //         value: current.isOrganic,
-    //         text: current.isOrganic,
-    //       });
-    //     }
-    //     return results;
-    //   }, [])
-    //   .sort((a, b) => a.text.localeCompare(b.text));
-    // this.organicOptions.unshift({ value: "*", text: "ALL" });
-
-    // Years
-    this.yearsOptions = this.data
-      .reduce((results: { value: number, text: string }[], current) => {
-        if (!current.established)
-          return results;
-        var found = results.find(p => p.value == current.established);
-        if (!found) {
-          results.push({
-            value: current.established,
-            text: current.established.toString(),
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.value - b.value);
-    this.yearsOptions.unshift({ value: 0, text: "ALL" });
-
-    // After
-    this.afterOptions = this.data
-      .reduce((results: { value: number, text: string }[], current) => {
-        if (!current.established)
-          return results;
-        var century = this.century(current.established);
-        var found = results.find(p => p.value == century.start);
-        if (!found) {
-          results.push({
-            value: century.start,
-            text: century.text,
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.value - b.value);
-    this.afterOptions.unshift({ value: 0, text: "ALL" })
-
-    // Before
-    this.beforeOptions = this.data
-      .reduce((results: { value: number, text: string }[], current) => {
-        if (!current.established)
-          return results;
-        var century = this.century(current.established);
-        var found = results.find(p => p.value == century.end);
-        if (!found) {
-          results.push({
-            value: century.end,
-            text: century.text,
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.value - b.value);
-    this.beforeOptions.unshift({ value: 0, text: "ALL" })
-
-    // Letters
-    this.lettersOptions = this.data
-      .reduce((results: { value: string, text: string }[], current) => {
-        if (!current.name)
-          return results;
-        var letter = current.name.charAt(0);
-        var found = results.find(p => p.value == letter);
-        if (!found) {
-          results.push({
-            value: letter,
-            text: letter,
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.text.localeCompare(b.text));
-    this.lettersOptions.unshift({ value: "*", text: "ALL" });
-
-    // Length
-    this.lengthOptions = this.data
-      .reduce((results: { value: number, text: string }[], current) => {
-        if (!current.name)
-          return results;
-        var found = results.find(p => p.value == current.name.length);
-        if (!found) {
-          results.push({
-            value: current.name.length,
-            text: current.name.length.toString(),
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.value - b.value);
-    this.lengthOptions.unshift({ value: 0, text: "ALL" });
   }
 
   public refresh(): void {
@@ -283,14 +171,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }
   }
 
-  public century(year: number): { start: number, end: number, text: string } {
-    var value = Math.ceil(year / 100);
-    return {
-      start: (value - 1) * 100 + 1,
-      end: value * 100,
-      text: `${value}th century`
-    };
-  }
+
 }
 
 

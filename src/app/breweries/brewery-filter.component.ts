@@ -9,19 +9,23 @@ import { BreweryData } from "app/shared/services/breweries.models";
     selector: 'brewery-filter',
     templateUrl: 'brewery-filter.component.html'
 })
-
 export class BreweryFilterComponent implements OnInit {
 
     constructor(private mediator: EventAggregator) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
             this.organicLoad(event);
+            this.yearsLoad(event);
+            this.afterLoad(event);
+            this.beforeLoad(event);
+            this.lettersLoad(event);
+            this.lengthLoad(event);
         });
     }
 
     public organic: { value: string, text: string }[] = [];
-    public organicLoad(data: BreweryData[]){
+    public organicLoad(data: BreweryData[]) {
         this.organic = data
             .reduce((results: { value: string, text: string }[], current) => {
                 if (!current.isOrganic)
@@ -46,7 +50,24 @@ export class BreweryFilterComponent implements OnInit {
     }
 
     @Input()
-    public years: { value: number, text: number }[] = [];
+    public years: { value: number, text: string }[] = [];
+    public yearsLoad(data: BreweryData[]) {
+        this.years = data
+            .reduce((results: { value: number, text: string }[], current) => {
+                if (!current.established)
+                    return results;
+                var found = results.find(p => p.value == current.established);
+                if (!found) {
+                    results.push({
+                        value: current.established,
+                        text: current.established.toString(),
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+        this.years.unshift({ value: 0, text: "ALL" });
+    }
     public yearChanged(event: { value: number, text: number }) {
         if (event.value == 0)
             this.mediator.publish("yearCleared");
@@ -56,6 +77,25 @@ export class BreweryFilterComponent implements OnInit {
 
     @Input()
     public after: { value: number, text: string }[] = [];
+    public afterLoad(data: BreweryData[]) {
+        // After
+        this.after = data
+            .reduce((results: { value: number, text: string }[], current) => {
+                if (!current.established)
+                    return results;
+                var century = this.century(current.established);
+                var found = results.find(p => p.value == century.start);
+                if (!found) {
+                    results.push({
+                        value: century.start,
+                        text: century.text,
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+        this.after.unshift({ value: 0, text: "ALL" })
+    }
     public afterChanged(event: { value: number, text: string }) {
         if (event.value == 0)
             this.mediator.publish("afterCleared");
@@ -65,6 +105,24 @@ export class BreweryFilterComponent implements OnInit {
 
     @Input()
     public before: { value: number, text: string }[] = [];
+    public beforeLoad(data: BreweryData[]) {
+        this.before = data
+            .reduce((results: { value: number, text: string }[], current) => {
+                if (!current.established)
+                    return results;
+                var century = this.century(current.established);
+                var found = results.find(p => p.value == century.end);
+                if (!found) {
+                    results.push({
+                        value: century.end,
+                        text: century.text,
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+        this.before.unshift({ value: 0, text: "ALL" })
+    }
     public beforeChanged(event: { value: number, text: string }) {
         if (event.value == 0)
             this.mediator.publish("beforeCleared");
@@ -74,6 +132,25 @@ export class BreweryFilterComponent implements OnInit {
 
     @Input()
     public letters: { value: string, text: string }[] = [];
+    public lettersLoad(data: BreweryData[]) {
+        // Letters
+        this.letters = data
+            .reduce((results: { value: string, text: string }[], current) => {
+                if (!current.name)
+                    return results;
+                var letter = current.name.charAt(0);
+                var found = results.find(p => p.value == letter);
+                if (!found) {
+                    results.push({
+                        value: letter,
+                        text: letter,
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.text.localeCompare(b.text));
+        this.letters.unshift({ value: "*", text: "ALL" });
+    }
     public lettersChanged(event: { value: string, text: string }) {
         if (event.value == "*")
             this.mediator.publish("lettersCleared");
@@ -83,10 +160,36 @@ export class BreweryFilterComponent implements OnInit {
 
     @Input()
     public length: { value: number, text: string }[] = [];
+    public lengthLoad(data: BreweryData[]) {
+        this.length = data
+            .reduce((results: { value: number, text: string }[], current) => {
+                if (!current.name)
+                    return results;
+                var found = results.find(p => p.value == current.name.length);
+                if (!found) {
+                    results.push({
+                        value: current.name.length,
+                        text: current.name.length.toString(),
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.value - b.value);
+        this.length.unshift({ value: 0, text: "ALL" });
+    }
     public lengthChanged(event: { value: number, text: string }) {
         if (event.value == 0)
             this.mediator.publish("lengthCleared");
         else
             this.mediator.publish("lengthChanged", { value: event.value });
+    }
+
+    private century(year: number): { start: number, end: number, text: string } {
+        var value = Math.ceil(year / 100);
+        return {
+            start: (value - 1) * 100 + 1,
+            end: value * 100,
+            text: `${value}th century`
+        };
     }
 }
