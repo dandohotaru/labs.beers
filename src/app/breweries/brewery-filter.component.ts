@@ -39,4 +39,13 @@ export class BreweryFilterComponent implements OnInit {
         else
             this.mediator.publish("beforeChanged", { value: event.value });
     }
+
+    @Input()
+    public letters: { value: string, text: string }[] = [];
+    public lettersChanged(event: { value: string, text: string }) {
+        if (event.value == "*")
+            this.mediator.publish("lettersCleared");
+        else
+            this.mediator.publish("lettersChanged", { value: event.value });
+    }
 }

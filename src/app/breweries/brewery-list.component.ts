@@ -22,6 +22,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   yearsOptions: { value: number, text: string, disabled?: boolean }[] = [];
   afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
   beforeOptions: { value: number, text: string, disabled?: boolean }[] = [];
+  lettersOptions: { value: string, text: string, disabled?: boolean }[] = [];
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -95,6 +96,18 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       this.detach("beforeChanged");
       this.refresh();
     }, "breweries");
+
+    this.mediator.subscribe("lettersChanged", event => {
+      this.append("lettersChanged", (item: BreweryData) => {
+        return item.name.charAt(0) == event.value;
+      });
+      this.refresh();
+    }, "breweries");
+
+    this.mediator.subscribe("lettersCleared", event => {
+      this.detach("lettersCleared");
+      this.refresh();
+    }, "breweries");
   }
 
   public ngOnDestroy(): void {
@@ -160,6 +173,24 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       }, [])
       .sort((a, b) => a.value - b.value);
     this.beforeOptions.unshift({ value: 0, text: "ALL" })
+
+    // Before
+    this.lettersOptions = this.data
+      .reduce((results: { value: string, text: string }[], current) => {
+        if (!current.name)
+          return results;
+        var letter = current.name.charAt(0);
+        var found = results.find(p => p.value == letter);
+        if (!found) {
+          results.push({
+            value: letter,
+            text: letter,
+          });
+        }
+        return results;
+      }, [])
+      .sort((a, b) => a.text.localeCompare(b.text));
+    this.lettersOptions.unshift({ value: "*", text: "ALL" })
   }
 
   public refresh(): void {

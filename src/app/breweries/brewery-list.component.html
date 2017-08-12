@@ -4,7 +4,12 @@
   <div class="row">
     <!-- Filters -->
     <div class="col-xs-12 col-sm-3">
-      <brewery-filter [years]="yearsOptions" [after]="afterOptions" [before]="beforeOptions"></brewery-filter>
+      <brewery-filter 
+        [years]="yearsOptions" 
+        [after]="afterOptions" 
+        [before]="beforeOptions"
+        [letters]="lettersOptions">
+      </brewery-filter>
     </div>
 
     <!-- Results -->
