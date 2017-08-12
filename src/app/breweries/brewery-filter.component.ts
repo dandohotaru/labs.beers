@@ -1,6 +1,9 @@
+
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+
 import { EventAggregator } from "app/shared/messages/event.aggregator";
+import { BreweryData } from "app/shared/services/breweries.models";
 
 @Component({
     selector: 'brewery-filter',
@@ -11,10 +14,30 @@ export class BreweryFilterComponent implements OnInit {
 
     constructor(private mediator: EventAggregator) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
+            this.organicLoad(event);
+        });
+    }
 
-    @Input()
     public organic: { value: string, text: string }[] = [];
+    public organicLoad(data: BreweryData[]){
+        this.organic = data
+            .reduce((results: { value: string, text: string }[], current) => {
+                if (!current.isOrganic)
+                    return results;
+                var found = results.find(p => p.value == current.isOrganic);
+                if (!found) {
+                    results.push({
+                        value: current.isOrganic,
+                        text: current.isOrganic,
+                    });
+                }
+                return results;
+            }, [])
+            .sort((a, b) => a.text.localeCompare(b.text));
+        this.organic.unshift({ value: "*", text: "ALL" });
+    }
     public organicChanged(event: { value: string, text: string }) {
         if (event.value == "*")
             this.mediator.publish("organicCleared");

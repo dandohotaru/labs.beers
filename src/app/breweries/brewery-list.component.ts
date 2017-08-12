@@ -19,7 +19,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   selection: BreweryData;
   queries: Query<BreweryData>[] = [];
 
-  organicOptions: { value: string, text: string, disabled?: boolean }[] = [];
+  //organicOptions: { value: string, text: string, disabled?: boolean }[] = [];
   yearsOptions: { value: number, text: string, disabled?: boolean }[] = [];
   afterOptions: { value: number, text: string, disabled?: boolean }[] = [];
   beforeOptions: { value: number, text: string, disabled?: boolean }[] = [];
@@ -54,6 +54,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           })
           this.build();
           this.refresh();
+
+          this.mediator.publish("breweriesChanged", this.data);
 
           // Loaded
           this.loaded.emit({ found: this.breweries.length });
@@ -147,22 +149,22 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public build() {
 
-    // Organic
-    this.organicOptions = this.data
-      .reduce((results: { value: string, text: string }[], current) => {
-        if (!current.isOrganic)
-          return results;
-        var found = results.find(p => p.value == current.isOrganic);
-        if (!found) {
-          results.push({
-            value: current.isOrganic,
-            text: current.isOrganic,
-          });
-        }
-        return results;
-      }, [])
-      .sort((a, b) => a.text.localeCompare(b.text));
-    this.organicOptions.unshift({ value: "*", text: "ALL" });
+    // // Organic
+    // this.organicOptions = this.data
+    //   .reduce((results: { value: string, text: string }[], current) => {
+    //     if (!current.isOrganic)
+    //       return results;
+    //     var found = results.find(p => p.value == current.isOrganic);
+    //     if (!found) {
+    //       results.push({
+    //         value: current.isOrganic,
+    //         text: current.isOrganic,
+    //       });
+    //     }
+    //     return results;
+    //   }, [])
+    //   .sort((a, b) => a.text.localeCompare(b.text));
+    // this.organicOptions.unshift({ value: "*", text: "ALL" });
 
     // Years
     this.yearsOptions = this.data
