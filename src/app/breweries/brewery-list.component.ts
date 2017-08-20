@@ -45,7 +45,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
             name: "yearFound",
             predicate: (model) => model.established != null
           })
-          this.build();
           this.refresh();
 
           this.mediator.publish("breweriesChanged", this.data);
@@ -138,9 +137,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public select(item: BreweryData): void {
     this.selection = item;
     console.log(this.selection.name);
-  }
-
-  public build() {
   }
 
   public refresh(): void {
