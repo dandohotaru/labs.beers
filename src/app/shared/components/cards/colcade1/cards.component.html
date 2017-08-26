@@ -8,13 +8,12 @@
 
     <!-- Bricks -->
     <div class="grid-item" *ngFor="let item of items">
-        <div class="card">
+        <div>
             <template 
                 [ngTemplateOutlet]="template" 
                 [ngOutletContext]="{ item: item }">
             </template>
         </div>
-
     </div>
 
 </div>

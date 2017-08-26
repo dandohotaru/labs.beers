@@ -49,7 +49,6 @@ export class BreweryFilterComponent implements OnInit {
             this.mediator.publish("organicChanged", { value: event.value });
     }
 
-    @Input()
     public years: { value: number, text: string }[] = [];
     public yearsLoad(data: BreweryData[]) {
         this.years = data
@@ -75,10 +74,8 @@ export class BreweryFilterComponent implements OnInit {
             this.mediator.publish("yearChanged", { value: event.value });
     }
 
-    @Input()
     public after: { value: number, text: string }[] = [];
     public afterLoad(data: BreweryData[]) {
-        // After
         this.after = data
             .reduce((results: { value: number, text: string }[], current) => {
                 if (!current.established)
@@ -103,7 +100,6 @@ export class BreweryFilterComponent implements OnInit {
             this.mediator.publish("afterChanged", { value: event.value });
     }
 
-    @Input()
     public before: { value: number, text: string }[] = [];
     public beforeLoad(data: BreweryData[]) {
         this.before = data
@@ -130,10 +126,8 @@ export class BreweryFilterComponent implements OnInit {
             this.mediator.publish("beforeChanged", { value: event.value });
     }
 
-    @Input()
     public letters: { value: string, text: string }[] = [];
     public lettersLoad(data: BreweryData[]) {
-        // Letters
         this.letters = data
             .reduce((results: { value: string, text: string }[], current) => {
                 if (!current.name)
@@ -158,7 +152,6 @@ export class BreweryFilterComponent implements OnInit {
             this.mediator.publish("lettersChanged", { value: event.value });
     }
 
-    @Input()
     public length: { value: number, text: string }[] = [];
     public lengthLoad(data: BreweryData[]) {
         this.length = data

@@ -65,7 +65,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }, "breweries");
 
     this.mediator.subscribe("organicCleared", event => {
-      this.detach("organicCleared");
+      this.detach("organicChanged");
       this.refresh();
     }, "breweries");
 

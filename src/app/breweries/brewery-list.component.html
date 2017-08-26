@@ -2,6 +2,7 @@
 <div class="container">
   <br/>
   <div class="row">
+    
     <!-- Filters -->
     <div class="col-xs-12 col-sm-3">
       <brewery-filter></brewery-filter>
@@ -9,18 +10,31 @@
 
     <!-- Results -->
     <div class="col-xs-12 col-sm-9">
-      <div style="border: 1px lightgray solid">
+      <!-- List -->
+      <!-- <div style="border: 1px lightgray solid">
         <brewery-card 
           *ngFor="let item of breweries" 
           [brewery]="item" 
           (selected)="select(item);dialog.open();">
         </brewery-card>
-      </div>
-      <!--<app-cards [items]="filter()">
+      </div> -->
+
+      <!-- Cards (attempt1) -->
+      <!-- <app-cards [items]="breweries">
         <template let-item="item">
           <brewery-card [brewery]="item" (selected)="select(item);dialog.open();"></brewery-card>
         </template>
-      </app-cards>-->
+      </app-cards> -->
+
+      <!-- Cards (attempt2) -->
+      <mason-wall>
+        <mason-brick *ngFor="let item of breweries">
+          <brewery-card 
+            [brewery]="item" 
+            (selected)="select(item);dialog.open();">
+          </brewery-card>
+        </mason-brick>
+      </mason-wall>
     </div>
   </div>
 
