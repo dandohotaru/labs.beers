@@ -8,6 +8,8 @@ import { CarouselModule } from "app/shared/components/carousel/carousel.module";
 import { TooltipModule } from 'app/shared/components/tooltips/tooltip.module';
 import { PopoverModule } from "app/shared/components/popover/popover.module";
 
+import { CardsModule } from "app/shared/components/cards/bricklayer1/cards.module";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +18,7 @@ import { PopoverModule } from "app/shared/components/popover/popover.module";
     TooltipModule,
     PopoverModule,
     SearchModule,
+    CardsModule,
   ],  
   declarations: [
     HomeComponent,

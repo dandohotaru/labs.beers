@@ -24,6 +24,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/primeng/resources/themes/bootstrap/theme.css",
+        "../node_modules/bricklayer/dist/bricklayer.min.css",
         "./assets/css/typography.css",
         "./assets/css/custom.css",
         "./assets/css/styles.css"
