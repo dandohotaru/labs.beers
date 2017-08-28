@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button 
+            class="center-block btn btn-danger" 
+            app-tooltip title="<i>Sure thing</i>" 
+            placement="top">
+            Tooltips?
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <app-popover 
+            class="center-block" 
+            [sample]="'Popovers'" 
+            [title]="'Sure thing'" 
+            [content]="'Well, about that...'">
+        </app-popover>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <app-cards></app-cards>
+    </div>
+</div>

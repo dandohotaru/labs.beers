@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 
 import { LayoutModule } from 'app/layout/layout.module';
 import { HomeModule } from "app/home/home.module";
+import { DemoModule } from "app/home/demo.module";
 import { SearchModule } from 'app/search/search.module';
 import { BreweriesModule } from 'app/breweries/breweries.module';
 import { BeersModule } from 'app/beers/beers.module';
@@ -31,6 +32,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
     RouterModule.forRoot(AppRoutes),
     LayoutModule,
     HomeModule,
+    DemoModule,
     SearchModule,
     BreweriesModule,
     BeersModule
