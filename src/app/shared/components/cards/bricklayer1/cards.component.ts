@@ -9,8 +9,8 @@ import { ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
     encapsulation: ViewEncapsulation.None,
 })
 export class CardsComponent implements OnInit {
-    
-    @ViewChild('container') 
+
+    @ViewChild('container')
     public container: ElementRef;
 
     public builder: Bricklayer;
@@ -22,11 +22,10 @@ export class CardsComponent implements OnInit {
     public ngAfterViewInit() {
         window.setTimeout(() => {
             this.builder = new Bricklayer(this.container.nativeElement);
-            console.log(this.builder);
         }, 0);
     }
 
-    public newBox() {
+    private newBox(): HTMLDivElement {
         var randomColor = '#' + Math.random().toString(16).substr(-6);
         var heights = [50, 90, 150, 190, 230];
         var randomHeight = heights[Math.floor(Math.random() * heights.length)];
@@ -37,9 +36,33 @@ export class CardsComponent implements OnInit {
         return box;
     }
 
-    public addBrick() {
+    public create() {
+        
+        this.destroy();
+
         var box = this.newBox();
-        box.innerHTML = (this.builder.elements.length + 1);
+        box.innerHTML = "?";
+        var parent = document.querySelector(".bricklayer");
+        parent.appendChild(box);
+
+        this.build();
+    }
+
+    public append() {
+        var box = this.newBox();
+        box.innerHTML = this.builder.elements.length + 1;
         this.builder.append(box);
+    }
+
+    public redraw() {
+        this.builder.redraw();
+    }
+
+    public destroy() {
+        this.builder.destroy();
+    }
+
+    public build() {
+        this.builder = new Bricklayer(this.container.nativeElement);
     }
 }
