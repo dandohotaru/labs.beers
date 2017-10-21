@@ -1,2 +1,8 @@
-<button (click)="addBrick()">Add a brick</button>
-<section #bricks class="bricklayer"></section>
+<button (click)="addBrick()">
+    Add
+</button>
+
+<section #container class="bricklayer">
+    <ng-content>
+    </ng-content>
+</section>
