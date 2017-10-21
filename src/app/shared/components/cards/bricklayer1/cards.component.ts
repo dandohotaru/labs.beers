@@ -23,6 +23,13 @@ export class CardsComponent implements OnInit {
         window.setTimeout(() => {
             this.builder = new Bricklayer(this.container.nativeElement);
         }, 0);
+
+        for (var index = 0; index < 100; index++) {
+            var box = this.newBox();
+            box.innerHTML = "" + index;
+            var parent = document.querySelector(".bricklayer");
+            parent.appendChild(box);
+        }
     }
 
     private newBox(): HTMLDivElement {
@@ -46,6 +53,12 @@ export class CardsComponent implements OnInit {
         parent.appendChild(box);
 
         this.build();
+    }
+
+    public prepend() {
+        var box = this.newBox();
+        box.innerHTML = this.builder.elements.length + 1;
+        this.builder.prepend(box);
     }
 
     public append() {
