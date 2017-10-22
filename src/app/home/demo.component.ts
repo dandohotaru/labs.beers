@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DemoComponent implements OnInit {
 
     public sentences: SentenceData[];
+    public selection: SentenceData;
 
     constructor() { }
 
@@ -22,6 +23,26 @@ export class DemoComponent implements OnInit {
                     words: sentence.split(" ").length - 1,
                 };
             })
+    }
+
+    public select(sentence: SentenceData){ 
+        console.log(sentence.text);
+        this.selection = sentence;
+        this.remove();
+    }
+
+    public add(){
+
+    }
+
+    public remove() {
+        if (this.selection){
+            console.log(`Before: ${this.sentences.length}`);
+            let index = this.sentences.indexOf(this.selection);
+            this.sentences.splice(index, 1);
+            console.log(`After: ${this.sentences.length}`);
+        }
+
     }
 }
 

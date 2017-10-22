@@ -24,7 +24,7 @@ export class CardsComponent implements OnInit {
             this.builder = new Bricklayer(this.container.nativeElement);
         }, 0);
 
-        for (var index = 0; index < 100; index++) {
+        for (var index = 0; index < 1; index++) {
             var box = this.newBox();
             box.innerHTML = "" + index;
             var parent = document.querySelector(".bricklayer");
