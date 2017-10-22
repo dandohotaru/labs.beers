@@ -23,12 +23,19 @@
 <div class="row">
     <div class="col-xs-12">
         <app-cards>
-            <div class="card" style="height:50px;">1</div>
-            <div class="card" style="height:70px;">2</div>
-            <div class="card" style="height:80px;">3</div>
-            <div class="card" style="height:99px;">4</div>
-            <div class="card" style="height:40px;">5</div>
-            <div class="card" style="height:60px;">6</div>
+            <div class="card" *ngFor="let sentence of sentences">
+                <div>
+                    {{sentence.text}}
+                </div>
+                <div>
+                    <small>
+                         words: {{sentence.words}}
+                    </small>
+                    <small>
+                         legth: {{sentence.length}}
+                    </small>
+                </div>
+            </div>
         </app-cards>
     </div>
 </div>
