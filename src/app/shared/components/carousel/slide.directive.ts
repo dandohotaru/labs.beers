@@ -2,7 +2,7 @@ import { Directive, Input, TemplateRef } from "@angular/core";
 
 let nextId = 0;
 
-@Directive({ selector: 'template[app-carousel-slide]' })
+@Directive({ selector: 'ng-template[appcarouselslide]' })
 export class SlideDirective {
 
     @Input() 
