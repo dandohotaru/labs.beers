@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
@@ -9,7 +9,8 @@ import { Query } from "app/shared/filters/query.models";
 
 @Component({
   selector: 'app-brewery-list',
-  templateUrl: './brewery-list.component.html'
+  templateUrl: './brewery-list.component.html',
+  providers: [EventAggregator]
 })
 export class BreweryListComponent implements OnInit, OnDestroy {
 
@@ -18,6 +19,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   breweries: BreweryData[] = [];
   selection: BreweryData;
   queries: Query<BreweryData>[] = [];
+  parameters: Params;
 
   @Output()
   loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -29,11 +31,33 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private mediator: EventAggregator) {
   }
 
+  public test() {
+    this.direct({ key:"foo", value: [42, 41, true] });
+    console.log(this.route.snapshot);
+  }
+
+  private direct(option: { key, value }) {
+    let options: Params = Object.assign({}, this.parameters);
+    options[option.key] = option.value;
+
+    this.router.navigate(['/breweries'], {
+      queryParams: options,
+      queryParamsHandling: "merge"
+    });
+  }
+
   public ngOnInit() {
+
+    console.log("init");
+
     this.route.queryParams.subscribe(params => {
+      this.parameters = params;
+
       this.term = params["q"] && params["q"][0]
         ? params["q"][0]
         : "";
+
+      var organic = params["organic"] || null;
 
       var breweries = this.service
         .search(this.term)
@@ -45,6 +69,16 @@ export class BreweryListComponent implements OnInit, OnDestroy {
             name: "yearFound",
             predicate: (model) => model.established != null
           })
+
+          if (organic) {
+            this.append("organicChanged", (item: BreweryData) => {
+              return item.isOrganic == "Y";
+            });
+          }
+          else {
+            this.detach("organicChanged");
+          }
+
           this.refresh();
 
           this.mediator.publish("breweriesChanged", this.data);
@@ -58,51 +92,59 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     });
 
     this.mediator.subscribe("organicChanged", event => {
-      this.append("organicChanged", (item: BreweryData) => {
-        return item.isOrganic == event.value;
-      });
-      this.refresh();
+      this.direct({ key: "organic", value: event.value });
+      // this.append("organicChanged", (item: BreweryData) => {
+      //   return item.isOrganic == event.value;
+      // });
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("organicCleared", event => {
-      this.detach("organicChanged");
-      this.refresh();
+      this.direct({ key: "organic", value: null });
+      //this.detach("organicChanged");
+      //this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("yearChanged", event => {
-      this.append("yearChanged", (item: BreweryData) => {
-        return item.established == event.value;
-      });
-      this.refresh();
+      this.direct({ key: "year", value: event.value });
+      // this.append("yearChanged", (item: BreweryData) => {
+      //   return item.established == event.value;
+      // });
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("yearCleared", event => {
-      this.detach("yearChanged");
-      this.refresh();
+      this.direct({ key: "year", value: null });
+      // this.detach("yearChanged");
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("afterChanged", event => {
-      this.append("afterChanged", (item: BreweryData) => {
-        return item.established >= event.value;
-      });
-      this.refresh();
+      this.direct({ key: "after", value: event.value });
+      // this.append("afterChanged", (item: BreweryData) => {
+      //   return item.established >= event.value;
+      // });
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("afterCleared", event => {
-      this.detach("afterChanged");
-      this.refresh();
+      this.direct({ key: "after", value: null });
+      // this.detach("afterChanged");
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("beforeChanged", event => {
-      this.append("beforeChanged", (item: BreweryData) => {
-        return item.established <= event.value;
-      });
+      this.direct({ key: "before", value: event.value });
+      // this.append("beforeChanged", (item: BreweryData) => {
+      //   return item.established <= event.value;
+      // });
       this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("beforeCleared", event => {
-      this.detach("beforeChanged");
-      this.refresh();
+      this.direct({ key: "before", value: null });
+      // this.detach("beforeChanged");
+      // this.refresh();
     }, "breweries");
 
     this.mediator.subscribe("lettersChanged", event => {
