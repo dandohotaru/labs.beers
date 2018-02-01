@@ -6,6 +6,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { Query } from "app/shared/filters/query.models";
+import { RelayService } from 'app/breweries/relay.service';
 
 @Component({
   selector: 'app-brewery-list',
@@ -28,22 +29,27 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private service: BreweriesService,
-    private mediator: EventAggregator) {
+    private mediator: EventAggregator,
+    private relay: RelayService) {
   }
 
   public test() {
     this.direct({ key:"foo", value: [42, 41, true] });
     console.log(this.route.snapshot);
+    console.log(this.router.url);
+    console.log(this.route.snapshot.url);
   }
 
   private direct(option: { key, value }) {
-    let options: Params = Object.assign({}, this.parameters);
-    options[option.key] = option.value;
+    this.relay.direct(['breweries'], option);
 
-    this.router.navigate(['/breweries'], {
-      queryParams: options,
-      queryParamsHandling: "merge"
-    });
+    // let options: Params = Object.assign({}, this.parameters);
+    // options[option.key] = option.value;
+
+    // this.router.navigate(['/breweries'], {
+    //   queryParams: options,
+    //   queryParamsHandling: "merge"
+    // });
   }
 
   public ngOnInit() {

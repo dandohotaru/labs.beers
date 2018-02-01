@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { BreweryData } from "app/shared/services/breweries.models";
+import { RelayService } from 'app/breweries/relay.service';
 
 @Component({
     selector: 'brewery-filter',
@@ -11,7 +12,7 @@ import { BreweryData } from "app/shared/services/breweries.models";
 })
 export class BreweryFilterComponent implements OnInit {
 
-    constructor(private mediator: EventAggregator) { }
+    constructor(private mediator: EventAggregator, private relay: RelayService) { }
 
     ngOnInit() {
         this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {

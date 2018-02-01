@@ -16,6 +16,7 @@ import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 
 import { EventAggregator } from 'app/shared/messages/event.aggregator';
+import { RelayService } from 'app/breweries/relay.service';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { EventAggregator } from 'app/shared/messages/event.aggregator';
     BreweryListComponent
   ],
   providers:[
-    EventAggregator
+    EventAggregator,
+    RelayService
   ]
 })
 export class BreweriesModule { }
