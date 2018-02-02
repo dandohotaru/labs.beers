@@ -44,13 +44,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         ? params["q"][0]
         : "";
 
-      var organic = params["organic"] || null;
-      var year = params["year"] || null;
-      var after = params["after"] || null;
-      var before = params["before"] || null;
-      var letter = params["letter"] || null;
-      var length = params["length"] || null;
-
       var breweries = this.service
         .search(this.term)
         .subscribe(response => {
@@ -63,59 +56,29 @@ export class BreweryListComponent implements OnInit, OnDestroy {
             return item.established != null;
           });
 
-          if (organic) {
-            this.append("organicChanged", (item: BreweryData) => {
-              return item.isOrganic == organic;
-            });
-          }
-          else {
-            this.detach("organicChanged");
-          }
+          this.handle(params, "organic", (item: BreweryData, value) => {
+            return item.isOrganic == value;
+          });
 
-          if (year) {
-            this.append("yearChanged", (item: BreweryData) => {
-              return item.established == year;
-            });
-          }
-          else {
-            this.detach("yearChanged");
-          }
+          this.handle(params, "year", (item: BreweryData, value) => {
+            return item.established == value;
+          });
 
-          if (after) {
-            this.append("afterChanged", (item: BreweryData) => {
-              return item.established >= +after;
-            });
-          }
-          else {
-            this.detach("afterChanged");
-          }
+          this.handle(params, "after", (item: BreweryData, value) => {
+            return item.established >= +value;
+          });
 
-          if (before) {
-            this.append("beforeChanged", (item: BreweryData) => {
-              return item.established <= +before;
-            });
-          }
-          else {
-            this.detach("beforeChanged");
-          }
+          this.handle(params, "before", (item: BreweryData, value) => {
+            return item.established <= +value;
+          });
 
-          if (letter) {
-            this.append("letterChanged", (item: BreweryData) => {
-              return item.name.charAt(0) == letter;
-            });
-          }
-          else {
-            this.detach("letterChanged");
-          }
+          this.handle(params, "letter", (item: BreweryData, value) => {
+            return item.name.charAt(0) == value;
+          });
 
-          if (length) {
-            this.append("lengthChanged", (item: BreweryData) => {
-              return item.name.length == length;
-            });
-          }
-          else {
-            this.detach("lengthChanged");
-          }
+          this.handle(params, "length", (item: BreweryData, value) => {
+            return item.name.length == value;
+          });
 
           // Refresh
           this.refresh();
@@ -137,7 +100,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public select(item: BreweryData): void {
     this.selection = item;
-    console.log(item.name);
+    console.log(item);
   }
 
   public test() {
@@ -152,6 +115,17 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       var match = this.queries.every(p => p.predicate(brewery) == true);
       return match;
     });
+  }
+
+  public handle(params: Params, name: string, predicate: (item: BreweryData, value) => boolean) {
+    var value = params[name] || null;
+    if (value) {
+      this.append(name, (item: BreweryData) => {
+        return predicate(item, value);
+      });
+    } else {
+      this.detach(name);
+    }
   }
 
   public append(name: string, predicate: (item: BreweryData) => boolean) {
