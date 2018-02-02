@@ -33,25 +33,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private relay: RelayService) {
   }
 
-  public test() {
-    this.direct({ key:"foo", value: [42, 41, true] });
-    console.log(this.route.snapshot);
-    console.log(this.router.url);
-    console.log(this.route.snapshot.url);
-  }
-
-  private direct(option: { key, value }) {
-    this.relay.direct(['breweries'], option);
-
-    // let options: Params = Object.assign({}, this.parameters);
-    // options[option.key] = option.value;
-
-    // this.router.navigate(['/breweries'], {
-    //   queryParams: options,
-    //   queryParamsHandling: "merge"
-    // });
-  }
-
   public ngOnInit() {
 
     console.log("init");
@@ -64,6 +45,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         : "";
 
       var organic = params["organic"] || null;
+      var year = params["year"] || null;
+      var after = params["after"] || null;
+      var before = params["before"] || null;
+      var letter = params["letter"] || null;
+      var length = params["length"] || null;
 
       var breweries = this.service
         .search(this.term)
@@ -71,20 +57,67 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
           // Data
           this.data = response;
-          this.queries.push({
-            name: "yearFound",
-            predicate: (model) => model.established != null
-          })
+
+          // Filters
+          this.append("yearFound", (item: BreweryData) => {
+            return item.established != null;
+          });
 
           if (organic) {
             this.append("organicChanged", (item: BreweryData) => {
-              return item.isOrganic == "Y";
+              return item.isOrganic == organic;
             });
           }
           else {
             this.detach("organicChanged");
           }
 
+          if (year) {
+            this.append("yearChanged", (item: BreweryData) => {
+              return item.established == year;
+            });
+          }
+          else {
+            this.detach("yearChanged");
+          }
+
+          if (after) {
+            this.append("afterChanged", (item: BreweryData) => {
+              return item.established >= +after;
+            });
+          }
+          else {
+            this.detach("afterChanged");
+          }
+
+          if (before) {
+            this.append("beforeChanged", (item: BreweryData) => {
+              return item.established <= +before;
+            });
+          }
+          else {
+            this.detach("beforeChanged");
+          }
+
+          if (letter) {
+            this.append("letterChanged", (item: BreweryData) => {
+              return item.name.charAt(0) == letter;
+            });
+          }
+          else {
+            this.detach("letterChanged");
+          }
+
+          if (length) {
+            this.append("lengthChanged", (item: BreweryData) => {
+              return item.name.length == length;
+            });
+          }
+          else {
+            this.detach("lengthChanged");
+          }
+
+          // Refresh
           this.refresh();
 
           this.mediator.publish("breweriesChanged", this.data);
@@ -96,86 +129,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           console.error(error);
         });
     });
-
-    this.mediator.subscribe("organicChanged", event => {
-      this.direct({ key: "organic", value: event.value });
-      // this.append("organicChanged", (item: BreweryData) => {
-      //   return item.isOrganic == event.value;
-      // });
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("organicCleared", event => {
-      this.direct({ key: "organic", value: null });
-      //this.detach("organicChanged");
-      //this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("yearChanged", event => {
-      this.direct({ key: "year", value: event.value });
-      // this.append("yearChanged", (item: BreweryData) => {
-      //   return item.established == event.value;
-      // });
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("yearCleared", event => {
-      this.direct({ key: "year", value: null });
-      // this.detach("yearChanged");
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("afterChanged", event => {
-      this.direct({ key: "after", value: event.value });
-      // this.append("afterChanged", (item: BreweryData) => {
-      //   return item.established >= event.value;
-      // });
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("afterCleared", event => {
-      this.direct({ key: "after", value: null });
-      // this.detach("afterChanged");
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("beforeChanged", event => {
-      this.direct({ key: "before", value: event.value });
-      // this.append("beforeChanged", (item: BreweryData) => {
-      //   return item.established <= event.value;
-      // });
-      this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("beforeCleared", event => {
-      this.direct({ key: "before", value: null });
-      // this.detach("beforeChanged");
-      // this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("lettersChanged", event => {
-      this.append("lettersChanged", (item: BreweryData) => {
-        return item.name.charAt(0) == event.value;
-      });
-      this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("lettersCleared", event => {
-      this.detach("lettersChanged");
-      this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("lengthChanged", event => {
-      this.append("lengthChanged", (item: BreweryData) => {
-        return item.name.length == event.value;
-      });
-      this.refresh();
-    }, "breweries");
-
-    this.mediator.subscribe("lengthCleared", event => {
-      this.detach("lengthChanged");
-      this.refresh();
-    }, "breweries");
   }
 
   public ngOnDestroy(): void {
@@ -184,7 +137,14 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public select(item: BreweryData): void {
     this.selection = item;
-    console.log(this.selection.name);
+    console.log(item.name);
+  }
+
+  public test() {
+    this.relay.direct({ key: "foo", value: [42, 41, true] });
+    console.log(this.route.snapshot);
+    console.log(this.router.url);
+    console.log(this.route.snapshot.url);
   }
 
   public refresh(): void {

@@ -14,7 +14,7 @@ export class RelayService {
 		});
 	}
 
-	public direct(path: any[], option: { key, value }) {
+	public direct(option: { key, value }) {
 		let options: Params = Object.assign({}, this.parameters);
 		options[option.key] = option.value;
 
