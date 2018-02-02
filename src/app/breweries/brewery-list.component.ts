@@ -52,33 +52,33 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           this.data = response;
 
           // Filters
-          this.append("yearFound", (item: BreweryData) => {
-            return item.established != null;
-          });
+          this.handle("establish", (item: BreweryData, dated: boolean) => {
+            return item.established > 0 == dated;
+          }, true);
 
-          this.handle(params, "organic", (item: BreweryData, value) => {
-            return item.isOrganic == value;
-          });
+          this.handle("organic", (item: BreweryData, organic: string) => {
+            return item.isOrganic == organic;
+          }, params["organic"]);
 
-          this.handle(params, "year", (item: BreweryData, value) => {
-            return item.established == value;
-          });
+          this.handle("year", (item: BreweryData, year: number) => {
+            return item.established == year;
+          }, params["year"]);
 
-          this.handle(params, "after", (item: BreweryData, value) => {
-            return item.established >= +value;
-          });
+          this.handle("after", (item: BreweryData, after: number) => {
+            return item.established >= after;
+          }, params["after"]);
 
-          this.handle(params, "before", (item: BreweryData, value) => {
-            return item.established <= +value;
-          });
+          this.handle("before", (item: BreweryData, before: number) => {
+            return item.established <= before;
+          }, params["before"]);
 
-          this.handle(params, "letter", (item: BreweryData, value) => {
-            return item.name.charAt(0) == value;
-          });
+          this.handle("letter", (item: BreweryData, letter: string) => {
+            return item.name.charAt(0) == letter;
+          }, params["letter"]);
 
-          this.handle(params, "length", (item: BreweryData, value) => {
-            return item.name.length == value;
-          });
+          this.handle("length", (item: BreweryData, length: number) => {
+            return item.name.length == length;
+          }, params["length"]);
 
           // Refresh
           this.refresh();
@@ -117,26 +117,25 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     });
   }
 
-  public handle(params: Params, name: string, predicate: (item: BreweryData, value) => boolean) {
-    var value = params[name] || null;
+  public handle(context: string, predicate: (item: BreweryData, value) => boolean, value: string|number|boolean) {
     if (value) {
-      this.append(name, (item: BreweryData) => {
+      this.append(context, (item: BreweryData) => {
         return predicate(item, value);
       });
     } else {
-      this.detach(name);
+      this.detach(context);
     }
   }
 
-  public append(name: string, predicate: (item: BreweryData) => boolean) {
-    let query = this.queries.find(p => p.name == name);
+  public append(context: string, predicate: (item: BreweryData) => boolean) {
+    let query = this.queries.find(p => p.name == context);
     if (query) {
       var index = this.queries.indexOf(query);
       this.queries.splice(index, 1);
     }
 
     this.queries.push({
-      name: name,
+      name: context,
       predicate: predicate
     });
   }
