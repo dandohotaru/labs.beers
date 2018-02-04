@@ -16,5 +16,6 @@
     "editor.codeLens": true,
     "editor.minimap.enabled": false,
     "editor.formatOnPaste": true,
-    "workbench.editor.showIcons": true
+    "workbench.editor.showIcons": true,
+    "editor.tabSize": 2
 }

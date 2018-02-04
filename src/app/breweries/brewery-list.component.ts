@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -5,7 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
-import { Query } from "app/shared/filters/query.models";
+import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/breweries/relay.service';
 
 @Component({
@@ -19,7 +20,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   data: BreweryData[] = [];
   breweries: BreweryData[] = [];
   selection: BreweryData;
-  queries: Query<BreweryData>[] = [];
   parameters: Params;
 
   @Output()
@@ -30,6 +30,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private service: BreweriesService,
     private mediator: EventAggregator,
+    private querier: QueryProvider,
     private relay: RelayService) {
   }
 
@@ -81,7 +82,10 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           }, params["length"]);
 
           // Refresh
-          this.refresh();
+          this.breweries = this.data.filter(brewery => {
+            var match = this.querier.match(brewery);
+            return match;
+          });
 
           this.mediator.publish("breweriesChanged", this.data);
 
@@ -110,47 +114,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.route.snapshot.url);
   }
 
-  public refresh(): void {
-    this.breweries = this.data.filter(brewery => {
-      var match = this.queries.every(p => p.predicate(brewery) == true);
-      return match;
-    });
-  }
-
   public handle(context: string, predicate: (item: BreweryData, value) => boolean, value: string|number|boolean) {
     if (value) {
-      this.append(context, (item: BreweryData) => {
+      this.querier.attach(context, (item: BreweryData) => {
         return predicate(item, value);
       });
     } else {
-      this.detach(context);
+      this.querier.detach(context);
     }
   }
-
-  public append(context: string, predicate: (item: BreweryData) => boolean) {
-    let query = this.queries.find(p => p.name == context);
-    if (query) {
-      var index = this.queries.indexOf(query);
-      this.queries.splice(index, 1);
-    }
-
-    this.queries.push({
-      name: context,
-      predicate: predicate
-    });
-  }
-
-  public detach(name: string) {
-    let query = this.queries.find(p => p.name == name);
-    if (query) {
-      var index = this.queries.indexOf(query);
-      this.queries.splice(index, 1);
-    }
-  }
-
-
 }
-
-
-
-

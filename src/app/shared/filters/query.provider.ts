@@ -4,7 +4,6 @@ export class QueryProvider {
 
     private queries: QueryModel[] = [];
     
-
     public attach(name: string, predicate: (item: any) => boolean) {
 
         let query = this.queries.find(p => p.name == name);
