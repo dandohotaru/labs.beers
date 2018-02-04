@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, trigger } from '@angular/core';
 
 @Component({
     selector: 'app-select',
@@ -36,6 +36,7 @@ export class SelectComponent implements OnInit {
 class OptionModel {
     value: string | number | boolean;
     text: string | number | boolean;
+    selected?: boolean;
     disabled?: boolean;
     hidden?: boolean;
 }

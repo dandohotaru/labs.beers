@@ -18,23 +18,54 @@ export class BreweryFilterComponent implements OnInit {
 
 	ngOnInit() {
 		this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
-			if (!this.breweries){
-				this.organicLoad(event);
-				this.yearsLoad(event);
-				this.afterLoad(event);
-				this.beforeLoad(event);
-				this.lettersLoad(event);
-				this.lengthLoad(event);
+			if (!this.breweries) {
+				this.organic = this.organicLoad(event);
+				this.years = this.yearsLoad(event);
+				this.after = this.afterLoad(event);
+				this.before = this.beforeLoad(event);
+				this.letters = this.lettersLoad(event);
+				this.length = this.lengthLoad(event);
 
 				this.breweries = event;
+			}
+			else {
+				let organic = this.organicLoad(event);
+				this.organic.forEach(p=>{
+					p.disabled = !organic.find(o=>o.value == p.value);
+				});
+
+				let years = this.yearsLoad(event);
+				this.years.forEach(p => {
+					p.disabled = !years.find(o => o.value == p.value);
+				});
+
+				let after = this.afterLoad(event);
+				this.after.forEach(p => {
+					p.disabled = !after.find(o => o.value == p.value);
+				});
+
+				let before = this.beforeLoad(event);
+				this.before.forEach(p => {
+					p.disabled = !before.find(o => o.value == p.value);
+				});
+
+				let letters = this.lettersLoad(event);
+				this.letters.forEach(p => {
+					p.disabled = !letters.find(o => o.value == p.value);
+				});
+
+				let length = this.lengthLoad(event);
+				this.length.forEach(p => {
+					p.disabled = !length.find(o => o.value == p.value);
+				});
 			}
 		});
 	}
 
 	// Organic
-	public organic: { value: string, text: string }[] = [];
-	public organicLoad(data: BreweryData[]) {
-		this.organic = data
+	public organic: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public organicLoad(data: BreweryData[]): { value: string, text: string }[] {
+		let options = data
 			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.isOrganic)
 					return results;
@@ -48,7 +79,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.text.localeCompare(b.text));
-		this.organic.unshift({ value: "*", text: "ALL" });
+		options.unshift({ value: "*", text: "ALL" });
+		return options;
 	}
 	public organicChanged(event: { value: string, text: string }) {
 		let value = event.value == "*" ? null : event.value;
@@ -56,9 +88,9 @@ export class BreweryFilterComponent implements OnInit {
 	}
 
 	// Years
-	public years: { value: number, text: string }[] = [];
-	public yearsLoad(data: BreweryData[]) {
-		this.years = data
+	public years: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public yearsLoad(data: BreweryData[]): { value: number, text: string }[] {
+		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
@@ -72,7 +104,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.value - b.value);
-		this.years.unshift({ value: 0, text: "ALL" });
+		options.unshift({ value: 0, text: "ALL" });
+		return options;
 	}
 	public yearChanged(event: { value: number, text: number }) {
 		let value = event.value == 0 ? null : event.value;
@@ -80,9 +113,9 @@ export class BreweryFilterComponent implements OnInit {
 	}
 
 	// After
-	public after: { value: number, text: string }[] = [];
-	public afterLoad(data: BreweryData[]) {
-		this.after = data
+	public after: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public afterLoad(data: BreweryData[]): { value: number, text: string }[] {
+		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
@@ -97,7 +130,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.value - b.value);
-		this.after.unshift({ value: 0, text: "ALL" })
+		options.unshift({ value: 0, text: "ALL" });
+		return options;
 	}
 	public afterChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;
@@ -105,9 +139,9 @@ export class BreweryFilterComponent implements OnInit {
 	}
 
 	// Before
-	public before: { value: number, text: string }[] = [];
-	public beforeLoad(data: BreweryData[]) {
-		this.before = data
+	public before: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public beforeLoad(data: BreweryData[]): { value: number, text: string }[] {
+		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
@@ -122,7 +156,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.value - b.value);
-		this.before.unshift({ value: 0, text: "ALL" })
+		options.unshift({ value: 0, text: "ALL" });
+		return options;
 	}
 	public beforeChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;
@@ -130,9 +165,9 @@ export class BreweryFilterComponent implements OnInit {
 	}
 
 	// Letters
-	public letters: { value: string, text: string }[] = [];
-	public lettersLoad(data: BreweryData[]) {
-		this.letters = data
+	public letters: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public lettersLoad(data: BreweryData[]): { value: string, text: string }[] {
+		let options = data
 			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.name)
 					return results;
@@ -147,7 +182,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.text.localeCompare(b.text));
-		this.letters.unshift({ value: "*", text: "ALL" });
+		options.unshift({ value: "*", text: "ALL" });
+		return options;
 	}
 	public lettersChanged(event: { value: string, text: string }) {
 		let value = event.value == "*" ? null : event.value;
@@ -155,9 +191,9 @@ export class BreweryFilterComponent implements OnInit {
 	}
 
 	// Length
-	public length: { value: number, text: string }[] = [];
-	public lengthLoad(data: BreweryData[]) {
-		this.length = data
+	public length: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
+	public lengthLoad(data: BreweryData[]): { value: number, text: string }[] {
+		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.name)
 					return results;
@@ -171,7 +207,8 @@ export class BreweryFilterComponent implements OnInit {
 				return results;
 			}, [])
 			.sort((a, b) => a.value - b.value);
-		this.length.unshift({ value: 0, text: "ALL" });
+		options.unshift({ value: 0, text: "ALL" });
+		return options;
 	}
 	public lengthChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;

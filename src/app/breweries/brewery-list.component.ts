@@ -45,7 +45,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         ? params["q"][0]
         : "";
 
-      var breweries = this.service
+      this.service
         .search(this.term)
         .subscribe(response => {
 
@@ -82,13 +82,14 @@ export class BreweryListComponent implements OnInit, OnDestroy {
           }, params["length"]);
 
           // Refresh
-          this.breweries = this.data.filter(brewery => {
+          this.breweries = response.filter(brewery => {
             var match = this.querier.match(brewery);
             return match;
           });
 
-          this.mediator.publish("breweriesChanged", this.data);
+          this.mediator.publish("breweriesChanged", this.breweries);
 
+          
           // Loaded
           this.loaded.emit({ found: this.breweries.length });
         },
