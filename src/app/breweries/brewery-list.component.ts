@@ -8,6 +8,8 @@ import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/breweries/relay.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'app-brewery-list',
@@ -16,14 +18,13 @@ import { RelayService } from 'app/breweries/relay.service';
 })
 export class BreweryListComponent implements OnInit, OnDestroy {
 
-  term: string;
-  data: BreweryData[] = [];
-  breweries: BreweryData[] = [];
-  selection: BreweryData;
-  parameters: Params;
+  public term: string;
+  public data: BreweryData[] = [];
+  public breweries: BreweryData[] = [];
+  public selection: BreweryData;
 
   @Output()
-  loaded: EventEmitter<{ found: number }> = new EventEmitter();
+  public loaded: EventEmitter<{ found: number }> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -36,67 +37,68 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    console.log("init");
+    Observable
+      .combineLatest(
+        this.service.load(),
+        this.route.queryParams,
+        (data, params) => {
+          return { data, params }
+        })
+      .subscribe(response => {
 
-    this.route.queryParams.subscribe(params => {
-      this.parameters = params;
+        // Data
+        this.data = response.data;
+        this.mediator.publish("breweriesChanged", response.data);
 
-      this.term = params["q"] && params["q"][0]
-        ? params["q"][0]
-        : "";
+        // Predicates
+        this.register("establish", (item: BreweryData, dated: boolean) => {
+          return item.established > 0 == dated;
+        }, true);
 
-      this.service
-        .search(this.term)
-        .subscribe(response => {
+        this.register("search", (item: BreweryData, term: string) => {
+          return item.name.toLowerCase().includes(term);
+        }, response.params["q"] ? response.params["q"][0] : null);
 
-          // Data
-          this.data = response;
+        this.register("organic", (item: BreweryData, organic: string) => {
+          return item.isOrganic == organic;
+        }, response.params["organic"]);
 
-          // Filters
-          this.handle("establish", (item: BreweryData, dated: boolean) => {
-            return item.established > 0 == dated;
-          }, true);
+        this.register("year", (item: BreweryData, year: number) => {
+          return item.established == year;
+        }, response.params["year"]);
 
-          this.handle("organic", (item: BreweryData, organic: string) => {
-            return item.isOrganic == organic;
-          }, params["organic"]);
+        this.register("after", (item: BreweryData, after: number) => {
+          return item.established >= after;
+        }, response.params["after"]);
 
-          this.handle("year", (item: BreweryData, year: number) => {
-            return item.established == year;
-          }, params["year"]);
+        this.register("before", (item: BreweryData, before: number) => {
+          return item.established <= before;
+        }, response.params["before"]);
 
-          this.handle("after", (item: BreweryData, after: number) => {
-            return item.established >= after;
-          }, params["after"]);
+        this.register("letter", (item: BreweryData, letter: string) => {
+          return item.name.charAt(0) == letter;
+        }, response.params["letter"]);
 
-          this.handle("before", (item: BreweryData, before: number) => {
-            return item.established <= before;
-          }, params["before"]);
+        this.register("length", (item: BreweryData, length: number) => {
+          return item.name.length == length;
+        }, response.params["length"]);
 
-          this.handle("letter", (item: BreweryData, letter: string) => {
-            return item.name.charAt(0) == letter;
-          }, params["letter"]);
-
-          this.handle("length", (item: BreweryData, length: number) => {
-            return item.name.length == length;
-          }, params["length"]);
-
-          // Refresh
-          this.breweries = response.filter(brewery => {
-            var match = this.querier.match(brewery);
-            return match;
-          });
-
-          this.mediator.publish("breweriesChanged", this.breweries);
-
-          
-          // Loaded
-          this.loaded.emit({ found: this.breweries.length });
-        },
-        error => {
-          console.error(error);
+        // Match
+        this.breweries = this.data.filter(brewery => {
+          var match = this.querier.match(brewery);
+          return match;
         });
-    });
+
+        this.mediator.publish("breweriesChanged", this.breweries);
+
+        // Loaded
+        this.loaded.emit({ found: this.breweries.length });
+
+      },
+      error => {
+        console.error(error);
+      });
+    
   }
 
   public ngOnDestroy(): void {
@@ -115,7 +117,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.route.snapshot.url);
   }
 
-  public handle(context: string, predicate: (item: BreweryData, value) => boolean, value: string|number|boolean) {
+  public register(context: string, predicate: (item: BreweryData, value) => boolean, value: string|number|boolean) {
     if (value) {
       this.querier.attach(context, (item: BreweryData) => {
         return predicate(item, value);

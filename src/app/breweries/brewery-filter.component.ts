@@ -16,7 +16,7 @@ export class BreweryFilterComponent implements OnInit {
 
 	constructor(private mediator: EventAggregator, private relay: RelayService) { }
 
-	ngOnInit() {
+	public ngOnInit() {
 		this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
 			if (!this.breweries) {
 				this.organic = this.organicLoad(event);

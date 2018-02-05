@@ -62,7 +62,7 @@ export class EventAggregator {
                         subscribers[i](data, event);
                     }
                 } catch (e) {
-                    console.log(e);
+                    console.error(e);
                 }
             }
         } else {
