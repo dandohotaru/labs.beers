@@ -1,4 +1,7 @@
 
+import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -8,19 +11,17 @@ import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/breweries/relay.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'app-brewery-list',
-  templateUrl: './brewery-list.component.html',
+  templateUrl: 'brewery-list.component.html',
   providers: [EventAggregator]
 })
 export class BreweryListComponent implements OnInit, OnDestroy {
 
   public term: string;
-  public data: BreweryData[] = [];
-  public breweries: BreweryData[] = [];
+  public initial: BreweryData[];
+  public breweries: BreweryData[];
   public selection: BreweryData;
 
   @Output()
@@ -37,18 +38,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    Observable
-      .combineLatest(
-        this.service.load(),
-        this.route.queryParams,
-        (data, params) => {
-          return { data, params }
-        })
-      .subscribe(response => {
-
-        // Data
-        this.data = response.data;
-        this.mediator.publish("breweriesChanged", response.data);
+    this.service.load()
+      .switchMap(breweries => {
+        this.initial = breweries;
+        this.mediator.publish("breweriesLoaded", breweries);
+        return this.route.queryParams;
+      })
+      .subscribe(params => {
 
         // Predicates
         this.register("establish", (item: BreweryData, dated: boolean) => {
@@ -57,48 +53,40 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
         this.register("search", (item: BreweryData, term: string) => {
           return item.name.toLowerCase().includes(term);
-        }, response.params["q"] ? response.params["q"][0] : null);
+        }, params["q"] ? params["q"][0] : null);
 
         this.register("organic", (item: BreweryData, organic: string) => {
           return item.isOrganic == organic;
-        }, response.params["organic"]);
+        }, params["organic"]);
 
         this.register("year", (item: BreweryData, year: number) => {
           return item.established == year;
-        }, response.params["year"]);
+        }, params["year"]);
 
         this.register("after", (item: BreweryData, after: number) => {
           return item.established >= after;
-        }, response.params["after"]);
+        }, params["after"]);
 
         this.register("before", (item: BreweryData, before: number) => {
           return item.established <= before;
-        }, response.params["before"]);
+        }, params["before"]);
 
         this.register("letter", (item: BreweryData, letter: string) => {
           return item.name.charAt(0) == letter;
-        }, response.params["letter"]);
+        }, params["letter"]);
 
         this.register("length", (item: BreweryData, length: number) => {
           return item.name.length == length;
-        }, response.params["length"]);
+        }, params["length"]);
 
         // Match
-        this.breweries = this.data.filter(brewery => {
+        this.breweries = this.initial.filter(brewery => {
           var match = this.querier.match(brewery);
           return match;
         });
 
         this.mediator.publish("breweriesChanged", this.breweries);
-
-        // Loaded
-        this.loaded.emit({ found: this.breweries.length });
-
-      },
-      error => {
-        console.error(error);
-      });
-    
+      })
   }
 
   public ngOnDestroy(): void {

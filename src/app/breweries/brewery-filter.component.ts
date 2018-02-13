@@ -12,53 +12,51 @@ import { RelayService } from 'app/breweries/relay.service';
 })
 export class BreweryFilterComponent implements OnInit {
 
-	private breweries: BreweryData[];
-
 	constructor(private mediator: EventAggregator, private relay: RelayService) { }
 
 	public ngOnInit() {
+		
+		this.mediator.subscribe("breweriesLoaded", (event: BreweryData[]) => {
+			console.log("breweriesLoaded");
+			this.organic = this.organicLoad(event);
+			this.years = this.yearsLoad(event);
+			this.after = this.afterLoad(event);
+			this.before = this.beforeLoad(event);
+			this.letters = this.lettersLoad(event);
+			this.length = this.lengthLoad(event);
+		});
+
 		this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
-			if (!this.breweries) {
-				this.organic = this.organicLoad(event);
-				this.years = this.yearsLoad(event);
-				this.after = this.afterLoad(event);
-				this.before = this.beforeLoad(event);
-				this.letters = this.lettersLoad(event);
-				this.length = this.lengthLoad(event);
+			console.log("breweriesChanged");
+			let organic = this.organicLoad(event);
+			this.organic.forEach(p => {
+				p.disabled = !organic.find(o => o.value == p.value);
+			});
 
-				this.breweries = event;
-			}
-			else {
-				let organic = this.organicLoad(event);
-				this.organic.forEach(p=>{
-					p.disabled = !organic.find(o=>o.value == p.value);
-				});
+			let years = this.yearsLoad(event);
+			this.years.forEach(p => {
+				p.disabled = !years.find(o => o.value == p.value);
+			});
 
-				let years = this.yearsLoad(event);
-				this.years.forEach(p => {
-					p.disabled = !years.find(o => o.value == p.value);
-				});
+			let after = this.afterLoad(event);
+			this.after.forEach(p => {
+				p.disabled = !after.find(o => o.value == p.value);
+			});
 
-				let after = this.afterLoad(event);
-				this.after.forEach(p => {
-					p.disabled = !after.find(o => o.value == p.value);
-				});
+			let before = this.beforeLoad(event);
+			this.before.forEach(p => {
+				p.disabled = !before.find(o => o.value == p.value);
+			});
 
-				let before = this.beforeLoad(event);
-				this.before.forEach(p => {
-					p.disabled = !before.find(o => o.value == p.value);
-				});
+			let letters = this.lettersLoad(event);
+			this.letters.forEach(p => {
+				p.disabled = !letters.find(o => o.value == p.value);
+			});
 
-				let letters = this.lettersLoad(event);
-				this.letters.forEach(p => {
-					p.disabled = !letters.find(o => o.value == p.value);
-				});
-
-				let length = this.lengthLoad(event);
-				this.length.forEach(p => {
-					p.disabled = !length.find(o => o.value == p.value);
-				});
-			}
+			let length = this.lengthLoad(event);
+			this.length.forEach(p => {
+				p.disabled = !length.find(o => o.value == p.value);
+			});
 		});
 	}
 
