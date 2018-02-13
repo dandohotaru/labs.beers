@@ -44,53 +44,51 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public ngOnInit() {
 
     this.service.load()
-      .switchMap(breweries => {
-        this.store.cached = breweries;
-        this.mediator.publish("breweriesLoaded", this.store.cached);
+      .switchMap(results => {
+        this.store.cached = results;
+        this.mediator.publish("breweriesLoaded", results);
         return this.route.queryParams;
       })
       .subscribe(params => {
 
-        // Predicates
-        this.register("establish", (item: BreweryData, dated: boolean) => {
-          return item.established > 0 == dated;
+        // Analyse
+        this.querier.analyse("establish", (item: BreweryData) => {
+          return item.established > 0;
         }, true);
 
-        this.register("search", (item: BreweryData, term: string) => {
-          return item.name.toLowerCase().includes(term);
-        }, params["q"] ? params["q"][0] : null);
+        this.querier.analyse("search", (item: BreweryData) => {
+          return item.name.toLowerCase().includes(params["q"][0]);
+        }, params["q"]);
 
-        this.register("organic", (item: BreweryData, organic: string) => {
-          return item.isOrganic == organic;
+        this.querier.analyse("organic", (item: BreweryData) => {
+          return item.isOrganic == params["organic"];
         }, params["organic"]);
 
-        this.register("year", (item: BreweryData, year: number) => {
-          return item.established == year;
+        this.querier.analyse("year", (item: BreweryData) => {
+          return item.established == params["year"];
         }, params["year"]);
 
-        this.register("after", (item: BreweryData, after: number) => {
-          return item.established >= after;
+        this.querier.analyse("after", (item: BreweryData) => {
+          return item.established >= params["after"];
         }, params["after"]);
 
-        this.register("before", (item: BreweryData, before: number) => {
-          return item.established <= before;
+        this.querier.analyse("before", (item: BreweryData) => {
+          return item.established <= params["before"];
         }, params["before"]);
 
-        this.register("letter", (item: BreweryData, letter: string) => {
-          return item.name.charAt(0) == letter;
+        this.querier.analyse("letter", (item: BreweryData) => {
+          return item.name.charAt(0) == params["letter"];
         }, params["letter"]);
 
-        this.register("length", (item: BreweryData, length: number) => {
-          return item.name.length == length;
+        this.querier.analyse("length", (item: BreweryData) => {
+          return item.name.length == params["length"];
         }, params["length"]);
 
-        // Match
-        this.store.refined = this.store.cached.filter(brewery => {
-          var match = this.querier.match(brewery);
-          return match;
+        // Apply
+        this.querier.apply(this.store.cached, results => {
+          this.store.refined = results
+          this.mediator.publish("breweriesChanged", results);
         });
-
-        this.mediator.publish("breweriesChanged", this.store.refined);
       })
   }
 
@@ -108,15 +106,5 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.route.snapshot);
     console.log(this.router.url);
     console.log(this.route.snapshot.url);
-  }
-
-  public register(context: string, predicate: (item: BreweryData, value) => boolean, value: string|number|boolean) {
-    if (value) {
-      this.querier.attach(context, (item: BreweryData) => {
-        return predicate(item, value);
-      });
-    } else {
-      this.querier.detach(context);
-    }
   }
 }
