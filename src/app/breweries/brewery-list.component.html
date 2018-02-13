@@ -30,7 +30,7 @@
 
       <!-- Cards (attempt2) -->
       <mason-wall>
-        <mason-brick *ngFor="let item of breweries">
+        <mason-brick *ngFor="let item of this.store.refined">
           <brewery-card 
             [brewery]="item" 
             (selected)="select(item);dialog.open();">

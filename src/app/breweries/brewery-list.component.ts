@@ -12,6 +12,12 @@ import { EventAggregator } from "app/shared/messages/event.aggregator";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/breweries/relay.service';
 
+export interface BreweryStore{
+  cached?: BreweryData[],
+  refined?: BreweryData[],
+  rendered?: BreweryData[],
+}
+
 @Component({
   selector: 'app-brewery-list',
   templateUrl: 'brewery-list.component.html',
@@ -20,8 +26,7 @@ import { RelayService } from 'app/breweries/relay.service';
 export class BreweryListComponent implements OnInit, OnDestroy {
 
   public term: string;
-  public initial: BreweryData[];
-  public breweries: BreweryData[];
+  public store: BreweryStore = {};
   public selection: BreweryData;
 
   @Output()
@@ -40,8 +45,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
     this.service.load()
       .switchMap(breweries => {
-        this.initial = breweries;
-        this.mediator.publish("breweriesLoaded", breweries);
+        this.store.cached = breweries;
+        this.mediator.publish("breweriesLoaded", this.store.cached);
         return this.route.queryParams;
       })
       .subscribe(params => {
@@ -80,12 +85,12 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         }, params["length"]);
 
         // Match
-        this.breweries = this.initial.filter(brewery => {
+        this.store.refined = this.store.cached.filter(brewery => {
           var match = this.querier.match(brewery);
           return match;
         });
 
-        this.mediator.publish("breweriesChanged", this.breweries);
+        this.mediator.publish("breweriesChanged", this.store.refined);
       })
   }
 
