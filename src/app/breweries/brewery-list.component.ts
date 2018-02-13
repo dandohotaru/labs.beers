@@ -52,35 +52,35 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       .subscribe(params => {
 
         // Analyse
-        this.querier.analyse("establish", (item: BreweryData) => {
+        this.querier.register("establish", (item: BreweryData) => {
           return item.established > 0;
         }, true);
 
-        this.querier.analyse("search", (item: BreweryData) => {
+        this.querier.register("search", (item: BreweryData) => {
           return item.name.toLowerCase().includes(params["q"][0]);
         }, params["q"]);
 
-        this.querier.analyse("organic", (item: BreweryData) => {
+        this.querier.register("organic", (item: BreweryData) => {
           return item.isOrganic == params["organic"];
         }, params["organic"]);
 
-        this.querier.analyse("year", (item: BreweryData) => {
+        this.querier.register("year", (item: BreweryData) => {
           return item.established == params["year"];
         }, params["year"]);
 
-        this.querier.analyse("after", (item: BreweryData) => {
+        this.querier.register("after", (item: BreweryData) => {
           return item.established >= params["after"];
         }, params["after"]);
 
-        this.querier.analyse("before", (item: BreweryData) => {
+        this.querier.register("before", (item: BreweryData) => {
           return item.established <= params["before"];
         }, params["before"]);
 
-        this.querier.analyse("letter", (item: BreweryData) => {
+        this.querier.register("letter", (item: BreweryData) => {
           return item.name.charAt(0) == params["letter"];
         }, params["letter"]);
 
-        this.querier.analyse("length", (item: BreweryData) => {
+        this.querier.register("length", (item: BreweryData) => {
           return item.name.length == params["length"];
         }, params["length"]);
 
