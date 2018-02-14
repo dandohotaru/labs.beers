@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
+import { EventModule } from 'app/shared/messages/event.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { HomeModule } from "app/home/home.module";
 import { DemoModule } from "app/home/demo.module";
@@ -17,7 +18,6 @@ import { BeersModule } from 'app/beers/beers.module';
 import { ErrorHandler } from 'app/shared/exceptions/error.handler';
 import { BeersService } from 'app/shared/services/beers.service';
 import { SearchService } from 'app/search/search.service';
-import { EventAggregator } from "app/shared/messages/event.aggregator";
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 
@@ -30,6 +30,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
+    EventModule,
     LayoutModule,
     HomeModule,
     DemoModule,
@@ -39,7 +40,6 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
   ],
   providers: [
     ErrorHandler,
-    EventAggregator,
     SearchService,
     BreweriesService,
     BeersService,

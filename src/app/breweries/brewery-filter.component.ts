@@ -3,7 +3,7 @@ import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { EventAggregator } from "app/shared/messages/event.aggregator";
+import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { BreweryData } from "app/shared/services/breweries.models";
 import { RelayService } from 'app/breweries/relay.service';
 

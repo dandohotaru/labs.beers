@@ -1,4 +1,4 @@
-import { Subscription } from './event.aggregator';
+import { Subscription } from './event.aggregator.raw';
 
 /**
  * Based on https://github.com/aurelia/event-aggregator

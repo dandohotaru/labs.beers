@@ -5,41 +5,37 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/map';
 
-export class Event {
+export interface Event {
   type: string;
   data?: any;
 }
 
 @Injectable()
 export class EventAggregator {
-  public subject: Subject<Event>;
+  private subject: Subject<Event>;
+  private subscriptions: Subscription[]=[];
 
   constructor() {
     this.subject = new Subject<Event>();
   }
 
   public publish(type: string, data?: any) {
-    this.subject.next({
-      type,
-      data
-    });
+    let event = {
+      type: type,
+      data: data,
+    };
+    this.subject.next(event);
   }
 
-  public subscribe(type: string, callback?: (data) => void) {
-
-    
-    // return this.subject
-    //   .filter(event => event.type === type)
-    //   .map(event => event.data)
-    //   .share();
-
-    // ToDo: Testing in progress
-    this.subject
+  public subscribe(type: string, process?: (data: any) => void): Subscription {
+    var subscription = this.subject
       .filter(event => event.type === type)
       .map(event => event.data)
-      .subscribe(p => {
-        callback(p);
+      .share()
+      .subscribe(data => {
+        process(data);
       });
+    return subscription;
   }
 
   public unsubscribe() {

@@ -15,7 +15,6 @@ import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 
-import { EventAggregator } from 'app/shared/messages/event.aggregator';
 import { RelayService } from 'app/breweries/relay.service';
 
 @NgModule({
@@ -34,13 +33,11 @@ import { RelayService } from 'app/breweries/relay.service';
     BreweryListComponent,
     BreweryCardComponent,
     BreweryFilterComponent,
-    
   ],
   exports: [
     BreweryListComponent
   ],
   providers:[
-    EventAggregator,
     RelayService
   ]
 })

@@ -8,7 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { EventAggregator } from "app/shared/messages/event.aggregator";
+import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 
 import { BreweriesService } from './../shared/services/breweries.service';
 import { BreweryData } from './../shared/services/breweries.models';
@@ -28,7 +28,7 @@ export class SearchBarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private eventAggregator: EventAggregator,
+    private mediator: EventAggregator,
     private breweriesService: BreweriesService,
     private beersService: BeersService)
   { }
@@ -38,7 +38,7 @@ export class SearchBarComponent implements OnInit {
       .debounceTime(300)
       .switchMap(term => {
 
-        this.eventAggregator.publish(new TermSearched(term));
+        this.mediator.publish("TermSearched", new TermSearched(term));
 
         var temp = term
           ? Observable.of<string[]>([term])
@@ -57,6 +57,10 @@ export class SearchBarComponent implements OnInit {
         };
         this.router.navigate([`/search`], options);
       });
+  }
+
+  ngOnDestroy(): void {
+    this.mediator.unsubscribe();
   }
 
   public search(term: string): void {

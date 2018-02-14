@@ -5,7 +5,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { SearchService } from 'app/search/search.service';
 import { TermSearched, BeerSearched, BrewerySearched } from 'app/shared/events/search.events';
 import { Subscription } from "rxjs/Subscription";
-import { EventAggregator } from "app/shared/messages/event.aggregator";
+import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 
 @Component({
     selector: 'app-root',
@@ -31,15 +31,15 @@ export class AppComponent implements OnInit, OnDestroy {
             });
 
         // Events
-        this.eventAggregator.subscribe(BeerSearched, response => {
+        this.eventAggregator.subscribe("BeerSearched", response => {
             console.info(`BeerSearched: ${response.term}`);
         });
 
-        this.eventAggregator.subscribe(BrewerySearched, response => {
+        this.eventAggregator.subscribe("BrewerySearched", response => {
             console.info(`BrewerySearched: ${response.term}`);
         });
 
-        this.eventAggregator.subscribe(TermSearched, (response: TermSearched) => {
+        this.eventAggregator.subscribe("TermSearched", (response: TermSearched) => {
             console.info(`TermSearched: ${response.term}`);
             this.searchService.track(response.term)
         });

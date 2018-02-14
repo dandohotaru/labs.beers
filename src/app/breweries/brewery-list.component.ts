@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
-import { EventAggregator } from "app/shared/messages/event.aggregator";
+import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/breweries/relay.service';
 
@@ -21,7 +21,6 @@ export interface BreweryStore{
 @Component({
   selector: 'app-brewery-list',
   templateUrl: 'brewery-list.component.html',
-  providers: [EventAggregator]
 })
 export class BreweryListComponent implements OnInit, OnDestroy {
 
@@ -93,7 +92,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.mediator.unsubscribe("breweries");
+    this.mediator.unsubscribe();
   }
 
   public select(item: BreweryData): void {
