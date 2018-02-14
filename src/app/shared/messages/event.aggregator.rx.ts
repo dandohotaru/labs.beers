@@ -27,7 +27,7 @@ export class EventAggregator {
     this.subject.next(event);
   }
 
-  public subscribe(type: string, process?: (data: any) => void): Subscription {
+  public subscribe(type: string, process: (data: any) => void): Subscription {
     var subscription = this.subject
       .filter(event => event.type === type)
       .map(event => event.data)
@@ -35,10 +35,13 @@ export class EventAggregator {
       .subscribe(data => {
         process(data);
       });
+    this.subscriptions.push(subscription);
     return subscription;
   }
 
   public unsubscribe() {
-    this.subject.unsubscribe();
+    this.subscriptions.forEach(p => {
+      p.unsubscribe();
+    })
   }
 }

@@ -92,7 +92,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.mediator.unsubscribe();
   }
 
   public select(item: BreweryData): void {

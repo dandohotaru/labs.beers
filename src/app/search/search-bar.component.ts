@@ -10,16 +10,16 @@ import { Subject } from 'rxjs/Subject';
 
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 
-import { BreweriesService } from './../shared/services/breweries.service';
-import { BreweryData } from './../shared/services/breweries.models';
-import { BeersService } from './../shared/services/beers.service';
-import { BeerData } from './../shared/services/beers.models';
+import { BreweriesService } from 'app/shared/services/breweries.service';
+import { BreweryData } from 'app/shared/services/breweries.models';
+import { BeersService } from 'app/shared/services/beers.service';
+import { BeerData } from 'app/shared/services/beers.models';
 
-import { TermSearched, BeerSearched, BrewerySearched } from './../shared/events/search.events';
+import { TermSearched, BeerSearched, BrewerySearched } from 'app/shared/events/search.events';
 
 @Component({
   selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html'
+  templateUrl: 'search-bar.component.html'
 })
 export class SearchBarComponent implements OnInit {
 
@@ -31,9 +31,9 @@ export class SearchBarComponent implements OnInit {
     private mediator: EventAggregator,
     private breweriesService: BreweriesService,
     private beersService: BeersService)
-  { }
+    {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.termsProxy
       .debounceTime(300)
       .switchMap(term => {
@@ -59,8 +59,7 @@ export class SearchBarComponent implements OnInit {
       });
   }
 
-  ngOnDestroy(): void {
-    this.mediator.unsubscribe();
+  public ngOnDestroy(): void {
   }
 
   public search(term: string): void {

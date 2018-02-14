@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs/Subscription';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
@@ -11,7 +11,6 @@ import { SearchService } from "app/search/search.service";
 })
 export class SearchHistoryComponent implements OnInit, OnDestroy {
 
-  private subscriptions: Subscription[] = [];
   public searches: { term: string, counter: number }[] = [];
 
   constructor(
@@ -21,10 +20,9 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    var subscription = this.mediator.subscribe("TermSearched", response => {
+    this.mediator.subscribe("TermSearched", response => {
       console.info(`TermSearched: ${response.term}`);
     });
-    this.subscriptions.push(subscription);
 
     this.searches = this.searchService
       .query({page: 0, size: 6})
@@ -37,8 +35,5 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.subscriptions.forEach(p=>{
-      p.unsubscribe();
-    })
   }
 }

@@ -1,5 +1,4 @@
-
-import { Input } from '@angular/core';
+import { Input, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,8 +10,8 @@ import { RelayService } from 'app/breweries/relay.service';
 	selector: 'brewery-filter',
 	templateUrl: 'brewery-filter.component.html'
 })
-export class BreweryFilterComponent implements OnInit {
-
+export class BreweryFilterComponent implements OnInit, OnDestroy {
+	
 	constructor(
 		private mediator: EventAggregator,
 		private relay: RelayService,
@@ -23,8 +22,6 @@ export class BreweryFilterComponent implements OnInit {
 		this.mediator.subscribe("breweriesLoaded", (event: BreweryData[]) => {
 			
 			var params = this.route.snapshot.queryParams;
-			console.log("breweriesLoaded");
-			console.log(params);
 
 			this.organic = this.organicLoad(event, params["organic"]);
 			this.years = this.yearsLoad(event, params["years"]);
@@ -37,8 +34,6 @@ export class BreweryFilterComponent implements OnInit {
 		this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
 
 			var params = this.route.snapshot.queryParams;
-			console.log("breweriesChanged");
-			console.log(params);
 
 			let organic = this.organicLoad(event);
 			this.organic.forEach(p => {
@@ -76,6 +71,9 @@ export class BreweryFilterComponent implements OnInit {
 				p.selected = p.value == params["length"];
 			});
 		});
+	}
+
+	public ngOnDestroy(): void {
 	}
 
 	// Organic
