@@ -19,53 +19,76 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	public ngOnInit() {
 
-		this.mediator.subscribe("breweriesLoaded", (event: BreweryData[]) => {
+		this.mediator.subscribe("breweriesLoaded", (data: BreweryData[]) => {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.organic = this.organicLoad(event, params["organic"]);
-			this.years = this.yearsLoad(event, params["years"]);
-			this.after = this.afterLoad(event, params["after"]);
-			this.before = this.beforeLoad(event, params["before"]);
-			this.letters = this.lettersLoad(event, params["letters"]);
-			this.length = this.lengthLoad(event, params["length"]);
+			this.organic = this.organicMap(data, params["organic"]);
+			this.organic.forEach(p => {
+				p.selected = p.value == params["organic"];
+			});
+
+			this.years = this.yearsMap(data, params["years"]);
+			this.years.forEach(p => {
+				p.selected = p.value == params["years"];
+			});
+
+			this.after = this.afterMap(data, params["after"]);
+			this.after.forEach(p => {
+				p.selected = p.value == params["after"];
+			});
+
+			this.before = this.beforeMap(data, params["before"]);
+			this.before.forEach(p => {
+				p.selected = p.value == params["before"];
+			});
+
+			this.letters = this.lettersMap(data, params["letters"]);
+			this.letters.forEach(p => {
+				p.selected = p.value == params["letter"];
+			});
+
+			this.length = this.lengthMap(data, params["length"]);
+			this.length.forEach(p => {
+				p.selected = p.value == params["length"];
+			});
 		});
 
-		this.mediator.subscribe("breweriesChanged", (event: BreweryData[]) => {
+		this.mediator.subscribe("breweriesChanged", (data: BreweryData[]) => {
 
 			var params = this.route.snapshot.queryParams;
 
-			let organic = this.organicLoad(event);
+			let organic = this.organicMap(data);
 			this.organic.forEach(p => {
 				p.disabled = !organic.find(o => o.value == p.value);
 				p.selected = p.value == params["organic"];
 			});
 
-			let years = this.yearsLoad(event);
+			let years = this.yearsMap(data);
 			this.years.forEach(p => {
 				p.disabled = !years.find(o => o.value == p.value);
 				p.selected = p.value == params["years"];
 			});
 
-			let after = this.afterLoad(event);
+			let after = this.afterMap(data);
 			this.after.forEach(p => {
 				p.disabled = !after.find(o => o.value == p.value);
 				p.selected = p.value == params["after"];
 			});
 
-			let before = this.beforeLoad(event);
+			let before = this.beforeMap(data);
 			this.before.forEach(p => {
 				p.disabled = !before.find(o => o.value == p.value);
 				p.selected = p.value == params["before"];
 			});
 
-			let letters = this.lettersLoad(event);
+			let letters = this.lettersMap(data);
 			this.letters.forEach(p => {
 				p.disabled = !letters.find(o => o.value == p.value);
 				p.selected = p.value == params["letter"];
 			});
 
-			let length = this.lengthLoad(event);
+			let length = this.lengthMap(data);
 			this.length.forEach(p => {
 				p.disabled = !length.find(o => o.value == p.value);
 				p.selected = p.value == params["length"];
@@ -78,9 +101,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Organic
 	public organic: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public organicLoad(data: BreweryData[], param?: string): { value: string, text: string, selected?: boolean }[] {
+	public organicMap(data: BreweryData[], param?: string): { value: string, text: string }[] {
 		let options = data
-			.reduce((results: { value: string, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.isOrganic)
 					return results;
 				var found = results.find(p => p.value == current.isOrganic);
@@ -88,7 +111,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: current.isOrganic,
 						text: current.isOrganic,
-						selected: current.isOrganic == param,
 					});
 				}
 				return results;
@@ -104,9 +126,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Years
 	public years: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public yearsLoad(data: BreweryData[], param?: number): { value: number, text: string, selected?: boolean }[] {
+	public yearsMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
 		let options = data
-			.reduce((results: { value: number, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
 				var found = results.find(p => p.value == current.established);
@@ -114,7 +136,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: current.established,
 						text: current.established.toString(),
-						selected: current.established == param,
 					});
 				}
 				return results;
@@ -130,9 +151,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// After
 	public after: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public afterLoad(data: BreweryData[], param?: number): { value: number, text: string, selected?: boolean }[] {
+	public afterMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
 		let options = data
-			.reduce((results: { value: number, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
 				var century = this.century(current.established);
@@ -141,7 +162,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: century.start,
 						text: century.text,
-						selected: century.start == param,
 					});
 				}
 				return results;
@@ -157,9 +177,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Before
 	public before: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public beforeLoad(data: BreweryData[], param?: number): { value: number, text: string, selected?: boolean }[] {
+	public beforeMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
 		let options = data
-			.reduce((results: { value: number, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
 					return results;
 				var century = this.century(current.established);
@@ -168,7 +188,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: century.end,
 						text: century.text,
-						selected: century.end == param,
 					});
 				}
 				return results;
@@ -184,9 +203,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Letters
 	public letters: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public lettersLoad(data: BreweryData[], param?: string): { value: string, text: string, selected?: boolean }[] {
+	public lettersMap(data: BreweryData[], param?: string): { value: string, text: string }[] {
 		let options = data
-			.reduce((results: { value: string, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.name)
 					return results;
 				var letter = current.name.charAt(0);
@@ -195,7 +214,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: letter,
 						text: letter,
-						selected: letter == param,
 					});
 				}
 				return results;
@@ -211,9 +229,9 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Length
 	public length: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public lengthLoad(data: BreweryData[], param?: number): { value: number, text: string, selected?: boolean }[] {
+	public lengthMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
 		let options = data
-			.reduce((results: { value: number, text: string, selected?: boolean }[], current) => {
+			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.name)
 					return results;
 				var found = results.find(p => p.value == current.name.length);
@@ -221,7 +239,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 					results.push({
 						value: current.name.length,
 						text: current.name.length.toString(),
-						selected: current.name.length == param,
 					});
 				}
 				return results;
