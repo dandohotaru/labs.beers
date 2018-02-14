@@ -99,7 +99,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public organicChanged(event: { value: string, text: string }) {
 		let value = event.value == "*" ? null : event.value;
-		this.relay.direct({ key: "organic", value: value });
+		this.relay.navigate({ key: "organic", value: value });
 	}
 
 	// Years
@@ -125,7 +125,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public yearChanged(event: { value: number, text: number }) {
 		let value = event.value == 0 ? null : event.value;
-		this.relay.direct({ key: "year", value: value });
+		this.relay.navigate({ key: "year", value: value });
 	}
 
 	// After
@@ -152,7 +152,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public afterChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;
-		this.relay.direct({ key: "after", value: value });
+		this.relay.navigate({ key: "after", value: value });
 	}
 
 	// Before
@@ -179,7 +179,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public beforeChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;
-		this.relay.direct({ key: "before", value: value });
+		this.relay.navigate({ key: "before", value: value });
 	}
 
 	// Letters
@@ -206,7 +206,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public lettersChanged(event: { value: string, text: string }) {
 		let value = event.value == "*" ? null : event.value;
-		this.relay.direct({ key: "letter", value: value });
+		this.relay.navigate({ key: "letter", value: value });
 	}
 
 	// Length
@@ -232,7 +232,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 	public lengthChanged(event: { value: number, text: string }) {
 		let value = event.value == 0 ? null : event.value;
-		this.relay.direct({ key: "length", value: value });
+		this.relay.navigate({ key: "length", value: value });
 	}
 
 	// Private

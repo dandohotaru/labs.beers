@@ -100,7 +100,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   public test() {
-    this.relay.direct({ key: "foo", value: [42, 41, true] });
+    this.relay.navigate({ key: "foo", value: [42, 41, true] });
     console.log(this.route.snapshot);
     console.log(this.router.url);
     console.log(this.route.snapshot.url);

@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+interface RelayOption {
+	key: string,
+	value: string
+	| number
+	| boolean
+	| (string | number | boolean)[]
+}
 
 @Injectable()
 export class RelayService {
@@ -8,13 +15,12 @@ export class RelayService {
 	private parameters: Params;
 
 	constructor(private router: Router, private route: ActivatedRoute) {
-
 		this.route.queryParams.subscribe(params => {
 			this.parameters = params;
 		});
 	}
 
-	public direct(option: { key, value }) {
+	public navigate(option: RelayOption) {
 		let options: Params = Object.assign({}, this.parameters);
 		options[option.key] = option.value;
 
