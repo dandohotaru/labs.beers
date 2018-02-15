@@ -19,10 +19,10 @@ export class RelayService {
 
 	public navigate(option: RelayOption) {
 		let options: Params = Object.assign({}, this.parameters);
-		
+
 		options[option.key] = option.value == "*"
 			? null
-			: option.value;
+			: option.value
 
 		this.router.navigate([".", {}], {
 			queryParams: options,

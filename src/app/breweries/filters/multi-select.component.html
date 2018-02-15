@@ -1,0 +1,31 @@
+<div>
+  <label style="display: block">{{label}}</label>
+
+  <p-multiSelect
+    [options]="options" 
+    [(ngModel)]="selection" 
+    [filter]="false" 
+    [showToggleAll]="false" 
+    defaultLabel="ALL" 
+    maxSelectedLabels="2"
+    styleClass="form-control" 
+    optionLabel="text"
+    (onChange)="changed($event.value)">
+
+    <ng-template let-option pTemplate="item">
+
+      <div *ngIf="option.disabled; then disabledBlock; else enabledBlock"></div>
+      <ng-template #disabledBlock>
+        <span style="color:lightblue; cursor:default">
+          {{option.label}}*
+        </span>
+      </ng-template>
+      <ng-template #enabledBlock>
+        <span>
+          {{option.label}}
+        </span>
+      </ng-template>
+
+    </ng-template>
+  </p-multiSelect>
+</div>

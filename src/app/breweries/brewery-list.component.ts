@@ -79,7 +79,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         }, params["letter"]);
 
         this.querier.register("length", (item: BreweryData) => {
-          return item.name.length == params["length"];
+          var values: string = params["length"];
+          let match =  values
+            .split("|").map(p => +p)
+            .some(p => item.name.length == p);
+          return match;
         }, params["length"]);
 
         // Apply

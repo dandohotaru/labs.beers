@@ -7,6 +7,8 @@
     <div class="col-xs-12 col-sm-3">
       <button class="btn btn-default" routerLink="/breweries">Reset</button>
       <button class="btn btn-default" (click)="test()">Test</button>
+
+      <multi-select key="length" label="Lengths" [options]="store.cached | length" [facets]="store.refined | length"></multi-select>
       
       <single-select key="organic" label="Organic" [options]="store.cached | organic" [facets]="store.refined | organic"></single-select>
       <single-select key="year" label="Years" [options]="store.cached | year" [facets]="store.refined | year"></single-select>
@@ -21,6 +23,7 @@
         loadedEvent="breweriesLoaded" 
         refinedEvent="breweriesChanged">
       </reactive-select>
+
     </div>
 
     <!-- Results -->

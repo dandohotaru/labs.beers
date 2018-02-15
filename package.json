@@ -12,6 +12,7 @@
     "build:404": "copy dist\\index.html dist\\404.html",
     "deploy:git": "npm run build:git && npm run build:404 && ngh",
     "deploy:alt": "npm run build:git && npm run build:404 && gh-pages -d dist",
+    "deploy:tst": "ngh",
     "start": "ng serve --host=localhost --port=4001",
     "start:dev": "ng serve --prod",
     "start:prod": "ng serve --prod"
@@ -35,7 +36,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "masonry-layout": "^4.2.0",
-    "primeng": "^2.0.5",
+    "primeng": "^5.2.0",
     "rxjs": "5.5.2",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.8.4"
