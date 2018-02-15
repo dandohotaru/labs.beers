@@ -23,11 +23,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.years = this.yearsMap(data);
-			this.years.forEach(p => {
-				p.selected = p.value == params["years"];
-			});
-
 			this.after = this.afterMap(data);
 			this.after.forEach(p => {
 				p.selected = p.value == params["after"];
@@ -52,12 +47,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 		this.mediator.subscribe("breweriesChanged", (data: BreweryData[]) => {
 
 			var params = this.route.snapshot.queryParams;
-
-			let years = this.yearsMap(data);
-			this.years.forEach(p => {
-				p.disabled = !years.find(o => o.value == p.value);
-				p.selected = p.value == params["years"];
-			});
 
 			let after = this.afterMap(data);
 			this.after.forEach(p => {
@@ -86,31 +75,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy(): void {
-	}
-
-	// Years
-	public years: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public yearsMap(data: BreweryData[]): { value: number, text: string }[] {
-		let options = data
-			.reduce((results: { value: number, text: string }[], current) => {
-				if (!current.established)
-					return results;
-				var found = results.find(p => p.value == current.established);
-				if (!found) {
-					results.push({
-						value: current.established,
-						text: current.established.toString(),
-					});
-				}
-				return results;
-			}, [])
-			.sort((a, b) => a.value - b.value);
-		options.unshift({ value: 0, text: "ALL" });
-		return options;
-	}
-	public yearChanged(event: { value: number, text: number }) {
-		let value = event.value == 0 ? null : event.value;
-		this.relay.navigate({ key: "year", value: value });
 	}
 
 	// After

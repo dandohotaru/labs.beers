@@ -51,10 +51,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       .subscribe(params => {
 
         // Analyse
-        this.querier.register("establish", (item: BreweryData) => {
-          return item.established > 0;
-        }, true);
-
         this.querier.register("search", (item: BreweryData) => {
           return item.name.toLowerCase().includes(params["q"][0]);
         }, params["q"]);
@@ -64,7 +60,9 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         }, params["organic"]);
 
         this.querier.register("year", (item: BreweryData) => {
-          return item.established == params["year"];
+          return params["year"] == "unknown" 
+            ? item.established == null
+            : item.established == params["year"];
         }, params["year"]);
 
         this.querier.register("after", (item: BreweryData) => {

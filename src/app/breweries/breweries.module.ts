@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -15,7 +14,7 @@ import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 import { OrganicFilterComponent } from './filters/organic-filter.component';
-
+import { YearFilterComponent } from './filters/year-filter.component';
 
 @NgModule({
   imports: [
@@ -34,6 +33,7 @@ import { OrganicFilterComponent } from './filters/organic-filter.component';
     BreweryCardComponent,
     BreweryFilterComponent,
     OrganicFilterComponent,
+    YearFilterComponent,
   ],
   exports: [
     BreweryListComponent

@@ -5,7 +5,7 @@ import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { RelayService } from 'app/shared/filters/relay.service';
 
 interface FilterInput {
-  isOrganic: string
+  established: number
 }
 
 interface FilterOption {
@@ -16,10 +16,10 @@ interface FilterOption {
 }
 
 @Component({
-  selector: 'organic-filter',
-  templateUrl: 'organic-filter.component.html'
+  selector: 'year-filter',
+  templateUrl: 'year-filter.component.html'
 })
-export class OrganicFilterComponent implements OnInit, OnDestroy {
+export class YearFilterComponent implements OnInit, OnDestroy {
 
   @Input()
   public loadedEvent: string;
@@ -41,7 +41,7 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
 
       this.options = this.map(data);
       this.options.forEach(p => {
-        p.selected = p.value == params["organic"];
+        p.selected = p.value == params["year"];
       });
     });
 
@@ -51,7 +51,7 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
       let options = this.map(data);
       this.options.forEach(p => {
         p.disabled = !options.find(o => o.value == p.value);
-        p.selected = p.value == params["organic"];
+        p.selected = p.value == params["year"];
       });
     });
   }
@@ -63,11 +63,15 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
   private map(data: FilterInput[]): FilterOption[] {
     let options = data
       .reduce((results: FilterOption[], current) => {
-        var found = results.find(p => p.value == current.isOrganic);
+        var established = current.established
+          ? current.established.toString()
+          : "unknown";
+
+        var found = results.find(p => p.value == established);
         if (!found) {
           results.push({
-            value: current.isOrganic,
-            text: current.isOrganic,
+            value: established,
+            text: established,
           });
         }
         return results;
@@ -79,7 +83,7 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
 
   public changed(event: { value: string, text: string }) {
     let value = event.value == "*" ? null : event.value;
-    this.relay.navigate({ key: "organic", value: value });
+    this.relay.navigate({ key: "year", value: value });
   }
 
 }
