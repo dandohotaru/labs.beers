@@ -15,12 +15,12 @@
       <letter-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></letter-filter>
       <length-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></length-filter>
 
-      <select-filter 
-        paramName="organic" label="Reactive" 
+      <reactive-select
+        key="organic" label="Reactive" 
         [mapper]="mapper.organics" 
         loadedEvent="breweriesLoaded" 
         refinedEvent="breweriesChanged">
-      </select-filter>
+      </reactive-select>
 
       <single-select 
         key="organic" label="Binding" 

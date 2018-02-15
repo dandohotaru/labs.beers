@@ -12,10 +12,13 @@ interface FilterOption {
 }
 
 @Component({
-  selector: 'select-filter',
-  templateUrl: 'select-filter.component.html'
+  selector: 'reactive-select',
+  templateUrl: 'reactive-select.component.html'
 })
-export class SelectFilterComponent implements OnInit, OnDestroy {
+export class ReactiveSelectComponent implements OnInit, OnDestroy {
+
+  @Input()
+  public key: string;
 
   @Input()
   public label: string;
@@ -25,9 +28,6 @@ export class SelectFilterComponent implements OnInit, OnDestroy {
 
   @Input()
   public refinedEvent: string;
-
-  @Input()
-  public paramName: string;
 
   @Input()
   public mapper: (data) => FilterOption[];
@@ -46,17 +46,17 @@ export class SelectFilterComponent implements OnInit, OnDestroy {
 
       this.options = this.mapper(data);
       this.options.forEach(p => {
-        p.selected = p.value == params[this.paramName];
+        p.selected = p.value == params[this.key];
       });
     });
 
     this.mediator.subscribe(this.refinedEvent, (data) => {
       var params = this.route.snapshot.queryParams;
 
-      let options = this.mapper(data);
+      let facets = this.mapper(data);
       this.options.forEach(p => {
-        p.disabled = !options.find(o => o.value == p.value);
-        p.selected = p.value == params[this.paramName];
+        p.disabled = !facets.find(o => o.value == p.value);
+        p.selected = p.value == params[this.key];
       });
     });
   }
@@ -66,6 +66,6 @@ export class SelectFilterComponent implements OnInit, OnDestroy {
   }
 
   public changed(event: { value: string, text: string }) {
-    this.relay.navigate({ key: this.paramName, value: event.value });
+    this.relay.navigate({ key: this.key, value: event.value });
   }
 }

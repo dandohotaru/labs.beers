@@ -10,10 +10,10 @@ import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
 import { FiltersModule } from 'app/shared/filters/filters.module';
 
-import { BreweryOrganicPipe } from './brewery-list.pipes';
+import { OrganicFilterPipe } from './brewery-list.mappers';
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
-import { SelectFilterComponent } from './filters/select-filter.component';
+import { ReactiveSelectComponent } from './filters/reactive-select.component';
 import { OrganicFilterComponent } from './filters/organic-filter.component';
 import { YearFilterComponent } from './filters/year-filter.component';
 import { AfterFilterComponent } from './filters/after-filter.component';
@@ -22,7 +22,7 @@ import { LetterFilterComponent } from './filters/letter-filter.component';
 import { LengthFilterComponent } from './filters/length-filter.component';
 import { SingleSelectComponent } from './filters/single-select.component';
 
-import { BreweriesMapper } from './brewery-list.mapper';
+import { BreweriesMapper } from './brewery-list.mappers';
 
 @NgModule({
   imports: [
@@ -37,10 +37,10 @@ import { BreweriesMapper } from './brewery-list.mapper';
     FiltersModule,
   ],
   declarations: [
-    BreweryOrganicPipe,
     BreweryListComponent,
     BreweryCardComponent,
-    SelectFilterComponent,
+    ReactiveSelectComponent,
+    OrganicFilterPipe,
     OrganicFilterComponent,
     YearFilterComponent,
     AfterFilterComponent,
