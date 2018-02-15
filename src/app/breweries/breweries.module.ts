@@ -11,7 +11,6 @@ import { SelectModule } from "app/shared/components/select/select.module";
 import { FiltersModule } from 'app/shared/filters/filters.module';
 
 import { BreweryListComponent } from './brewery-list.component';
-import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 import { OrganicFilterComponent } from './filters/organic-filter.component';
 import { YearFilterComponent } from './filters/year-filter.component';
@@ -35,7 +34,6 @@ import { LengthFilterComponent } from './filters/length-filter.component';
   declarations: [
     BreweryListComponent,
     BreweryCardComponent,
-    BreweryFilterComponent,
     OrganicFilterComponent,
     YearFilterComponent,
     AfterFilterComponent,
