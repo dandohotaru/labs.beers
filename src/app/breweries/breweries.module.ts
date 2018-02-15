@@ -14,6 +14,7 @@ import { FiltersModule } from 'app/shared/filters/filters.module';
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
+import { OrganicFilterComponent } from './filters/organic-filter.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BreweryCardComponent } from './brewery-card.component';
     BreweryListComponent,
     BreweryCardComponent,
     BreweryFilterComponent,
+    OrganicFilterComponent,
   ],
   exports: [
     BreweryListComponent

@@ -23,11 +23,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.organic = this.organicMap(data);
-			this.organic.forEach(p => {
-				p.selected = p.value == params["organic"];
-			});
-
 			this.years = this.yearsMap(data);
 			this.years.forEach(p => {
 				p.selected = p.value == params["years"];
@@ -57,12 +52,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 		this.mediator.subscribe("breweriesChanged", (data: BreweryData[]) => {
 
 			var params = this.route.snapshot.queryParams;
-
-			let organic = this.organicMap(data);
-			this.organic.forEach(p => {
-				p.disabled = !organic.find(o => o.value == p.value);
-				p.selected = p.value == params["organic"];
-			});
 
 			let years = this.yearsMap(data);
 			this.years.forEach(p => {
@@ -97,31 +86,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy(): void {
-	}
-
-	// Organic
-	public organic: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public organicMap(data: BreweryData[]): { value: string, text: string }[] {
-		let options = data
-			.reduce((results: { value: string, text: string }[], current) => {
-				if (!current.isOrganic)
-					return results;
-				var found = results.find(p => p.value == current.isOrganic);
-				if (!found) {
-					results.push({
-						value: current.isOrganic,
-						text: current.isOrganic,
-					});
-				}
-				return results;
-			}, [])
-			.sort((a, b) => a.text.localeCompare(b.text));
-		options.unshift({ value: "*", text: "ALL" });
-		return options;
-	}
-	public organicChanged(event: { value: string, text: string }) {
-		let value = event.value == "*" ? null : event.value;
-		this.relay.navigate({ key: "organic", value: value });
 	}
 
 	// Years
