@@ -16,12 +16,17 @@
       <length-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></length-filter>
 
       <select-filter 
+        paramName="organic" label="Reactive" 
         [mapper]="mapper.organics" 
-        label="Testing" 
         loadedEvent="breweriesLoaded" 
-        refinedEvent="breweriesChanged" 
-        paramName="organic">
+        refinedEvent="breweriesChanged">
       </select-filter>
+
+      <single-select 
+        key="organic" label="Binding" 
+        [options]="store.cached | organic" 
+        [facets]="store.refined | organic">
+      </single-select>
     </div>
 
     <!-- Results -->

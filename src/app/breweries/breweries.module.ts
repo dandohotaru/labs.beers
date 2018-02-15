@@ -10,6 +10,7 @@ import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
 import { FiltersModule } from 'app/shared/filters/filters.module';
 
+import { BreweryOrganicPipe } from './brewery-list.pipes';
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
 import { SelectFilterComponent } from './filters/select-filter.component';
@@ -19,8 +20,9 @@ import { AfterFilterComponent } from './filters/after-filter.component';
 import { BeforeFilterComponent } from './filters/before-filter.component';
 import { LetterFilterComponent } from './filters/letter-filter.component';
 import { LengthFilterComponent } from './filters/length-filter.component';
+import { SingleSelectComponent } from './filters/single-select.component';
 
-import { BreweriesMapper } from './brewery-map.service';
+import { BreweriesMapper } from './brewery-list.mapper';
 
 @NgModule({
   imports: [
@@ -35,6 +37,7 @@ import { BreweriesMapper } from './brewery-map.service';
     FiltersModule,
   ],
   declarations: [
+    BreweryOrganicPipe,
     BreweryListComponent,
     BreweryCardComponent,
     SelectFilterComponent,
@@ -44,6 +47,7 @@ import { BreweriesMapper } from './brewery-map.service';
     BeforeFilterComponent,
     LetterFilterComponent,
     LengthFilterComponent,
+    SingleSelectComponent,
   ],
   exports: [
     BreweryListComponent

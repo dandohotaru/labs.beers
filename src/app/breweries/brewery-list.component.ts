@@ -11,7 +11,7 @@ import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/shared/filters/relay.service';
 
-import { BreweriesMapper } from './brewery-map.service';
+import { BreweriesMapper } from './brewery-list.mapper';
 
 export interface BreweryStore {
   cached?: BreweryData[],

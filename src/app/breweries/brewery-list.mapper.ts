@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BreweryData } from 'app/shared/services/breweries.models';
 
-type OrganicOption = { value: string | number, text: string };
+export type OrganicOption = { value: string | number, text: string };
 
 @Injectable()
 export class BreweriesMapper {
@@ -9,6 +9,8 @@ export class BreweriesMapper {
   constructor() { }
 
   public organics(data: BreweryData[]): OrganicOption[] {
+    if (!data)
+      return null;
     let options = data
       .reduce((results: OrganicOption[], current) => {
         var found = results.find(p => p.value == current.isOrganic);
