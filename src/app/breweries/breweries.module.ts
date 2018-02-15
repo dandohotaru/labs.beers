@@ -18,6 +18,7 @@ import { YearFilterComponent } from './filters/year-filter.component';
 import { AfterFilterComponent } from './filters/after-filter.component';
 import { BeforeFilterComponent } from './filters/before-filter.component';
 import { LetterFilterComponent } from './filters/letter-filter.component';
+import { LengthFilterComponent } from './filters/length-filter.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { LetterFilterComponent } from './filters/letter-filter.component';
     AfterFilterComponent,
     BeforeFilterComponent,
     LetterFilterComponent,
+    LengthFilterComponent,
   ],
   exports: [
     BreweryListComponent
