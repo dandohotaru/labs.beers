@@ -3,8 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
-import { BreweryData } from "app/shared/services/breweries.models";
 import { RelayService } from 'app/shared/filters/relay.service';
+
+interface FilterInput {
+  isOrganic: string
+}
 
 interface FilterOption {
   value: string,
@@ -15,7 +18,7 @@ interface FilterOption {
 
 @Component({
   selector: 'organic-filter',
-  templateUrl: './organic-filter.component.html'
+  templateUrl: 'organic-filter.component.html'
 })
 export class OrganicFilterComponent implements OnInit, OnDestroy {
 
@@ -34,7 +37,7 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    this.mediator.subscribe(this.loadedName, (data: BreweryData[]) => {
+    this.mediator.subscribe(this.loadedName, (data: FilterInput[]) => {
       var params = this.route.snapshot.queryParams;
 
       this.options = this.map(data);
@@ -43,12 +46,12 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.mediator.subscribe(this.refinedName, (data: BreweryData[]) => {
+    this.mediator.subscribe(this.refinedName, (data: FilterInput[]) => {
       var params = this.route.snapshot.queryParams;
 
-      let organic = this.map(data);
+      let options = this.map(data);
       this.options.forEach(p => {
-        p.disabled = !organic.find(o => o.value == p.value);
+        p.disabled = !options.find(o => o.value == p.value);
         p.selected = p.value == params["organic"];
       });
     });
@@ -57,11 +60,9 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
   }
 
-  private map(data: BreweryData[]): FilterOption[] {
+  private map(data: FilterInput[]): FilterOption[] {
     let options = data
       .reduce((results: FilterOption[], current) => {
-        if (!current.isOrganic)
-          return results;
         var found = results.find(p => p.value == current.isOrganic);
         if (!found) {
           results.push({
