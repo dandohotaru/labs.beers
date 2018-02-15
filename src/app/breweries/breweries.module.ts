@@ -13,12 +13,6 @@ import { FiltersModule } from 'app/shared/filters/filters.module';
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
 import { ReactiveSelectComponent } from './filters/reactive-select.component';
-import { OrganicFilterComponent } from './filters/organic-filter.component';
-import { YearFilterComponent } from './filters/year-filter.component';
-import { AfterFilterComponent } from './filters/after-filter.component';
-import { BeforeFilterComponent } from './filters/before-filter.component';
-import { LetterFilterComponent } from './filters/letter-filter.component';
-import { LengthFilterComponent } from './filters/length-filter.component';
 import { SingleSelectComponent } from './filters/single-select.component';
 
 import { BreweriesMapper } from './brewery-list.mappers';
@@ -47,17 +41,11 @@ import { LengthFilterPipe } from './brewery-list.mappers';
     ReactiveSelectComponent,
     SingleSelectComponent,
     OrganicFilterPipe,
-    OrganicFilterComponent,
     YearFilterPipe,
-    YearFilterComponent,
     AfterFilterPipe,
-    AfterFilterComponent,
     BeforeFilterPipe,
-    BeforeFilterComponent,
     LetterFilterPipe,
-    LetterFilterComponent,
     LengthFilterPipe,
-    LengthFilterComponent,
   ],
   exports: [
     BreweryListComponent

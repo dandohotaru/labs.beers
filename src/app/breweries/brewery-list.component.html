@@ -8,13 +8,6 @@
       <button class="btn btn-default" routerLink="/breweries">Reset</button>
       <button class="btn btn-default" (click)="test()">Test</button>
       
-      <organic-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></organic-filter>
-      <year-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></year-filter>
-      <after-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></after-filter>
-      <before-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></before-filter>
-      <letter-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></letter-filter>
-      <length-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></length-filter>
-
       <single-select key="organic" label="Organic" [options]="store.cached | organic" [facets]="store.refined | organic"></single-select>
       <single-select key="year" label="Years" [options]="store.cached | year" [facets]="store.refined | year"></single-select>
       <single-select key="after" label="After" [options]="store.cached | after" [facets]="store.refined | after"></single-select>
