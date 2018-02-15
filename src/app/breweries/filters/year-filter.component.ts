@@ -9,7 +9,7 @@ interface FilterInput {
 }
 
 interface FilterOption {
-  value: string,
+  value: string | number,
   text: string,
   disabled?: boolean,
   selected?: boolean,
@@ -63,27 +63,28 @@ export class YearFilterComponent implements OnInit, OnDestroy {
   private map(data: FilterInput[]): FilterOption[] {
     let options = data
       .reduce((results: FilterOption[], current) => {
-        var established = current.established
-          ? current.established.toString()
-          : "unknown";
+        var temp = current.established
+          ? {
+            value: current.established,
+            text: current.established.toString()
+          }
+          : {
+            value: 0,
+            text: "unknown"
+          };
 
-        var found = results.find(p => p.value == established);
+        var found = results.find(p => p.value == temp.value);
         if (!found) {
-          results.push({
-            value: established,
-            text: established,
-          });
+          results.push(temp);
         }
         return results;
       }, [])
-      .sort((a, b) => a.text.localeCompare(b.text));
+      .sort((a, b) => +a.value - +b.value);
     options.unshift({ value: "*", text: "ALL" });
     return options;
   }
 
-  public changed(event: { value: string, text: string }) {
-    let value = event.value == "*" ? null : event.value;
-    this.relay.navigate({ key: "year", value: value });
+  public changed(event: { value: string | number, text: string }) {
+    this.relay.navigate({ key: "year", value: event.value });
   }
-
 }

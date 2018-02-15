@@ -78,8 +78,6 @@ export class OrganicFilterComponent implements OnInit, OnDestroy {
   }
 
   public changed(event: { value: string, text: string }) {
-    let value = event.value == "*" ? null : event.value;
-    this.relay.navigate({ key: "organic", value: value });
+    this.relay.navigate({ key: "organic", value: event.value });
   }
-
 }

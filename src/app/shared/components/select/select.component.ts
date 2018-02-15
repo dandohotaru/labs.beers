@@ -1,5 +1,13 @@
 import { Component, OnInit, Input, EventEmitter, Output, trigger } from '@angular/core';
 
+interface OptionModel {
+    value: string | number | boolean;
+    text: string | number | boolean;
+    selected?: boolean;
+    disabled?: boolean;
+    hidden?: boolean;
+}
+
 @Component({
     selector: 'app-select',
     templateUrl: 'select.component.html'
@@ -18,7 +26,7 @@ export class SelectComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit() {
+    public ngOnInit() {
     }
 
     public visible(): OptionModel[] {
@@ -31,12 +39,4 @@ export class SelectComponent implements OnInit {
             this.changed.emit(option);
         }
     }
-}
-
-class OptionModel {
-    value: string | number | boolean;
-    text: string | number | boolean;
-    selected?: boolean;
-    disabled?: boolean;
-    hidden?: boolean;
 }

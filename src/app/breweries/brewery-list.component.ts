@@ -60,9 +60,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         }, params["organic"]);
 
         this.querier.register("year", (item: BreweryData) => {
-          return params["year"] == "unknown" 
-            ? item.established == null
-            : item.established == params["year"];
+          return item.established && item.established == params["year"]
+            || !item.established && params["year"] == 0;
         }, params["year"]);
 
         this.querier.register("after", (item: BreweryData) => {
