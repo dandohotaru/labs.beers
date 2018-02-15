@@ -3,10 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 interface RelayOption {
 	key: string,
-	value: string
-	| number
-	| boolean
-	| (string | number | boolean)[]
+	value: string | number | boolean | (string | number | boolean)[]
 }
 
 @Injectable()

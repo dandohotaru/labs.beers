@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { BreweryData } from "app/shared/services/breweries.models";
-import { RelayService } from 'app/breweries/relay.service';
+import { RelayService } from 'app/shared/filters/relay.service';
 
 @Component({
 	selector: 'brewery-filter',
@@ -23,32 +23,32 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.organic = this.organicMap(data, params["organic"]);
+			this.organic = this.organicMap(data);
 			this.organic.forEach(p => {
 				p.selected = p.value == params["organic"];
 			});
 
-			this.years = this.yearsMap(data, params["years"]);
+			this.years = this.yearsMap(data);
 			this.years.forEach(p => {
 				p.selected = p.value == params["years"];
 			});
 
-			this.after = this.afterMap(data, params["after"]);
+			this.after = this.afterMap(data);
 			this.after.forEach(p => {
 				p.selected = p.value == params["after"];
 			});
 
-			this.before = this.beforeMap(data, params["before"]);
+			this.before = this.beforeMap(data);
 			this.before.forEach(p => {
 				p.selected = p.value == params["before"];
 			});
 
-			this.letters = this.lettersMap(data, params["letters"]);
+			this.letters = this.lettersMap(data);
 			this.letters.forEach(p => {
 				p.selected = p.value == params["letter"];
 			});
 
-			this.length = this.lengthMap(data, params["length"]);
+			this.length = this.lengthMap(data);
 			this.length.forEach(p => {
 				p.selected = p.value == params["length"];
 			});
@@ -101,7 +101,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Organic
 	public organic: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public organicMap(data: BreweryData[], param?: string): { value: string, text: string }[] {
+	public organicMap(data: BreweryData[]): { value: string, text: string }[] {
 		let options = data
 			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.isOrganic)
@@ -126,7 +126,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Years
 	public years: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public yearsMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
+	public yearsMap(data: BreweryData[]): { value: number, text: string }[] {
 		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
@@ -151,7 +151,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// After
 	public after: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public afterMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
+	public afterMap(data: BreweryData[]): { value: number, text: string }[] {
 		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
@@ -177,7 +177,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Before
 	public before: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public beforeMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
+	public beforeMap(data: BreweryData[]): { value: number, text: string }[] {
 		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.established)
@@ -203,7 +203,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Letters
 	public letters: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public lettersMap(data: BreweryData[], param?: string): { value: string, text: string }[] {
+	public lettersMap(data: BreweryData[]): { value: string, text: string }[] {
 		let options = data
 			.reduce((results: { value: string, text: string }[], current) => {
 				if (!current.name)
@@ -229,7 +229,7 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 	// Length
 	public length: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public lengthMap(data: BreweryData[], param?: number): { value: number, text: string }[] {
+	public lengthMap(data: BreweryData[]): { value: number, text: string }[] {
 		let options = data
 			.reduce((results: { value: number, text: string }[], current) => {
 				if (!current.name)

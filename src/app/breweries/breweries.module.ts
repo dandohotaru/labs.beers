@@ -9,13 +9,12 @@ import { Colcade3Module } from 'app/shared/components/cards/colcade3/mason.modul
 import { Masonry1Module } from "app/shared/components/cards/masonry1/mason.module";
 import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
-import { QueryModule } from "app/shared/filters/query.module";
+import { FiltersModule } from 'app/shared/filters/filters.module';
 
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 
-import { RelayService } from 'app/breweries/relay.service';
 
 @NgModule({
   imports: [
@@ -27,7 +26,7 @@ import { RelayService } from 'app/breweries/relay.service';
     Masonry1Module,
     CardsModule,
     SelectModule,
-    QueryModule,
+    FiltersModule,
   ],
   declarations: [
     BreweryListComponent,
@@ -38,7 +37,6 @@ import { RelayService } from 'app/breweries/relay.service';
     BreweryListComponent
   ],
   providers:[
-    RelayService
   ]
 })
 export class BreweriesModule { }

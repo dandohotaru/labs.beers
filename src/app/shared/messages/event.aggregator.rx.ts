@@ -13,7 +13,7 @@ export interface Event {
 @Injectable()
 export class EventAggregator {
   private subject: Subject<Event>;
-  private subscriptions: Subscription[]=[];
+  private subscriptions: { [key: string]: Subscription[] } = {};
 
   constructor() {
     this.subject = new Subject<Event>();
@@ -35,13 +35,25 @@ export class EventAggregator {
       .subscribe(data => {
         process(data);
       });
-    this.subscriptions.push(subscription);
+
+    if (this.subscriptions[type]) {
+      this.subscriptions[type].push(subscription);
+    }
+    else {
+      this.subscriptions[type] = [subscription];
+    }
+
     return subscription;
   }
 
-  public unsubscribe() {
-    this.subscriptions.forEach(p => {
-      p.unsubscribe();
-    })
+  public unsubscribe(types: string[]) {
+
+    Object
+      .keys(this.subscriptions)
+      .filter(key => types.some(type => type == key))
+      .forEach(key => {
+        var subscriptions = this.subscriptions[key];
+        subscriptions.forEach(p => p.unsubscribe());
+      })
   }
 }

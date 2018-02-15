@@ -10,7 +10,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { QueryProvider } from 'app/shared/filters/query.provider';
-import { RelayService } from 'app/breweries/relay.service';
+import { RelayService } from 'app/shared/filters/relay.service';
 
 export interface BreweryStore{
   cached?: BreweryData[],
