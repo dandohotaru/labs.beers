@@ -23,11 +23,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.after = this.afterMap(data);
-			this.after.forEach(p => {
-				p.selected = p.value == params["after"];
-			});
-
 			this.before = this.beforeMap(data);
 			this.before.forEach(p => {
 				p.selected = p.value == params["before"];
@@ -47,12 +42,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 		this.mediator.subscribe("breweriesChanged", (data: BreweryData[]) => {
 
 			var params = this.route.snapshot.queryParams;
-
-			let after = this.afterMap(data);
-			this.after.forEach(p => {
-				p.disabled = !after.find(o => o.value == p.value);
-				p.selected = p.value == params["after"];
-			});
 
 			let before = this.beforeMap(data);
 			this.before.forEach(p => {
@@ -75,32 +64,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy(): void {
-	}
-
-	// After
-	public after: { value: number, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public afterMap(data: BreweryData[]): { value: number, text: string }[] {
-		let options = data
-			.reduce((results: { value: number, text: string }[], current) => {
-				if (!current.established)
-					return results;
-				var century = this.century(current.established);
-				var found = results.find(p => p.value == century.start);
-				if (!found) {
-					results.push({
-						value: century.start,
-						text: century.text,
-					});
-				}
-				return results;
-			}, [])
-			.sort((a, b) => a.value - b.value);
-		options.unshift({ value: 0, text: "ALL" });
-		return options;
-	}
-	public afterChanged(event: { value: number, text: string }) {
-		let value = event.value == 0 ? null : event.value;
-		this.relay.navigate({ key: "after", value: value });
 	}
 
 	// Before

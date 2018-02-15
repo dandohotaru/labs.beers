@@ -15,6 +15,7 @@ import { BreweryFilterComponent } from "app/breweries/brewery-filter.component";
 import { BreweryCardComponent } from './brewery-card.component';
 import { OrganicFilterComponent } from './filters/organic-filter.component';
 import { YearFilterComponent } from './filters/year-filter.component';
+import { AfterFilterComponent } from './filters/after-filter.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { YearFilterComponent } from './filters/year-filter.component';
     BreweryFilterComponent,
     OrganicFilterComponent,
     YearFilterComponent,
+    AfterFilterComponent,
   ],
   exports: [
     BreweryListComponent
