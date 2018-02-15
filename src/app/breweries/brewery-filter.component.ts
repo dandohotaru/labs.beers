@@ -23,11 +23,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 			
 			var params = this.route.snapshot.queryParams;
 
-			this.letters = this.lettersMap(data);
-			this.letters.forEach(p => {
-				p.selected = p.value == params["letter"];
-			});
-
 			this.length = this.lengthMap(data);
 			this.length.forEach(p => {
 				p.selected = p.value == params["length"];
@@ -38,12 +33,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 
 			var params = this.route.snapshot.queryParams;
 
-			let letters = this.lettersMap(data);
-			this.letters.forEach(p => {
-				p.disabled = !letters.find(o => o.value == p.value);
-				p.selected = p.value == params["letter"];
-			});
-
 			let length = this.lengthMap(data);
 			this.length.forEach(p => {
 				p.disabled = !length.find(o => o.value == p.value);
@@ -53,32 +42,6 @@ export class BreweryFilterComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy(): void {
-	}
-
-	// Letters
-	public letters: { value: string, text: string, disabled?: boolean, selected?: boolean }[] = [];
-	public lettersMap(data: BreweryData[]): { value: string, text: string }[] {
-		let options = data
-			.reduce((results: { value: string, text: string }[], current) => {
-				if (!current.name)
-					return results;
-				var letter = current.name.charAt(0);
-				var found = results.find(p => p.value == letter);
-				if (!found) {
-					results.push({
-						value: letter,
-						text: letter,
-					});
-				}
-				return results;
-			}, [])
-			.sort((a, b) => a.text.localeCompare(b.text));
-		options.unshift({ value: "*", text: "ALL" });
-		return options;
-	}
-	public lettersChanged(event: { value: string, text: string }) {
-		let value = event.value == "*" ? null : event.value;
-		this.relay.navigate({ key: "letter", value: value });
 	}
 
 	// Length
