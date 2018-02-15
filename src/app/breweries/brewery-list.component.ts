@@ -1,4 +1,3 @@
-
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +11,9 @@ import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { QueryProvider } from 'app/shared/filters/query.provider';
 import { RelayService } from 'app/shared/filters/relay.service';
 
-export interface BreweryStore{
+import { BreweriesMapper } from './brewery-map.service';
+
+export interface BreweryStore {
   cached?: BreweryData[],
   refined?: BreweryData[],
   rendered?: BreweryData[],
@@ -37,7 +38,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private service: BreweriesService,
     private mediator: EventAggregator,
     private querier: QueryProvider,
-    private relay: RelayService) {
+    private relay: RelayService,
+    public mapper: BreweriesMapper) {
   }
 
   public ngOnInit() {
@@ -102,4 +104,10 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(this.router.url);
     console.log(this.route.snapshot.url);
   }
+
+  
+  
 }
+
+
+

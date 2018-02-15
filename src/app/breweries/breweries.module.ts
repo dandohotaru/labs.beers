@@ -12,12 +12,15 @@ import { FiltersModule } from 'app/shared/filters/filters.module';
 
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
+import { SelectFilterComponent } from './filters/select-filter.component';
 import { OrganicFilterComponent } from './filters/organic-filter.component';
 import { YearFilterComponent } from './filters/year-filter.component';
 import { AfterFilterComponent } from './filters/after-filter.component';
 import { BeforeFilterComponent } from './filters/before-filter.component';
 import { LetterFilterComponent } from './filters/letter-filter.component';
 import { LengthFilterComponent } from './filters/length-filter.component';
+
+import { BreweriesMapper } from './brewery-map.service';
 
 @NgModule({
   imports: [
@@ -34,6 +37,7 @@ import { LengthFilterComponent } from './filters/length-filter.component';
   declarations: [
     BreweryListComponent,
     BreweryCardComponent,
+    SelectFilterComponent,
     OrganicFilterComponent,
     YearFilterComponent,
     AfterFilterComponent,
@@ -45,6 +49,7 @@ import { LengthFilterComponent } from './filters/length-filter.component';
     BreweryListComponent
   ],
   providers:[
+    BreweriesMapper
   ]
 })
 export class BreweriesModule { }

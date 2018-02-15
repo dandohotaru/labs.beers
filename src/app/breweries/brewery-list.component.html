@@ -14,6 +14,14 @@
       <before-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></before-filter>
       <letter-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></letter-filter>
       <length-filter loadedEvent="breweriesLoaded" refinedEvent="breweriesChanged"></length-filter>
+
+      <select-filter 
+        [mapper]="mapper.organics" 
+        label="Testing" 
+        loadedEvent="breweriesLoaded" 
+        refinedEvent="breweriesChanged" 
+        paramName="organic">
+      </select-filter>
     </div>
 
     <!-- Results -->
