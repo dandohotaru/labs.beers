@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { QueryModel } from './query.models';
+import { QueryModel } from './query.provider';
 
 @Pipe({
     name: 'filterBy'
 })
 export class FilterByQueriesPipe implements PipeTransform {
-    transform(items: any[], args: QueryModel[]): any {
+    transform(records: any[], args: QueryModel[]): any {
         return args
-            ? items.filter(brewery => {
-                var match = args.every(p => p.predicate(brewery) == true);
+            ? records.filter(record => {
+                var match = args.every(query => query.predicate(record) == true);
                 return match;
             })
-            : items;
+            : records;
     }
 }

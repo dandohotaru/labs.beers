@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-interface RelayOption {
+export interface RelayOption {
 	key: string,
 	value: string | number | boolean | (string | number | boolean)[]
 }

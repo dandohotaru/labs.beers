@@ -1,35 +1,25 @@
-import { QueryModel } from "./query.models";
+export interface Query<TModel> {
+    name: string;
+    predicate: (model: TModel) => boolean;
+}
+
+export interface QueryModel {
+    name: string;
+    predicate: (model: any) => boolean;
+}
 
 export class QueryProvider {
 
     private queries: QueryModel[] = [];
 
-    public register(name: string, predicate: (item: any) => boolean, condition: boolean): void {
-        if (condition) {
-            this.attach(name, predicate);
+    public register(token: string, match: (record: any, value: string | number | boolean) => boolean, input: string): void {
+        if (input) {
+            let predicate = (p) => {
+                return input.split("|").some(v => match(p, v))
+            };
+            this.attach(token, predicate);
         } else {
-            this.detach(name);
-        }
-    }
-
-    public attach(name: string, predicate: (item: any) => boolean): void {
-        let query = this.queries.find(p => p.name == name);
-        if (query) {
-            var index = this.queries.indexOf(query);
-            this.queries.splice(index, 1);
-        }
-
-        this.queries.push({
-            name: name,
-            predicate: predicate
-        });
-    }
-
-    public detach(name: string): void {
-        let query = this.queries.find(p => p.name == name);
-        if (query) {
-            var index = this.queries.indexOf(query);
-            this.queries.splice(index, 1);
+            this.detach(token);
         }
     }
 
@@ -42,5 +32,26 @@ export class QueryProvider {
         });
 
         process(results);
+    }
+
+    private attach(token: string, predicate: (item: any) => boolean): void {
+        let query = this.queries.find(p => p.name == token);
+        if (query) {
+            var index = this.queries.indexOf(query);
+            this.queries.splice(index, 1);
+        }
+
+        this.queries.push({
+            name: token,
+            predicate: predicate
+        });
+    }
+
+    private detach(token: string): void {
+        let query = this.queries.find(p => p.name == token);
+        if (query) {
+            var index = this.queries.indexOf(query);
+            this.queries.splice(index, 1);
+        }
     }
 }

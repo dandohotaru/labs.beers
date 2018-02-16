@@ -54,44 +54,37 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       .subscribe(params => {
 
         // Analyse
-        this.querier.register("search", (item: BreweryData) => {
-          return item.name.toLowerCase().includes(params["q"][0]);
-        }, params["q"]);
+        this.querier.register("by-search", (item: BreweryData, value: string) => {
+          return item.name.toLowerCase().includes(value);
+        }, params["q"] ? params["q"][0] : "");
 
-        this.querier.register("organic", (item: BreweryData) => {
-          return item.isOrganic == params["organic"];
+        this.querier.register("by-organic", (item: BreweryData, value: string) => {
+          return item.isOrganic == value;
         }, params["organic"]);
 
-        this.querier.register("year", (item: BreweryData) => {
-          return item.established && item.established == params["year"]
-            || !item.established && params["year"] == 0;
+        this.querier.register("by-year", (item: BreweryData, value: number) => {
+          return item.established && item.established == value
+            || !item.established && value == 0;
         }, params["year"]);
 
-        this.querier.register("after", (item: BreweryData) => {
-          return item.established >= params["after"];
+        this.querier.register("by-after", (item: BreweryData, value: number) => {
+          return item.established >= value;
         }, params["after"]);
 
-        this.querier.register("before", (item: BreweryData) => {
-          return item.established <= params["before"];
+        this.querier.register("by-before", (item: BreweryData, value: number) => {
+          return item.established <= value;
         }, params["before"]);
 
-        this.querier.register("letter", (item: BreweryData) => {
-          return item.name.charAt(0) == params["letter"];
+        this.querier.register("by-letter", (item: BreweryData, value: string) => {
+          return item.name.charAt(0) == value;
         }, params["letter"]);
 
-        this.querier.register("length", (item: BreweryData) => {
-          var values = params["length"]
-            ? String(params["length"]).split("|")
-            : [];
-          return values.some(p => item.name.length == +p);
+        this.querier.register("by-length", (item: BreweryData, value: number) => {
+          return item.name.length == value;
         }, params["length"]);
 
-        this.querier.register("creation", (item: BreweryData) => {
-          var values = params["creation"]
-            ? String(params["creation"]).split("|")
-            : [];
-          let creation = moment(item.createDate).format("YYYYMMDD");
-          return values.some(p => creation == p);
+        this.querier.register("by-creation", (item: BreweryData, value: string) => {
+          return moment(item.createDate).format("YYYYMMDD") == value;
         }, params["creation"]);
 
         // Apply
@@ -110,15 +103,12 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(item);
   }
 
-  public test() {
+  public foobar() {
     this.relay.navigate({ key: "foo", value: [42, 41, true] });
-    console.log(this.route.snapshot);
-    console.log(this.router.url);
-    console.log(this.route.snapshot.url);
+     console.log(this.route.snapshot);
+     console.log(this.router.url);
+     console.log(this.route.snapshot.url);
   }
-
-  
-  
 }
 
 
