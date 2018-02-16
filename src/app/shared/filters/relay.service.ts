@@ -6,6 +6,9 @@ export interface RelayOption {
 	value: string | number | boolean | (string | number | boolean)[]
 }
 
+export type ValueOption = string | number | boolean | Date;
+export type ParamsOption = { [key: string]: ValueOption | ValueOption[]};
+
 @Injectable()
 export class RelayService {
 
@@ -17,12 +20,17 @@ export class RelayService {
 		});
 	}
 
-	public navigate(option: RelayOption) {
-		let options: Params = Object.assign({}, this.parameters);
+	public navigate(options: ParamsOption){
 
-		options[option.key] = option.value == "*"
-			? null
-			: option.value
+		Object.keys(options).forEach(p => {
+			let option = options[p];
+			if (option == "*") {
+				options[p] = null;
+			}
+			else if (option instanceof Array) {
+				options[p] = option.join("|");
+			}
+		});
 
 		this.router.navigate([".", {}], {
 			queryParams: options,
@@ -30,4 +38,5 @@ export class RelayService {
 			relativeTo: this.route
 		});
 	}
+
 }

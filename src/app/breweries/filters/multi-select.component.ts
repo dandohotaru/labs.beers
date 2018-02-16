@@ -77,23 +77,23 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
       let index = this.selection.indexOf(this.default);
       if (index >= 0) {
         this.selection = [this.default];
-        this.relay.navigate({ key: this.key, value: this.default });
+        this.relay.navigate({ [this.key]: this.selection });
       }
       else {
         this.selection = [];
-        this.relay.navigate({ key: this.key, value: 0 });
+        this.relay.navigate({ [this.key]: 0 });
       }
     } else {
       if (event.value.length == 0) {
         this.selection = [this.default];
-        this.relay.navigate({ key: this.key, value: this.default });
+        this.relay.navigate({ [this.key]: this.selection });
       }
       else {
         let index = this.selection.indexOf(this.default);
         if (index >= 0) {
           this.selection.splice(index, 1);
         }
-        this.relay.navigate({ key: this.key, value: event.value.join("|") });
+        this.relay.navigate({ [this.key]: this.selection });
       }
     }
   }

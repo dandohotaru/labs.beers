@@ -57,6 +57,6 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public changed(event: { value: string, text: string }) {
-    this.relay.navigate({ key: this.key, value: event.value });
+    this.relay.navigate({ [this.key]: event.value });
   }
 }
