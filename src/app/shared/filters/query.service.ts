@@ -8,7 +8,7 @@ export interface QueryModel {
     predicate: (model: any) => boolean;
 }
 
-export class QueryProvider {
+export class QueryService {
 
     private queries: QueryModel[] = [];
 

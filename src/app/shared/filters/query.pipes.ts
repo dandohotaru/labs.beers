@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { QueryModel } from './query.provider';
+import { QueryModel } from './query.service';
 
 @Pipe({
     name: 'filterBy'

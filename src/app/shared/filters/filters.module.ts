@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 
 import { FilterByQueriesPipe } from './query.pipes';
-import { QueryProvider } from './query.provider';
+import { QueryService } from './query.service';
 import { RelayService } from './relay.service';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { RelayService } from './relay.service';
         FilterByQueriesPipe
     ],
     providers: [
-        QueryProvider,
+        QueryService,
         RelayService,
     ],
 })

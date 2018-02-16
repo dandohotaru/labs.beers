@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
-import { QueryProvider } from 'app/shared/filters/query.provider';
+import { QueryService } from 'app/shared/filters/query.service';
 import { RelayService } from 'app/shared/filters/relay.service';
 
 import { BreweriesMapper } from './brewery-list.mappers';
@@ -38,7 +38,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private service: BreweriesService,
     private mediator: EventAggregator,
-    private querier: QueryProvider,
+    private querier: QueryService,
     private relay: RelayService,
     public mapper: BreweriesMapper) {
   }
