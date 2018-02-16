@@ -87,8 +87,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         }, params["length"]);
 
         this.querier.register("creation", (item: BreweryData) => {
-          let value = moment(item.createDate).format("YYYYMMDD");
-          return value == params["creation"];
+          var values = params["creation"]
+            ? String(params["creation"]).split("|")
+            : [];
+          let creation = moment(item.createDate).format("YYYYMMDD");
+          return values.some(p => creation == p);
         }, params["creation"]);
 
         // Apply

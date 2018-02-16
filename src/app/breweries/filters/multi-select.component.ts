@@ -22,6 +22,9 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   public label: string;
 
   @Input()
+  public max: number = 5;
+
+  @Input()
   public options: SelectOption[];
 
   @Input()

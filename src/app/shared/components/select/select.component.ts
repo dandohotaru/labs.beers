@@ -10,7 +10,8 @@ interface OptionModel {
 
 @Component({
     selector: 'app-select',
-    templateUrl: 'select.component.html'
+    templateUrl: 'select.component.html',
+    styleUrls: ['select.component.css']
 })
 export class SelectComponent implements OnInit {
 

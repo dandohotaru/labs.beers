@@ -6,7 +6,7 @@
     [(ngModel)]="selection" 
     [filter]="false" 
     [showToggleAll]="false" 
-    maxSelectedLabels="5"
+    [maxSelectedLabels]="max"
     styleClass="form-control" 
     (onChange)="changed($event)">
 
