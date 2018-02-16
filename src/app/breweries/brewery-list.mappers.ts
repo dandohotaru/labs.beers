@@ -7,7 +7,7 @@ export type YearOption = { value: string | number, text: string };
 export type AfterOption = { value: string | number, text: string };
 export type BeforeOption = { value: string | number, text: string };
 export type LetterOption = { value: string | number, text: string };
-export type LengthOption = { value: string | number, text: string };
+export type LengthOption = { value: string | number, label: string };
 
 @Injectable()
 export class BreweriesMapper {
@@ -136,13 +136,13 @@ export class BreweriesMapper {
         if (!found) {
           results.push({
             value: current.name.length,
-            text: current.name.length.toString(),
+            label: current.name.length.toString(),
           });
         }
         return results;
       }, [])
       .sort((a, b) => +a.value - +b.value);
-    options.unshift({ value: "*", text: "ALL" });
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 

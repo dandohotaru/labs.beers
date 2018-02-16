@@ -6,18 +6,16 @@
     [(ngModel)]="selection" 
     [filter]="false" 
     [showToggleAll]="false" 
-    defaultLabel="ALL" 
-    maxSelectedLabels="2"
+    maxSelectedLabels="5"
     styleClass="form-control" 
-    optionLabel="text"
-    (onChange)="changed($event.value)">
+    (onChange)="changed($event)">
 
     <ng-template let-option pTemplate="item">
 
       <div *ngIf="option.disabled; then disabledBlock; else enabledBlock"></div>
       <ng-template #disabledBlock>
-        <span style="color:lightblue; cursor:default">
-          {{option.label}}*
+        <span style="color:#ccc; cursor:default">
+          {{option.label}}
         </span>
       </ng-template>
       <ng-template #enabledBlock>
