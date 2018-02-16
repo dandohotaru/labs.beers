@@ -22,13 +22,13 @@ export class RelayService {
 
 	public navigate(options: ParamsOption){
 
-		Object.keys(options).forEach(p => {
-			let option = options[p];
+		Object.keys(options).forEach(key => {
+			let option = options[key];
 			if (option == "*") {
-				options[p] = null;
+				options[key] = null;
 			}
 			else if (option instanceof Array) {
-				options[p] = option.join("|");
+				options[key] = option.join("|");
 			}
 		});
 
