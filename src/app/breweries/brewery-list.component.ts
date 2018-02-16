@@ -1,5 +1,6 @@
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
+import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
@@ -84,6 +85,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
             : [];
           return values.some(p => item.name.length == +p);
         }, params["length"]);
+
+        this.querier.register("creation", (item: BreweryData) => {
+          let value = moment(item.createDate).format("YYYYMMDD");
+          return value == params["creation"];
+        }, params["creation"]);
 
         // Apply
         this.querier.apply(this.store.cached, results => {

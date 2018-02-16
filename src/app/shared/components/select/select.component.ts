@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output, trigger } from '@angula
 
 interface OptionModel {
     value: string | number | boolean;
-    text: string | number | boolean;
+    label: string | number | boolean;
     selected?: boolean;
     disabled?: boolean;
     hidden?: boolean;

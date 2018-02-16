@@ -10,12 +10,12 @@
             <div *ngIf="option.disabled; then disabledBlock; else enabledBlock"></div>
             <ng-template #disabledBlock>
                 <span title="Disabled">
-                    {{option.text}}*
+                    {{option.label}}*
                 </span>
             </ng-template>
             <ng-template #enabledBlock>
                 <span>
-                    {{option.text}}
+                    {{option.label}}
                 </span>
             </ng-template>
 

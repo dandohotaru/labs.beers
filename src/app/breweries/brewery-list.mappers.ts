@@ -1,13 +1,15 @@
+import * as moment from 'moment';
 import { Injectable } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { BreweryData } from 'app/shared/services/breweries.models';
 
-export type OrganicOption = { value: string | number, text: string };
-export type YearOption = { value: string | number, text: string };
-export type AfterOption = { value: string | number, text: string };
-export type BeforeOption = { value: string | number, text: string };
-export type LetterOption = { value: string | number, text: string };
+export type OrganicOption = { value: string | number, label: string };
+export type YearOption = { value: string | number, label: string };
+export type AfterOption = { value: string | number, label: string };
+export type BeforeOption = { value: string | number, label: string };
+export type LetterOption = { value: string | number, label: string };
 export type LengthOption = { value: string | number, label: string };
+export type CreationOption = { value: string | number, label: string };
 
 @Injectable()
 export class BreweriesMapper {
@@ -23,13 +25,13 @@ export class BreweriesMapper {
         if (!found) {
           results.push({
             value: current.isOrganic,
-            text: current.isOrganic,
+            label: current.isOrganic,
           });
         }
         return results;
       }, [])
-      .sort((a, b) => a.text.localeCompare(b.text));
-    options.unshift({ value: "*", text: "ALL" });
+      .sort((a, b) => a.label.localeCompare(b.label));
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 
@@ -41,11 +43,11 @@ export class BreweriesMapper {
         var temp = current.established
           ? {
             value: current.established,
-            text: current.established.toString()
+            label: current.established.toString()
           }
           : {
             value: 0,
-            text: "unknown"
+            label: "unknown"
           };
 
         var found = results.find(p => p.value == temp.value);
@@ -55,7 +57,7 @@ export class BreweriesMapper {
         return results;
       }, [])
       .sort((a, b) => +a.value - +b.value);
-    options.unshift({ value: "*", text: "ALL" });
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 
@@ -71,13 +73,13 @@ export class BreweriesMapper {
         if (!found) {
           results.push({
             value: century.start,
-            text: century.text,
+            label: century.text,
           });
         }
         return results;
       }, [])
       .sort((a, b) => +a.value - +b.value);
-    options.unshift({ value: "*", text: "ALL" });
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 
@@ -93,13 +95,13 @@ export class BreweriesMapper {
         if (!found) {
           results.push({
             value: century.end,
-            text: century.text,
+            label: century.text,
           });
         }
         return results;
       }, [])
       .sort((a, b) => +a.value - +b.value);
-    options.unshift({ value: "*", text: "ALL" });
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 
@@ -115,13 +117,13 @@ export class BreweriesMapper {
         if (!found) {
           results.push({
             value: letter,
-            text: letter,
+            label: letter,
           });
         }
         return results;
       }, [])
-      .sort((a, b) => a.text.localeCompare(b.text));
-    options.unshift({ value: "*", text: "ALL" });
+      .sort((a, b) => a.label.localeCompare(b.label));
+    options.unshift({ value: "*", label: "ALL" });
     return options;
   }
 
@@ -137,6 +139,30 @@ export class BreweriesMapper {
           results.push({
             value: current.name.length,
             label: current.name.length.toString(),
+          });
+        }
+        return results;
+      }, [])
+      .sort((a, b) => +a.value - +b.value);
+    options.unshift({ value: "*", label: "ALL" });
+    return options;
+  }
+
+  public creations(data: BreweryData[]): CreationOption[] {
+    if (!data)
+      return null;
+    let options = data
+      .reduce((results: CreationOption[], current) => {
+        if (!current.name)
+          return results;
+        let creation = moment(current.createDate);
+        let value = creation.format("YYYYMMDD");
+        let label = creation.format("dddd, MMMM Do YYYY")
+        var found = results.find(p => p.value == value);
+        if (!found) {
+          results.push({
+            value: value,
+            label: label,
           });
         }
         return results;
@@ -201,5 +227,13 @@ export class LengthFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
     return this.mapper.lengths(data);
+  }
+}
+
+@Pipe({ name: 'creation' })
+export class CreationFilterPipe implements PipeTransform {
+  constructor(private mapper: BreweriesMapper) { }
+  public transform(data: BreweryData[]) {
+    return this.mapper.creations(data);
   }
 }

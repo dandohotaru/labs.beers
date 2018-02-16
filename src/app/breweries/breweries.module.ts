@@ -25,6 +25,7 @@ import { AfterFilterPipe } from './brewery-list.mappers';
 import { BeforeFilterPipe } from './brewery-list.mappers';
 import { LetterFilterPipe } from './brewery-list.mappers';
 import { LengthFilterPipe } from './brewery-list.mappers';
+import { CreationFilterPipe } from './brewery-list.mappers';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { LengthFilterPipe } from './brewery-list.mappers';
     BeforeFilterPipe,
     LetterFilterPipe,
     LengthFilterPipe,
+    CreationFilterPipe,
   ],
   exports: [
     BreweryListComponent

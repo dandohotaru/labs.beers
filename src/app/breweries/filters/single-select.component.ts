@@ -4,7 +4,7 @@ import { RelayService } from 'app/shared/filters/relay.service';
 
 interface FilterOption {
   value: string | number | boolean,
-  text: string,
+  label: string,
   disabled?: boolean,
   selected?: boolean,
 }
