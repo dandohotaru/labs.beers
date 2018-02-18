@@ -48,3 +48,18 @@ p-multiselect > .ui-multiselect .ui-multiselect-item.ui-state-highlight .ui-chkb
 p-multiselect > .ui-multiselect .ui-multiselect-list {
     max-height: 500px !important;
 }
+
+
+/* p-calendar
+ui-calendar	        Wrapper of input element
+ui-inputtext	    Input element 
+*/
+
+p-calendar > .ui-calendar {
+    width: 100%;
+    display: block;
+}
+
+p-calendar > .ui-calendar > .ui-inputtext {
+    width: 100%;
+}

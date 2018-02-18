@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes),
     EventModule,
     LayoutModule,

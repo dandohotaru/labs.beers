@@ -1,0 +1,18 @@
+<div>
+  <label style="display: block">{{label}}</label>
+  <p-calendar #instance
+    [(ngModel)]="options" 
+    dateFormat="d M yy"
+    selectionMode="range" 
+    readonlyInput="true"
+    (onSelect)="select($event)"
+    (onClose)="close($event)">
+
+    <p-footer>
+      <span class="pull-right" (click)="toggle(false)">
+        <i class="fa fa-close" style="padding: 5px"></i>
+      </span>
+    </p-footer>
+
+  </p-calendar>
+</div>

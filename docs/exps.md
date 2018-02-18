@@ -24,3 +24,7 @@ https://www.w3schools.com/bootstrap/bootstrap_popover.asp
 
 ### Make bootstrap popover work with custom html template
 https://stackoverflow.com/questions/24580262/make-bootstrap-popover-work-with-custom-html-template
+
+
+# Masonry
+https://github.com/gethinoakes/ngx-masonry
