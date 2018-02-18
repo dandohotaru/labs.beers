@@ -15,7 +15,7 @@
       <multi-select key="creation" label="Creation" [options]="store.cached | creation" [facets]="store.refined | creation" max="1"></multi-select>
       <single-select key="letter" label="Letters" [options]="store.cached | letter" [facets]="store.refined | letter"></single-select>
       <multi-select key="length" label="Lengths" [options]="store.cached | length" [facets]="store.refined | length"></multi-select>
-      <range-select [keys]="['start', 'end']" label="Range"></range-select>
+      <range-select label="Range" [after]="{key:'start'}" [before]="{key:'end'}"></range-select>
 
       <reactive-select
         key="organic" label="Reactive" 

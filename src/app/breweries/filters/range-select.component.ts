@@ -3,6 +3,11 @@ import { Component, OnInit, OnDestroy, OnChanges, Input, ViewChild, SimpleChange
 import { ActivatedRoute } from '@angular/router';
 import { RelayService } from 'app/shared/filters/relay.service';
 
+export interface Keys {
+  after: string,
+  before: string,
+};
+
 @Component({
   selector: 'range-select',
   templateUrl: './range-select.component.html'
@@ -10,56 +15,62 @@ import { RelayService } from 'app/shared/filters/relay.service';
 export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input()
-  public keys: string[];
-
-  @Input()
   public label: string;
 
   @Input()
-  public after: Date;
+  public after: { key: string, value?: Date };
 
   @Input()
-  public before: Date;
+  public before: { key: string, value?: Date };
 
   @ViewChild('instance')
   public calendar;
 
   public options: Date[]=[];
 
+  private default: Date;
+
   constructor(private relay: RelayService, private route: ActivatedRoute) {
-    var today = moment().startOf('day').toDate();
-    this.options = [today];
+    this.default = moment().startOf('day').toDate();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
     // Params
-    var params = this.route.snapshot.queryParams
-    let values = this.keys
-      ? this.keys
-        .reduce((results: Date[], current: string) => {
-          var value = params[current];
-          if (value) {
-            let date = moment(value).toDate();
-            results.push(date);
-          }
-          return results;
-        }, [])
-      : null;
+    var params = this.route.snapshot.queryParams;
 
     // Options
     let afterChanges = changes["after"];
-    if (afterChanges) {
-      this.options[0] = values && values[0] || this.after || new Date();
+    if (afterChanges && this.after) {
+      var param = params[this.after.key];
+      this.options[0] = param
+        ? moment(param).toDate()
+        : this.after.value || this.default;
     }
 
     // Facets
     let beforeChanges = changes["before"];
-    if (beforeChanges) {
-      this.options[1] = values && values[1] || this.before;
+    if (beforeChanges && this.before) {
+      var param = params[this.before.key];
+      this.options[1] = param
+        ? moment(param).toDate()
+        : this.before.value || null;
     }
   }
 
   public ngOnInit(): void {
+    this.route.queryParams.subscribe(params=>{
+      var after = params[this.after.key];
+      let one = after
+        ? moment(after).toDate()
+        : this.after.value || this.default;
+
+      var before = params[this.before.key];
+      let two = before
+        ? moment(before).toDate()
+        : this.before.value || null;
+
+      this.options = [one, two];
+    });
   }
 
   public ngOnDestroy(): void {
@@ -70,13 +81,15 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public select(date: Date) {
-    let output: { [key: string]: string } = {};
-    this.keys.forEach((p, i) => {
-      output[p] = this.options[i]
-        ? moment(this.options[i]).format("YYYYMMDD")
+    let map = (p:Date)=>{
+      return p
+        ? moment(p).format("YYYYMMDD")
         : null;
-    });
+    };
 
+    let output: { [key: string]: string } = {};
+    output[this.after.key] = map(this.options[0]);
+    output[this.before.key] = map(this.options[1]);
     this.relay.navigate(output);
   }
 
