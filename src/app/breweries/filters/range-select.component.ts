@@ -29,25 +29,21 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('instance')
   public calendar;
 
-  public options: Date[]=[];
-
-  public default: Date;
+  public options: Date[];
 
   constructor(private relay: RelayService, private route: ActivatedRoute) {
-    this.default = moment().startOf('day').toDate();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    // Params
-    let params = this.route.snapshot.queryParams;
 
+    // Params
     let paramsChanges = changes["params"];
     if (paramsChanges && this.params) {
-      var after = params[this.after.key]
-        ? moment(params[this.after.key]).toDate()
-        : this.default;
-      var before = params[this.before.key]
-        ? moment(params[this.before.key]).toDate()
+      var after = this.params[this.after.key]
+        ? moment(this.params[this.after.key]).toDate()
+        : moment().startOf('day').toDate();
+      var before = this.params[this.before.key]
+        ? moment(this.params[this.before.key]).toDate()
         : null;
       this.options = [after, before];
     }
@@ -72,22 +68,12 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public ngOnInit(): void {
-    // this.route.queryParams.subscribe(params=>{
-    //   var after = params[this.after.key];
-    //   let one = after
-    //     ? moment(after).toDate()
-    //     : this.after.value || this.default;
-
-    //   var before = params[this.before.key];
-    //   let two = before
-    //     ? moment(before).toDate()
-    //     : this.before.value || null;
-
-    //   this.options = [one, two];
-    // });
   }
 
   public ngOnDestroy(): void {
+  }
+
+  public close(event: MouseEvent) {
   }
 
   public toggle(state: boolean) {
@@ -101,14 +87,9 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
         : null;
     };
 
-    let output: { [key: string]: string } = {};
-    output[this.after.key] = map(this.options[0]);
-    output[this.before.key] = map(this.options[1]);
-    this.relay.navigate(output);
+    this.relay.navigate({
+      [this.after.key]: map(this.options[0]),
+      [this.before.key]: map(this.options[1]),
+    });
   }
-
-  public close(event: MouseEvent){
-
-  }
-
 }
