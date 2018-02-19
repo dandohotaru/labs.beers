@@ -1,6 +1,5 @@
 import * as moment from 'moment';
 import { Component, OnInit, OnDestroy, OnChanges, Input, ViewChild, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { RelayService } from 'app/shared/filters/relay.service';
 
 export interface Keys {
@@ -31,7 +30,7 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
 
   public options: Date[];
 
-  constructor(private relay: RelayService, private route: ActivatedRoute) {
+  constructor(private relay: RelayService) {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
