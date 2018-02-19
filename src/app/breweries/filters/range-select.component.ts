@@ -23,12 +23,15 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public before: { key: string, value?: Date };
 
+  @Input()
+  public params: { [key: string]: string };
+
   @ViewChild('instance')
   public calendar;
 
   public options: Date[]=[];
 
-  private default: Date;
+  public default: Date;
 
   constructor(private relay: RelayService, private route: ActivatedRoute) {
     this.default = moment().startOf('day').toDate();
@@ -36,41 +39,52 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
 
   public ngOnChanges(changes: SimpleChanges): void {
     // Params
-    var params = this.route.snapshot.queryParams;
+    let params = this.route.snapshot.queryParams;
+
+    let paramsChanges = changes["params"];
+    if (paramsChanges && this.params) {
+      var after = params[this.after.key]
+        ? moment(params[this.after.key]).toDate()
+        : this.default;
+      var before = params[this.before.key]
+        ? moment(params[this.before.key]).toDate()
+        : null;
+      this.options = [after, before];
+    }
 
     // Options
-    let afterChanges = changes["after"];
-    if (afterChanges && this.after) {
-      var param = params[this.after.key];
-      this.options[0] = param
-        ? moment(param).toDate()
-        : this.after.value || this.default;
-    }
+    // let afterChanges = changes["after"];
+    // if (afterChanges && this.after) {
+    //   var param = params[this.after.key];
+    //   this.options[0] = param
+    //     ? moment(param).toDate()
+    //     : this.after.value || this.default;
+    // }
 
-    // Facets
-    let beforeChanges = changes["before"];
-    if (beforeChanges && this.before) {
-      var param = params[this.before.key];
-      this.options[1] = param
-        ? moment(param).toDate()
-        : this.before.value || null;
-    }
+    // // Facets
+    // let beforeChanges = changes["before"];
+    // if (beforeChanges && this.before) {
+    //   var param = params[this.before.key];
+    //   this.options[1] = param
+    //     ? moment(param).toDate()
+    //     : this.before.value || null;
+    // }
   }
 
   public ngOnInit(): void {
-    this.route.queryParams.subscribe(params=>{
-      var after = params[this.after.key];
-      let one = after
-        ? moment(after).toDate()
-        : this.after.value || this.default;
+    // this.route.queryParams.subscribe(params=>{
+    //   var after = params[this.after.key];
+    //   let one = after
+    //     ? moment(after).toDate()
+    //     : this.after.value || this.default;
 
-      var before = params[this.before.key];
-      let two = before
-        ? moment(before).toDate()
-        : this.before.value || null;
+    //   var before = params[this.before.key];
+    //   let two = before
+    //     ? moment(before).toDate()
+    //     : this.before.value || null;
 
-      this.options = [one, two];
-    });
+    //   this.options = [one, two];
+    // });
   }
 
   public ngOnDestroy(): void {

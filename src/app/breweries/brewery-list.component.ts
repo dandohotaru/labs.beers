@@ -18,6 +18,7 @@ export interface BreweryStore {
   cached?: BreweryData[],
   refined?: BreweryData[],
   rendered?: BreweryData[],
+  params?: {[key: string]: string},
 }
 
 @Component({
@@ -89,7 +90,8 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
         // Apply
         this.querier.apply(this.store.cached, results => {
-          this.store.refined = results
+          this.store.params = params;
+          this.store.refined = results;
           this.mediator.publish("breweriesChanged", results);
         });
       })
