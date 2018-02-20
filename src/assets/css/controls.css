@@ -45,8 +45,8 @@ p-multiselect > .ui-multiselect .ui-multiselect-item.ui-state-highlight .ui-chkb
     border: 1px;
 }
 
-p-multiselect > .ui-multiselect .ui-multiselect-list {
-    max-height: 500px !important;
+p-multiselect > .ui-multiselect-items {
+    max-height: 200px;
 }
 
 

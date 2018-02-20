@@ -28,12 +28,13 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   public options: SelectOption[];
 
   @Input()
-  public facets: SelectOption[];
+  public aspects: SelectOption[];
 
-  @Input()
   public selection: string[] = [];
 
-  public default: string = "*";
+  private default: string = "*";
+
+  private none: string = "none";
 
   constructor(private relay: RelayService, private route: ActivatedRoute) {
   }
@@ -46,23 +47,21 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
       : [];
 
     // Options
-    let optionsChanges = changes["options"];
-    if (optionsChanges && this.options) {
-      this.selection = values;
-      if (values.length == 0)
-        this.selection.push(this.default);
+    if (changes["options"] && this.options) {
+      this.selection = values.length == 0
+        ? [this.default]
+        : values;
     }
 
-    // Facets
-    let facetsChanges = changes["facets"];
-    if (facetsChanges && this.options) {
-      let facets = facetsChanges.currentValue;
+    // Aspects
+    if (changes["aspects"] && this.options && this.aspects) {
       this.options.forEach(option => {
-        option.disabled = !facets.find(facet => facet.value == option.value);
+        option.disabled = !this.aspects.find(aspect => aspect.value == option.value);
       });
-      this.selection = values;
-      if (values.length == 0)
-        this.selection.push(this.default);
+
+      this.selection = values.length == 0
+        ? [this.default]
+        : values;
     }
   }
 
@@ -77,24 +76,22 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
       let index = this.selection.indexOf(this.default);
       if (index >= 0) {
         this.selection = [this.default];
-        this.relay.navigate({ [this.key]: this.selection });
       }
       else {
-        this.selection = [];
-        this.relay.navigate({ [this.key]: 0 });
+        this.selection = [this.none];
       }
     } else {
       if (event.value.length == 0) {
         this.selection = [this.default];
-        this.relay.navigate({ [this.key]: this.selection });
       }
       else {
         let index = this.selection.indexOf(this.default);
         if (index >= 0) {
           this.selection.splice(index, 1);
         }
-        this.relay.navigate({ [this.key]: this.selection });
       }
     }
+
+    this.relay.navigate({ [this.key]: this.selection });
   }
 }
