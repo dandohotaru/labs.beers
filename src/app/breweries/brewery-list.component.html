@@ -8,14 +8,56 @@
       <button class="btn btn-default" routerLink="/breweries">Reset</button>
       <button class="btn btn-default" (click)="foobar()">Test</button>
 
-      <single-select key="organic" label="Organic" [options]="store.cached | organic" [facets]="store.refined | organic"></single-select>
-      <single-select key="year" label="Years" [options]="store.cached | year" [facets]="store.refined | year"></single-select>
-      <single-select key="after" label="After" [options]="store.cached | after" [facets]="store.refined | after"></single-select>
-      <single-select key="before" label="Before" [options]="store.cached | before" [facets]="store.refined | before"></single-select>
-      <multi-select key="creation" label="Creation" [options]="store.cached | creation" [aspects]="store.refined | creation" max="1"></multi-select>
-      <single-select key="letter" label="Letters" [options]="store.cached | letter" [facets]="store.refined | letter"></single-select>
-      <multi-select key="length" label="Lengths" [options]="store.cached | length" [aspects]="store.refined | length"></multi-select>
-      <range-select label="Range" [after]="{key:'start'}" [before]="{key:'end'}" [params]="store.params"></range-select>
+      <single-select 
+        key="organic" 
+        label="Organic" 
+        [options]="store.cached | organic" 
+        [facets]="store.refined | organic">
+      </single-select>
+      <single-select 
+        key="year" 
+        label="Years" 
+        [options]="store.cached | year" 
+        [facets]="store.refined | year">
+      </single-select>
+      <single-select 
+        key="after" 
+        label="After" 
+        [options]="store.cached | after" 
+        [facets]="store.refined | after">
+      </single-select>
+      <single-select 
+        key="before" 
+        label="Before" 
+        [options]="store.cached | before" 
+        [facets]="store.refined | before">
+      </single-select>
+      <multi-select 
+        key="creation" 
+        label="Creation" 
+        [options]="store.cached | creation" 
+        [aspects]="store.refined | creation" 
+        [selection]="store.params | selection:'creation':'multiple'">
+      </multi-select>
+      <single-select 
+        key="letter" 
+        label="Letters" 
+        [options]="store.cached | letter" 
+        [facets]="store.refined | letter">
+      </single-select>
+      <multi-select 
+        key="length" 
+        label="Lengths" 
+        [options]="store.cached | length" 
+        [aspects]="store.refined | length" 
+        [selection]="store.params | selection:'length':'multiple'">
+      </multi-select>
+      <range-select 
+        label="Range" 
+        [after]="{key:'start'}" 
+        [before]="{key:'end'}" 
+        [params]="store.params">
+      </range-select>
 
       <reactive-select
         key="organic" label="Reactive" 

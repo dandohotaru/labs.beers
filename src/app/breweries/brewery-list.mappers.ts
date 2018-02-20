@@ -186,7 +186,7 @@ export class BreweriesMapper {
 export class OrganicFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.organics(data);
+    return timed("organics", () => this.mapper.organics(data));
   }
 }
 
@@ -194,7 +194,7 @@ export class OrganicFilterPipe implements PipeTransform {
 export class YearFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.years(data);
+    return timed("years", () => this.mapper.years(data));
   }
 }
 
@@ -202,7 +202,7 @@ export class YearFilterPipe implements PipeTransform {
 export class AfterFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.after(data);
+    return timed("after", () => this.mapper.after(data));
   }
 }
 
@@ -210,7 +210,7 @@ export class AfterFilterPipe implements PipeTransform {
 export class BeforeFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.before(data);
+    return timed("before", () => this.mapper.before(data));
   }
 }
 
@@ -218,7 +218,7 @@ export class BeforeFilterPipe implements PipeTransform {
 export class LetterFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.letters(data);
+    return timed("letters", () => this.mapper.letters(data));
   }
 }
 
@@ -226,7 +226,7 @@ export class LetterFilterPipe implements PipeTransform {
 export class LengthFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.lengths(data);
+    return timed("lengths", () => this.mapper.lengths(data));
   }
 }
 
@@ -234,6 +234,31 @@ export class LengthFilterPipe implements PipeTransform {
 export class CreationFilterPipe implements PipeTransform {
   constructor(private mapper: BreweriesMapper) { }
   public transform(data: BreweryData[]) {
-    return this.mapper.creations(data);
+    return timed("creation", () => this.mapper.creations(data));
   }
+}
+
+@Pipe({ name: 'selection' })
+export class SelectionFilterPipe implements PipeTransform {
+  public transform(data: { [key: string]: any }, key: string, type: "single"|"multiple") {
+    if (!data)
+      return null;
+    let value: string = data[key];
+    if (!data[key])
+      return null;
+
+    switch (type) {
+      case "single":
+        return value;
+      case "multiple":
+        return value.split("|");
+    }
+  }
+}
+
+function timed(context: string, process: () => any) {
+  //console.time(context);
+  var results = process();
+  //console.timeEnd(context);
+  return results;
 }

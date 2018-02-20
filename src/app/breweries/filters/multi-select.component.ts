@@ -22,7 +22,7 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   public label: string;
 
   @Input()
-  public max: number = 5;
+  public max: number = 1;
 
   @Input()
   public options: SelectOption[];
@@ -30,7 +30,8 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public aspects: SelectOption[];
 
-  public selection: string[] = [];
+  @Input()
+  public selection: string[];
 
   private default: string = "*";
 
@@ -45,6 +46,10 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
     var values = params[this.key]
       ? String(params[this.key]).split("|")
       : [];
+
+    if (changes["selection"]) {
+      console.log(this.selection);
+    }
 
     // Options
     if (changes["options"] && this.options) {
