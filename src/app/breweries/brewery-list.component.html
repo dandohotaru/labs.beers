@@ -11,22 +11,26 @@
       <single-select 
         label="Organic" key="organic" 
         [options]="store.cached | organic" 
-        [facets]="store.refined | organic">
+        [aspects]="store.refined | organic"
+        [selection]="store.params | single:'organic'">
       </single-select>
       <single-select 
         label="Years" key="year" 
         [options]="store.cached | year" 
-        [facets]="store.refined | year">
+        [aspects]="store.refined | year"
+        [selection]="store.params | single:'year'">
       </single-select>
       <single-select 
         label="After" key="after" 
         [options]="store.cached | after" 
-        [facets]="store.refined | after">
+        [aspects]="store.refined | after"
+        [selection]="store.params | single:'after'">
       </single-select>
       <single-select 
         label="Before" key="before" 
         [options]="store.cached | before" 
-        [facets]="store.refined | before">
+        [aspects]="store.refined | before"
+        [selection]="store.params | single:'before'">
       </single-select>
       <multi-select 
         label="Creation" key="creation" 
@@ -37,7 +41,8 @@
       <single-select 
         label="Letters" key="letter" 
         [options]="store.cached | letter" 
-        [facets]="store.refined | letter">
+        [aspects]="store.refined | letter"
+        [selection]="store.params | single:'letter'">
       </single-select>
       <multi-select 
         label="Lengths" key="length"

@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { RelayService } from 'app/shared/filters/relay.service';
 
 interface FilterOption {
@@ -25,27 +24,28 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   public options: FilterOption[];
 
   @Input()
-  public facets: FilterOption[];
+  public aspects: FilterOption[];
 
-  constructor(private relay: RelayService, private route: ActivatedRoute) {
+  @Input()
+  public selection: string;
+
+  constructor(private relay: RelayService) {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    var params = this.route.snapshot.queryParams;
 
-    let optionsChanges = changes["options"];
-    if (optionsChanges && this.options){
-      this.options.forEach(p => {
-        p.selected = p.value == params[this.key];
+    // Options
+    if (changes["options"] && this.options){
+      this.options.forEach(option => {
+        option.selected = option.value == this.selection;
       });
     }
 
-    let facetsChanges = changes["facets"];
-    if (facetsChanges && this.options) {
-      let facets = facetsChanges.currentValue;
-      this.options.forEach(p => {
-        p.disabled = !facets.find(o => o.value == p.value);
-        p.selected = p.value == params[this.key];
+    // Aspects
+    if (changes["aspects"] && this.options && this.aspects) {
+      this.options.forEach(option => {
+        option.disabled = !this.aspects.find(aspect => aspect.value == option.value);
+        option.selected = option.value == this.selection;
       });
     }
   }

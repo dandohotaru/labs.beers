@@ -33,29 +33,15 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public selection: string[];
 
-  private default: string = "*";
+  private defaults: { all, none } = { all: "*", none: "none" };
 
-  private none: string = "none";
-
-  constructor(private relay: RelayService, private route: ActivatedRoute) {
+  constructor(private relay: RelayService) {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    // Params
-    var params = this.route.snapshot.queryParams;
-    var values = params[this.key]
-      ? String(params[this.key]).split("|")
-      : [];
-
-    if (changes["selection"]) {
-      console.log(this.selection);
-    }
-
+    
     // Options
     if (changes["options"] && this.options) {
-      this.selection = values.length == 0
-        ? [this.default]
-        : values;
     }
 
     // Aspects
@@ -63,10 +49,12 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
       this.options.forEach(option => {
         option.disabled = !this.aspects.find(aspect => aspect.value == option.value);
       });
+    }
 
-      this.selection = values.length == 0
-        ? [this.default]
-        : values;
+    // Selection
+    if (changes["selection"]) {
+      if (!this.selection)
+        this.selection = [this.defaults.all]
     }
   }
 
@@ -77,20 +65,20 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public changed(event: { value: { value: string | number }[], itemValue: string | number }) {
-    if (event.itemValue == this.default) {
-      let index = this.selection.indexOf(this.default);
+    if (event.itemValue == this.defaults.all) {
+      let index = this.selection.indexOf(this.defaults.all);
       if (index >= 0) {
-        this.selection = [this.default];
+        this.selection = [this.defaults.all];
       }
       else {
-        this.selection = [this.none];
+        this.selection = [this.defaults.none];
       }
     } else {
       if (event.value.length == 0) {
-        this.selection = [this.default];
+        this.selection = [this.defaults.all];
       }
       else {
-        let index = this.selection.indexOf(this.default);
+        let index = this.selection.indexOf(this.defaults.all);
         if (index >= 0) {
           this.selection.splice(index, 1);
         }
