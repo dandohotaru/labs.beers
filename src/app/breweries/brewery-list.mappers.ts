@@ -238,24 +238,6 @@ export class CreationFilterPipe implements PipeTransform {
   }
 }
 
-@Pipe({ name: 'selection' })
-export class SelectionFilterPipe implements PipeTransform {
-  public transform(data: { [key: string]: any }, key: string, type: "single"|"multiple") {
-    if (!data)
-      return null;
-    let value: string = data[key];
-    if (!data[key])
-      return null;
-
-    switch (type) {
-      case "single":
-        return value;
-      case "multiple":
-        return value.split("|");
-    }
-  }
-}
-
 function timed(context: string, process: () => any) {
   //console.time(context);
   var results = process();

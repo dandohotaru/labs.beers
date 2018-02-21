@@ -9,56 +9,47 @@
       <button class="btn btn-default" (click)="foobar()">Test</button>
 
       <single-select 
-        key="organic" 
-        label="Organic" 
+        label="Organic" key="organic" 
         [options]="store.cached | organic" 
         [facets]="store.refined | organic">
       </single-select>
       <single-select 
-        key="year" 
-        label="Years" 
+        label="Years" key="year" 
         [options]="store.cached | year" 
         [facets]="store.refined | year">
       </single-select>
       <single-select 
-        key="after" 
-        label="After" 
+        label="After" key="after" 
         [options]="store.cached | after" 
         [facets]="store.refined | after">
       </single-select>
       <single-select 
-        key="before" 
-        label="Before" 
+        label="Before" key="before" 
         [options]="store.cached | before" 
         [facets]="store.refined | before">
       </single-select>
       <multi-select 
-        key="creation" 
-        label="Creation" 
+        label="Creation" key="creation" 
         [options]="store.cached | creation" 
         [aspects]="store.refined | creation" 
-        [selection]="store.params | selection:'creation':'multiple'">
+        [selection]="store.params | multiple:'creation'">
       </multi-select>
       <single-select 
-        key="letter" 
-        label="Letters" 
+        label="Letters" key="letter" 
         [options]="store.cached | letter" 
         [facets]="store.refined | letter">
       </single-select>
       <multi-select 
-        key="length" 
-        label="Lengths" 
+        label="Lengths" key="length"
         [options]="store.cached | length" 
         [aspects]="store.refined | length" 
-        [selection]="store.params | selection:'length':'multiple'">
+        [selection]="store.params | multiple:'length'">
       </multi-select>
       <range-select 
         label="Range" 
-        [after]="{key:'start'}" 
-        [before]="{key:'end'}" 
-        [params]="store.params">
+        [after]="store.params | start:'start'" 
+        [before]="store.params | end:'end'">
       </range-select>
-
       <reactive-select
         key="organic" label="Reactive" 
         [mapper]="mapper.organics" 

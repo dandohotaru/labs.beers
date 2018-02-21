@@ -22,9 +22,6 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public before: { key: string, value?: Date };
 
-  @Input()
-  public params: { [key: string]: string };
-
   @ViewChild('instance')
   public calendar;
 
@@ -34,36 +31,11 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-
-    // Params
-    let paramsChanges = changes["params"];
-    if (paramsChanges && this.params) {
-      var after = this.params[this.after.key]
-        ? moment(this.params[this.after.key]).toDate()
-        : moment().startOf('day').toDate();
-      var before = this.params[this.before.key]
-        ? moment(this.params[this.before.key]).toDate()
-        : null;
-      this.options = [after, before];
+    if (changes["after"] || changes["before"]) {
+      if (this.after && this.before) {
+        this.options = [this.after.value, this.before.value]
+      }
     }
-
-    // Options
-    // let afterChanges = changes["after"];
-    // if (afterChanges && this.after) {
-    //   var param = params[this.after.key];
-    //   this.options[0] = param
-    //     ? moment(param).toDate()
-    //     : this.after.value || this.default;
-    // }
-
-    // // Facets
-    // let beforeChanges = changes["before"];
-    // if (beforeChanges && this.before) {
-    //   var param = params[this.before.key];
-    //   this.options[1] = param
-    //     ? moment(param).toDate()
-    //     : this.before.value || null;
-    // }
   }
 
   public ngOnInit(): void {
