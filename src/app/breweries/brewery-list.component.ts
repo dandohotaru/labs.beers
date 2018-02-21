@@ -105,6 +105,32 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     console.log(item);
   }
 
+  public navigate(key: string, event: any) {
+    type Single = { value: string };
+    type Multiple = { values: string[] };
+    type Range = { after: string, before: string };
+
+    let single = (p => !!p.value) as (p) => p is Single;
+    let multiple = (p => !!p.values) as (p) => p is Multiple;
+    let range = (p => !!p.after && !!p.before) as (p) => p is Range;
+
+    let path = {};
+    if (single(event)) {
+      path[key] = event.value;
+    } else if (multiple(event)) {
+      path[key] = event.values;
+    } else if (range(event)) {
+      let left = key.split(",")[0];
+      if (left)
+        path[left] = event.after;
+      let right = key.split(",")[1];
+      if (right)
+        path[right] = event.before;
+
+    }
+    this.relay.navigate(path);
+  }
+
   public foobar() {
     this.relay.navigate({ ["foo"]: [42, 41, true] });
     console.log(this.route.snapshot);

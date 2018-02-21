@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { RelayService } from 'app/shared/filters/relay.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
 interface FilterOption {
   value: string | number | boolean,
@@ -8,16 +8,17 @@ interface FilterOption {
   selected?: boolean,
 }
 
+interface FilterOutput {
+  value: string
+}
+
 @Component({
   selector: 'single-select',
   templateUrl: 'single-select.component.html'
 })
 export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
 
-  @Input()
-  public key: string;
-
-  @Input()
+   @Input()
   public label: string;
 
   @Input()
@@ -29,7 +30,10 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public selection: string;
 
-  constructor(private relay: RelayService) {
+  @Output()
+  public changed: EventEmitter<FilterOutput> = new EventEmitter<FilterOutput>();
+
+  constructor() {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -56,7 +60,9 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   public ngOnDestroy(): void {
   }
 
-  public changed(event: { value: string, text: string }) {
-    this.relay.navigate({ [this.key]: event.value });
+  public handle(event: { value: string, text: string }) {
+    this.changed.emit({
+      value: event.value,
+    });
   }
 }

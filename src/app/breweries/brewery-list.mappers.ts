@@ -239,8 +239,9 @@ export class CreationFilterPipe implements PipeTransform {
 }
 
 function timed(context: string, process: () => any) {
-  //console.time(context);
+  let stamp = moment();
   var results = process();
-  //console.timeEnd(context);
+  let elapsed = moment().diff(stamp, "ms");
+  //console.log(`${context}: ${elapsed} ms`);
   return results;
 }

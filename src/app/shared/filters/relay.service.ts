@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-
-export type ValueOption = string | number | boolean | Date;
-export type ParamsOption = { [key: string]: ValueOption | ValueOption[]};
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class RelayService {
@@ -10,7 +7,7 @@ export class RelayService {
 	constructor(private router: Router, private route: ActivatedRoute) {
 	}
 
-	public navigate(options: ParamsOption){
+	public navigate(options: { [key: string]: any }) {
 
 		Object.keys(options).forEach(key => {
 			let option = options[key];

@@ -9,28 +9,32 @@
       <button class="btn btn-default" (click)="foobar()">Test</button>
 
       <single-select 
-        label="Organic" key="organic" 
+        label="Organic"
         [options]="store.cached | organic" 
         [aspects]="store.refined | organic"
-        [selection]="store.params | single:'organic'">
+        [selection]="store.params | single:'organic'"
+        (changed)="navigate('organic', $event)">
       </single-select>
       <single-select 
-        label="Years" key="year" 
+        label="Years"
         [options]="store.cached | year" 
         [aspects]="store.refined | year"
-        [selection]="store.params | single:'year'">
+        [selection]="store.params | single:'year'"
+        (changed)="navigate('year', $event)">
       </single-select>
       <single-select 
-        label="After" key="after" 
+        label="After"
         [options]="store.cached | after" 
         [aspects]="store.refined | after"
-        [selection]="store.params | single:'after'">
+        [selection]="store.params | single:'after'"
+        (changed)="navigate('after', $event)">
       </single-select>
       <single-select 
-        label="Before" key="before" 
+        label="Before"
         [options]="store.cached | before" 
         [aspects]="store.refined | before"
-        [selection]="store.params | single:'before'">
+        [selection]="store.params | single:'before'"
+        (changed)="navigate('before', $event)">
       </single-select>
       <multi-select 
         label="Creation" key="creation" 
@@ -39,10 +43,11 @@
         [selection]="store.params | multiple:'creation'">
       </multi-select>
       <single-select 
-        label="Letters" key="letter" 
+        label="Letters"
         [options]="store.cached | letter" 
         [aspects]="store.refined | letter"
-        [selection]="store.params | single:'letter'">
+        [selection]="store.params | single:'letter'"
+        (changed)="navigate('letter', $event)">
       </single-select>
       <multi-select 
         label="Lengths" key="length"
