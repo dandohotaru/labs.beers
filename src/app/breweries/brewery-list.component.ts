@@ -10,11 +10,11 @@ import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
 import { EventAggregator } from "app/shared/messages/event.aggregator.rx";
 import { QueryService } from 'app/shared/filters/query.service';
-import { RelayService } from 'app/shared/filters/relay.service';
+import { RelayService, build } from 'app/shared/filters/relay.service';
 
 import { BreweriesMapper } from './brewery-list.mappers';
 
-export interface BreweryStore {
+interface BreweryStore {
   cached?: BreweryData[],
   refined?: BreweryData[],
   rendered?: BreweryData[],
@@ -106,35 +106,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   public navigate(key: string, event: any) {
-    type Single = { value: string };
-    type Multiple = { values: string[] };
-    type Range = { after: string, before: string };
-
-    const single = (p: any): p is Single => !!p.value;
-    let multiple = (p: any): p is Multiple => !!p.values;
-    let range = (p: any): p is Range => !!p.after;
-
-    let options = {};
-    if (single(event)) {
-      options[key] = event.value;
-    } else if (multiple(event)) {
-      options[key] = event.values;
-    } else if (range(event)) {
-      let after = key.split(",")[0];
-      if (after)
-        options[after] = event.after;
-      let before = key.split(",")[1];
-      if (before)
-        options[before] = event.before;
-    }
-    this.relay.navigate(options);
-  }
-
-  public foobar() {
-    this.relay.navigate({ ["foo"]: [42, 41, true] });
-    console.log(this.route.snapshot);
-    console.log(this.router.url);
-    console.log(this.route.snapshot.url);
+    this.relay.navigate(build(key, event));
   }
 }
 
