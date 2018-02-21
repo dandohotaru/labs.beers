@@ -1,11 +1,11 @@
 import * as moment from 'moment';
-import { Component, OnInit, OnDestroy, OnChanges, Input, ViewChild, SimpleChanges } from '@angular/core';
-import { RelayService } from 'app/shared/filters/relay.service';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
-export interface Keys {
+interface FilterOutput {
   after: string,
   before: string,
-};
+}
 
 @Component({
   selector: 'range-select',
@@ -22,12 +22,15 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public before: { key: string, value?: Date };
 
+  @Output()
+  public changed: EventEmitter<FilterOutput> = new EventEmitter<FilterOutput>();
+
   @ViewChild('instance')
   public calendar;
 
   public options: Date[];
 
-  constructor(private relay: RelayService) {
+  constructor() {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -58,9 +61,9 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
         : null;
     };
 
-    this.relay.navigate({
-      [this.after.key]: map(this.options[0]),
-      [this.before.key]: map(this.options[1]),
+    this.changed.emit({
+      after: map(this.options[0]),
+      before: map(this.options[1]),
     });
   }
 }

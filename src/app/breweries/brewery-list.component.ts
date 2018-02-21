@@ -112,23 +112,22 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
     let single = (p => !!p.value) as (p) => p is Single;
     let multiple = (p => !!p.values) as (p) => p is Multiple;
-    let range = (p => !!p.after && !!p.before) as (p) => p is Range;
+    let range = (p => !!p.after) as (p) => p is Range;
 
-    let path = {};
+    let options = {};
     if (single(event)) {
-      path[key] = event.value;
+      options[key] = event.value;
     } else if (multiple(event)) {
-      path[key] = event.values;
+      options[key] = event.values;
     } else if (range(event)) {
-      let left = key.split(",")[0];
-      if (left)
-        path[left] = event.after;
-      let right = key.split(",")[1];
-      if (right)
-        path[right] = event.before;
-
+      let after = key.split(",")[0];
+      if (after)
+        options[after] = event.after;
+      let before = key.split(",")[1];
+      if (before)
+        options[before] = event.before;
     }
-    this.relay.navigate(path);
+    this.relay.navigate(options);
   }
 
   public foobar() {

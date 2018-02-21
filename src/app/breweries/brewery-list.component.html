@@ -58,7 +58,8 @@
       <range-select 
         label="Range" 
         [after]="store.params | start:'start'" 
-        [before]="store.params | end:'end'">
+        [before]="store.params | end:'end'"
+        (changed)="navigate('start,end', $event)">
       </range-select>
       <reactive-select
         key="organic" label="Reactive" 
