@@ -13,7 +13,8 @@ interface FilterOption {
 
 @Component({
   selector: 'reactive-select',
-  templateUrl: 'reactive-select.component.html'
+  templateUrl: 'reactive-select.component.html',
+  styleUrls: ['various.styles.css']
 })
 export class ReactiveSelectComponent implements OnInit, OnDestroy {
 
@@ -65,7 +66,10 @@ export class ReactiveSelectComponent implements OnInit, OnDestroy {
     this.mediator.unsubscribe([this.loadedEvent, this.refinedEvent]);
   }
 
-  public changed(event: { value: string, text: string }) {
-    this.relay.navigate({ [this.key]: event.value });
+  public handle(event: { value: string, text: string }) {
+    var option = this.options.find(p => p.value == event.value);
+    if (option) {
+      this.relay.navigate({ [this.key]: event.value });
+    }
   }
 }

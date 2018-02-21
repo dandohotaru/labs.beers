@@ -27,14 +27,16 @@ export class RelayService {
 	}
 }
 
-export function build(key: string, payload: any): { [key: string]: any } {
-	type Single = { value: string };
+
+type Single = { value: string };
+type Multiple = { values: string[] };
+type Range = { after: string, before: string };
+type Options = { [key: string]: any };
+
+export function build(key: string, payload: Single | Multiple | Range): Options {
+	
 	let single = (input: any): input is Single => !!input.value;
-
-	type Multiple = { values: string[] };
 	let multiple = (input: any): input is Multiple => !!input.values;
-
-	type Range = { after: string, before: string };
 	let range = (input: any): input is Range => !!input.after;
 
 	let options = {};

@@ -9,12 +9,13 @@ interface SelectInput {
 }
 
 interface SelectOutput {
-  value: string
+  value: string | number | boolean
 }
 
 @Component({
   selector: 'single-select',
-  templateUrl: 'single-select.component.html'
+  templateUrl: 'single-select.component.html',
+  styleUrls: ['various.styles.css']
 })
 export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
 
@@ -60,9 +61,12 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   public ngOnDestroy(): void {
   }
 
-  public handle(event: { value: string, text: string }) {
-    this.changed.emit({
-      value: event.value,
-    });
+  public handle(target: { value: string, text: string }) {
+    var option = this.options.find(p => p.value == target.value);
+    if (option) {
+      this.changed.emit({
+        value: option.value,
+      });
+    }
   }
 }

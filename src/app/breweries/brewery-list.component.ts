@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { BreweriesService } from 'app/shared/services/breweries.service';
 import { BreweryData } from 'app/shared/services/breweries.models';
@@ -35,12 +35,11 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public loaded: EventEmitter<{ found: number }> = new EventEmitter();
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private service: BreweriesService,
-    private mediator: EventAggregator,
     private querier: QueryService,
     private relay: RelayService,
+    private mediator: EventAggregator,
     public mapper: BreweriesMapper) {
   }
 
@@ -109,6 +108,3 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     this.relay.navigate(build(key, event));
   }
 }
-
-
-

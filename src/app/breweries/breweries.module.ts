@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { CalendarModule } from 'primeng/calendar';
 
 import { ModalModule } from "app/shared/components/modal/modal.module";
 import { Colcade3Module } from 'app/shared/components/cards/colcade3/mason.module';
@@ -13,19 +11,8 @@ import { CardsModule } from 'app/shared/components/cards/colcade1/cards.module';
 import { SelectModule } from "app/shared/components/select/select.module";
 import { FiltersModule } from 'app/shared/filters/filters.module';
 
-// Filters
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
-import { ReactiveSelectComponent } from './filters/reactive-select.component';
-import { SingleSelectComponent } from './filters/single-select.component';
-import { MultiSelectComponent } from './filters/multi-select.component';
-import { RangeSelectComponent } from './filters/range-select.component';
-import { SingleSelectPipe } from './filters/various.pipes';
-import { MultipleSelectPipe } from './filters/various.pipes';
-import { StartRangePipe } from './filters/various.pipes';
-import { EndRangePipe } from './filters/various.pipes';
-
-// Aspects
 import { BreweriesMapper } from './brewery-list.mappers';
 import { OrganicFilterPipe } from './brewery-list.mappers';
 import { YearFilterPipe } from './brewery-list.mappers';
@@ -41,8 +28,6 @@ import { CreationFilterPipe } from './brewery-list.mappers';
     FormsModule,
     RouterModule,
     HttpModule,
-    MultiSelectModule,
-    CalendarModule,
     ModalModule,
     Colcade3Module,
     Masonry1Module,
@@ -53,12 +38,6 @@ import { CreationFilterPipe } from './brewery-list.mappers';
   declarations: [
     BreweryListComponent,
     BreweryCardComponent,
-    ReactiveSelectComponent,
-    SingleSelectComponent,
-    SingleSelectPipe,
-    MultiSelectComponent,
-    MultipleSelectPipe,
-    RangeSelectComponent,
     OrganicFilterPipe,
     YearFilterPipe,
     AfterFilterPipe,
@@ -66,8 +45,6 @@ import { CreationFilterPipe } from './brewery-list.mappers';
     LetterFilterPipe,
     LengthFilterPipe,
     CreationFilterPipe,
-    StartRangePipe,
-    EndRangePipe,
   ],
   exports: [
     BreweryListComponent
