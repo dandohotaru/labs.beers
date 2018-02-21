@@ -37,10 +37,11 @@
         (changed)="navigate('before', $event)">
       </single-select>
       <multi-select 
-        label="Creation" key="creation" 
+        label="Creation"
         [options]="store.cached | creation" 
         [aspects]="store.refined | creation" 
-        [selection]="store.params | multiple:'creation'">
+        [selection]="store.params | multiple:'creation'"
+        (changed)="navigate('creation', $event)">
       </multi-select>
       <single-select 
         label="Letters"
@@ -50,10 +51,11 @@
         (changed)="navigate('letter', $event)">
       </single-select>
       <multi-select 
-        label="Lengths" key="length"
+        label="Lengths"
         [options]="store.cached | length" 
         [aspects]="store.refined | length" 
-        [selection]="store.params | multiple:'length'">
+        [selection]="store.params | multiple:'length'"
+        (changed)="navigate('length', $event)">
       </multi-select>
       <range-select 
         label="Range" 

@@ -1,12 +1,15 @@
-import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RelayService } from 'app/shared/filters/relay.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { SelectItem } from 'primeng/primeng';
 
-export interface SelectOption extends SelectItem {
+interface SelectInput extends SelectItem {
   value: string | number | boolean,
   label: string,
   disabled?: boolean,
+}
+
+interface SelectOutput {
+  values: string[]
 }
 
 @Component({
@@ -16,30 +19,30 @@ export interface SelectOption extends SelectItem {
 export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input()
-  public key: string;
+  public max: number = 1;
 
   @Input()
   public label: string;
 
   @Input()
-  public max: number = 1;
+  public options: SelectInput[];
 
   @Input()
-  public options: SelectOption[];
-
-  @Input()
-  public aspects: SelectOption[];
+  public aspects: SelectInput[];
 
   @Input()
   public selection: string[];
 
+  @Output()
+  public changed: EventEmitter<SelectOutput> = new EventEmitter<SelectOutput>();
+
   private defaults: { all, none } = { all: "*", none: "none" };
 
-  constructor(private relay: RelayService) {
+  constructor() {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    
+
     // Options
     if (changes["options"] && this.options) {
     }
@@ -64,7 +67,7 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
   public ngOnDestroy(): void {
   }
 
-  public changed(event: { value: { value: string | number }[], itemValue: string | number }) {
+  public handle(event: { value: { value: string | number }[], itemValue: string | number }) {
     if (event.itemValue == this.defaults.all) {
       let index = this.selection.indexOf(this.defaults.all);
       if (index >= 0) {
@@ -85,6 +88,8 @@ export class MultiSelectComponent implements OnInit, OnDestroy, OnChanges {
       }
     }
 
-    this.relay.navigate({ [this.key]: this.selection });
+    this.changed.emit({
+      values: this.selection,
+    });
   }
 }

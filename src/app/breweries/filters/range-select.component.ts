@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
-interface FilterOutput {
+interface SelectOutput {
   after: string,
   before: string,
 }
@@ -23,7 +23,7 @@ export class RangeSelectComponent implements OnInit, OnDestroy, OnChanges {
   public before: { key: string, value?: Date };
 
   @Output()
-  public changed: EventEmitter<FilterOutput> = new EventEmitter<FilterOutput>();
+  public changed: EventEmitter<SelectOutput> = new EventEmitter<SelectOutput>();
 
   @ViewChild('instance')
   public calendar;

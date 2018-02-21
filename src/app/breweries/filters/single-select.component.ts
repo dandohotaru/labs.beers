@@ -1,14 +1,14 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
-interface FilterOption {
+interface SelectInput {
   value: string | number | boolean,
   label: string,
   disabled?: boolean,
   selected?: boolean,
 }
 
-interface FilterOutput {
+interface SelectOutput {
   value: string
 }
 
@@ -22,16 +22,16 @@ export class SingleSelectComponent implements OnInit, OnDestroy, OnChanges {
   public label: string;
 
   @Input()
-  public options: FilterOption[];
+  public options: SelectInput[];
 
   @Input()
-  public aspects: FilterOption[];
+  public aspects: SelectInput[];
 
   @Input()
   public selection: string;
 
   @Output()
-  public changed: EventEmitter<FilterOutput> = new EventEmitter<FilterOutput>();
+  public changed: EventEmitter<SelectOutput> = new EventEmitter<SelectOutput>();
 
   constructor() {
   }
