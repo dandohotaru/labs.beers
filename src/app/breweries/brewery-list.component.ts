@@ -110,9 +110,9 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     type Multiple = { values: string[] };
     type Range = { after: string, before: string };
 
-    let single = (p => !!p.value) as (p) => p is Single;
-    let multiple = (p => !!p.values) as (p) => p is Multiple;
-    let range = (p => !!p.after) as (p) => p is Range;
+    const single = (p: any): p is Single => !!p.value;
+    let multiple = (p: any): p is Multiple => !!p.values;
+    let range = (p: any): p is Range => !!p.after;
 
     let options = {};
     if (single(event)) {
