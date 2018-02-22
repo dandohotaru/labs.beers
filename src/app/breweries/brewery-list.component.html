@@ -5,6 +5,11 @@
     
     <!-- Filters -->
     <div class="col-xs-12 col-sm-3">
+      <div>
+        <label for="searchId">Search</label>
+        <input type="text" class="form-control" id="searchId"
+          (keyup)="terms.next($event.target.value)">
+      </div>
       <single-select 
         label="Organic"
         [options]="store.cached | organic" 

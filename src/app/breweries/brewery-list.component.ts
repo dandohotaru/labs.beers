@@ -2,6 +2,7 @@ import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -13,6 +14,7 @@ import { QueryService } from 'app/shared/filters/query.service';
 import { RelayService, build } from 'app/shared/filters/relay.service';
 
 import { BreweriesMapper } from './brewery-list.mappers';
+import { BreweriesSearcher } from './brewery-list.search';
 
 interface BreweryStore {
   cached?: BreweryData[],
@@ -30,13 +32,15 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public term: string;
   public store: BreweryStore = {};
   public selection: BreweryData;
+  public terms = new Subject<string>();
 
   @Output()
   public loaded: EventEmitter<{ found: number }> = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
-    private service: BreweriesService,
+    private provider: BreweriesService, 
+    private searcher: BreweriesSearcher,
     private querier: QueryService,
     private relay: RelayService,
     private mediator: EventAggregator,
@@ -45,7 +49,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    this.service.load()
+    this.searcher
+      .search(this.terms)
+      .subscribe(results => {
+        console.log(results.length)
+      });
+
+    this.provider.load()
       .switchMap(results => {
         this.store.cached = results;
         this.mediator.publish("breweriesLoaded", results);

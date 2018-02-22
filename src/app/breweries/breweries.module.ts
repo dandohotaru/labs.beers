@@ -14,6 +14,7 @@ import { FiltersModule } from 'app/shared/filters/filters.module';
 import { BreweryListComponent } from './brewery-list.component';
 import { BreweryCardComponent } from './brewery-card.component';
 import { BreweriesMapper } from './brewery-list.mappers';
+import { BreweriesSearcher } from './brewery-list.search';
 import { OrganicFilterPipe } from './brewery-list.mappers';
 import { YearFilterPipe } from './brewery-list.mappers';
 import { AfterFilterPipe } from './brewery-list.mappers';
@@ -50,7 +51,8 @@ import { CreationFilterPipe } from './brewery-list.mappers';
     BreweryListComponent
   ],
   providers:[
-    BreweriesMapper
+    BreweriesMapper,
+    BreweriesSearcher,
   ]
 })
 export class BreweriesModule { }
