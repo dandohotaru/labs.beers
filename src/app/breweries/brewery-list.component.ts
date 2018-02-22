@@ -36,7 +36,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public term: string;
   public store: BreweryStore = {};
   public selection: BreweryData;
-  public terms = new BehaviorSubject<string>("");
+  public terms = new Subject<string>();
 
   @Output()
   public loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -53,19 +53,15 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    // this.searcher
-    //   .search(this.terms)
-    //   .subscribe(results => {
-    //     console.log(results.length)
-    //   });
-
     this.terms
-      .debounceTime(400)
+      .debounceTime(200)
       .distinctUntilChanged()
-      .switchMap(term => {
-        console.log(term)
-        return this.provider.load();
-      })
+      .subscribe(term => {
+        let value = term && term.length > 0 ? term : null;
+        this.relay.navigate({ ["q"]: value });
+      });
+
+    this.provider.load()
       .switchMap(results => {
         this.store.cached = results;
         this.mediator.publish("breweriesLoaded", results);
@@ -76,7 +72,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
         // Analyse
         this.querier.register("by-search", (item: BreweryData, value: string) => {
           return item.name.toLowerCase().includes(value);
-        }, params["q"] ? params["q"][0] : "");
+        }, params["q"] ? params["q"] : "");
 
         this.querier.register("by-organic", (item: BreweryData, value: string) => {
           return item.isOrganic == value;
