@@ -1,8 +1,12 @@
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -32,7 +36,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   public term: string;
   public store: BreweryStore = {};
   public selection: BreweryData;
-  public terms = new Subject<string>();
+  public terms = new BehaviorSubject<string>("");
 
   @Output()
   public loaded: EventEmitter<{ found: number }> = new EventEmitter();
@@ -49,13 +53,19 @@ export class BreweryListComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
 
-    this.searcher
-      .search(this.terms)
-      .subscribe(results => {
-        console.log(results.length)
-      });
+    // this.searcher
+    //   .search(this.terms)
+    //   .subscribe(results => {
+    //     console.log(results.length)
+    //   });
 
-    this.provider.load()
+    this.terms
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .switchMap(term => {
+        console.log(term)
+        return this.provider.load();
+      })
       .switchMap(results => {
         this.store.cached = results;
         this.mediator.publish("breweriesLoaded", results);
